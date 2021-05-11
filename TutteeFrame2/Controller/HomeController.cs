@@ -6,29 +6,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.View;
+using MaterialSkin.Controls;
+using TutteeFrame2.Model;
 
 namespace TutteeFrame2.Controller
 {
     class HomeController
     {
         HomeView view;
-        public string teacherID;
-        public string sessionID;
         SessionStatus currentStatus;
+
+        public Teacher mainTeacher;
+        public string sessionID;
         public bool logined = false;
         public HomeController(HomeView view)
         {
             this.view = view;
         }
-
         public void Logout()
         {
-            SessionDA.Instance.DeleteSession(teacherID, sessionID);
+            SessionDA.Instance.DeleteSession(mainTeacher.ID, sessionID);
             logined = false;
             view.CreateLoginView();
         }
-        public void LoadTeacher()
+        public void LoadTeacher(string teacherID)
         {
+            mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
         }
         public async void StartCheckSession()
         {
@@ -37,10 +40,10 @@ namespace TutteeFrame2.Controller
             {
                 while (currentStatus == sessionStatus && logined)
                 {
-                    await Task.Delay(750);
+                    await Task.Delay(550);
                     if (!SessionDA.Instance.isChannelBusy)
                     {
-                        sessionStatus = SessionDA.Instance.CheckSession(teacherID, sessionID);
+                        sessionStatus = SessionDA.Instance.CheckSession(mainTeacher.ID, sessionID);
                     }
                 }
             });

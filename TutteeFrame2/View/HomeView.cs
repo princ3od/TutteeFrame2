@@ -1,4 +1,5 @@
-﻿using MaterialSurface;
+﻿using MaterialSkin.Controls;
+using MaterialSurface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,6 @@ namespace TutteeFrame2.View
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            //CreateLoginView();
         }
 
         public void CreateLoginView()
@@ -46,9 +46,9 @@ namespace TutteeFrame2.View
         public void LoadTeacher(string teacherID, string sessionID)
         {
             controller.sessionID = sessionID;
-            controller.teacherID = teacherID;
             controller.logined = true;
             controller.StartCheckSession();
+            controller.LoadTeacher(teacherID);
         }
         public void OnCorrupt(TutteeFrame2.DataAccess.SessionStatus sessionStatus)
         {
@@ -73,7 +73,14 @@ namespace TutteeFrame2.View
         {
             noConnectionView?.Close();
         }
-
+        public void Decentralize(string[] accessPart)
+        {
+        }
+        public void SetLoad(bool isLoading, string loadInformation)
+        {
+            lbInformation.Text = loadInformation;
+            mainProgressbar.Visible = isLoading;
+        }
         private void OnLogout(object sender, EventArgs e)
         {
             controller.Logout();
