@@ -6,29 +6,46 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.View;
+using MaterialSkin.Controls;
+using TutteeFrame2.Model;
 
 namespace TutteeFrame2.Controller
 {
     class HomeController
     {
         HomeView view;
-        public string teacherID;
+        SessionStatus currentStatus = SessionStatus.Valid;
+
+        public Teacher mainTeacher;
         public string sessionID;
-        SessionStatus currentStatus;
         public bool logined = false;
         public HomeController(HomeView view)
         {
             this.view = view;
         }
-
         public void Logout()
         {
-            SessionDA.Instance.DeleteSession(teacherID, sessionID);
+            SessionDA.Instance.DeleteSession(mainTeacher.ID, sessionID);
             logined = false;
             view.CreateLoginView();
         }
-        public void LoadTeacher()
+        public async void LoadTeacher(string teacherID)
         {
+            view.SetLoad(true, "Đang tải thông tin người dùng...");
+            await Task.Delay(600);
+            await Task.Run(() =>
+            {
+                mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
+                if (mainTeacher.ID.ToUpper() == "AD999999")
+                {
+                    mainTeacher.Type = Teacher.TeacherType.SuperUser;
+                    mainTeacher.Position = "Tài khoản admin";
+                }
+            });
+            view.ShowData();
+            view.SetLoad(false);
+            currentStatus = SessionStatus.Valid;
+            StartCheckSession();
         }
         public async void StartCheckSession()
         {
@@ -37,10 +54,10 @@ namespace TutteeFrame2.Controller
             {
                 while (currentStatus == sessionStatus && logined)
                 {
-                    await Task.Delay(750);
-                    if (!SessionDA.Instance.isChannelBusy)
+                    await Task.Delay(550);
+                    if (!SessionDA.Instance.isChannelBusy && mainTeacher != null)
                     {
-                        sessionStatus = SessionDA.Instance.CheckSession(teacherID, sessionID);
+                        sessionStatus = SessionDA.Instance.CheckSession(mainTeacher.ID, sessionID);
                     }
                 }
             });
