@@ -144,5 +144,8 @@
     <None Include="Resources\default_avatar.png" />
     <None Include="Resources\WaitCurser.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\TutteeFrame02.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
