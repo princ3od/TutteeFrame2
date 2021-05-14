@@ -14,7 +14,7 @@ namespace TutteeFrame2.Controller
     class HomeController
     {
         HomeView view;
-        SessionStatus currentStatus;
+        SessionStatus currentStatus = SessionStatus.Valid;
 
         public Teacher mainTeacher;
         public string sessionID;
@@ -29,9 +29,23 @@ namespace TutteeFrame2.Controller
             logined = false;
             view.CreateLoginView();
         }
-        public void LoadTeacher(string teacherID)
+        public async void LoadTeacher(string teacherID)
         {
-            mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
+            view.SetLoad(true, "Đang tải thông tin người dùng...");
+            await Task.Delay(600);
+            await Task.Run(() =>
+            {
+                mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
+                if (mainTeacher.ID.ToUpper() == "AD999999")
+                {
+                    mainTeacher.Type = Teacher.TeacherType.SuperUser;
+                    mainTeacher.Position = "Tài khoản admin";
+                }
+            });
+            view.ShowData();
+            view.SetLoad(false);
+            currentStatus = SessionStatus.Valid;
+            StartCheckSession();
         }
         public async void StartCheckSession()
         {
@@ -41,7 +55,7 @@ namespace TutteeFrame2.Controller
                 while (currentStatus == sessionStatus && logined)
                 {
                     await Task.Delay(550);
-                    if (!SessionDA.Instance.isChannelBusy)
+                    if (!SessionDA.Instance.isChannelBusy && mainTeacher != null)
                     {
                         sessionStatus = SessionDA.Instance.CheckSession(mainTeacher.ID, sessionID);
                     }

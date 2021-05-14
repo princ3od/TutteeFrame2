@@ -8,7 +8,7 @@ namespace TutteeFrame2.Model
 {
     class Teacher : Person
     {
-        public enum TeacherType { Teacher = 4, Adminstrator = 3, Ministry = 2, FormerTeacher = 1 };
+        public enum TeacherType { SuperUser = 5, Teacher = 4, Adminstrator = 3, Ministry = 2, FormerTeacher = 1 };
 
         private Subject subject;
         private TeacherType teacherType;

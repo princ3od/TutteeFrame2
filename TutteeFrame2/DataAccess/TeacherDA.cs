@@ -49,11 +49,20 @@ namespace TutteeFrame2.DataAccess
                         teacher.Mail = dataReader.GetString(8);
                         teacher.Subject.ID = dataReader.GetString(9);
                         if (dataReader.GetBoolean(10))
+                        {
                             teacher.Type = Teacher.TeacherType.Ministry;
+                            teacher.Position = "Giáo vụ";
+                        }
                         else if (dataReader.GetBoolean(11))
+                        {
                             teacher.Type = Teacher.TeacherType.Adminstrator;
+                            teacher.Position = "Ban giám hiệu";
+                        }
                         else
+                        {
                             teacher.Type = Teacher.TeacherType.Teacher;
+                            teacher.Position = "Giáo viên";
+                        }
                         //teacher.Subject.Name = dataReader["SubjectName"].ToString();
                         teacher.Position = dataReader.GetString(12);
                     }

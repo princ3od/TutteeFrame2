@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 
@@ -6,6 +8,25 @@ namespace TutteeFrame2.Utils
 {
     static class ImageHelper
     {
+        public static Bitmap CropCircle(Image img)
+        {
+            var roundedImage = new Bitmap(img.Width, img.Height, img.PixelFormat);
+
+            using (var g = Graphics.FromImage(roundedImage))
+            using (var gp = new GraphicsPath())
+            {
+                g.Clear(Color.White);
+
+                g.SmoothingMode = SmoothingMode.HighQuality;
+
+                Brush brush = new TextureBrush(img);
+                gp.AddEllipse(1, 1, img.Width - 2, img.Height - 2);
+                g.FillPath(brush, gp);
+                g.DrawPath(new Pen(Brushes.Black), gp);
+            }
+
+            return roundedImage;
+        }
         public static Image BytesToImage(byte[] _data)
         {
             try
