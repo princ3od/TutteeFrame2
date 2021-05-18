@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controls\UtilityBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -67,6 +68,7 @@
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
+    <Compile Include="DataAccess\SubjectDA.cs" />
     <Compile Include="DataAccess\TeacherDA.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Subject.cs" />
@@ -100,6 +102,18 @@
     <Compile Include="View\NoConnectionView.Designer.cs">
       <DependentUpon>NoConnectionView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OneTeacherView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneTeacherView.Designer.cs">
+      <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeacherView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TeacherView.Designer.cs">
+      <DependentUpon>TeacherView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\UtilityBar.resx">
       <DependentUpon>UtilityBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NoConnectionView.resx">
       <DependentUpon>NoConnectionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneTeacherView.resx">
+      <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TeacherView.resx">
+      <DependentUpon>TeacherView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

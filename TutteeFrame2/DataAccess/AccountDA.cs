@@ -96,7 +96,6 @@ namespace TutteeFrame2.DataAccess
                             return null;
                     }
                 }
-                return account;
             }
             catch (Exception e)
             {
