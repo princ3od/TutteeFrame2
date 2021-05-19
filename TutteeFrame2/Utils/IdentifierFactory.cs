@@ -18,5 +18,10 @@ namespace TutteeFrame2.Utils
                 result += characters[random.Next(characters.Length)];
             return result;
         }
+        public static string GenerateNumberID(int length = 6)
+        {
+            int result = (new Random()).Next(100000, 999999);
+            return result.ToString();
+        }
     }
 }

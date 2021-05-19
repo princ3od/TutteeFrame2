@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MaterialSurface;
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MaterialSurface;
 using System.Windows.Forms;
+using System.Drawing;
 using TutteeFrame2.Controller;
-using TutteeFrame2.Utils;
 using TutteeFrame2.Model;
+using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.View
 {
@@ -25,10 +20,18 @@ namespace TutteeFrame2.View
             controller = new HomeController(this);
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            if (Dialog.Show(this, "Bạn chắc chắn muốn thoát?", "Xác nhận", Buttons.YesNo) == DialogResult.No)
+                e.Cancel = true;
+        }
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-
+            Snackbar.PrimaryColor = Color.FromArgb(47, 144, 176);
+            Dialog.PrimaryColor = Color.FromArgb(47, 144, 176);
+            teacherView1.SetHome(this);
         }
 
         public void CreateLoginView()
@@ -57,28 +60,28 @@ namespace TutteeFrame2.View
         private void Decentralize()
         {
             mainTabControl.TabPages.Clear();
-            if (controller.mainTeacher.Type != Teacher.TeacherType.SuperUser)
+            if (controller.mainTeacher.Type != TeacherType.SuperUser)
             {
                 mainTabControl.TabPages.Add(home);
                 switch (controller.mainTeacher.Type)
                 {
-                    case Teacher.TeacherType.Teacher:
+                    case TeacherType.Teacher:
                         mainTabControl.TabPages.Add(bangDiemHocSinh);
                         break;
-                    case Teacher.TeacherType.Adminstrator:
+                    case TeacherType.Adminstrator:
                         mainTabControl.TabPages.Add(quanLiGiaoVien);
                         mainTabControl.TabPages.Add(phanCongGiaoVien);
                         mainTabControl.TabPages.Add(quanLiMon);
                         mainTabControl.TabPages.Add(baoCao);
                         break;
-                    case Teacher.TeacherType.Ministry:
+                    case TeacherType.Ministry:
                         mainTabControl.TabPages.Add(quanLiHocSinh);
                         mainTabControl.TabPages.Add(quanLiLop);
                         mainTabControl.TabPages.Add(quanLiKiLuat);
                         mainTabControl.TabPages.Add(quanLiTKB);
                         mainTabControl.TabPages.Add(baoCao);
                         break;
-                    case Teacher.TeacherType.FormerTeacher:
+                    case TeacherType.FormerTeacher:
                         mainTabControl.TabPages.Add(bangDiemHocSinh);
                         mainTabControl.TabPages.Add(lopChuNhiem);
                         mainTabControl.TabPages.Add(quanLiViPham);
@@ -147,6 +150,11 @@ namespace TutteeFrame2.View
                 utilityBar.Height = 250;
             else
                 utilityBar.Height = 55;
+        }
+
+        private void OnTabChanged(object sender, EventArgs e)
+        {
+            teacherView1.Fetch();
         }
     }
 }
