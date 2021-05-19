@@ -184,9 +184,6 @@ namespace TutteeFrame2.View
             this.cbbSubject.FormattingEnabled = true;
             this.cbbSubject.HintText = "Môn giảng dạy";
             this.cbbSubject.ItemHeight = 41;
-            this.cbbSubject.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ"});
             this.cbbSubject.Location = new System.Drawing.Point(20, 314);
             this.cbbSubject.MaxDropDownItems = 4;
             this.cbbSubject.MouseState = MaterialSurface.MouseState.OUT;
@@ -353,6 +350,7 @@ namespace TutteeFrame2.View
             this.btnSubmit.Text = "Xong";
             this.btnSubmit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.OnSubmit);
             // 
             // materialCard2
             // 

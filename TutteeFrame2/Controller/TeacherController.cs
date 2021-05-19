@@ -9,7 +9,7 @@ using TutteeFrame2.View;
 
 namespace TutteeFrame2.Controller
 {
-    class TeacherController
+    public class TeacherController
     {
         bool isLoading = false;
         public List<Teacher> teachers;
@@ -32,9 +32,11 @@ namespace TutteeFrame2.Controller
                 view.ShowSubjects(subjects);
                 view.firstLoad = false;
             }
+            int ministryNum = 0, adminNum = 0;
             //await Task.Delay(1000);
             await Task.Run(() =>
             {
+                TeacherDA.Instance.GetTeacherNum(ref ministryNum, ref adminNum);
                 originalTeachers = TeacherDA.Instance.GetTeachers();
                 switch (view.sortType)
                 {
@@ -54,6 +56,7 @@ namespace TutteeFrame2.Controller
                 Filter();
             });
             view.ShowData();
+            view.SetNumberLabel(ministryNum, adminNum);
             view.Home.SetLoad(false);
             isLoading = false;
         }
@@ -80,6 +83,17 @@ namespace TutteeFrame2.Controller
         {
             Filter(searchText);
             view.ShowData();
+        }
+        public enum DeleteResult { Success, Fail };
+        public async void DeleteTeacher(string teacherID)
+        {
+            view.Home.SetLoad(true, "Đang xoá giáo viên");
+            await Task.Run(() => teacherID = TeacherDA.Instance.DeleteTeacher(teacherID));
+            view.Home.SetLoad(false);
+            if (teacherID != null)
+                view.ShowDeleteResult(DeleteResult.Success);
+            else
+                view.ShowDeleteResult(DeleteResult.Fail);
         }
         void Filter(string searchText = "")
         {

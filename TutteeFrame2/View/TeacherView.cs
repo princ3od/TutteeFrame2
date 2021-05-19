@@ -30,6 +30,7 @@ namespace TutteeFrame2.View
             Ministry = 3,
             Adminstrator = 4,
         }
+        public string selectedTeacherID = "";
         public bool firstLoad = true;
         public HomeView Home;
         public SortType sortType = SortType.ByID;
@@ -57,7 +58,6 @@ namespace TutteeFrame2.View
         public void Fetch()
         {
             controller.FetchData();
-
         }
         public void ShowSubjects(List<Subject> subjects)
         {
@@ -82,7 +82,27 @@ namespace TutteeFrame2.View
                 index++;
             }
         }
-
+        public void SetNumberLabel(int ministryNum, int adminNum)
+        {
+            lbTotalMinistry.Text = ministryNum.ToString("00");
+            lbTotalAdmin.Text = adminNum.ToString("00");
+            lbTotalTeacher.Text = controller.teachers.Count.ToString("00");
+        }
+        public void ShowDeleteResult(TeacherController.DeleteResult result)
+        {
+            switch (result)
+            {
+                case TeacherController.DeleteResult.Success:
+                    Snackbar.MakeSnackbar(Home, "Đã xoá thành công!", "OK");
+                    Fetch();
+                    break;
+                case TeacherController.DeleteResult.Fail:
+                    Dialog.Show(Home, "Xoá thất bại, đã có lỗi xảy ra!", "Lỗi");
+                    break;
+                default:
+                    break;
+            }
+        }
         private void OnSortTypeChanged(object sender, EventArgs e)
         {
             if (cbbSortBy.SelectedIndex < 0 || firstLoad)
@@ -121,8 +141,10 @@ namespace TutteeFrame2.View
             frmTeacher.Show();
             frmTeacher.FormClosed += (s, ev) =>
             {
+                Home.Activate();
                 if (frmTeacher.doneSuccess)
                 {
+                    Fetch();
                     Snackbar.MakeSnackbar(Home,
                         string.Format("Thêm mới giáo viên (ID: {0}) thành công!", frmTeacher.teacherID), "OK");
                 }
@@ -136,8 +158,10 @@ namespace TutteeFrame2.View
             oneTeacherView.Show();
             oneTeacherView.FormClosed += (s, ev) =>
             {
+                Home.Activate();
                 if (oneTeacherView.doneSuccess)
                 {
+                    Fetch();
                     Snackbar.MakeSnackbar(Home,
                         string.Format("Cập nhật giáo viên (ID: {0}) thành công!", oneTeacherView.teacherID), "OK");
                 }
@@ -146,7 +170,8 @@ namespace TutteeFrame2.View
 
         private void OnDeleteTeacher(object sender, EventArgs e)
         {
-
+            if (Dialog.Show(Home, "Bạn chắc chắn muốn xoá giáo viên được chọn?", "Xác nhận", Buttons.YesNo) == DialogResult.Yes)
+                controller.DeleteTeacher(listviewTeacher.SelectedItems[0].SubItems[1].Text);
         }
 
         private void OnSearching(object sender, EventArgs e)

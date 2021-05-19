@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSurface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,7 +43,7 @@ namespace TutteeFrame2.View
         public string teacherID;
         public Teacher teacher;
         public bool doneSuccess = false;
-
+        List<Subject> subjects = new List<Subject>();
         public OneTeacherView(Mode _mode, string _teacherID = null)
         {
             InitializeComponent();
@@ -60,8 +61,16 @@ namespace TutteeFrame2.View
             Region rg = new Region(gp);
             ptbAvatar.Region = rg;
 
-            //load subject
-
+            SetLoad(true, "Đang tải dữ liệu...");
+            await Task.Run(() =>
+            {
+                subjects = SubjectDA.Instance.GetSubjects();
+            });
+            foreach (Subject subject in subjects)
+            {
+                cbbSubject.Items.Add(subject.Name);
+            }
+            SetLoad(false);
             switch (mode)
             {
                 case Mode.Add:
@@ -106,6 +115,9 @@ namespace TutteeFrame2.View
                 default:
                     break;
             }
+            cbbSex.SelectedIndex = 0;
+            cbbSubject.SelectedIndex = 0;
+            cbbType.SelectedIndex = 0;
         }
 
         private void OnExit(object sender, EventArgs e)
@@ -130,6 +142,86 @@ namespace TutteeFrame2.View
                         lbName.Text = txtSurename.Text + " " + txtFirstname.Text;
                     break;
                 case Mode.Edit:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private async void OnSubmit(object sender, EventArgs e)
+        {
+            teacher = new Teacher()
+            {
+                ID = lbID.Text,
+                SurName = txtSurename.Text,
+                FirstName = txtFirstname.Text,
+                DateBorn = dateBorn.Value,
+                Sex = Convert.ToBoolean(cbbSex.SelectedIndex),
+                Address = txtAddress.Text,
+                Mail = txtMail.Text,
+                Phone = txtPhone.Text,
+                Subject = subjects[cbbSubject.SelectedIndex],
+                Avatar = ptbAvatar.Image,
+                Position = txtPosition.Text,
+            };
+            switch (cbbType.SelectedIndex)
+            {
+                case 0:
+                    teacher.Type = TeacherType.Teacher;
+                    break;
+                case 1:
+                    teacher.Type = TeacherType.Ministry;
+                    break;
+                case 2:
+                    teacher.Type = TeacherType.Adminstrator;
+                    break;
+                default:
+                    break;
+            }
+            switch (mode)
+            {
+                case Mode.Add:
+                    SetLoad(true, "Đang thêm giáo viên...");
+                    await Task.Run(() => teacher = TeacherDA.Instance.AddTeacher(teacher));
+                    if (teacher != null)
+                    {
+                        SetLoad(true, "Đang thêm tài khoản giáo viên...");
+                        Account account = new Account()
+                        {
+                            ID = teacher.ID,
+                            TeacherID = teacher.ID,
+                            Password = PasswordHasher.Hash("1"),
+                        };
+                        await Task.Run(() => account = AccountDA.Instance.AddAccount(account));
+                        doneSuccess = true;
+                        SetLoad(false);
+                        Dialog.Show(this, "Đã thêm giáo viên mới thành công", "Thông báo");
+                        this.Close();
+                    }
+                    else
+                    {
+                        doneSuccess = false;
+                        SetLoad(false);
+                        Dialog.Show(this, "Thêm giáo viên thất bại, đã có lỗi xảy ra!", "Lỗi");
+                    }
+                    break;
+                case Mode.Edit:
+                    SetLoad(true, "Đang cập nhật giáo viên...");
+                    await Task.Run(() => teacher = TeacherDA.Instance.UpdateTeacher(teacherID, teacher));
+                    if (teacher != null)
+                    {
+                        teacherID = teacher.ID;
+                        doneSuccess = true;
+                        SetLoad(false);
+                        Dialog.Show(this, "Đã cập nhật giáo viên thành công", "Thông báo");
+                        this.Close();
+                    }
+                    else
+                    {
+                        doneSuccess = false;
+                        SetLoad(false);
+                        Dialog.Show(this, "Cập nhật giáo viên thất bại, đã có lỗi xảy ra!", "Lỗi");
+                    }
                     break;
                 default:
                     break;

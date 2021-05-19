@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TutteeFrame2.Model;
 using TutteeFrame2.Utils;
 
@@ -143,7 +144,7 @@ namespace TutteeFrame2.DataAccess
             }
             return teachers;
         }
-        public bool GetTeacherNum(ref int _totalTeacher, ref int _totalMinstry, ref int _totalAdmin)
+        public bool GetTeacherNum(ref int _totalMinstry, ref int _totalAdmin)
         {
             bool success = Connect();
 
@@ -151,12 +152,8 @@ namespace TutteeFrame2.DataAccess
                 return false;
             try
             {
-                string query = "SELECT COUNT(*) FROM TEACHER WHERE TeacherID != @adminid";
+                string query = "SELECT COUNT(*) FROM TEACHER WHERE IsMinistry = 1 AND TeacherID != @adminid";
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@adminid", "AD999999");
-                _totalTeacher = (int)command.ExecuteScalar();
-                query = "SELECT COUNT(*) FROM TEACHER WHERE IsMinistry = 1 AND TeacherID != @adminid";
-                command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@adminid", "AD999999");
                 _totalMinstry = (int)command.ExecuteScalar();
                 query = "SELECT COUNT(*) FROM TEACHER WHERE IsAdmin = 1 AND TeacherID != @adminid";
@@ -229,6 +226,87 @@ namespace TutteeFrame2.DataAccess
                 Disconnect();
             }
             return teacher;
+        }
+        public Teacher UpdateTeacher(string teacherID, Teacher newTeacher)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+            try
+            {
+                int isMinistry = 0, isAdmin = 0;
+                strQuery = $"UPDATE TEACHER SET " +
+                    $"Surname = @surname, " +
+                    $"FirstName = @firstname, " +
+                    $"TeacherImage = @avatar, " +
+                    $"DateBorn = @dateborn, " +
+                    $"Sex = @sex, " +
+                    $"Address = @address, " +
+                    $"Phone = @phone, " +
+                    $"Maill = @mail, " +
+                    $"SubjectID = @subjectid, " +
+                    $"IsMinistry = @is_ministry, " +
+                    $"IsAdmin = @is_admin, " +
+                    $"Posittion = @position " +
+                    $"WHERE TeacherID = @teacherid";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@teacherid", newTeacher.ID);
+                    sqlCommand.Parameters.AddWithValue("@surname", newTeacher.SurName);
+                    sqlCommand.Parameters.AddWithValue("@dateborn", newTeacher.DateBorn);
+                    sqlCommand.Parameters.AddWithValue("@sex", newTeacher.Sex);
+                    sqlCommand.Parameters.AddWithValue("@firstname", newTeacher.FirstName);
+                    sqlCommand.Parameters.AddWithValue("@avatar", newTeacher.GetAvatar());
+                    sqlCommand.Parameters.AddWithValue("@phone", newTeacher.Phone);
+                    sqlCommand.Parameters.AddWithValue("@address", newTeacher.Address);
+                    sqlCommand.Parameters.AddWithValue("@mail", newTeacher.Mail);
+                    sqlCommand.Parameters.AddWithValue("@subjectid", newTeacher.Subject.ID);
+                    sqlCommand.Parameters.AddWithValue("@is_ministry", isMinistry);
+                    sqlCommand.Parameters.AddWithValue("@is_admin", isAdmin);
+                    sqlCommand.Parameters.AddWithValue("@position", newTeacher.Position);
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return newTeacher;
+        }
+        public string DeleteTeacher(string _teacherID)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+            try
+            {
+                //strQuery = $"UPDATE TEACHING SET TEACHING.TeacherID = NULL WHERE TEACHING.TeacherID = '{_teacherID}'";
+                //using (SqlCommand command = new SqlCommand(strQuery, connection))
+                //    command.ExecuteNonQuery();
+                //strQuery = $"UPDATE CLASS SET CLASS.TeacherID = NULL WHERE CLASS.TeacherID = '{_teacherID}'";
+                //using (SqlCommand command = new SqlCommand(strQuery, connection))
+                //    command.ExecuteNonQuery();
+                strQuery = $"DELETE TEACHER WHERE TeacherID = '{_teacherID}'";
+                using (SqlCommand command = new SqlCommand(strQuery, connection))
+                    command.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return _teacherID;
         }
     }
 }

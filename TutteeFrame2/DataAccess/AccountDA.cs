@@ -13,12 +13,13 @@ namespace TutteeFrame2.DataAccess
         private AccountDA() { }
         static readonly AccountDA _instance = new AccountDA();
         public static new AccountDA Instance => _instance;
-        public bool AddAccount(Account account)
+        public Account AddAccount(Account account)
         {
             bool success = Connect();
 
             if (!success)
-                return false;
+                return null;
+
             try
             {
                 string query = "INSERT INTO ACCOUNT(AccountID,TeacherID,Password) VALUES(@id,@teacherid, @pass)";
@@ -32,13 +33,13 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception e)
             {
-                return false;
+                return null;
             }
             finally
             {
                 Disconnect();
             }
-            return true;
+            return account;
 
         }
 
