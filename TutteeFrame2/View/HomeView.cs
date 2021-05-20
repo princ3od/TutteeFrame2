@@ -163,6 +163,7 @@ namespace TutteeFrame2.View
                     }
                 case 1:
                     {
+                        teacherView1.Fetch();
                         break;
                     }
                 case 2:
@@ -171,7 +172,6 @@ namespace TutteeFrame2.View
                     }
                 case 3:
                     {
-                        //Dialog.Show(this, "13132131321", tittle: "Thông báo");
                         subjectView.LoadSubjects();
                         break;
                     }
