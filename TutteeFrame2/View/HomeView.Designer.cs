@@ -51,6 +51,7 @@ namespace TutteeFrame2.View
             this.lbNameBig = new System.Windows.Forms.Label();
             this.ptbAvatarBig = new System.Windows.Forms.PictureBox();
             this.quanLiGiaoVien = new System.Windows.Forms.TabPage();
+            this.teacherView1 = new TutteeFrame2.View.TeacherView();
             this.quanLiHocSinh = new System.Windows.Forms.TabPage();
             this.bangDiemHocSinh = new System.Windows.Forms.TabPage();
             this.quanLiMon = new System.Windows.Forms.TabPage();
@@ -77,14 +78,13 @@ namespace TutteeFrame2.View
             this.textButton2 = new MaterialSurface.TextButton();
             this.textButton1 = new MaterialSurface.TextButton();
             this.btnShowMore = new MaterialSkin.Controls.MaterialButton();
-            this.teacherView1 = new TutteeFrame2.View.TeacherView();
             this.mainTabControl.SuspendLayout();
             this.home.SuspendLayout();
             this.materialCard2.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).BeginInit();
-            this.quanLiMon.SuspendLayout();
             this.quanLiGiaoVien.SuspendLayout();
+            this.quanLiMon.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.utilityBar.SuspendLayout();
@@ -166,7 +166,7 @@ namespace TutteeFrame2.View
             this.home.Controls.Add(this.lbPositionBig);
             this.home.Controls.Add(this.lbNameBig);
             this.home.Controls.Add(this.ptbAvatarBig);
-            this.home.Location = new System.Drawing.Point(4, 50);
+            this.home.Location = new System.Drawing.Point(4, 44);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(1116, 564);
             this.home.TabIndex = 0;
@@ -408,12 +408,21 @@ namespace TutteeFrame2.View
             // quanLiGiaoVien
             // 
             this.quanLiGiaoVien.Controls.Add(this.teacherView1);
-            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 44);
+            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 22);
             this.quanLiGiaoVien.Name = "quanLiGiaoVien";
-            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 586);
             this.quanLiGiaoVien.TabIndex = 1;
             this.quanLiGiaoVien.Text = "Quản lí giáo viên";
             this.quanLiGiaoVien.UseVisualStyleBackColor = true;
+            // 
+            // teacherView1
+            // 
+            this.teacherView1.BackColor = System.Drawing.Color.White;
+            this.teacherView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherView1.Location = new System.Drawing.Point(0, 0);
+            this.teacherView1.Name = "teacherView1";
+            this.teacherView1.Size = new System.Drawing.Size(1116, 586);
+            this.teacherView1.TabIndex = 0;
             // 
             // quanLiHocSinh
             // 
@@ -435,9 +444,10 @@ namespace TutteeFrame2.View
             // 
             // quanLiMon
             // 
-            this.quanLiMon.Location = new System.Drawing.Point(4, 22);
+            this.quanLiMon.Controls.Add(this.subjectView);
+            this.quanLiMon.Location = new System.Drawing.Point(4, 44);
             this.quanLiMon.Name = "quanLiMon";
-            this.quanLiMon.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiMon.Size = new System.Drawing.Size(1116, 564);
             this.quanLiMon.TabIndex = 4;
             this.quanLiMon.Text = "Quản lí môn";
             this.quanLiMon.UseVisualStyleBackColor = true;
@@ -450,8 +460,9 @@ namespace TutteeFrame2.View
             this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.subjectView.Location = new System.Drawing.Point(0, 0);
             this.subjectView.Name = "subjectView";
-            this.subjectView.Size = new System.Drawing.Size(917, 528);
-            this.subjectView.TabIndex = 0;
+            this.subjectView.Size = new System.Drawing.Size(1116, 564);
+            this.subjectView.TabIndex = 1;
+            // 
             // quanLiLop
             // 
             this.quanLiLop.Location = new System.Drawing.Point(4, 22);
@@ -585,7 +596,7 @@ namespace TutteeFrame2.View
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbInformation.Location = new System.Drawing.Point(257, 691);
             this.lbInformation.Name = "lbInformation";
-            this.lbInformation.Size = new System.Drawing.Size(103, 19);
+            this.lbInformation.Size = new System.Drawing.Size(88, 13);
             this.lbInformation.TabIndex = 27;
             this.lbInformation.Text = "*Đang kết nối...";
             this.lbInformation.Visible = false;
@@ -732,15 +743,6 @@ namespace TutteeFrame2.View
             this.btnShowMore.UseVisualStyleBackColor = true;
             this.btnShowMore.Click += new System.EventHandler(this.OpenUtilityBar);
             // 
-            // teacherView1
-            // 
-            this.teacherView1.BackColor = System.Drawing.Color.White;
-            this.teacherView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teacherView1.Location = new System.Drawing.Point(0, 0);
-            this.teacherView1.Name = "teacherView1";
-            this.teacherView1.Size = new System.Drawing.Size(1116, 564);
-            this.teacherView1.TabIndex = 0;
-            // 
             // HomeView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -764,8 +766,8 @@ namespace TutteeFrame2.View
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).EndInit();
-            this.quanLiMon.ResumeLayout(false);
             this.quanLiGiaoVien.ResumeLayout(false);
+            this.quanLiMon.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.utilityBar.ResumeLayout(false);
@@ -823,8 +825,8 @@ namespace TutteeFrame2.View
         private MaterialSurface.ChoiceChip choiceChip8;
         private MaterialSurface.ChoiceChip choiceChip9;
         private System.Windows.Forms.TabPage quanLiLichHop;
-        private SubjectView subjectView;
         private TeacherView teacherView1;
+        private SubjectView subjectView;
     }
 }
 
