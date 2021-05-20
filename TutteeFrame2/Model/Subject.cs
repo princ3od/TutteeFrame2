@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TutteeFrame2.Model
 {
-   public class Subject
+    public class Subject
     {
         string iD;
         string name;

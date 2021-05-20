@@ -38,7 +38,7 @@ namespace TutteeFrame2.Controller
                 mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
                 if (mainTeacher.ID.ToUpper() == "AD999999")
                 {
-                    mainTeacher.Type = Teacher.TeacherType.SuperUser;
+                    mainTeacher.Type = TeacherType.SuperUser;
                     mainTeacher.Position = "Tài khoản admin";
                 }
             });

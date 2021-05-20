@@ -8,7 +8,7 @@ using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.Model
 {
-   abstract class Person
+   public abstract class Person
     {
         protected string iD;
         protected string surName;

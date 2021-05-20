@@ -153,12 +153,5 @@ namespace TutteeFrame2.DataAccess
             {
                 
                 return false;
-            }
-            finally
-            {
-                Disconnect();
-            }
-            return true;
-        }
     }
 }
