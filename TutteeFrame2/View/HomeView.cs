@@ -24,10 +24,14 @@ namespace TutteeFrame2.View
             InitializeComponent();
             controller = new HomeController(this);
         }
-
+        /// <summary>
+        /// Set homeView for subjectView, avariable subjectView is in another part of HomeView (design code)
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
+            subjectView.SetHome(this);
 
         }
 
@@ -148,5 +152,9 @@ namespace TutteeFrame2.View
             else
                 utilityBar.Height = 55;
         }
+
+
+
+
     }
 }

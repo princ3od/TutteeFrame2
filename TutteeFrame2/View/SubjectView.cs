@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using TutteeFrame2.Controller;
+using TutteeFrame2.Model;
+
+namespace TutteeFrame2.View
+{
+    public partial class SubjectView : UserControl
+    {
+       
+        readonly SubjectController subjectController;
+        public  HomeView homeView;
+        public SubjectView()
+        {
+            InitializeComponent();
+            subjectController = new SubjectController(this);
+            
+        }
+        /// <summary>
+        /// Set HomeView for this View
+        /// </summary>
+        /// <param name="homeView"> A parrent view of this view</param>
+        public void SetHome(HomeView homeView)
+        {
+            this.homeView = homeView;
+        }
+        
+        /// <summary>
+        /// Load list of subjects in the database to show in this view
+        /// </summary>
+        public void LoadSubjects()
+        {
+            subjectController.LoadSubjects();
+        }
+
+        public void ShowData()
+        {
+            this.lvSubjectManage.Items.Clear();
+            foreach(Subject item in subjectController.subjects)
+            {
+                ListViewItem listViewItem = new ListViewItem(new string[] { item.ID,item.Name});
+                this.lvSubjectManage.Items.Add(listViewItem);
+            }
+        }
+
+
+    }
+       
+}

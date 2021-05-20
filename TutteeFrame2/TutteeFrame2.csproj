@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controls\UtilityBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -67,6 +68,7 @@
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
+    <Compile Include="DataAccess\SubjectDA.cs" />
     <Compile Include="DataAccess\TeacherDA.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Subject.cs" />
@@ -76,6 +78,12 @@
     <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\OverlayForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SubjectView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SubjectView.Designer.cs">
+      <DependentUpon>SubjectView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.cs">
       <SubType>Form</SubType>
@@ -102,6 +110,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\UtilityBar.resx">
       <DependentUpon>UtilityBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubjectView.resx">
+      <DependentUpon>SubjectView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
