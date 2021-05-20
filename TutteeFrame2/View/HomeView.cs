@@ -31,7 +31,7 @@ namespace TutteeFrame2.View
             base.OnShown(e);
             Snackbar.PrimaryColor = Color.FromArgb(47, 144, 176);
             Dialog.PrimaryColor = Color.FromArgb(47, 144, 176);
-            teacherView1.SetHome(this);           
+            teacherView1.SetHome(this);
             subjectView.SetHome(this);
         }
 
@@ -200,5 +200,6 @@ namespace TutteeFrame2.View
                         break;
                     }
             }
+        }
     }
 }

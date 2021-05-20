@@ -31,13 +31,13 @@ namespace TutteeFrame2.DataAccess
 
             try
             {
-                 strQuery = "SELECT * FROM SUBJECT";
+                strQuery = "SELECT * FROM SUBJECT";
                 using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
                 {
                     //add paramester here - but there no need paramester so pass to next line
                     using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
                     {
-                        subjects = new  List<Subject>();
+                        subjects = new List<Subject>();
                         while (dataReader.Read())
                         {
                             Subject subject = new Subject();
@@ -50,7 +50,7 @@ namespace TutteeFrame2.DataAccess
                 };
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
@@ -65,7 +65,7 @@ namespace TutteeFrame2.DataAccess
         /// </summary>
         /// <param name="subject"> The object data of subject want to add into database</param>
         /// <returns> Return true if the progress is successed else return false</returns>
-   
+
         public bool AddSubject(Subject subject)
         {
             bool success = Connect();
@@ -74,7 +74,7 @@ namespace TutteeFrame2.DataAccess
                 return false;
             try
             {
-                 strQuery = "INSERT INTO SUBJECT(SubjectID, SubjectName) VALUES(@id,@name)";
+                strQuery = "INSERT INTO SUBJECT(SubjectID, SubjectName) VALUES(@id,@name)";
                 using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
                 {
                     sqlCommand.Parameters.AddWithValue("@id", subject.ID);
@@ -82,7 +82,7 @@ namespace TutteeFrame2.DataAccess
                     sqlCommand.ExecuteNonQuery();
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -151,7 +151,14 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                
+
                 return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return true;
+        }
     }
 }
