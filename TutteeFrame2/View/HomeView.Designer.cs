@@ -54,6 +54,7 @@ namespace TutteeFrame2.View
             this.quanLiHocSinh = new System.Windows.Forms.TabPage();
             this.bangDiemHocSinh = new System.Windows.Forms.TabPage();
             this.quanLiMon = new System.Windows.Forms.TabPage();
+            this.subjectView = new TutteeFrame2.View.SubjectView();
             this.quanLiLop = new System.Windows.Forms.TabPage();
             this.quanLiKiLuat = new System.Windows.Forms.TabPage();
             this.baoCao = new System.Windows.Forms.TabPage();
@@ -82,6 +83,7 @@ namespace TutteeFrame2.View
             this.materialCard2.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).BeginInit();
+            this.quanLiMon.SuspendLayout();
             this.quanLiGiaoVien.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -153,7 +155,7 @@ namespace TutteeFrame2.View
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(1124, 612);
             this.mainTabControl.TabIndex = 2;
-            this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.OnTabChanged);
+            this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.OnTabpageChanged);
             // 
             // home
             // 
@@ -164,7 +166,7 @@ namespace TutteeFrame2.View
             this.home.Controls.Add(this.lbPositionBig);
             this.home.Controls.Add(this.lbNameBig);
             this.home.Controls.Add(this.ptbAvatarBig);
-            this.home.Location = new System.Drawing.Point(4, 44);
+            this.home.Location = new System.Drawing.Point(4, 50);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(1116, 564);
             this.home.TabIndex = 0;
@@ -440,6 +442,16 @@ namespace TutteeFrame2.View
             this.quanLiMon.Text = "Quản lí môn";
             this.quanLiMon.UseVisualStyleBackColor = true;
             // 
+            // subjectView
+            // 
+            this.subjectView.BackColor = System.Drawing.Color.White;
+            this.subjectView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.subjectView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.subjectView.Location = new System.Drawing.Point(0, 0);
+            this.subjectView.Name = "subjectView";
+            this.subjectView.Size = new System.Drawing.Size(917, 528);
+            this.subjectView.TabIndex = 0;
             // quanLiLop
             // 
             this.quanLiLop.Location = new System.Drawing.Point(4, 22);
@@ -573,7 +585,7 @@ namespace TutteeFrame2.View
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbInformation.Location = new System.Drawing.Point(257, 691);
             this.lbInformation.Name = "lbInformation";
-            this.lbInformation.Size = new System.Drawing.Size(88, 13);
+            this.lbInformation.Size = new System.Drawing.Size(103, 19);
             this.lbInformation.TabIndex = 27;
             this.lbInformation.Text = "*Đang kết nối...";
             this.lbInformation.Visible = false;
@@ -752,6 +764,7 @@ namespace TutteeFrame2.View
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).EndInit();
+            this.quanLiMon.ResumeLayout(false);
             this.quanLiGiaoVien.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -810,6 +823,7 @@ namespace TutteeFrame2.View
         private MaterialSurface.ChoiceChip choiceChip8;
         private MaterialSurface.ChoiceChip choiceChip9;
         private System.Windows.Forms.TabPage quanLiLichHop;
+        private SubjectView subjectView;
         private TeacherView teacherView1;
     }
 }

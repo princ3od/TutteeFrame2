@@ -31,7 +31,8 @@ namespace TutteeFrame2.View
             base.OnShown(e);
             Snackbar.PrimaryColor = Color.FromArgb(47, 144, 176);
             Dialog.PrimaryColor = Color.FromArgb(47, 144, 176);
-            teacherView1.SetHome(this);
+            teacherView1.SetHome(this);           
+            subjectView.SetHome(this);
         }
 
         public void CreateLoginView()
@@ -152,9 +153,52 @@ namespace TutteeFrame2.View
                 utilityBar.Height = 55;
         }
 
-        private void OnTabChanged(object sender, EventArgs e)
+        private void OnTabpageChanged(object sender, EventArgs e)
         {
-            teacherView1.Fetch();
-        }
+            switch (mainTabControl.SelectedIndex)
+            {
+                case 0:
+                    {
+                        break;
+                    }
+                case 1:
+                    {
+                        break;
+                    }
+                case 2:
+                    {
+                        break;
+                    }
+                case 3:
+                    {
+                        //Dialog.Show(this, "13132131321", tittle: "Thông báo");
+                        subjectView.LoadSubjects();
+                        break;
+                    }
+                case 4:
+                    {
+                        break;
+                    }
+                case 5:
+                    {
+                        break;
+                    }
+                case 6:
+                    {
+                        break;
+                    }
+                case 7:
+                    {
+                        break;
+                    }
+                case 8:
+                    {
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
     }
 }
