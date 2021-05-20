@@ -171,6 +171,7 @@ namespace TutteeFrame2.View
                     }
                 case 3:
                     {
+                        //Dialog.Show(this, "13132131321", tittle: "Thông báo");
                         subjectView.LoadSubjects();
                         break;
                     }
@@ -198,8 +199,6 @@ namespace TutteeFrame2.View
                     {
                         break;
                     }
-
-
             }
         }
     }

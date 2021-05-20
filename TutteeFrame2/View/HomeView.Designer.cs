@@ -433,9 +433,9 @@ namespace TutteeFrame2.View
             // quanLiMon
             // 
             this.quanLiMon.Controls.Add(this.subjectView);
-            this.quanLiMon.Location = new System.Drawing.Point(4, 46);
+            this.quanLiMon.Location = new System.Drawing.Point(4, 50);
             this.quanLiMon.Name = "quanLiMon";
-            this.quanLiMon.Size = new System.Drawing.Size(917, 532);
+            this.quanLiMon.Size = new System.Drawing.Size(917, 528);
             this.quanLiMon.TabIndex = 4;
             this.quanLiMon.Text = "Quản lí môn";
             this.quanLiMon.UseVisualStyleBackColor = true;
@@ -448,7 +448,7 @@ namespace TutteeFrame2.View
             this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.subjectView.Location = new System.Drawing.Point(0, 0);
             this.subjectView.Name = "subjectView";
-            this.subjectView.Size = new System.Drawing.Size(917, 532);
+            this.subjectView.Size = new System.Drawing.Size(917, 528);
             this.subjectView.TabIndex = 0;
             // 
             // quanLiLop

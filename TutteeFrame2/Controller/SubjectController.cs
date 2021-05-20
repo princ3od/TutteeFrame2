@@ -17,11 +17,9 @@ namespace TutteeFrame2.Controller
         {
             this.subjectView = subjectView;
         }
-        
-
         public async void LoadSubjects()
         {
-            subjectView.homeView.SetLoad(true, "Đang tải thông tin danh sách môn học");
+            subjectView.homeView.SetLoad(true, "Đang tải thông tin danh sách môn học..");
             await Task.Delay(600);
             await Task.Run(()=> {
                  subjects = SubjectDA.Instance.GetSubjects();
@@ -30,7 +28,32 @@ namespace TutteeFrame2.Controller
             subjectView.ShowData();
             subjectView.homeView.SetLoad(false);
         }
-
-
+        public async void AddSubject(Subject subject)
+        {
+            subjectView.homeView.SetLoad(true, "Đang thực hiện, vui lòng đợi trong giây lát..");
+            await Task.Delay(600);
+            await Task.Run(()=> {
+                SubjectDA.Instance.AddSubject(subject);
+            });
+            LoadSubjects();
+        }
+        public async void DeleteSubject(Subject subject)
+        {
+            subjectView.homeView.SetLoad(true, "Đang thực hiện, vui lòng đợi trong giây lát..");
+            await Task.Delay(600);
+            await Task.Run(() => {
+                SubjectDA.Instance.DeleteSubject(subject);
+            });
+            LoadSubjects();
+        }
+        public async void UpdateSubject(Subject subject)
+        {
+            subjectView.homeView.SetLoad(true, "Đang thực hiện, vui lòng đợi trong giây lát..");
+            await Task.Delay(600);
+            await Task.Run(() => {
+                SubjectDA.Instance.UpdateSubject(subject);
+            });
+            LoadSubjects();
+        }
     }
 }

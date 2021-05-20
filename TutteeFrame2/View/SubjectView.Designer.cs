@@ -108,6 +108,7 @@ namespace TutteeFrame2.View
             this.btnAddNewSubject.Text = "Thêm môn học";
             this.btnAddNewSubject.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnAddNewSubject.UseVisualStyleBackColor = true;
+            this.btnAddNewSubject.Click += new System.EventHandler(this.btnAddNewSubject_Click);
             // 
             // btnDelSubject
             // 
@@ -116,7 +117,7 @@ namespace TutteeFrame2.View
             this.btnDelSubject.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnDelSubject.Icon = null;
-            this.btnDelSubject.Location = new System.Drawing.Point(301, 456);
+            this.btnDelSubject.Location = new System.Drawing.Point(593, 456);
             this.btnDelSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelSubject.MouseState = MaterialSurface.MouseState.OUT;
             this.btnDelSubject.Name = "btnDelSubject";
@@ -126,9 +127,10 @@ namespace TutteeFrame2.View
             this.btnDelSubject.ShawdowOpacity = 50;
             this.btnDelSubject.Size = new System.Drawing.Size(200, 62);
             this.btnDelSubject.TabIndex = 37;
-            this.btnDelSubject.Text = "Chỉnh sửa";
+            this.btnDelSubject.Text = "Xóa môn học";
             this.btnDelSubject.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnDelSubject.UseVisualStyleBackColor = true;
+            this.btnDelSubject.Click += new System.EventHandler(this.btnDelSubject_Click);
             // 
             // btnEditSubject
             // 
@@ -137,7 +139,7 @@ namespace TutteeFrame2.View
             this.btnEditSubject.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnEditSubject.Icon = null;
-            this.btnEditSubject.Location = new System.Drawing.Point(563, 456);
+            this.btnEditSubject.Location = new System.Drawing.Point(319, 456);
             this.btnEditSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditSubject.MouseState = MaterialSurface.MouseState.OUT;
             this.btnEditSubject.Name = "btnEditSubject";
@@ -147,9 +149,10 @@ namespace TutteeFrame2.View
             this.btnEditSubject.ShawdowOpacity = 50;
             this.btnEditSubject.Size = new System.Drawing.Size(200, 62);
             this.btnEditSubject.TabIndex = 38;
-            this.btnEditSubject.Text = "Xóa môn học";
+            this.btnEditSubject.Text = "Cập nhật";
             this.btnEditSubject.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnEditSubject.UseVisualStyleBackColor = true;
+            this.btnEditSubject.Click += new System.EventHandler(this.btnEditSubject_Click);
             // 
             // SubjectView
             // 
@@ -164,7 +167,6 @@ namespace TutteeFrame2.View
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "SubjectView";
             this.Size = new System.Drawing.Size(834, 560);
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
