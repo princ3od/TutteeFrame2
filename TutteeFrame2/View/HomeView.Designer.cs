@@ -153,6 +153,7 @@ namespace TutteeFrame2.View
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(925, 582);
             this.mainTabControl.TabIndex = 2;
+            this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.OnTabpageChanged);
             // 
             // home
             // 

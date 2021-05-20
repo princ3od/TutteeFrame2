@@ -153,8 +153,54 @@ namespace TutteeFrame2.View
                 utilityBar.Height = 55;
         }
 
+        private void OnTabpageChanged(object sender, EventArgs e)
+        {
+            switch (mainTabControl.SelectedIndex)
+            {
+                case 0:
+                    {
+                        break;
+                    }
+                case 1:
+                    {
+                        break;
+                    }
+                case 2:
+                    {
+                        break;
+                    }
+                case 3:
+                    {
+                        subjectView.LoadSubjects();
+                        break;
+                    }
+                case 4:
+                    {
+                        break;
+                    }
+                case 5:
+                    {
+                        break;
+                    }
+                case 6:
+                    {
+                        break;
+                    }
+                case 7:
+                    {
+                        break;
+                    }
+                case 8:
+                    {
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
 
 
-
+            }
+        }
     }
 }
