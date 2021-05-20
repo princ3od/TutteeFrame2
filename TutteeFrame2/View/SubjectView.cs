@@ -17,14 +17,14 @@ namespace TutteeFrame2.View
 {
     public partial class SubjectView : UserControl
     {
-       
+
         readonly SubjectController subjectController;
-        public  HomeView homeView;
+        public HomeView homeView;
         public SubjectView()
         {
             InitializeComponent();
             subjectController = new SubjectController(this);
-            
+
         }
         /// <summary>
         /// Set HomeView for this View
@@ -34,7 +34,7 @@ namespace TutteeFrame2.View
         {
             this.homeView = homeView;
         }
-        
+
         /// <summary>
         /// Load list of subjects in the database to show in this view
         /// </summary>
@@ -46,9 +46,9 @@ namespace TutteeFrame2.View
         public void ShowData()
         {
             this.lvSubjectManage.Items.Clear();
-            foreach(Subject item in subjectController.subjects)
+            foreach (Subject item in subjectController.subjects)
             {
-                ListViewItem listViewItem = new ListViewItem(new string[] { item.ID,item.Name});
+                ListViewItem listViewItem = new ListViewItem(new string[] { item.ID, item.Name });
                 this.lvSubjectManage.Items.Add(listViewItem);
             }
         }
@@ -59,10 +59,11 @@ namespace TutteeFrame2.View
             DetailSubject detailSubject = new DetailSubject(ref subject);
             OverlayForm overlay = new OverlayForm(homeView, detailSubject);
             var dialogResult = detailSubject.ShowDialog();
-            if (subject != null && subject is Subject&& dialogResult == DialogResult.OK)
+            if (subject != null && subject is Subject && dialogResult == DialogResult.OK)
             {
                 subjectController.AddSubject((Subject)subject);
             }
+            homeView.Activate();
 
         }
 
@@ -74,12 +75,13 @@ namespace TutteeFrame2.View
                 object subject = new Subject(lvi.SubItems[0].Text, lvi.SubItems[1].Text);
                 DetailSubject detailSubject = new DetailSubject(ref subject);
                 OverlayForm overlay = new OverlayForm(homeView, detailSubject);
-                var dialogResult =  detailSubject.ShowDialog();
+                var dialogResult = detailSubject.ShowDialog();
                 if (subject != null && subject is Subject && dialogResult == DialogResult.OK)
                 {
-                   
+
                     subjectController.UpdateSubject((Subject)subject);
                 }
+                homeView.Activate();
             }
 
         }
@@ -90,14 +92,14 @@ namespace TutteeFrame2.View
             {
                 ListViewItem lvi = lvSubjectManage.SelectedItems[0];
                 Subject subject = new Subject(lvi.SubItems[0].Text, lvi.SubItems[1].Text);
-                 var dialogResult = Dialog.Show(homeView, "Bạn có chắc là muốn xóa môn này?", "Cảnh báo", MaterialSurface.Buttons.YesNo);
-                if(dialogResult == DialogResult.Yes)
+                var dialogResult = Dialog.Show(homeView, "Bạn có chắc là muốn xóa môn này?", "Cảnh báo", MaterialSurface.Buttons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
                     subjectController.DeleteSubject(subject);
                 }
-                
+
             }
         }
     }
-       
+
 }
