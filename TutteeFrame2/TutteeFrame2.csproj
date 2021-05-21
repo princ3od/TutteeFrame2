@@ -86,6 +86,12 @@
     <Compile Include="View\DetailSubject.Designer.cs">
       <DependentUpon>DetailSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\StudentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentView.Designer.cs">
+      <DependentUpon>StudentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SubjectView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\DetailSubject.resx">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentView.resx">
+      <DependentUpon>StudentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SubjectView.resx">
       <DependentUpon>SubjectView.cs</DependentUpon>
