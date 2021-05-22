@@ -46,8 +46,9 @@ namespace TutteeFrame2.View
             this.btnAddStudent = new MaterialSurface.ContainedButton();
             this.btnAddPunis = new MaterialSurface.ContainedButton();
             this.txtSearch = new MaterialSurface.MaterialTextfield();
+            this.cbbFilterByGrade = new MaterialSurface.MaterialComboBox();
+            this.cbbFilterByClass = new MaterialSurface.MaterialComboBox();
             this.cbbSortBy = new MaterialSurface.MaterialComboBox();
-            this.materialComboBox1 = new MaterialSurface.MaterialComboBox();
             this.SuspendLayout();
             // 
             // listViewStudents
@@ -261,10 +262,55 @@ namespace TutteeFrame2.View
             this.txtSearch.ReadOnly = false;
             this.txtSearch.ShortcutsEnable = true;
             this.txtSearch.ShowCaret = true;
-            this.txtSearch.Size = new System.Drawing.Size(416, 54);
+            this.txtSearch.Size = new System.Drawing.Size(298, 54);
             this.txtSearch.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSearch.TabIndex = 42;
             this.txtSearch.UseSystemPasswordChar = false;
+            // 
+            // cbbFilterByGrade
+            // 
+            this.cbbFilterByGrade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbFilterByGrade.AutoSizing = false;
+            this.cbbFilterByGrade.ComboBoxType = MaterialSurface.BoxType.Normal;
+            this.cbbFilterByGrade.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbbFilterByGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFilterByGrade.DropDownWidth = 121;
+            this.cbbFilterByGrade.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cbbFilterByGrade.FormattingEnabled = true;
+            this.cbbFilterByGrade.HintText = "Khối";
+            this.cbbFilterByGrade.ItemHeight = 41;
+            this.cbbFilterByGrade.Items.AddRange(new object[] {
+            "Tất cả",
+            "10",
+            "11",
+            "12"});
+            this.cbbFilterByGrade.Location = new System.Drawing.Point(390, 73);
+            this.cbbFilterByGrade.MaxDropDownItems = 4;
+            this.cbbFilterByGrade.MouseState = MaterialSurface.MouseState.OUT;
+            this.cbbFilterByGrade.Name = "cbbFilterByGrade";
+            this.cbbFilterByGrade.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.cbbFilterByGrade.Size = new System.Drawing.Size(135, 47);
+            this.cbbFilterByGrade.TabIndex = 43;
+            // 
+            // cbbFilterByClass
+            // 
+            this.cbbFilterByClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbFilterByClass.AutoSizing = false;
+            this.cbbFilterByClass.ComboBoxType = MaterialSurface.BoxType.Normal;
+            this.cbbFilterByClass.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbbFilterByClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFilterByClass.DropDownWidth = 121;
+            this.cbbFilterByClass.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cbbFilterByClass.FormattingEnabled = true;
+            this.cbbFilterByClass.HintText = "Lớp";
+            this.cbbFilterByClass.ItemHeight = 41;
+            this.cbbFilterByClass.Location = new System.Drawing.Point(609, 73);
+            this.cbbFilterByClass.MaxDropDownItems = 4;
+            this.cbbFilterByClass.MouseState = MaterialSurface.MouseState.OUT;
+            this.cbbFilterByClass.Name = "cbbFilterByClass";
+            this.cbbFilterByClass.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.cbbFilterByClass.Size = new System.Drawing.Size(135, 47);
+            this.cbbFilterByClass.TabIndex = 43;
             // 
             // cbbSortBy
             // 
@@ -276,48 +322,29 @@ namespace TutteeFrame2.View
             this.cbbSortBy.DropDownWidth = 121;
             this.cbbSortBy.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbbSortBy.FormattingEnabled = true;
-            this.cbbSortBy.HintText = "Khối";
+            this.cbbSortBy.HintText = "Sắp xếp theo";
             this.cbbSortBy.ItemHeight = 41;
             this.cbbSortBy.Items.AddRange(new object[] {
-            "Tất cả",
-            "10",
-            "11",
-            "12"});
-            this.cbbSortBy.Location = new System.Drawing.Point(516, 77);
+            "ID",
+            "Ngày sinh",
+            "Họ tên",
+            "Giới tính"});
+            this.cbbSortBy.Location = new System.Drawing.Point(799, 73);
             this.cbbSortBy.MaxDropDownItems = 4;
             this.cbbSortBy.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbSortBy.Name = "cbbSortBy";
             this.cbbSortBy.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
             this.cbbSortBy.Size = new System.Drawing.Size(135, 47);
-            this.cbbSortBy.TabIndex = 43;
-            // 
-            // materialComboBox1
-            // 
-            this.materialComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialComboBox1.AutoSizing = false;
-            this.materialComboBox1.ComboBoxType = MaterialSurface.BoxType.Normal;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.HintText = "Lớp";
-            this.materialComboBox1.ItemHeight = 41;
-            this.materialComboBox1.Location = new System.Drawing.Point(735, 77);
-            this.materialComboBox1.MaxDropDownItems = 4;
-            this.materialComboBox1.MouseState = MaterialSurface.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.materialComboBox1.Size = new System.Drawing.Size(135, 47);
-            this.materialComboBox1.TabIndex = 43;
+            this.cbbSortBy.TabIndex = 44;
             // 
             // StudentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.materialComboBox1);
             this.Controls.Add(this.cbbSortBy);
+            this.Controls.Add(this.cbbFilterByClass);
+            this.Controls.Add(this.cbbFilterByGrade);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDeleteStudent);
             this.Controls.Add(this.btnAddPunis);
@@ -352,7 +379,8 @@ namespace TutteeFrame2.View
         private MaterialSurface.ContainedButton btnAddStudent;
         private MaterialSurface.ContainedButton btnAddPunis;
         private MaterialSurface.MaterialTextfield txtSearch;
+        private MaterialSurface.MaterialComboBox cbbFilterByGrade;
+        private MaterialSurface.MaterialComboBox cbbFilterByClass;
         private MaterialSurface.MaterialComboBox cbbSortBy;
-        private MaterialSurface.MaterialComboBox materialComboBox1;
     }
 }

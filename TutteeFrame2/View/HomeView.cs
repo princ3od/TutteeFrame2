@@ -33,6 +33,7 @@ namespace TutteeFrame2.View
             Dialog.PrimaryColor = Color.FromArgb(47, 144, 176);
             teacherView1.SetHome(this);
             subjectView.SetHome(this);
+            studentView.SetHome(this);
         }
 
         public void CreateLoginView()
@@ -177,6 +178,7 @@ namespace TutteeFrame2.View
                     }
                 case 4:
                     {
+                        studentView.FetchData();
                         break;
                     }
                 case 5:
