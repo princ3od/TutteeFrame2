@@ -132,5 +132,10 @@ namespace TutteeFrame2.Controller
             studentView.FetchCbbClassItems();
             studentView.SetIndexOfCbbClassItemSelected(0);
         }
+    
+        public Student GetStudentByID(string studentID)
+        {
+            return StudentDA.Instance.GetStudentByID(studentID);
+        }
     }
 }

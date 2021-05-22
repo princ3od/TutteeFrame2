@@ -158,7 +158,7 @@ namespace TutteeFrame2.View
             oneTeacherView.Show();
             oneTeacherView.FormClosed += (s, ev) =>
             {
-                Home.Activate();
+                //Home.Activate();
                 if (oneTeacherView.doneSuccess)
                 {
                     Fetch();

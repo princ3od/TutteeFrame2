@@ -198,6 +198,7 @@ namespace TutteeFrame2.View
             this.btnUpdateStudent.Text = "Cập nhật";
             this.btnUpdateStudent.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnUpdateStudent.UseVisualStyleBackColor = true;
+            this.btnUpdateStudent.Click += new System.EventHandler(this.btnUpdateStudent_Click);
             // 
             // btnAddStudent
             // 

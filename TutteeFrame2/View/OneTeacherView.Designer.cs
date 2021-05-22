@@ -120,9 +120,9 @@ namespace TutteeFrame2.View
             this.lbInformation.BackColor = System.Drawing.Color.White;
             this.lbInformation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbInformation.Location = new System.Drawing.Point(10, 655);
+            this.lbInformation.Location = new System.Drawing.Point(10, 685);
             this.lbInformation.Name = "lbInformation";
-            this.lbInformation.Size = new System.Drawing.Size(88, 13);
+            this.lbInformation.Size = new System.Drawing.Size(103, 19);
             this.lbInformation.TabIndex = 52;
             this.lbInformation.Text = "*Đang kết nối...";
             this.lbInformation.Visible = false;
@@ -134,13 +134,13 @@ namespace TutteeFrame2.View
             this.mainProgressbar.ChangeDelay = 80;
             this.mainProgressbar.CircularWidth = 3.8F;
             this.mainProgressbar.IsIndetermine = true;
-            this.mainProgressbar.Location = new System.Drawing.Point(0, 669);
+            this.mainProgressbar.Location = new System.Drawing.Point(0, 699);
             this.mainProgressbar.Maximum = 100;
             this.mainProgressbar.Minimum = 0;
             this.mainProgressbar.MouseState = MaterialSurface.MouseState.HOVER;
             this.mainProgressbar.Name = "mainProgressbar";
             this.mainProgressbar.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.mainProgressbar.Size = new System.Drawing.Size(800, 6);
+            this.mainProgressbar.Size = new System.Drawing.Size(850, 6);
             this.mainProgressbar.Step = 10;
             this.mainProgressbar.TabIndex = 51;
             this.mainProgressbar.Text = "materialProgressbar1";
@@ -222,7 +222,7 @@ namespace TutteeFrame2.View
             this.dateBorn.Location = new System.Drawing.Point(104, 205);
             this.dateBorn.Margin = new System.Windows.Forms.Padding(5);
             this.dateBorn.Name = "dateBorn";
-            this.dateBorn.Size = new System.Drawing.Size(200, 29);
+            this.dateBorn.Size = new System.Drawing.Size(200, 34);
             this.dateBorn.TabIndex = 63;
             // 
             // label2
@@ -231,7 +231,7 @@ namespace TutteeFrame2.View
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.Location = new System.Drawing.Point(16, 211);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 21);
+            this.label2.Size = new System.Drawing.Size(99, 28);
             this.label2.TabIndex = 62;
             this.label2.Text = "Ngày sinh";
             // 
@@ -258,7 +258,7 @@ namespace TutteeFrame2.View
             this.txtAddress.ReadOnly = false;
             this.txtAddress.ShortcutsEnable = true;
             this.txtAddress.ShowCaret = true;
-            this.txtAddress.Size = new System.Drawing.Size(326, 67);
+            this.txtAddress.Size = new System.Drawing.Size(326, 72);
             this.txtAddress.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtAddress.TabIndex = 61;
             this.txtAddress.UseSystemPasswordChar = false;
@@ -285,7 +285,7 @@ namespace TutteeFrame2.View
             this.txtFirstname.ReadOnly = false;
             this.txtFirstname.ShortcutsEnable = true;
             this.txtFirstname.ShowCaret = true;
-            this.txtFirstname.Size = new System.Drawing.Size(135, 67);
+            this.txtFirstname.Size = new System.Drawing.Size(135, 72);
             this.txtFirstname.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtFirstname.TabIndex = 60;
             this.txtFirstname.UseSystemPasswordChar = false;
@@ -314,7 +314,7 @@ namespace TutteeFrame2.View
             this.txtSurename.ReadOnly = false;
             this.txtSurename.ShortcutsEnable = true;
             this.txtSurename.ShowCaret = true;
-            this.txtSurename.Size = new System.Drawing.Size(195, 67);
+            this.txtSurename.Size = new System.Drawing.Size(195, 72);
             this.txtSurename.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSurename.TabIndex = 59;
             this.txtSurename.UseSystemPasswordChar = false;
@@ -327,7 +327,7 @@ namespace TutteeFrame2.View
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 28);
+            this.label1.Size = new System.Drawing.Size(204, 35);
             this.label1.TabIndex = 41;
             this.label1.Text = "Thông tin cơ bản";
             // 
@@ -338,7 +338,7 @@ namespace TutteeFrame2.View
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(281, 609);
+            this.btnSubmit.Location = new System.Drawing.Point(241, 634);
             this.btnSubmit.MouseState = MaterialSurface.MouseState.OUT;
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -395,7 +395,7 @@ namespace TutteeFrame2.View
             this.txtMail.ReadOnly = false;
             this.txtMail.ShortcutsEnable = true;
             this.txtMail.ShowCaret = true;
-            this.txtMail.Size = new System.Drawing.Size(247, 67);
+            this.txtMail.Size = new System.Drawing.Size(247, 72);
             this.txtMail.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtMail.TabIndex = 61;
             this.txtMail.UseSystemPasswordChar = false;
@@ -423,7 +423,7 @@ namespace TutteeFrame2.View
             this.txtPhone.ReadOnly = false;
             this.txtPhone.ShortcutsEnable = true;
             this.txtPhone.ShowCaret = true;
-            this.txtPhone.Size = new System.Drawing.Size(247, 67);
+            this.txtPhone.Size = new System.Drawing.Size(247, 72);
             this.txtPhone.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtPhone.TabIndex = 60;
             this.txtPhone.UseSystemPasswordChar = false;
@@ -434,7 +434,7 @@ namespace TutteeFrame2.View
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(15, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(161, 28);
+            this.label4.Size = new System.Drawing.Size(205, 35);
             this.label4.TabIndex = 42;
             this.label4.Text = "Thông tin liên lạc";
             // 
@@ -481,7 +481,7 @@ namespace TutteeFrame2.View
             this.txtPosition.ReadOnly = false;
             this.txtPosition.ShortcutsEnable = true;
             this.txtPosition.ShowCaret = true;
-            this.txtPosition.Size = new System.Drawing.Size(247, 49);
+            this.txtPosition.Size = new System.Drawing.Size(247, 54);
             this.txtPosition.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtPosition.TabIndex = 66;
             this.txtPosition.UseSystemPasswordChar = false;
@@ -515,7 +515,7 @@ namespace TutteeFrame2.View
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(15, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 28);
+            this.label5.Size = new System.Drawing.Size(69, 35);
             this.label5.TabIndex = 42;
             this.label5.Text = "Khác";
             // 
@@ -526,7 +526,7 @@ namespace TutteeFrame2.View
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(431, 614);
+            this.btnCancel.Location = new System.Drawing.Point(412, 644);
             this.btnCancel.MouseState = MaterialSurface.MouseState.OUT;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PrimaryColor = System.Drawing.Color.Red;
@@ -558,7 +558,7 @@ namespace TutteeFrame2.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(800, 675);
+            this.ClientSize = new System.Drawing.Size(850, 705);
             this.Controls.Add(this.btnChooseAvatar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.materialCard3);

@@ -63,5 +63,52 @@ namespace TutteeFrame2.DataAccess
             return students;
         }
 
+        public Student GetStudentByID(string _studentID)
+        {
+            bool success = Connect();
+            Student _student = new Student();
+            if (!success)
+                return null;
+            try
+            {
+                string query = $"SELECT * FROM STUDENT WHERE StudentID = @studentid";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentid", _studentID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            _student.ID = reader.GetString(0);
+                            _student.SurName = reader.GetString(1);
+                            _student.FirstName = reader.GetString(2);
+                            if (reader.IsDBNull(3) == false)
+                                _student.Avatar = ImageHelper.BytesToImage((byte[])reader["StudentImage"]);
+                            if (reader.IsDBNull(4) == false)
+                                _student.DateBorn = reader.GetDateTime(4);
+                            _student.Sex = reader.GetBoolean(5);
+                            _student.Address = reader.GetString(6);
+                            _student.Phone = reader.GetString(7);
+                            _student.ClassID = reader.GetString(8);
+                            _student.Status = reader.GetBoolean(9);
+                            //if (reader.IsDBNull(10) == false)
+                            //    _student.PunishmentList = reader.GetString(10);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return _student;
+        }
+
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
+using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.View
 {
@@ -112,6 +113,12 @@ namespace TutteeFrame2.View
             classFilter = (String)cbbFilterByClass.SelectedItem;
             studentController.FilterStudentByClass();
         }
-   
+
+        private void btnUpdateStudent_Click(object sender, EventArgs e)
+        {
+            OneStudentView oneStudentView = new OneStudentView( OneStudentView.Mode.Edit,"20200005");
+            OverlayForm overlayForm = new OverlayForm(homeView, oneStudentView);
+            oneStudentView.ShowDialog();
+        }
     }
 }
