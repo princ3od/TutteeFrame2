@@ -49,6 +49,8 @@ namespace TutteeFrame2.View
             this.cbbFilterByGrade = new MaterialSurface.MaterialComboBox();
             this.cbbFilterByClass = new MaterialSurface.MaterialComboBox();
             this.cbbSortBy = new MaterialSurface.MaterialComboBox();
+            this.lbSumStudent = new MaterialSkin.Controls.MaterialLabel();
+            this.lbSumClass = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // listViewStudents
@@ -79,10 +81,11 @@ namespace TutteeFrame2.View
             this.listViewStudents.MouseState = MaterialSkin.MouseState.OUT;
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.OwnerDraw = true;
-            this.listViewStudents.Size = new System.Drawing.Size(1124, 353);
+            this.listViewStudents.Size = new System.Drawing.Size(1124, 345);
             this.listViewStudents.TabIndex = 11;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
             this.listViewStudents.View = System.Windows.Forms.View.Details;
+            this.listViewStudents.SelectedIndexChanged += new System.EventHandler(this.OnFilterGradeTypeChanged);
             // 
             // clmStudentID
             // 
@@ -161,11 +164,10 @@ namespace TutteeFrame2.View
             // 
             this.btnDeleteStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteStudent.EffectType = MaterialSurface.ET.Custom;
-            this.btnDeleteStudent.Enabled = false;
             this.btnDeleteStudent.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnDeleteStudent.Icon = null;
-            this.btnDeleteStudent.Location = new System.Drawing.Point(782, 501);
+            this.btnDeleteStudent.Location = new System.Drawing.Point(790, 481);
             this.btnDeleteStudent.MouseState = MaterialSurface.MouseState.OUT;
             this.btnDeleteStudent.Name = "btnDeleteStudent";
             this.btnDeleteStudent.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -182,11 +184,10 @@ namespace TutteeFrame2.View
             // 
             this.btnUpdateStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUpdateStudent.EffectType = MaterialSurface.ET.Custom;
-            this.btnUpdateStudent.Enabled = false;
             this.btnUpdateStudent.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnUpdateStudent.Icon = null;
-            this.btnUpdateStudent.Location = new System.Drawing.Point(164, 501);
+            this.btnUpdateStudent.Location = new System.Drawing.Point(167, 481);
             this.btnUpdateStudent.MouseState = MaterialSurface.MouseState.OUT;
             this.btnUpdateStudent.Name = "btnUpdateStudent";
             this.btnUpdateStudent.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -206,7 +207,7 @@ namespace TutteeFrame2.View
             this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnAddStudent.Icon = null;
-            this.btnAddStudent.Location = new System.Drawing.Point(15, 501);
+            this.btnAddStudent.Location = new System.Drawing.Point(18, 481);
             this.btnAddStudent.MouseState = MaterialSurface.MouseState.OUT;
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -223,11 +224,10 @@ namespace TutteeFrame2.View
             // 
             this.btnAddPunis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddPunis.EffectType = MaterialSurface.ET.Custom;
-            this.btnAddPunis.Enabled = false;
             this.btnAddPunis.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPunis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnAddPunis.Icon = null;
-            this.btnAddPunis.Location = new System.Drawing.Point(326, 501);
+            this.btnAddPunis.Location = new System.Drawing.Point(329, 481);
             this.btnAddPunis.MouseState = MaterialSurface.MouseState.OUT;
             this.btnAddPunis.Name = "btnAddPunis";
             this.btnAddPunis.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -262,7 +262,7 @@ namespace TutteeFrame2.View
             this.txtSearch.ReadOnly = false;
             this.txtSearch.ShortcutsEnable = true;
             this.txtSearch.ShowCaret = true;
-            this.txtSearch.Size = new System.Drawing.Size(298, 54);
+            this.txtSearch.Size = new System.Drawing.Size(348, 54);
             this.txtSearch.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSearch.TabIndex = 42;
             this.txtSearch.UseSystemPasswordChar = false;
@@ -284,13 +284,14 @@ namespace TutteeFrame2.View
             "10",
             "11",
             "12"});
-            this.cbbFilterByGrade.Location = new System.Drawing.Point(390, 73);
+            this.cbbFilterByGrade.Location = new System.Drawing.Point(443, 73);
             this.cbbFilterByGrade.MaxDropDownItems = 4;
             this.cbbFilterByGrade.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbFilterByGrade.Name = "cbbFilterByGrade";
             this.cbbFilterByGrade.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
             this.cbbFilterByGrade.Size = new System.Drawing.Size(135, 47);
             this.cbbFilterByGrade.TabIndex = 43;
+            this.cbbFilterByGrade.SelectedIndexChanged += new System.EventHandler(this.OnFilterGradeTypeChanged);
             // 
             // cbbFilterByClass
             // 
@@ -304,7 +305,7 @@ namespace TutteeFrame2.View
             this.cbbFilterByClass.FormattingEnabled = true;
             this.cbbFilterByClass.HintText = "Lớp";
             this.cbbFilterByClass.ItemHeight = 41;
-            this.cbbFilterByClass.Location = new System.Drawing.Point(609, 73);
+            this.cbbFilterByClass.Location = new System.Drawing.Point(616, 73);
             this.cbbFilterByClass.MaxDropDownItems = 4;
             this.cbbFilterByClass.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbFilterByClass.Name = "cbbFilterByClass";
@@ -329,19 +330,52 @@ namespace TutteeFrame2.View
             "Ngày sinh",
             "Họ tên",
             "Giới tính"});
-            this.cbbSortBy.Location = new System.Drawing.Point(799, 73);
+            this.cbbSortBy.Location = new System.Drawing.Point(800, 73);
             this.cbbSortBy.MaxDropDownItems = 4;
             this.cbbSortBy.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbSortBy.Name = "cbbSortBy";
             this.cbbSortBy.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
             this.cbbSortBy.Size = new System.Drawing.Size(135, 47);
             this.cbbSortBy.TabIndex = 44;
+            this.cbbSortBy.SelectedIndexChanged += new System.EventHandler(this.OnSortTypeChaned);
+            // 
+            // lbSumStudent
+            // 
+            this.lbSumStudent.AutoSize = true;
+            this.lbSumStudent.Depth = 0;
+            this.lbSumStudent.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbSumStudent.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lbSumStudent.HighEmphasis = true;
+            this.lbSumStudent.Location = new System.Drawing.Point(350, 43);
+            this.lbSumStudent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbSumStudent.Name = "lbSumStudent";
+            this.lbSumStudent.Size = new System.Drawing.Size(15, 24);
+            this.lbSumStudent.TabIndex = 45;
+            this.lbSumStudent.Text = "--";
+            this.lbSumStudent.UseAccent = true;
+            // 
+            // lbSumClass
+            // 
+            this.lbSumClass.AutoSize = true;
+            this.lbSumClass.Depth = 0;
+            this.lbSumClass.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbSumClass.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lbSumClass.HighEmphasis = true;
+            this.lbSumClass.Location = new System.Drawing.Point(114, 38);
+            this.lbSumClass.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbSumClass.Name = "lbSumClass";
+            this.lbSumClass.Size = new System.Drawing.Size(15, 24);
+            this.lbSumClass.TabIndex = 46;
+            this.lbSumClass.Text = "--";
+            this.lbSumClass.UseAccent = true;
             // 
             // StudentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lbSumClass);
+            this.Controls.Add(this.lbSumStudent);
             this.Controls.Add(this.cbbSortBy);
             this.Controls.Add(this.cbbFilterByClass);
             this.Controls.Add(this.cbbFilterByGrade);
@@ -382,5 +416,7 @@ namespace TutteeFrame2.View
         private MaterialSurface.MaterialComboBox cbbFilterByGrade;
         private MaterialSurface.MaterialComboBox cbbFilterByClass;
         private MaterialSurface.MaterialComboBox cbbSortBy;
+        private MaterialSkin.Controls.MaterialLabel lbSumStudent;
+        private MaterialSkin.Controls.MaterialLabel lbSumClass;
     }
 }

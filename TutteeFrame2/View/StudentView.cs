@@ -16,9 +16,27 @@ namespace TutteeFrame2.View
     {
         public HomeView homeView;
         readonly StudentController studentController;
+        public bool firstLoad = true;
+        public enum SortType
+        {
+            ByID = 0,
+            ByBirthday = 1,
+            ByName = 2,
+            BySex = 3,
+        }
+        public enum GradeFilter
+        {
+            All = 0,
+            Grade10 = 1,
+            Grade11 = 2,
+            Grade12 = 3,
+        }
+        public SortType sortType = SortType.ByID;
+        public GradeFilter gradeFilter = GradeFilter.All;
         public StudentView()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             studentController = new  StudentController(this);
         }
 
@@ -44,12 +62,32 @@ namespace TutteeFrame2.View
             listViewStudents.Items.Clear();
             foreach (Student student in studentController.students)
             {
-                
                 ListViewItem lvi = new ListViewItem(new string[] {student.ID,student.SurName,student.FirstName,
-                    student.DateBorn.ToString("dd/mm/yyyy"),student.GetSex,student.Address,
-                    student.Phone,student.ClassID,student.Status?"Nam":"Nữ" });
+                    student.DateBorn.ToString("dd/MM/yyyy"),student.GetSex,student.Address,
+                    student.Phone,student.ClassID,student.Status?"Đang học":"Đã nghĩ học" });
                 listViewStudents.Items.Add(lvi);
             }
+            lbSumStudent.Text = studentController.students.Count.ToString();
+            if(firstLoad == true)
+            {
+                firstLoad = false;
+            };
+        }
+
+        private void OnSortTypeChaned(object sender, EventArgs e)
+        {
+            if (cbbSortBy.SelectedIndex < 0 || firstLoad)
+                return;
+            sortType = (SortType)cbbSortBy.SelectedIndex;
+            studentController.ChangeSortType();
+        }
+
+        private void OnFilterGradeTypeChanged(object sender, EventArgs e)
+        {
+            if (cbbFilterByGrade.SelectedIndex < 0 || firstLoad)
+                return;
+            gradeFilter = (GradeFilter)cbbFilterByGrade.SelectedIndex;
+            studentController.FilterStudentByGrade();
         }
 
     }
