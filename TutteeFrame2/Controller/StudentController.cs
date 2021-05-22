@@ -14,6 +14,7 @@ namespace TutteeFrame2.Controller
         public readonly StudentView studentView;
         public  List<Student> students;
         public List<Student> originalStudents;
+        public List<string> cbbClassItems;
         bool isLoading = false;
         public StudentController(StudentView studentView)
         {
@@ -36,20 +37,40 @@ namespace TutteeFrame2.Controller
         private void FilterStudentsInOrginalByGrade(String grade)
         {
             students = new List<Student>();
-            foreach(var student in originalStudents)
+            cbbClassItems = new List<string>();
+            if (grade != "All")
             {
-                if(student.ClassID.Substring(0,2) == grade)
+                foreach (var student in originalStudents)
                 {
-                    students.Add(student);
+                    if (student.ClassID.Substring(0, 2) == grade)
+                    {
+                        students.Add(student);
+                        if (cbbClassItems.IndexOf(student.ClassID) == -1)
+                        {
+                            cbbClassItems.Add(student.ClassID);
+                        }
+                    }
                 }
             }
+            else
+            {
+                students = originalStudents;
+                foreach (var student in students)
+                {
+                    if (cbbClassItems.IndexOf(student.ClassID) == -1)
+                    {
+                        cbbClassItems.Add(student.ClassID);
+                    }
+                }
+            }
+
         }
         public void FilterStudentByGrade()
         {
             switch (studentView.gradeFilter)
             {
                 case StudentView.GradeFilter.All:
-                    students = originalStudents;
+                    FilterStudentsInOrginalByGrade("All");
                     break;
                 case StudentView.GradeFilter.Grade10:
                     FilterStudentsInOrginalByGrade("10");
@@ -87,6 +108,25 @@ namespace TutteeFrame2.Controller
             studentView.ShowStudentsOnListView();
         }
 
-
+        public void FilterStudentByClass()
+        {
+            List<Student> classStudents = new List<Student>();
+            if(studentView.classFilter=="Tất cả")
+            {
+                classStudents = students;
+            }
+            else
+            {
+                foreach(var student in originalStudents)
+                {
+                    if(student.ClassID == studentView.classFilter)
+                    {
+                        classStudents.Add(student);
+                    }
+                }
+            }
+            students = classStudents;
+            studentView.ShowStudentsOnListView();
+        }
     }
 }

@@ -33,6 +33,8 @@ namespace TutteeFrame2.View
         }
         public SortType sortType = SortType.ByID;
         public GradeFilter gradeFilter = GradeFilter.All;
+        public string  classFilter = "Tất cả";
+        bool isClassFiltterChanged = false;
         public StudentView()
         {
             InitializeComponent();
@@ -67,11 +69,24 @@ namespace TutteeFrame2.View
                     student.Phone,student.ClassID,student.Status?"Đang học":"Đã nghĩ học" });
                 listViewStudents.Items.Add(lvi);
             }
+            
             lbSumStudent.Text = studentController.students.Count.ToString();
-            if(firstLoad == true)
+            if(!isClassFiltterChanged)FetchCbbClassItems();
+            if (firstLoad == true)
             {
                 firstLoad = false;
             };
+        }
+
+           
+        public void FetchCbbClassItems()
+        {
+            cbbFilterByClass.Items.Clear();
+            cbbFilterByClass.Items.Add("Tất cả");
+            foreach (var item in studentController.cbbClassItems)
+            {
+                cbbFilterByClass.Items.Add(item);
+            }
         }
 
         private void OnSortTypeChaned(object sender, EventArgs e)
@@ -87,7 +102,16 @@ namespace TutteeFrame2.View
             if (cbbFilterByGrade.SelectedIndex < 0 || firstLoad)
                 return;
             gradeFilter = (GradeFilter)cbbFilterByGrade.SelectedIndex;
+            isClassFiltterChanged = false;
             studentController.FilterStudentByGrade();
+        }
+
+        private void OnFilterClassChanged(object sender, EventArgs e)
+        {
+            if (cbbFilterByClass.SelectedIndex < 0 || firstLoad) return;
+            classFilter = (String)cbbFilterByClass.SelectedItem;
+            isClassFiltterChanged = true;
+            studentController.FilterStudentByClass();
         }
 
     }

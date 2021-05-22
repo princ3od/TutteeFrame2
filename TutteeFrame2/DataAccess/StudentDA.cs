@@ -36,16 +36,16 @@ namespace TutteeFrame2.DataAccess
                     while (sqlDataReader.Read())
                     {
                         Student student = new Student();
-                        student.ID = (String)sqlDataReader["StudentId"];
-                        student.SurName = (String)sqlDataReader["Surname"];
-                        student.FirstName = (String)sqlDataReader["Firstname"];
-                        student.Avatar  = ImageHelper.BytesToImage((byte[])sqlDataReader["StudentImage"]);
-                        student.DateBorn = (DateTime)sqlDataReader["DateBorn"];
-                        student.Sex = (bool)sqlDataReader["Sex"];
-                        student.Address = (String)sqlDataReader["Address"];
-                        student.Phone = (String)sqlDataReader["Phonne"];
-                        student.ClassID = (String)sqlDataReader["ClassID"];
-                        student.Status = (bool)sqlDataReader["Status"];
+                        student.ID = sqlDataReader["StudentId"]!=null? (String)sqlDataReader["StudentId"] : null;
+                        student.SurName = sqlDataReader["Surname"]!=null?(String)sqlDataReader["Surname"]:null;
+                        student.FirstName = sqlDataReader["Firstname"] != null? (String)sqlDataReader["Firstname"]:null;
+                        student.Avatar  = sqlDataReader["StudentImage"]!=null? ImageHelper.BytesToImage((byte[])sqlDataReader["StudentImage"]):null;
+                        student.DateBorn = sqlDataReader["DateBorn"]!=null?(DateTime)sqlDataReader["DateBorn"]: DateTime.Now;
+                        student.Sex = sqlDataReader["Sex"]!=null?(bool)sqlDataReader["Sex"]:false;
+                        student.Address = sqlDataReader["Address"]!=null?(String)sqlDataReader["Address"]:null;
+                        student.Phone = sqlDataReader["Phonne"]!=null?(String)sqlDataReader["Phonne"]:null;
+                        student.ClassID = sqlDataReader["ClassID"]!=null?(String)sqlDataReader["ClassID"]:null;
+                        student.Status = sqlDataReader["Status"]!=null?(bool)sqlDataReader["Status"]:false;
                         students.Add(student);
                     }
                 }

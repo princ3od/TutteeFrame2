@@ -312,6 +312,7 @@ namespace TutteeFrame2.View
             this.cbbFilterByClass.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
             this.cbbFilterByClass.Size = new System.Drawing.Size(135, 47);
             this.cbbFilterByClass.TabIndex = 43;
+            this.cbbFilterByClass.SelectedIndexChanged += new System.EventHandler(this.OnFilterClassChanged);
             // 
             // cbbSortBy
             // 
