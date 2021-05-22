@@ -30,6 +30,7 @@ namespace TutteeFrame2.Controller
           
             });
             FilterStudentByGrade();
+            FetchCbbClassItems();
             isLoading = false;
             studentView.homeView.SetLoad(false);
         }
@@ -129,6 +130,7 @@ namespace TutteeFrame2.Controller
                 }
             }
             studentView.FetchCbbClassItems();
+            studentView.SetIndexOfCbbClassItemSelected(0);
         }
     }
 }

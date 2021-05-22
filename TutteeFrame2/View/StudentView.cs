@@ -35,11 +35,16 @@ namespace TutteeFrame2.View
         public GradeFilter gradeFilter = GradeFilter.All;
         public string  classFilter = "Tất cả";
 
+
         public StudentView()
         {
             InitializeComponent();
             DoubleBuffered = true;
             studentController = new  StudentController(this);
+        }
+        public void SetIndexOfCbbClassItemSelected(int index)
+        {
+            cbbFilterByClass.SelectedIndex = index;
         }
         protected override void OnLoad(EventArgs e)
         {
@@ -107,5 +112,6 @@ namespace TutteeFrame2.View
             classFilter = (String)cbbFilterByClass.SelectedItem;
             studentController.FilterStudentByClass();
         }
+   
     }
 }
