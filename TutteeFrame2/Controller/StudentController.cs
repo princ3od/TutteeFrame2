@@ -45,25 +45,13 @@ namespace TutteeFrame2.Controller
                     if (student.ClassID.Substring(0, 2) == grade)
                     {
                         students.Add(student);
-                        if (cbbClassItems.IndexOf(student.ClassID) == -1)
-                        {
-                            cbbClassItems.Add(student.ClassID);
-                        }
                     }
                 }
             }
             else
             {
                 students = originalStudents;
-                foreach (var student in students)
-                {
-                    if (cbbClassItems.IndexOf(student.ClassID) == -1)
-                    {
-                        cbbClassItems.Add(student.ClassID);
-                    }
-                }
             }
-
         }
         public void FilterStudentByGrade()
         {
@@ -113,6 +101,7 @@ namespace TutteeFrame2.Controller
             List<Student> classStudents = new List<Student>();
             if(studentView.classFilter=="Tất cả")
             {
+                FilterStudentByGrade();
                 classStudents = students;
             }
             else
@@ -127,6 +116,19 @@ namespace TutteeFrame2.Controller
             }
             students = classStudents;
             studentView.ShowStudentsOnListView();
+        }
+        
+        public void FetchCbbClassItems()
+        {
+            cbbClassItems = new List<string>();
+            foreach(var item in students)
+            {
+                if (cbbClassItems.IndexOf(item.ClassID) == -1)
+                {
+                    cbbClassItems.Add(item.ClassID);
+                }
+            }
+            studentView.FetchCbbClassItems();
         }
     }
 }

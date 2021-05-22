@@ -34,20 +34,18 @@ namespace TutteeFrame2.View
         public SortType sortType = SortType.ByID;
         public GradeFilter gradeFilter = GradeFilter.All;
         public string  classFilter = "Tất cả";
-        bool isClassFiltterChanged = false;
+
         public StudentView()
         {
             InitializeComponent();
             DoubleBuffered = true;
             studentController = new  StudentController(this);
         }
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             cbbFilterByGrade.SelectedIndex = 0;
             cbbSortBy.SelectedIndex = 0;
-          
         }
         public void SetHome(HomeView homeView)
         {
@@ -57,7 +55,6 @@ namespace TutteeFrame2.View
         {
             studentController.FetchData();
         }
-
         public void ShowStudentsOnListView()
         {
 
@@ -71,14 +68,12 @@ namespace TutteeFrame2.View
             }
             
             lbSumStudent.Text = studentController.students.Count.ToString();
-            if(!isClassFiltterChanged)FetchCbbClassItems();
+
             if (firstLoad == true)
             {
                 firstLoad = false;
             };
         }
-
-           
         public void FetchCbbClassItems()
         {
             cbbFilterByClass.Items.Clear();
@@ -88,13 +83,13 @@ namespace TutteeFrame2.View
                 cbbFilterByClass.Items.Add(item);
             }
         }
-
         private void OnSortTypeChaned(object sender, EventArgs e)
         {
             if (cbbSortBy.SelectedIndex < 0 || firstLoad)
                 return;
             sortType = (SortType)cbbSortBy.SelectedIndex;
             studentController.ChangeSortType();
+            
         }
 
         private void OnFilterGradeTypeChanged(object sender, EventArgs e)
@@ -102,17 +97,15 @@ namespace TutteeFrame2.View
             if (cbbFilterByGrade.SelectedIndex < 0 || firstLoad)
                 return;
             gradeFilter = (GradeFilter)cbbFilterByGrade.SelectedIndex;
-            isClassFiltterChanged = false;
             studentController.FilterStudentByGrade();
+            studentController.FetchCbbClassItems();
         }
 
         private void OnFilterClassChanged(object sender, EventArgs e)
         {
             if (cbbFilterByClass.SelectedIndex < 0 || firstLoad) return;
             classFilter = (String)cbbFilterByClass.SelectedItem;
-            isClassFiltterChanged = true;
             studentController.FilterStudentByClass();
         }
-
     }
 }

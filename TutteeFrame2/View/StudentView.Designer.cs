@@ -85,7 +85,6 @@ namespace TutteeFrame2.View
             this.listViewStudents.TabIndex = 11;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
             this.listViewStudents.View = System.Windows.Forms.View.Details;
-            this.listViewStudents.SelectedIndexChanged += new System.EventHandler(this.OnFilterGradeTypeChanged);
             // 
             // clmStudentID
             // 
