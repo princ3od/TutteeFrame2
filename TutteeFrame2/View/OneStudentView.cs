@@ -177,22 +177,22 @@ namespace TutteeFrame2.View
             SetLoad(true, "Đang thực hiện cập nhật dữ liệu...");
 
             bool progressResult = false;
-             await Task.Run(() =>
-            {
+            await Task.Run(() =>
+           {
 
-                StudentController studentController = new StudentController(null);
-                 progressResult = (this.mode == Mode.Edit) ? studentController.UpdateStudent(this.student) :
-                studentController.AddStudent(this.student);
+               StudentController studentController = new StudentController(null);
+               progressResult = (this.mode == Mode.Edit) ? studentController.UpdateStudent(this.student) :
+               studentController.AddStudent(this.student);
 
-            });
+           });
             SetLoad(false);
             if (progressResult)
             {
                 SetLoad(false);
                 Dialog.Show(this, "Cập nhật thành công.", tittle: "Thông báo");
-                if(mode == Mode.Add)
+                if (mode == Mode.Add)
                 {
-                    Snackbar.MakeSnackbar(studentView.homeView, $"Đã thêm mới  học sinh  {this.student.ID}  thành công", buttonText:"Thông báo");
+                    Snackbar.MakeSnackbar(studentView.homeView, $"Đã thêm mới  học sinh  {this.student.ID}  thành công", buttonText: "Thông báo");
 
                 }
                 else
@@ -201,7 +201,7 @@ namespace TutteeFrame2.View
                 }
                 this.studentView.FetchData();
                 this.Close();
-                
+
             }
             else
             {
@@ -221,7 +221,5 @@ namespace TutteeFrame2.View
 
             }
         }
-        
-
     }
 }

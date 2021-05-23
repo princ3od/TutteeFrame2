@@ -77,7 +77,7 @@ namespace TutteeFrame2.View
             "Giáo viên",
             "Giáo vụ",
             "Ban giám hiệu"});
-            this.cbbCurrentClass.Location = new System.Drawing.Point(209, 65);
+            this.cbbCurrentClass.Location = new System.Drawing.Point(210, 50);
             this.cbbCurrentClass.MaxDropDownItems = 4;
             this.cbbCurrentClass.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbCurrentClass.Name = "cbbCurrentClass";
@@ -92,7 +92,7 @@ namespace TutteeFrame2.View
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(15, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 35);
+            this.label5.Size = new System.Drawing.Size(54, 28);
             this.label5.TabIndex = 42;
             this.label5.Text = "Khác";
             // 
@@ -105,7 +105,7 @@ namespace TutteeFrame2.View
             this.materialCard3.Controls.Add(this.cbbCurrentClass);
             this.materialCard3.Controls.Add(this.label5);
             this.materialCard3.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialCard3.Location = new System.Drawing.Point(434, 474);
+            this.materialCard3.Location = new System.Drawing.Point(401, 460);
             this.materialCard3.Margin = new System.Windows.Forms.Padding(5);
             this.materialCard3.MouseInteract = true;
             this.materialCard3.MouseState = MaterialSurface.MouseState.OUT;
@@ -113,7 +113,7 @@ namespace TutteeFrame2.View
             this.materialCard3.Radius = 9;
             this.materialCard3.ShawdowDepth = 2;
             this.materialCard3.ShawdowOpacity = 50;
-            this.materialCard3.Size = new System.Drawing.Size(366, 217);
+            this.materialCard3.Size = new System.Drawing.Size(366, 188);
             this.materialCard3.Style = MaterialSurface.MaterialCard.CardStyle.Elevated;
             this.materialCard3.TabIndex = 68;
             // 
@@ -130,7 +130,7 @@ namespace TutteeFrame2.View
             this.txtCurrentClass.HelperText = "";
             this.txtCurrentClass.HideSelection = true;
             this.txtCurrentClass.HintText = "Lớp hiện tại";
-            this.txtCurrentClass.Location = new System.Drawing.Point(19, 56);
+            this.txtCurrentClass.Location = new System.Drawing.Point(20, 46);
             this.txtCurrentClass.MaxLength = 32767;
             this.txtCurrentClass.MouseState = MaterialSurface.MouseState.OUT;
             this.txtCurrentClass.Multiline = false;
@@ -140,7 +140,7 @@ namespace TutteeFrame2.View
             this.txtCurrentClass.ReadOnly = false;
             this.txtCurrentClass.ShortcutsEnable = true;
             this.txtCurrentClass.ShowCaret = true;
-            this.txtCurrentClass.Size = new System.Drawing.Size(184, 72);
+            this.txtCurrentClass.Size = new System.Drawing.Size(184, 67);
             this.txtCurrentClass.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtCurrentClass.TabIndex = 67;
             this.txtCurrentClass.UseSystemPasswordChar = false;
@@ -159,7 +159,7 @@ namespace TutteeFrame2.View
             this.cbbStatus.Items.AddRange(new object[] {
             "Đã nghĩ học",
             "Đang học"});
-            this.cbbStatus.Location = new System.Drawing.Point(30, 143);
+            this.cbbStatus.Location = new System.Drawing.Point(30, 119);
             this.cbbStatus.MaxDropDownItems = 4;
             this.cbbStatus.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbStatus.Name = "cbbStatus";
@@ -190,7 +190,7 @@ namespace TutteeFrame2.View
             this.txtPhone.ReadOnly = false;
             this.txtPhone.ShortcutsEnable = true;
             this.txtPhone.ShowCaret = true;
-            this.txtPhone.Size = new System.Drawing.Size(247, 72);
+            this.txtPhone.Size = new System.Drawing.Size(247, 67);
             this.txtPhone.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtPhone.TabIndex = 60;
             this.txtPhone.UseSystemPasswordChar = false;
@@ -201,7 +201,7 @@ namespace TutteeFrame2.View
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(15, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(205, 35);
+            this.label4.Size = new System.Drawing.Size(161, 28);
             this.label4.TabIndex = 42;
             this.label4.Text = "Thông tin liên lạc";
             // 
@@ -219,7 +219,7 @@ namespace TutteeFrame2.View
             this.cbbSex.Items.AddRange(new object[] {
             "Nữ",
             "Nam"});
-            this.cbbSex.Location = new System.Drawing.Point(20, 261);
+            this.cbbSex.Location = new System.Drawing.Point(12, 252);
             this.cbbSex.MaxDropDownItems = 4;
             this.cbbSex.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbSex.Name = "cbbSex";
@@ -235,7 +235,7 @@ namespace TutteeFrame2.View
             this.dateBornPicker.Location = new System.Drawing.Point(122, 208);
             this.dateBornPicker.Margin = new System.Windows.Forms.Padding(5);
             this.dateBornPicker.Name = "dateBornPicker";
-            this.dateBornPicker.Size = new System.Drawing.Size(200, 34);
+            this.dateBornPicker.Size = new System.Drawing.Size(200, 29);
             this.dateBornPicker.TabIndex = 63;
             // 
             // label2
@@ -244,7 +244,7 @@ namespace TutteeFrame2.View
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.Location = new System.Drawing.Point(16, 211);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 28);
+            this.label2.Size = new System.Drawing.Size(80, 21);
             this.label2.TabIndex = 62;
             this.label2.Text = "Ngày sinh";
             // 
@@ -271,7 +271,7 @@ namespace TutteeFrame2.View
             this.txtAddress.ReadOnly = false;
             this.txtAddress.ShortcutsEnable = true;
             this.txtAddress.ShowCaret = true;
-            this.txtAddress.Size = new System.Drawing.Size(326, 72);
+            this.txtAddress.Size = new System.Drawing.Size(326, 67);
             this.txtAddress.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtAddress.TabIndex = 61;
             this.txtAddress.UseSystemPasswordChar = false;
@@ -289,7 +289,7 @@ namespace TutteeFrame2.View
             this.txtMail.HelperText = "";
             this.txtMail.HideSelection = true;
             this.txtMail.HintText = "Mail";
-            this.txtMail.Location = new System.Drawing.Point(19, 128);
+            this.txtMail.Location = new System.Drawing.Point(20, 128);
             this.txtMail.Margin = new System.Windows.Forms.Padding(5);
             this.txtMail.MaxLength = 32767;
             this.txtMail.MouseState = MaterialSurface.MouseState.OUT;
@@ -300,7 +300,7 @@ namespace TutteeFrame2.View
             this.txtMail.ReadOnly = false;
             this.txtMail.ShortcutsEnable = true;
             this.txtMail.ShowCaret = true;
-            this.txtMail.Size = new System.Drawing.Size(247, 72);
+            this.txtMail.Size = new System.Drawing.Size(247, 67);
             this.txtMail.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtMail.TabIndex = 61;
             this.txtMail.UseSystemPasswordChar = false;
@@ -314,7 +314,7 @@ namespace TutteeFrame2.View
             this.materialCard2.Controls.Add(this.txtPhone);
             this.materialCard2.Controls.Add(this.label4);
             this.materialCard2.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialCard2.Location = new System.Drawing.Point(434, 226);
+            this.materialCard2.Location = new System.Drawing.Point(401, 226);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(5);
             this.materialCard2.MouseInteract = true;
             this.materialCard2.MouseState = MaterialSurface.MouseState.OUT;
@@ -322,18 +322,17 @@ namespace TutteeFrame2.View
             this.materialCard2.Radius = 9;
             this.materialCard2.ShawdowDepth = 2;
             this.materialCard2.ShawdowOpacity = 50;
-            this.materialCard2.Size = new System.Drawing.Size(366, 238);
+            this.materialCard2.Size = new System.Drawing.Size(366, 224);
             this.materialCard2.Style = MaterialSurface.MaterialCard.CardStyle.Elevated;
             this.materialCard2.TabIndex = 67;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSubmit.EffectType = MaterialSurface.ET.Custom;
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(250, 721);
+            this.btnSubmit.Location = new System.Drawing.Point(230, 656);
             this.btnSubmit.MouseState = MaterialSurface.MouseState.OUT;
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -369,7 +368,7 @@ namespace TutteeFrame2.View
             this.txtFirstname.ReadOnly = false;
             this.txtFirstname.ShortcutsEnable = true;
             this.txtFirstname.ShowCaret = true;
-            this.txtFirstname.Size = new System.Drawing.Size(135, 72);
+            this.txtFirstname.Size = new System.Drawing.Size(135, 67);
             this.txtFirstname.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtFirstname.TabIndex = 60;
             this.txtFirstname.UseSystemPasswordChar = false;
@@ -397,20 +396,19 @@ namespace TutteeFrame2.View
             this.txtSurname.ReadOnly = false;
             this.txtSurname.ShortcutsEnable = true;
             this.txtSurname.ShowCaret = true;
-            this.txtSurname.Size = new System.Drawing.Size(195, 72);
+            this.txtSurname.Size = new System.Drawing.Size(195, 67);
             this.txtSurname.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSurname.TabIndex = 59;
             this.txtSurname.UseSystemPasswordChar = false;
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.EffectType = MaterialSurface.ET.Custom;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(437, 721);
+            this.btnCancel.Location = new System.Drawing.Point(396, 656);
             this.btnCancel.MouseState = MaterialSurface.MouseState.OUT;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PrimaryColor = System.Drawing.Color.Red;
@@ -433,7 +431,7 @@ namespace TutteeFrame2.View
             this.materialCard1.Controls.Add(this.txtSurname);
             this.materialCard1.Controls.Add(this.label1);
             this.materialCard1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialCard1.Location = new System.Drawing.Point(60, 226);
+            this.materialCard1.Location = new System.Drawing.Point(27, 226);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(5);
             this.materialCard1.MouseInteract = true;
             this.materialCard1.MouseState = MaterialSurface.MouseState.OUT;
@@ -441,7 +439,7 @@ namespace TutteeFrame2.View
             this.materialCard1.Radius = 9;
             this.materialCard1.ShawdowDepth = 2;
             this.materialCard1.ShawdowOpacity = 50;
-            this.materialCard1.Size = new System.Drawing.Size(350, 465);
+            this.materialCard1.Size = new System.Drawing.Size(350, 422);
             this.materialCard1.Style = MaterialSurface.MaterialCard.CardStyle.Elevated;
             this.materialCard1.TabIndex = 65;
             // 
@@ -452,23 +450,23 @@ namespace TutteeFrame2.View
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 35);
+            this.label1.Size = new System.Drawing.Size(160, 28);
             this.label1.TabIndex = 41;
             this.label1.Text = "Thông tin cơ bản";
             // 
             // mainProgressbar
             // 
-            this.mainProgressbar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mainProgressbar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.mainProgressbar.ChangeDelay = 80;
             this.mainProgressbar.CircularWidth = 3.8F;
             this.mainProgressbar.IsIndetermine = true;
-            this.mainProgressbar.Location = new System.Drawing.Point(-4, 799);
+            this.mainProgressbar.Location = new System.Drawing.Point(-1, 714);
             this.mainProgressbar.Maximum = 100;
             this.mainProgressbar.Minimum = 0;
             this.mainProgressbar.MouseState = MaterialSurface.MouseState.HOVER;
             this.mainProgressbar.Name = "mainProgressbar";
             this.mainProgressbar.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.mainProgressbar.Size = new System.Drawing.Size(851, 6);
+            this.mainProgressbar.Size = new System.Drawing.Size(802, 6);
             this.mainProgressbar.Step = 10;
             this.mainProgressbar.TabIndex = 63;
             this.mainProgressbar.Text = "materialProgressbar1";
@@ -481,7 +479,7 @@ namespace TutteeFrame2.View
             this.lbName.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.Location = new System.Drawing.Point(22, 155);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(800, 32);
+            this.lbName.Size = new System.Drawing.Size(779, 32);
             this.lbName.TabIndex = 61;
             this.lbName.Text = "Name";
             this.lbName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -492,7 +490,7 @@ namespace TutteeFrame2.View
             this.lbID.ForeColor = System.Drawing.Color.Gray;
             this.lbID.Location = new System.Drawing.Point(22, 182);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(800, 28);
+            this.lbID.Size = new System.Drawing.Size(779, 28);
             this.lbID.TabIndex = 62;
             this.lbID.Text = "ID";
             this.lbID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -505,7 +503,7 @@ namespace TutteeFrame2.View
             this.btnClose.DrawShadows = false;
             this.btnClose.HighEmphasis = false;
             this.btnClose.Icon = ((System.Drawing.Image)(resources.GetObject("btnClose.Icon")));
-            this.btnClose.Location = new System.Drawing.Point(776, 12);
+            this.btnClose.Location = new System.Drawing.Point(754, 1);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -517,14 +515,14 @@ namespace TutteeFrame2.View
             // 
             // lbInformation
             // 
-            this.lbInformation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbInformation.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbInformation.AutoSize = true;
             this.lbInformation.BackColor = System.Drawing.Color.White;
             this.lbInformation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbInformation.Location = new System.Drawing.Point(1, 780);
+            this.lbInformation.Location = new System.Drawing.Point(12, 698);
             this.lbInformation.Name = "lbInformation";
-            this.lbInformation.Size = new System.Drawing.Size(103, 19);
+            this.lbInformation.Size = new System.Drawing.Size(88, 13);
             this.lbInformation.TabIndex = 64;
             this.lbInformation.Text = "*Đang kết nối...";
             this.lbInformation.Visible = false;
@@ -535,7 +533,7 @@ namespace TutteeFrame2.View
             this.btnChooseAvatar.Depth = 0;
             this.btnChooseAvatar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChooseAvatar.Icon = null;
-            this.btnChooseAvatar.Location = new System.Drawing.Point(450, 112);
+            this.btnChooseAvatar.Location = new System.Drawing.Point(439, 112);
             this.btnChooseAvatar.Mini = true;
             this.btnChooseAvatar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnChooseAvatar.Name = "btnChooseAvatar";
@@ -549,7 +547,7 @@ namespace TutteeFrame2.View
             // 
             this.ptbAvatar.BackColor = System.Drawing.Color.White;
             this.ptbAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
-            this.ptbAvatar.Location = new System.Drawing.Point(350, 12);
+            this.ptbAvatar.Location = new System.Drawing.Point(339, 12);
             this.ptbAvatar.Name = "ptbAvatar";
             this.ptbAvatar.Size = new System.Drawing.Size(140, 140);
             this.ptbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -562,7 +560,7 @@ namespace TutteeFrame2.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(850, 807);
+            this.ClientSize = new System.Drawing.Size(800, 720);
             this.Controls.Add(this.btnChooseAvatar);
             this.Controls.Add(this.ptbAvatar);
             this.Controls.Add(this.materialCard3);
