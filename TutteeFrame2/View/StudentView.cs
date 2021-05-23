@@ -36,14 +36,14 @@ namespace TutteeFrame2.View
         }
         public SortType sortType = SortType.ByID;
         public GradeFilter gradeFilter = GradeFilter.All;
-        public string  classFilter = "Tất cả";
+        public string classFilter = "Tất cả";
 
 
         public StudentView()
         {
             InitializeComponent();
             DoubleBuffered = true;
-            studentController = new  StudentController(this);
+            studentController = new StudentController(this);
         }
         public void SetIndexOfCbbClassItemSelected(int index)
         {
@@ -75,7 +75,7 @@ namespace TutteeFrame2.View
                 lvi.Tag = student;
                 listViewStudents.Items.Add(lvi);
             }
-            
+
             lbSumStudent.Text = studentController.students.Count.ToString();
 
             if (firstLoad == true)
@@ -98,7 +98,7 @@ namespace TutteeFrame2.View
                 return;
             sortType = (SortType)cbbSortBy.SelectedIndex;
             studentController.ChangeSortType();
-            
+
         }
 
         private void OnFilterGradeTypeChanged(object sender, EventArgs e)
@@ -119,18 +119,12 @@ namespace TutteeFrame2.View
 
         private void btnUpdateStudent_Click(object sender, EventArgs e)
         {
-            if(listViewStudents.SelectedItems.Count > 0)
+            if (listViewStudents.SelectedItems.Count > 0)
             {
                 ListViewItem lvi = listViewStudents.SelectedItems[0];
-                OneStudentView oneStudentView = new OneStudentView(lvi.Tag,this.homeView);
+                OneStudentView oneStudentView = new OneStudentView(lvi.Tag, this);
                 OverlayForm overlayForm = new OverlayForm(homeView, oneStudentView);
                 var dialogResult = oneStudentView.ShowDialog();
-                if(dialogResult == DialogResult.OK)
-                {
-                    this.FetchData();
-                    Snackbar.MakeSnackbar(homeView, "Đã thêm cập nhật thông tin 1 học sinh thành công");
-                }
-
             }
 
         }
@@ -142,20 +136,29 @@ namespace TutteeFrame2.View
 
             do
             {
-                studentID = DateTime.Now.ToString("yyyy")+IdentifierFactoryV2.GenerateNumberID(length: 4);
+                studentID = DateTime.Now.ToString("yyyy") + IdentifierFactoryV2.GenerateNumberID(length: 4);
             }
-            while (studentController.originalStudents.FindIndex(x=>x.ID==studentID)!=-1);
-
-            OneStudentView oneStudentView = new OneStudentView(studentID, this.homeView);
+            while (studentController.originalStudents.FindIndex(x => x.ID == studentID) != -1);
+            OneStudentView oneStudentView = new OneStudentView(studentID, this);
             OverlayForm overlayForm = new OverlayForm(homeView, oneStudentView);
-            oneStudentView.ShowDialog();
             var dialogResult = oneStudentView.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                this.FetchData();
-                Snackbar.MakeSnackbar(homeView, "Đã thêm mới 1 học sinh thành công");
-            }
+        }
 
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
+        {
+            if (listViewStudents.SelectedItems.Count > 0)
+            {
+                var dialogResult = Dialog.Show(homeView, "Bạn có chắc muốn xóa học sinh này?", tittle: "Cảnh báo", Buttons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ListViewItem lvi = listViewStudents.SelectedItems[0];
+                    Student student = (lvi.Tag is Student) ? (Student)lvi.Tag : null;
+                    if (student != null)
+                    {
+                        studentController.DeleteStudent(student.ID);
+                    };
+                }
+            }
         }
     }
 }

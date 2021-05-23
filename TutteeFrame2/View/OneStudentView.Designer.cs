@@ -122,6 +122,7 @@ namespace TutteeFrame2.View
             this.txtCurrentClass.AutoScaleColor = true;
             this.txtCurrentClass.BackColor = System.Drawing.Color.White;
             this.txtCurrentClass.CountText = false;
+            this.txtCurrentClass.Enabled = false;
             this.txtCurrentClass.FieldType = MaterialSurface.BoxType.Normal;
             this.txtCurrentClass.FloatingLabelText = "FloatingLabel";
             this.txtCurrentClass.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -532,21 +533,23 @@ namespace TutteeFrame2.View
             // 
             this.btnChooseAvatar.AnimateShowHideButton = true;
             this.btnChooseAvatar.Depth = 0;
+            this.btnChooseAvatar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnChooseAvatar.Icon = null;
-            this.btnChooseAvatar.Location = new System.Drawing.Point(447, 112);
+            this.btnChooseAvatar.Location = new System.Drawing.Point(450, 112);
             this.btnChooseAvatar.Mini = true;
             this.btnChooseAvatar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnChooseAvatar.Name = "btnChooseAvatar";
             this.btnChooseAvatar.Size = new System.Drawing.Size(40, 40);
             this.btnChooseAvatar.TabIndex = 71;
-            this.btnChooseAvatar.Text = "materialFloatingActionButton1";
+            this.btnChooseAvatar.Text = "Chọn ảnh đại diện\r\n";
             this.btnChooseAvatar.UseVisualStyleBackColor = true;
+            this.btnChooseAvatar.Click += new System.EventHandler(this.btnChooseAvatar_Click);
             // 
             // ptbAvatar
             // 
             this.ptbAvatar.BackColor = System.Drawing.Color.White;
             this.ptbAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
-            this.ptbAvatar.Location = new System.Drawing.Point(347, 12);
+            this.ptbAvatar.Location = new System.Drawing.Point(350, 12);
             this.ptbAvatar.Name = "ptbAvatar";
             this.ptbAvatar.Size = new System.Drawing.Size(140, 140);
             this.ptbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -556,8 +559,7 @@ namespace TutteeFrame2.View
             // OneStudentView
             // 
             this.AcceptButton = this.btnSubmit;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(850, 807);

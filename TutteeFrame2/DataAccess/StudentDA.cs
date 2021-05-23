@@ -198,5 +198,35 @@ namespace TutteeFrame2.DataAccess
             }
             return true;
         }
+
+        public bool DeleteStudent(string _studentID)
+        {
+            bool success = Connect();
+            if (!success)
+                return false;
+            try
+            {
+                strQuery = $"SELECT ClassID FROM STUDENT WHERE STUDENT.StudentID = @studentid";
+                SqlCommand sqlCommand = new SqlCommand(strQuery, connection);
+                sqlCommand = new SqlCommand(strQuery, connection);
+                sqlCommand.Parameters.AddWithValue("@studentid", _studentID);
+                string classID = (string)sqlCommand.ExecuteScalar();
+                strQuery = $"DELETE FROM STUDENT WHERE STUDENT.StudentID = @studentid";
+                sqlCommand = connection.CreateCommand();
+                sqlCommand.CommandText = strQuery;
+                sqlCommand.Parameters.AddWithValue("@studentid", _studentID);
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return true;
+        }
     }
 }

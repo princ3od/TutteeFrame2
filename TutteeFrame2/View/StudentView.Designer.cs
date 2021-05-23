@@ -178,6 +178,7 @@ namespace TutteeFrame2.View
             this.btnDeleteStudent.Text = "Xoá";
             this.btnDeleteStudent.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // btnUpdateStudent
             // 

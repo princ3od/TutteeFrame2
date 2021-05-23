@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSurface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -146,6 +147,22 @@ namespace TutteeFrame2.Controller
         public bool AddStudent(Student student)
         {
             return DataAccess.StudentDA.Instance.AddStudent(student);
+        }
+
+        public async void DeleteStudent(string studentID)
+        {
+            bool progressResult = false ;
+            studentView.homeView.SetLoad(true, "Thao tác đang được thực hiện");
+            Task.Delay(1000);
+            await Task.Run(()=> {
+                progressResult =  StudentDA.Instance.DeleteStudent(studentID);
+            });
+            studentView.homeView.SetLoad(false);
+            if (progressResult)
+            {
+                Snackbar.MakeSnackbar(studentView.homeView, $"Đã xóa thành công học sinh có mã học sinh {studentID}", buttonText: "Thông báo");
+                studentView.FetchData();
+            }
         }
     }
 }

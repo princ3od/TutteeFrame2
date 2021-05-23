@@ -42,9 +42,9 @@ namespace TutteeFrame2.View
         public string studentID;
         public Student student;
         public bool doneSuccess = false;
-        HomeView homeView;
+        StudentView studentView;
         List<Class> classes = new List<Class>();
-        public OneStudentView(object passValue, HomeView homeView)
+        public OneStudentView(object passValue, StudentView studentView)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -66,7 +66,7 @@ namespace TutteeFrame2.View
                     this.mode = Mode.Edit;
                 }
             }
-            this.homeView = homeView;
+            this.studentView = studentView;
         }
         protected async override void OnLoad(EventArgs e)
         {
@@ -93,7 +93,7 @@ namespace TutteeFrame2.View
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            homeView.Activate();
+            studentView.homeView.Activate();
         }
         void OnFirstLoad()
         {
@@ -177,35 +177,52 @@ namespace TutteeFrame2.View
         {
             SetLoad(true, "Đang thực hiện cập nhật dữ liệu...");
 
-            await Task.Delay(1000);
-            await Task.Run(() =>
+            bool progressResult = false;
+             await Task.Run(() =>
             {
 
                 StudentController studentController = new StudentController(null);
-                bool progressResult = (this.mode == Mode.Edit) ? studentController.UpdateStudent(this.student) :
+                 progressResult = (this.mode == Mode.Edit) ? studentController.UpdateStudent(this.student) :
                 studentController.AddStudent(this.student);
-                if (progressResult)
-                {
 
-                    this.DialogResult = DialogResult.OK;
+            });
+            SetLoad(false);
+            if (progressResult)
+            {
+                SetLoad(false);
+                Dialog.Show(this, "Cập nhật thành công.", tittle: "Thông báo");
+                if(mode == Mode.Add)
+                {
+                    Snackbar.MakeSnackbar(studentView.homeView, $"Đã thêm mới  học sinh  {this.student.ID}  thành công", buttonText:"Thông báo");
+
                 }
                 else
                 {
-                    this.DialogResult = DialogResult.None;
-
+                    Snackbar.MakeSnackbar(studentView.homeView, $"Đã cập nhật thông tin  học sinh {this.student.ID} thành công", buttonText: "Thông báo");
                 }
-            });
-            SetLoad(false);
-            if (this.DialogResult == DialogResult.OK)
-            {
-                Dialog.Show(this, "Cập nhật thành công.", tittle: "Thông báo");
+                this.studentView.FetchData();
                 this.Close();
+                
             }
             else
             {
+                SetLoad(false);
                 Dialog.Show(this, "Cập nhật thất bại, vui lòng kiển tra dữ liệu và thử lại.", tittle: "Cảnh báo");
             }
 
         }
+
+        private void btnChooseAvatar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            of.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            if (of.ShowDialog() == DialogResult.OK)
+            {
+                ptbAvatar.ImageLocation = of.FileName;
+
+            }
+        }
+        
+
     }
 }
