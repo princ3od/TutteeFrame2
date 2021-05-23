@@ -142,5 +142,10 @@ namespace TutteeFrame2.Controller
         {
             return DataAccess.StudentDA.Instance.UpdateStudent(student);
         }
+
+        public bool AddStudent(Student student)
+        {
+            return DataAccess.StudentDA.Instance.AddStudent(student);
+        }
     }
 }

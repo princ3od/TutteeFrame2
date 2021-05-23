@@ -82,6 +82,7 @@
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
+    <Compile Include="Utils\IdentifierFactoryV2.cs" />
     <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\OverlayForm.cs">
       <SubType>Form</SubType>

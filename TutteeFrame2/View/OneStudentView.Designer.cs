@@ -30,7 +30,6 @@ namespace TutteeFrame2.View
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OneStudentView));
-            this.btnChooseAvatar = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.cbbCurrentClass = new MaterialSurface.MaterialComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.materialCard3 = new MaterialSurface.MaterialCard();
@@ -52,29 +51,16 @@ namespace TutteeFrame2.View
             this.label1 = new System.Windows.Forms.Label();
             this.mainProgressbar = new MaterialSurface.MaterialProgressbar();
             this.lbName = new System.Windows.Forms.Label();
-            this.ptbAvatar = new System.Windows.Forms.PictureBox();
             this.lbID = new System.Windows.Forms.Label();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.lbInformation = new System.Windows.Forms.Label();
+            this.btnChooseAvatar = new MaterialSkin.Controls.MaterialFloatingActionButton();
+            this.ptbAvatar = new System.Windows.Forms.PictureBox();
             this.materialCard3.SuspendLayout();
             this.materialCard2.SuspendLayout();
             this.materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnChooseAvatar
-            // 
-            this.btnChooseAvatar.AnimateShowHideButton = true;
-            this.btnChooseAvatar.Depth = 0;
-            this.btnChooseAvatar.Icon = null;
-            this.btnChooseAvatar.Location = new System.Drawing.Point(437, 102);
-            this.btnChooseAvatar.Mini = true;
-            this.btnChooseAvatar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnChooseAvatar.Name = "btnChooseAvatar";
-            this.btnChooseAvatar.Size = new System.Drawing.Size(40, 40);
-            this.btnChooseAvatar.TabIndex = 70;
-            this.btnChooseAvatar.Text = "materialFloatingActionButton1";
-            this.btnChooseAvatar.UseVisualStyleBackColor = true;
             // 
             // cbbCurrentClass
             // 
@@ -499,17 +485,6 @@ namespace TutteeFrame2.View
             this.lbName.Text = "Name";
             this.lbName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ptbAvatar
-            // 
-            this.ptbAvatar.BackColor = System.Drawing.Color.White;
-            this.ptbAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
-            this.ptbAvatar.Location = new System.Drawing.Point(353, 12);
-            this.ptbAvatar.Name = "ptbAvatar";
-            this.ptbAvatar.Size = new System.Drawing.Size(140, 140);
-            this.ptbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAvatar.TabIndex = 60;
-            this.ptbAvatar.TabStop = false;
-            // 
             // lbID
             // 
             this.lbID.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -553,6 +528,31 @@ namespace TutteeFrame2.View
             this.lbInformation.Text = "*Đang kết nối...";
             this.lbInformation.Visible = false;
             // 
+            // btnChooseAvatar
+            // 
+            this.btnChooseAvatar.AnimateShowHideButton = true;
+            this.btnChooseAvatar.Depth = 0;
+            this.btnChooseAvatar.Icon = null;
+            this.btnChooseAvatar.Location = new System.Drawing.Point(447, 112);
+            this.btnChooseAvatar.Mini = true;
+            this.btnChooseAvatar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnChooseAvatar.Name = "btnChooseAvatar";
+            this.btnChooseAvatar.Size = new System.Drawing.Size(40, 40);
+            this.btnChooseAvatar.TabIndex = 71;
+            this.btnChooseAvatar.Text = "materialFloatingActionButton1";
+            this.btnChooseAvatar.UseVisualStyleBackColor = true;
+            // 
+            // ptbAvatar
+            // 
+            this.ptbAvatar.BackColor = System.Drawing.Color.White;
+            this.ptbAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
+            this.ptbAvatar.Location = new System.Drawing.Point(347, 12);
+            this.ptbAvatar.Name = "ptbAvatar";
+            this.ptbAvatar.Size = new System.Drawing.Size(140, 140);
+            this.ptbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAvatar.TabIndex = 70;
+            this.ptbAvatar.TabStop = false;
+            // 
             // OneStudentView
             // 
             this.AcceptButton = this.btnSubmit;
@@ -562,6 +562,7 @@ namespace TutteeFrame2.View
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(850, 807);
             this.Controls.Add(this.btnChooseAvatar);
+            this.Controls.Add(this.ptbAvatar);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialCard2);
             this.Controls.Add(this.btnSubmit);
@@ -569,7 +570,6 @@ namespace TutteeFrame2.View
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.mainProgressbar);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.ptbAvatar);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lbInformation);
@@ -591,8 +591,6 @@ namespace TutteeFrame2.View
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialFloatingActionButton btnChooseAvatar;
         private MaterialSurface.MaterialComboBox cbbCurrentClass;
         private System.Windows.Forms.Label label5;
         private MaterialSurface.MaterialCard materialCard3;
@@ -612,11 +610,12 @@ namespace TutteeFrame2.View
         private System.Windows.Forms.Label label1;
         private MaterialSurface.MaterialProgressbar mainProgressbar;
         private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.PictureBox ptbAvatar;
         private System.Windows.Forms.Label lbID;
         private MaterialSkin.Controls.MaterialButton btnClose;
         private System.Windows.Forms.Label lbInformation;
         private MaterialSurface.MaterialComboBox cbbStatus;
         private MaterialSurface.MaterialTextfield txtCurrentClass;
+        private MaterialSkin.Controls.MaterialFloatingActionButton btnChooseAvatar;
+        private System.Windows.Forms.PictureBox ptbAvatar;
     }
 }

@@ -219,6 +219,7 @@ namespace TutteeFrame2.View
             this.btnAddStudent.Text = "Thêm";
             this.btnAddStudent.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnAddStudent.UseVisualStyleBackColor = true;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // btnAddPunis
             // 

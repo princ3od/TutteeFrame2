@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
 using TutteeFrame2.Utils;
+using System.Collections.Generic;
+using MaterialSurface;
 
 namespace TutteeFrame2.View
 {
@@ -126,7 +128,32 @@ namespace TutteeFrame2.View
                 if(dialogResult == DialogResult.OK)
                 {
                     this.FetchData();
+                    Snackbar.MakeSnackbar(homeView, "Đã thêm cập nhật thông tin 1 học sinh thành công");
                 }
+
+            }
+
+        }
+
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+            string studentID;
+
+            do
+            {
+                studentID = DateTime.Now.ToString("yyyy")+IdentifierFactoryV2.GenerateNumberID(length: 4);
+            }
+            while (studentController.originalStudents.FindIndex(x=>x.ID==studentID)!=-1);
+
+            OneStudentView oneStudentView = new OneStudentView(studentID, this.homeView);
+            OverlayForm overlayForm = new OverlayForm(homeView, oneStudentView);
+            oneStudentView.ShowDialog();
+            var dialogResult = oneStudentView.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                this.FetchData();
+                Snackbar.MakeSnackbar(homeView, "Đã thêm mới 1 học sinh thành công");
             }
 
         }

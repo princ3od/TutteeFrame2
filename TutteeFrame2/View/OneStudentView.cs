@@ -44,7 +44,7 @@ namespace TutteeFrame2.View
         public bool doneSuccess = false;
         HomeView homeView;
         List<Class> classes = new List<Class>();
-        public OneStudentView(object passValue,HomeView homeView)
+        public OneStudentView(object passValue, HomeView homeView)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -55,6 +55,7 @@ namespace TutteeFrame2.View
             if (passValue is string)
             {
                 this.studentID = (string)passValue;
+                this.student = new Student();
                 this.mode = Mode.Add;
             }
             else
@@ -113,7 +114,7 @@ namespace TutteeFrame2.View
             }
             else
             {
-                if (mode == Mode.Add && student == null)
+                if (mode == Mode.Add)
                 {
                     lbID.Text = this.studentID;
                 }
@@ -147,31 +148,55 @@ namespace TutteeFrame2.View
         private void OnClickConfirmButton(object sender, EventArgs e)
         {
             FetchDataOfStudentFromUI();
+            if (!CheckeInputValue())
+            {
+                Dialog.Show(this, "Dữ liệu thông tin học sinh không hợp lệ, vui lòng kiểm tra và thử lại.", tittle: "Cảnh báo");
+                return;
+            }
             OnUpdateData();
 
+
         }
+        private bool CheckeInputValue()
+        {
+            if (lbID.Text == "") return false;
+            if (txtSurname.Text == "") return false;
+            if (txtFirstname.Text == "") return false;
+            if (txtAddress.Text == "") return false;
+            if (txtCurrentClass.Text == "") return false;
+            if (txtPhone.Text == "") return false;
+            if (DateTime.Now.Year - dateBornPicker.Value.Year < 10) return false;
+            if (cbbSex.SelectedIndex < 0) return false;
+            if (cbbStatus.SelectedIndex < 0) return false;
+            return true;
+
+        }
+
 
         private async void OnUpdateData()
         {
             SetLoad(true, "Đang thực hiện cập nhật dữ liệu...");
-          
+
             await Task.Delay(1000);
-            await Task.Run(()=> {
+            await Task.Run(() =>
+            {
+
                 StudentController studentController = new StudentController(null);
-                bool progressResult = studentController.UpdateStudent(this.student);
+                bool progressResult = (this.mode == Mode.Edit) ? studentController.UpdateStudent(this.student) :
+                studentController.AddStudent(this.student);
                 if (progressResult)
                 {
-                  
+
                     this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
                     this.DialogResult = DialogResult.None;
-                    
+
                 }
             });
             SetLoad(false);
-            if(this.DialogResult == DialogResult.OK)
+            if (this.DialogResult == DialogResult.OK)
             {
                 Dialog.Show(this, "Cập nhật thành công.", tittle: "Thông báo");
                 this.Close();

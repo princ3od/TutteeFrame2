@@ -158,5 +158,45 @@ namespace TutteeFrame2.DataAccess
             }
             return true;
         }
+
+        public bool AddStudent(Student student)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return false;
+
+            byte[] photo = ImageHelper.ImageToBytes(student.Avatar);
+
+            try
+            {
+                strQuery = "INSERT INTO STUDENT(StudentID,Surname,FirstName,DateBorn,Sex,Address,Phonne,ClassID,Status,StudentImage) " +
+                "VALUES(@studentid,@surname,@firstname,@dateborn,@sex,@address,@phone,@classid,@status,@studentimage)";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@studentid", student.ID);
+                    sqlCommand.Parameters.AddWithValue("@surname", student.SurName);
+                    sqlCommand.Parameters.AddWithValue("@firstname", student.FirstName);
+                    sqlCommand.Parameters.AddWithValue("@dateborn", student.DateBorn);
+                    sqlCommand.Parameters.AddWithValue("@sex", student.Sex);
+                    sqlCommand.Parameters.AddWithValue("@phone", student.Phone);
+                    sqlCommand.Parameters.AddWithValue("@classid", student.ClassID);
+                    sqlCommand.Parameters.AddWithValue("@address", student.Address);
+                    sqlCommand.Parameters.AddWithValue("@status", student.Status);
+                    sqlCommand.Parameters.Add("@studentimage", SqlDbType.Image, photo.Length).Value = photo;
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return true;
+        }
     }
 }
