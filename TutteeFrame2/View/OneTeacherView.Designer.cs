@@ -120,7 +120,7 @@ namespace TutteeFrame2.View
             this.lbInformation.BackColor = System.Drawing.Color.White;
             this.lbInformation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbInformation.Location = new System.Drawing.Point(10, 655);
+            this.lbInformation.Location = new System.Drawing.Point(10, 680);
             this.lbInformation.Name = "lbInformation";
             this.lbInformation.Size = new System.Drawing.Size(88, 13);
             this.lbInformation.TabIndex = 52;
@@ -134,7 +134,7 @@ namespace TutteeFrame2.View
             this.mainProgressbar.ChangeDelay = 80;
             this.mainProgressbar.CircularWidth = 3.8F;
             this.mainProgressbar.IsIndetermine = true;
-            this.mainProgressbar.Location = new System.Drawing.Point(0, 669);
+            this.mainProgressbar.Location = new System.Drawing.Point(0, 694);
             this.mainProgressbar.Maximum = 100;
             this.mainProgressbar.Minimum = 0;
             this.mainProgressbar.MouseState = MaterialSurface.MouseState.HOVER;
@@ -338,7 +338,7 @@ namespace TutteeFrame2.View
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(281, 609);
+            this.btnSubmit.Location = new System.Drawing.Point(241, 629);
             this.btnSubmit.MouseState = MaterialSurface.MouseState.OUT;
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -526,7 +526,7 @@ namespace TutteeFrame2.View
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(431, 614);
+            this.btnCancel.Location = new System.Drawing.Point(412, 639);
             this.btnCancel.MouseState = MaterialSurface.MouseState.OUT;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PrimaryColor = System.Drawing.Color.Red;
@@ -558,7 +558,7 @@ namespace TutteeFrame2.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(800, 675);
+            this.ClientSize = new System.Drawing.Size(800, 700);
             this.Controls.Add(this.btnChooseAvatar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.materialCard3);

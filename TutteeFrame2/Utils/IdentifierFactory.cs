@@ -20,7 +20,8 @@ namespace TutteeFrame2.Utils
         }
         public static string GenerateNumberID(int length = 6)
         {
-            int result = (new Random()).Next(100000, 999999);
+            if (length < 1) return null;
+            int result = (new Random()).Next((int)Math.Pow(10, length - 1), (int)Math.Pow(10, length) - 1);
             return result.ToString();
         }
     }

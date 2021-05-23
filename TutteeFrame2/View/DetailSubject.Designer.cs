@@ -32,10 +32,10 @@ namespace TutteeFrame2.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailSubject));
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
-            this.txtNameSubject = new MaterialSkin.Controls.MaterialTextBox();
-            this.txtSubjectId = new MaterialSkin.Controls.MaterialTextBox();
             this.btnAccepte = new MaterialSurface.ContainedButton();
             this.btnDenie = new MaterialSurface.ContainedButton();
+            this.txtNameSubject = new MaterialSurface.MaterialTextfield();
+            this.txtSubjectId = new MaterialSurface.MaterialTextfield();
             this.SuspendLayout();
             // 
             // label1
@@ -71,38 +71,6 @@ namespace TutteeFrame2.View
             this.btnClose.UseAccentColor = false;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // txtNameSubject
-            // 
-            this.txtNameSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNameSubject.Depth = 0;
-            this.txtNameSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtNameSubject.Hint = "Tên môn học";
-            this.txtNameSubject.Location = new System.Drawing.Point(28, 86);
-            this.txtNameSubject.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNameSubject.MaxLength = 50;
-            this.txtNameSubject.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtNameSubject.Multiline = false;
-            this.txtNameSubject.Name = "txtNameSubject";
-            this.txtNameSubject.Size = new System.Drawing.Size(517, 50);
-            this.txtNameSubject.TabIndex = 71;
-            this.txtNameSubject.Text = "";
-            // 
-            // txtSubjectId
-            // 
-            this.txtSubjectId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSubjectId.Depth = 0;
-            this.txtSubjectId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtSubjectId.Hint = "Mã môn học";
-            this.txtSubjectId.Location = new System.Drawing.Point(28, 155);
-            this.txtSubjectId.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSubjectId.MaxLength = 50;
-            this.txtSubjectId.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtSubjectId.Multiline = false;
-            this.txtSubjectId.Name = "txtSubjectId";
-            this.txtSubjectId.Size = new System.Drawing.Size(517, 50);
-            this.txtSubjectId.TabIndex = 72;
-            this.txtSubjectId.Text = "";
             // 
             // btnAccepte
             // 
@@ -148,18 +116,75 @@ namespace TutteeFrame2.View
             this.btnDenie.UseVisualStyleBackColor = true;
             this.btnDenie.Click += new System.EventHandler(this.btnDenie_Click);
             // 
+            // txtNameSubject
+            // 
+            this.txtNameSubject.AutoScaleColor = true;
+            this.txtNameSubject.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNameSubject.CountText = false;
+            this.txtNameSubject.FieldType = MaterialSurface.BoxType.Normal;
+            this.txtNameSubject.FloatingLabelText = "FloatingLabel";
+            this.txtNameSubject.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtNameSubject.HandleError = true;
+            this.txtNameSubject.HelperText = "";
+            this.txtNameSubject.HideSelection = true;
+            this.txtNameSubject.HintText = "Tên môn học";
+            this.txtNameSubject.Location = new System.Drawing.Point(28, 67);
+            this.txtNameSubject.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNameSubject.MaxLength = 32767;
+            this.txtNameSubject.MouseState = MaterialSurface.MouseState.OUT;
+            this.txtNameSubject.Multiline = false;
+            this.txtNameSubject.Name = "txtNameSubject";
+            this.txtNameSubject.PasswordChar = '\0';
+            this.txtNameSubject.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.txtNameSubject.ReadOnly = false;
+            this.txtNameSubject.ShortcutsEnable = true;
+            this.txtNameSubject.ShowCaret = true;
+            this.txtNameSubject.Size = new System.Drawing.Size(517, 72);
+            this.txtNameSubject.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
+            this.txtNameSubject.TabIndex = 77;
+            this.txtNameSubject.UseSystemPasswordChar = false;
+            // 
+            // txtSubjectId
+            // 
+            this.txtSubjectId.AutoScaleColor = true;
+            this.txtSubjectId.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSubjectId.CountText = false;
+            this.txtSubjectId.FieldType = MaterialSurface.BoxType.Normal;
+            this.txtSubjectId.FloatingLabelText = "FloatingLabel";
+            this.txtSubjectId.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtSubjectId.HandleError = true;
+            this.txtSubjectId.HelperText = "";
+            this.txtSubjectId.HideSelection = true;
+            this.txtSubjectId.HintText = "Mã môn học";
+            this.txtSubjectId.Location = new System.Drawing.Point(28, 149);
+            this.txtSubjectId.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSubjectId.MaxLength = 32767;
+            this.txtSubjectId.MouseState = MaterialSurface.MouseState.OUT;
+            this.txtSubjectId.Multiline = false;
+            this.txtSubjectId.Name = "txtSubjectId";
+            this.txtSubjectId.PasswordChar = '\0';
+            this.txtSubjectId.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.txtSubjectId.ReadOnly = false;
+            this.txtSubjectId.ShortcutsEnable = true;
+            this.txtSubjectId.ShowCaret = true;
+            this.txtSubjectId.Size = new System.Drawing.Size(517, 72);
+            this.txtSubjectId.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
+            this.txtSubjectId.TabIndex = 77;
+            this.txtSubjectId.UseSystemPasswordChar = false;
+            // 
             // DetailSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(695, 401);
+            this.Controls.Add(this.txtSubjectId);
+            this.Controls.Add(this.txtNameSubject);
             this.Controls.Add(this.btnDenie);
             this.Controls.Add(this.btnAccepte);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.txtNameSubject);
-            this.Controls.Add(this.txtSubjectId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DetailSubject";
             this.Text = "DetailSubject";
@@ -172,9 +197,9 @@ namespace TutteeFrame2.View
 
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialButton btnClose;
-        private MaterialSkin.Controls.MaterialTextBox txtNameSubject;
-        private MaterialSkin.Controls.MaterialTextBox txtSubjectId;
         private MaterialSurface.ContainedButton btnAccepte;
         private MaterialSurface.ContainedButton btnDenie;
+        private MaterialSurface.MaterialTextfield txtNameSubject;
+        private MaterialSurface.MaterialTextfield txtSubjectId;
     }
 }

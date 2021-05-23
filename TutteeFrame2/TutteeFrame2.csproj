@@ -56,8 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controls\UtilityBar.cs">
@@ -68,10 +70,14 @@
     </Compile>
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
+    <Compile Include="DataAccess\ClassDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
+    <Compile Include="DataAccess\StudentDA.cs" />
     <Compile Include="DataAccess\SubjectDA.cs" />
     <Compile Include="DataAccess\TeacherDA.cs" />
+    <Compile Include="Model\Class.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="Utils\AppSettings.cs" />
@@ -85,6 +91,18 @@
     </Compile>
     <Compile Include="View\DetailSubject.Designer.cs">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneStudentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneStudentView.Designer.cs">
+      <DependentUpon>OneStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentView.Designer.cs">
+      <DependentUpon>StudentView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SubjectView.cs">
       <SubType>UserControl</SubType>
@@ -132,6 +150,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\DetailSubject.resx">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneStudentView.resx">
+      <DependentUpon>OneStudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentView.resx">
+      <DependentUpon>StudentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SubjectView.resx">
       <DependentUpon>SubjectView.cs</DependentUpon>

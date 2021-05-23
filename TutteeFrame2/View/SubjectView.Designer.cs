@@ -60,7 +60,7 @@ namespace TutteeFrame2.View
             this.lvSubjectManage.MouseState = MaterialSkin.MouseState.OUT;
             this.lvSubjectManage.Name = "lvSubjectManage";
             this.lvSubjectManage.OwnerDraw = true;
-            this.lvSubjectManage.Size = new System.Drawing.Size(548, 332);
+            this.lvSubjectManage.Size = new System.Drawing.Size(778, 402);
             this.lvSubjectManage.TabIndex = 3;
             this.lvSubjectManage.UseCompatibleStateImageBehavior = false;
             this.lvSubjectManage.View = System.Windows.Forms.View.Details;
@@ -84,7 +84,7 @@ namespace TutteeFrame2.View
             this.lbListNameSubject.Location = new System.Drawing.Point(13, 19);
             this.lbListNameSubject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbListNameSubject.Name = "lbListNameSubject";
-            this.lbListNameSubject.Size = new System.Drawing.Size(182, 32);
+            this.lbListNameSubject.Size = new System.Drawing.Size(143, 25);
             this.lbListNameSubject.TabIndex = 30;
             this.lbListNameSubject.Text = "Danh sách môn";
             // 
@@ -95,7 +95,7 @@ namespace TutteeFrame2.View
             this.btnAddNewSubject.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnAddNewSubject.Icon = null;
-            this.btnAddNewSubject.Location = new System.Drawing.Point(19, 456);
+            this.btnAddNewSubject.Location = new System.Drawing.Point(23, 497);
             this.btnAddNewSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddNewSubject.MouseState = MaterialSurface.MouseState.OUT;
             this.btnAddNewSubject.Name = "btnAddNewSubject";
@@ -103,7 +103,7 @@ namespace TutteeFrame2.View
             this.btnAddNewSubject.Radius = 2;
             this.btnAddNewSubject.ShawdowDepth = 3;
             this.btnAddNewSubject.ShawdowOpacity = 50;
-            this.btnAddNewSubject.Size = new System.Drawing.Size(200, 62);
+            this.btnAddNewSubject.Size = new System.Drawing.Size(180, 50);
             this.btnAddNewSubject.TabIndex = 36;
             this.btnAddNewSubject.Text = "Thêm môn học";
             this.btnAddNewSubject.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -117,7 +117,7 @@ namespace TutteeFrame2.View
             this.btnDelSubject.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnDelSubject.Icon = null;
-            this.btnDelSubject.Location = new System.Drawing.Point(593, 456);
+            this.btnDelSubject.Location = new System.Drawing.Point(597, 497);
             this.btnDelSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelSubject.MouseState = MaterialSurface.MouseState.OUT;
             this.btnDelSubject.Name = "btnDelSubject";
@@ -125,7 +125,7 @@ namespace TutteeFrame2.View
             this.btnDelSubject.Radius = 2;
             this.btnDelSubject.ShawdowDepth = 3;
             this.btnDelSubject.ShawdowOpacity = 50;
-            this.btnDelSubject.Size = new System.Drawing.Size(200, 62);
+            this.btnDelSubject.Size = new System.Drawing.Size(200, 50);
             this.btnDelSubject.TabIndex = 37;
             this.btnDelSubject.Text = "Xóa môn học";
             this.btnDelSubject.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -139,7 +139,7 @@ namespace TutteeFrame2.View
             this.btnEditSubject.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnEditSubject.Icon = null;
-            this.btnEditSubject.Location = new System.Drawing.Point(319, 456);
+            this.btnEditSubject.Location = new System.Drawing.Point(211, 497);
             this.btnEditSubject.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditSubject.MouseState = MaterialSurface.MouseState.OUT;
             this.btnEditSubject.Name = "btnEditSubject";
@@ -147,7 +147,7 @@ namespace TutteeFrame2.View
             this.btnEditSubject.Radius = 2;
             this.btnEditSubject.ShawdowDepth = 3;
             this.btnEditSubject.ShawdowOpacity = 50;
-            this.btnEditSubject.Size = new System.Drawing.Size(200, 62);
+            this.btnEditSubject.Size = new System.Drawing.Size(200, 50);
             this.btnEditSubject.TabIndex = 38;
             this.btnEditSubject.Text = "Cập nhật";
             this.btnEditSubject.TextAlignment = System.Drawing.StringAlignment.Center;
