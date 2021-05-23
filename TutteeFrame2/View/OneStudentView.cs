@@ -77,8 +77,7 @@ namespace TutteeFrame2.View
             ptbAvatar.Region = rg;
             await Task.Run(() =>
             {
-                ClassController classController = new ClassController();
-                this.classes = classController.GetClasses();
+                this.classes = DataAccess.ClassDA.Instance.GetClasses();
             });
             if (classes.Count > 0)
             {

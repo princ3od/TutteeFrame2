@@ -250,7 +250,7 @@ namespace TutteeFrame2.View
             this.txtSearch.FieldType = MaterialSurface.BoxType.Normal;
             this.txtSearch.FloatingLabelText = "FloatingLabel";
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtSearch.HandleError = false;
+            this.txtSearch.HandleError = true;
             this.txtSearch.HelperText = "";
             this.txtSearch.HideSelection = true;
             this.txtSearch.HintText = "Tìm kiếm";
@@ -268,6 +268,9 @@ namespace TutteeFrame2.View
             this.txtSearch.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSearch.TabIndex = 42;
             this.txtSearch.UseSystemPasswordChar = false;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            this.txtSearch.MouseEnter += new System.EventHandler(this.txtSearch_MouseEnter);
+            this.txtSearch.MouseLeave += new System.EventHandler(this.txtSearch_MouseLeave);
             // 
             // cbbFilterByGrade
             // 

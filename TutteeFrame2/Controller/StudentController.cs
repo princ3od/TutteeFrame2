@@ -8,6 +8,7 @@ using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
 using TutteeFrame2.View;
 
+
 namespace TutteeFrame2.Controller
 {
     class StudentController
@@ -164,5 +165,33 @@ namespace TutteeFrame2.Controller
                 studentView.FetchData();
             }
         }
+        public void FindStudent(String searchStr)
+        {
+            students = new List<Student>();
+            if(searchStr.All(Char.IsDigit) && searchStr.Length == 8)
+            {
+                foreach (var student in originalStudents)
+                {
+                    if (student.ID == searchStr)
+                    {
+                        students.Add(student);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var student in originalStudents)
+                {
+                    if (student.FirstName == searchStr)
+                    {
+                        students.Add(student);
+                    }
+                }
+            }
+
+            this.studentView.ShowStudentsOnListView();
+        }
+
     }
 }

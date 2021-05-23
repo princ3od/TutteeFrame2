@@ -136,7 +136,7 @@ namespace TutteeFrame2.View
 
             do
             {
-                studentID = DateTime.Now.ToString("yyyy") + IdentifierFactoryV2.GenerateNumberID(length: 4);
+                studentID = DateTime.Now.ToString("yyyy") + IdentifierFactory.GenerateNumberID(length: 4);
             }
             while (studentController.originalStudents.FindIndex(x => x.ID == studentID) != -1);
             OneStudentView oneStudentView = new OneStudentView(studentID, this);
@@ -159,6 +159,26 @@ namespace TutteeFrame2.View
                     };
                 }
             }
+        }
+
+
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                studentController.FindStudent(txtSearch.Text);
+            }
+        }
+
+        private void txtSearch_MouseEnter(object sender, EventArgs e)
+        {
+            txtSearch.HelperText = "Nhập tên hoặc mã số học sinh";
+        }
+
+        private void txtSearch_MouseLeave(object sender, EventArgs e)
+        {
+            txtSearch.HelperText = "";
         }
     }
 }
