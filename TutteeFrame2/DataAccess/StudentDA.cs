@@ -1,6 +1,7 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -110,5 +111,52 @@ namespace TutteeFrame2.DataAccess
             return _student;
         }
 
+        public bool UpdateStudent( Student student)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return false;
+
+            try
+            {
+                byte[] photo = ImageHelper.ImageToBytes(student.Avatar);
+                string query = $"UPDATE  STUDENT SET " +
+                    "Surname = @surname," +
+                    "Firstname = @firstname," +
+                    "StudentImage =@studentimage," +
+                    "DateBorn =@dateborn, " +
+                    "Sex =@sex, " +
+                    "Address= @address," +
+                    "Phonne = @phone," +
+                    "ClassID =@classid, " +
+                    "Status = @status" +
+                    $" WHERE StudentID = @studentid";
+                using (SqlCommand sqlCommand = new SqlCommand(query, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@studentid", student.ID);
+                    sqlCommand.Parameters.AddWithValue("@surname", student.SurName);
+                    sqlCommand.Parameters.AddWithValue("@firstname", student.FirstName);
+                    sqlCommand.Parameters.AddWithValue("@dateborn", student.DateBorn);
+                    sqlCommand.Parameters.AddWithValue("@sex", student.Sex);
+                    sqlCommand.Parameters.AddWithValue("@phone", student.Phone);
+                    sqlCommand.Parameters.AddWithValue("@classid", student.ClassID);
+                    sqlCommand.Parameters.AddWithValue("@address", student.Address);
+                    sqlCommand.Parameters.AddWithValue("@status", student.Status);
+                    sqlCommand.Parameters.Add("@studentimage", SqlDbType.Image, photo.Length).Value = photo;
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return true;
+        }
     }
 }

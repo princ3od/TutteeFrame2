@@ -42,13 +42,30 @@ namespace TutteeFrame2.View
         public string studentID;
         public Student student;
         public bool doneSuccess = false;
+        HomeView homeView;
         List<Class> classes = new List<Class>();
-        public OneStudentView(Mode mode,string studentID =null)
+        public OneStudentView(object passValue,HomeView homeView)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            if (!string.IsNullOrEmpty(studentID)) this.studentID = studentID;
-            this.mode = mode;
+            if (passValue is null)
+            {
+                this.Close();
+            }
+            if (passValue is string)
+            {
+                this.studentID = (string)passValue;
+                this.mode = Mode.Add;
+            }
+            else
+            {
+                if (passValue is Student)
+                {
+                    this.student = (Student)passValue;
+                    this.mode = Mode.Edit;
+                }
+            }
+            this.homeView = homeView;
         }
         protected async override void OnLoad(EventArgs e)
         {
@@ -57,15 +74,10 @@ namespace TutteeFrame2.View
             gp.AddEllipse(0, 0, ptbAvatar.Width, ptbAvatar.Height);
             Region rg = new Region(gp);
             ptbAvatar.Region = rg;
-            SetLoad(true, "Đang tải dữ liệu...");
-
-            await Task.Run(()=> {
+            await Task.Run(() =>
+            {
                 ClassController classController = new ClassController();
-                StudentController studentController = new StudentController(null);
-
                 this.classes = classController.GetClasses();
-                this.student = studentController.GetStudentByID(this.studentID);
-
             });
             if (classes.Count > 0)
             {
@@ -75,19 +87,36 @@ namespace TutteeFrame2.View
                     cbbCurrentClass.Items.Add(_class.classID);
                 }
             }
-            if (student != null)
+            OnFirstLoad();
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            homeView.Activate();
+        }
+        void OnFirstLoad()
+        {
+            if (mode == Mode.Edit && student != null)
             {
+
                 lbID.Text = student.ID;
                 txtSurname.Text = student.SurName;
                 txtFirstname.Text = student.FirstName;
                 txtAddress.Text = student.Address;
                 dateBornPicker.Value = student.DateBorn;
-                cbbSex.SelectedIndex = (student.Sex) ?1 : 0;
+                cbbSex.SelectedIndex = (student.Sex) ? 1 : 0;
                 txtPhone.Text = student.Phone;
                 txtMail.Text = student.Mail;
                 txtCurrentClass.Text = student.ClassID;
-                cbbStatus.SelectedIndex = (student.Status) ? 0 : 1;
+                cbbStatus.SelectedIndex = (student.Status) ? 1 : 0;
                 ptbAvatar.Image = student.Avatar;
+            }
+            else
+            {
+                if (mode == Mode.Add && student == null)
+                {
+                    lbID.Text = this.studentID;
+                }
             }
         }
         void SetLoad(bool isLoading, string loadInformation = "")
@@ -99,6 +128,59 @@ namespace TutteeFrame2.View
         private void cbbCurrentClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtCurrentClass.Text = (string)cbbCurrentClass.SelectedItem;
+        }
+
+        private void FetchDataOfStudentFromUI()
+        {
+            student.ID = lbID.Text;
+            student.SurName = txtSurname.Text;
+            student.FirstName = txtFirstname.Text;
+            student.Address = txtAddress.Text;
+            student.DateBorn = dateBornPicker.Value;
+            student.Sex = cbbSex.SelectedIndex == 0 ? false : true;
+            student.Phone = txtPhone.Text;
+            student.Mail = txtMail.Text;
+            student.ClassID = txtCurrentClass.Text;
+            student.Status = cbbStatus.SelectedIndex == 0 ? false : true;
+            student.Avatar = ptbAvatar.Image;
+        }
+        private void OnClickConfirmButton(object sender, EventArgs e)
+        {
+            FetchDataOfStudentFromUI();
+            OnUpdateData();
+
+        }
+
+        private async void OnUpdateData()
+        {
+            SetLoad(true, "Đang thực hiện cập nhật dữ liệu...");
+          
+            await Task.Delay(1000);
+            await Task.Run(()=> {
+                StudentController studentController = new StudentController(null);
+                bool progressResult = studentController.UpdateStudent(this.student);
+                if (progressResult)
+                {
+                  
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.None;
+                    
+                }
+            });
+            SetLoad(false);
+            if(this.DialogResult == DialogResult.OK)
+            {
+                Dialog.Show(this, "Cập nhật thành công.", tittle: "Thông báo");
+                this.Close();
+            }
+            else
+            {
+                Dialog.Show(this, "Cập nhật thất bại, vui lòng kiển tra dữ liệu và thử lại.", tittle: "Cảnh báo");
+            }
+
         }
     }
 }

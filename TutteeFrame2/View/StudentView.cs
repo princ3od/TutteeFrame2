@@ -70,6 +70,7 @@ namespace TutteeFrame2.View
                 ListViewItem lvi = new ListViewItem(new string[] {student.ID,student.SurName,student.FirstName,
                     student.DateBorn.ToString("dd/MM/yyyy"),student.GetSex,student.Address,
                     student.Phone,student.ClassID,student.Status?"Đang học":"Đã nghĩ học" });
+                lvi.Tag = student;
                 listViewStudents.Items.Add(lvi);
             }
             
@@ -116,9 +117,18 @@ namespace TutteeFrame2.View
 
         private void btnUpdateStudent_Click(object sender, EventArgs e)
         {
-            OneStudentView oneStudentView = new OneStudentView( OneStudentView.Mode.Edit,"20200005");
-            OverlayForm overlayForm = new OverlayForm(homeView, oneStudentView);
-            oneStudentView.ShowDialog();
+            if(listViewStudents.SelectedItems.Count > 0)
+            {
+                ListViewItem lvi = listViewStudents.SelectedItems[0];
+                OneStudentView oneStudentView = new OneStudentView(lvi.Tag,this.homeView);
+                OverlayForm overlayForm = new OverlayForm(homeView, oneStudentView);
+                var dialogResult = oneStudentView.ShowDialog();
+                if(dialogResult == DialogResult.OK)
+                {
+                    this.FetchData();
+                }
+            }
+
         }
     }
 }

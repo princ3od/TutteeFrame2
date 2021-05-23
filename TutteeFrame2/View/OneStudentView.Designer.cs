@@ -170,8 +170,8 @@ namespace TutteeFrame2.View
             this.cbbStatus.HintText = "Trạng thái ";
             this.cbbStatus.ItemHeight = 41;
             this.cbbStatus.Items.AddRange(new object[] {
-            "Đang học",
-            "Đã nghĩ học"});
+            "Đã nghĩ học",
+            "Đang học"});
             this.cbbStatus.Location = new System.Drawing.Point(30, 143);
             this.cbbStatus.MaxDropDownItems = 4;
             this.cbbStatus.MouseState = MaterialSurface.MouseState.OUT;
@@ -230,8 +230,8 @@ namespace TutteeFrame2.View
             this.cbbSex.HintText = "Giới tính";
             this.cbbSex.ItemHeight = 41;
             this.cbbSex.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ"});
+            "Nữ",
+            "Nam"});
             this.cbbSex.Location = new System.Drawing.Point(20, 261);
             this.cbbSex.MaxDropDownItems = 4;
             this.cbbSex.MouseState = MaterialSurface.MouseState.OUT;
@@ -358,6 +358,7 @@ namespace TutteeFrame2.View
             this.btnSubmit.Text = "Xong";
             this.btnSubmit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.OnClickConfirmButton);
             // 
             // txtFirstname
             // 
