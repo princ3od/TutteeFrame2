@@ -56,15 +56,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\StudentController.cs" />
+    <Compile Include="Controller\SubjectController.cs" />
+    <Compile Include="Controller\TeacherController.cs" />
+    <Compile Include="Controls\UtilityBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UtilityBar.Designer.cs">
+      <DependentUpon>UtilityBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
+    <Compile Include="DataAccess\ClassDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
+    <Compile Include="DataAccess\StudentDA.cs" />
+    <Compile Include="DataAccess\SubjectDA.cs" />
+    <Compile Include="DataAccess\TeacherDA.cs" />
+    <Compile Include="Model\Class.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\Subject.cs" />
+    <Compile Include="Model\Teacher.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
+    <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\OverlayForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetailSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetailSubject.Designer.cs">
+      <DependentUpon>DetailSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneStudentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneStudentView.Designer.cs">
+      <DependentUpon>OneStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentView.Designer.cs">
+      <DependentUpon>StudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubjectView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SubjectView.Designer.cs">
+      <DependentUpon>SubjectView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.cs">
       <SubType>Form</SubType>
@@ -89,6 +133,33 @@
     <Compile Include="View\NoConnectionView.Designer.cs">
       <DependentUpon>NoConnectionView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OneTeacherView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneTeacherView.Designer.cs">
+      <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeacherView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TeacherView.Designer.cs">
+      <DependentUpon>TeacherView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\UtilityBar.resx">
+      <DependentUpon>UtilityBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DetailSubject.resx">
+      <DependentUpon>DetailSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneStudentView.resx">
+      <DependentUpon>OneStudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentView.resx">
+      <DependentUpon>StudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubjectView.resx">
+      <DependentUpon>SubjectView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +179,12 @@
     <EmbeddedResource Include="View\NoConnectionView.resx">
       <DependentUpon>NoConnectionView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\OneTeacherView.resx">
+      <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TeacherView.resx">
+      <DependentUpon>TeacherView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -126,6 +203,8 @@
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\TutteeFrame.sql" />
+    <None Include="Resources\default_avatar.png" />
     <None Include="Resources\WaitCurser.gif" />
   </ItemGroup>
   <ItemGroup>
