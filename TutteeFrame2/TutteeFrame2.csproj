@@ -38,7 +38,7 @@
       <HintPath>..\packages\MaterialSkin.2.2.1.4\lib\net461\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSurface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSurface.1.0.0\lib\net452\MaterialSurface.dll</HintPath>
+      <HintPath>..\packages\MaterialSurface.1.1.0\lib\net452\MaterialSurface.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -85,6 +85,12 @@
     <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\OverlayForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChangePassView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChangePassView.Designer.cs">
+      <DependentUpon>ChangePassView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ChooseServerView.cs">
       <SubType>Form</SubType>
@@ -153,6 +159,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\UtilityBar.resx">
       <DependentUpon>UtilityBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChangePassView.resx">
+      <DependentUpon>ChangePassView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChooseServerView.resx">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
