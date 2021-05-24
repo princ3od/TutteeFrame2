@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.DataAccess
 {
@@ -38,7 +39,7 @@ namespace TutteeFrame2.DataAccess
         public bool CreateConnect(string _server, string _port, string _userid, string _pass)
         {
             bool success = true;
-            string strConnect = string.Format(Properties.Settings.Default.ServerConnectionString,
+            string strConnect = string.Format(AppSettings.Instance.ServerConnectionString,
                    _server, _port, _userid, _pass);
             try
             {
@@ -62,7 +63,7 @@ namespace TutteeFrame2.DataAccess
         {
             bool success = true;
 
-            string strConnect = Properties.Settings.Default.LocalConnectionString;
+            string strConnect = AppSettings.Instance.LocalConnectionString;
             try
             {
                 connection = new SqlConnection(strConnect);

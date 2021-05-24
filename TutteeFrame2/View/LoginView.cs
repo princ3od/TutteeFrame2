@@ -172,5 +172,17 @@ namespace TutteeFrame2.View
             AppSettings.Instance.RememberMe = ckbRemember.Checked;
             AppSettings.Instance.Save();
         }
+
+        private void OnChooseServer(object sender, EventArgs e)
+        {
+            ChooseServerView chooseServerView = new ChooseServerView();
+            OverlayForm overlayForm = new OverlayForm(this, chooseServerView, setChild: false);
+            chooseServerView.Show();
+            chooseServerView.FormClosing += (s, ev) =>
+            {
+                if (chooseServerView.updated)
+                    Snackbar.MakeSnackbar(this, "Cập nhật thông tin server thành công.", "OK");
+            };
+        }
     }
 }
