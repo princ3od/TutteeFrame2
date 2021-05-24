@@ -75,9 +75,9 @@ namespace TutteeFrame2.View
             this.lbName = new System.Windows.Forms.Label();
             this.ptbSmallAvatar = new System.Windows.Forms.PictureBox();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
-            this.textButton3 = new MaterialSurface.TextButton();
-            this.textButton2 = new MaterialSurface.TextButton();
-            this.textButton1 = new MaterialSurface.TextButton();
+            this.btnInformation = new MaterialSurface.TextButton();
+            this.btnSetting = new MaterialSurface.TextButton();
+            this.btnChangePass = new MaterialSurface.TextButton();
             this.btnShowMore = new MaterialSkin.Controls.MaterialButton();
             this.mainTabControl.SuspendLayout();
             this.home.SuspendLayout();
@@ -429,9 +429,9 @@ namespace TutteeFrame2.View
             // quanLiHocSinh
             // 
             this.quanLiHocSinh.Controls.Add(this.studentView);
-            this.quanLiHocSinh.Location = new System.Drawing.Point(4, 44);
+            this.quanLiHocSinh.Location = new System.Drawing.Point(4, 22);
             this.quanLiHocSinh.Name = "quanLiHocSinh";
-            this.quanLiHocSinh.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiHocSinh.Size = new System.Drawing.Size(1116, 586);
             this.quanLiHocSinh.TabIndex = 2;
             this.quanLiHocSinh.Text = "Quản lí học sinh";
             this.quanLiHocSinh.UseVisualStyleBackColor = true;
@@ -443,14 +443,14 @@ namespace TutteeFrame2.View
             this.studentView.Location = new System.Drawing.Point(0, 0);
             this.studentView.Margin = new System.Windows.Forms.Padding(2);
             this.studentView.Name = "studentView";
-            this.studentView.Size = new System.Drawing.Size(1116, 564);
+            this.studentView.Size = new System.Drawing.Size(1116, 586);
             this.studentView.TabIndex = 0;
             // 
             // bangDiemHocSinh
             // 
-            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 44);
+            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 22);
             this.bangDiemHocSinh.Name = "bangDiemHocSinh";
-            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 564);
+            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 586);
             this.bangDiemHocSinh.TabIndex = 3;
             this.bangDiemHocSinh.Text = "Bảng điểm học sinh";
             this.bangDiemHocSinh.UseVisualStyleBackColor = true;
@@ -458,9 +458,9 @@ namespace TutteeFrame2.View
             // quanLiMon
             // 
             this.quanLiMon.Controls.Add(this.subjectView);
-            this.quanLiMon.Location = new System.Drawing.Point(4, 44);
+            this.quanLiMon.Location = new System.Drawing.Point(4, 22);
             this.quanLiMon.Name = "quanLiMon";
-            this.quanLiMon.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiMon.Size = new System.Drawing.Size(1116, 586);
             this.quanLiMon.TabIndex = 4;
             this.quanLiMon.Text = "Quản lí môn";
             this.quanLiMon.UseVisualStyleBackColor = true;
@@ -473,23 +473,23 @@ namespace TutteeFrame2.View
             this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.subjectView.Location = new System.Drawing.Point(0, 0);
             this.subjectView.Name = "subjectView";
-            this.subjectView.Size = new System.Drawing.Size(1116, 564);
+            this.subjectView.Size = new System.Drawing.Size(1116, 586);
             this.subjectView.TabIndex = 1;
             // 
             // quanLiLop
             // 
-            this.quanLiLop.Location = new System.Drawing.Point(4, 44);
+            this.quanLiLop.Location = new System.Drawing.Point(4, 22);
             this.quanLiLop.Name = "quanLiLop";
-            this.quanLiLop.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiLop.Size = new System.Drawing.Size(1116, 586);
             this.quanLiLop.TabIndex = 5;
             this.quanLiLop.Text = "Quản lí lớp";
             this.quanLiLop.UseVisualStyleBackColor = true;
             // 
             // quanLiKiLuat
             // 
-            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 44);
+            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 22);
             this.quanLiKiLuat.Name = "quanLiKiLuat";
-            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 586);
             this.quanLiKiLuat.TabIndex = 6;
             this.quanLiKiLuat.Text = "Quản lí kỉ luật";
             this.quanLiKiLuat.UseVisualStyleBackColor = true;
@@ -623,9 +623,9 @@ namespace TutteeFrame2.View
             this.utilityBar.Controls.Add(this.lbName);
             this.utilityBar.Controls.Add(this.ptbSmallAvatar);
             this.utilityBar.Controls.Add(this.materialDivider2);
-            this.utilityBar.Controls.Add(this.textButton3);
-            this.utilityBar.Controls.Add(this.textButton2);
-            this.utilityBar.Controls.Add(this.textButton1);
+            this.utilityBar.Controls.Add(this.btnInformation);
+            this.utilityBar.Controls.Add(this.btnSetting);
+            this.utilityBar.Controls.Add(this.btnChangePass);
             this.utilityBar.Controls.Add(this.btnLogout);
             this.utilityBar.Controls.Add(this.btnShowMore);
             this.utilityBar.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -686,56 +686,57 @@ namespace TutteeFrame2.View
             this.materialDivider2.TabIndex = 12;
             this.materialDivider2.Text = "materialDivider2";
             // 
-            // textButton3
+            // btnInformation
             // 
-            this.textButton3.EffectType = MaterialSurface.ET.Custom;
-            this.textButton3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textButton3.ForeColor = System.Drawing.Color.Black;
-            this.textButton3.Icon = null;
-            this.textButton3.Location = new System.Drawing.Point(8, 72);
-            this.textButton3.MouseState = MaterialSurface.MouseState.OUT;
-            this.textButton3.Name = "textButton3";
-            this.textButton3.PrimaryColor = System.Drawing.Color.Black;
-            this.textButton3.Radius = 8;
-            this.textButton3.Size = new System.Drawing.Size(252, 40);
-            this.textButton3.TabIndex = 11;
-            this.textButton3.Text = "Thông tin cá nhân";
-            this.textButton3.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.textButton3.UseVisualStyleBackColor = true;
+            this.btnInformation.EffectType = MaterialSurface.ET.Custom;
+            this.btnInformation.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInformation.ForeColor = System.Drawing.Color.Black;
+            this.btnInformation.Icon = null;
+            this.btnInformation.Location = new System.Drawing.Point(8, 72);
+            this.btnInformation.MouseState = MaterialSurface.MouseState.OUT;
+            this.btnInformation.Name = "btnInformation";
+            this.btnInformation.PrimaryColor = System.Drawing.Color.Black;
+            this.btnInformation.Radius = 8;
+            this.btnInformation.Size = new System.Drawing.Size(252, 40);
+            this.btnInformation.TabIndex = 11;
+            this.btnInformation.Text = "Thông tin cá nhân";
+            this.btnInformation.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnInformation.UseVisualStyleBackColor = true;
             // 
-            // textButton2
+            // btnSetting
             // 
-            this.textButton2.EffectType = MaterialSurface.ET.Custom;
-            this.textButton2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textButton2.ForeColor = System.Drawing.Color.Black;
-            this.textButton2.Icon = null;
-            this.textButton2.Location = new System.Drawing.Point(9, 113);
-            this.textButton2.MouseState = MaterialSurface.MouseState.OUT;
-            this.textButton2.Name = "textButton2";
-            this.textButton2.PrimaryColor = System.Drawing.Color.Black;
-            this.textButton2.Radius = 8;
-            this.textButton2.Size = new System.Drawing.Size(252, 40);
-            this.textButton2.TabIndex = 10;
-            this.textButton2.Text = "Cài đặt";
-            this.textButton2.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.textButton2.UseVisualStyleBackColor = true;
+            this.btnSetting.EffectType = MaterialSurface.ET.Custom;
+            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.ForeColor = System.Drawing.Color.Black;
+            this.btnSetting.Icon = null;
+            this.btnSetting.Location = new System.Drawing.Point(9, 113);
+            this.btnSetting.MouseState = MaterialSurface.MouseState.OUT;
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.PrimaryColor = System.Drawing.Color.Black;
+            this.btnSetting.Radius = 8;
+            this.btnSetting.Size = new System.Drawing.Size(252, 40);
+            this.btnSetting.TabIndex = 10;
+            this.btnSetting.Text = "Cài đặt";
+            this.btnSetting.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSetting.UseVisualStyleBackColor = true;
             // 
-            // textButton1
+            // btnChangePass
             // 
-            this.textButton1.EffectType = MaterialSurface.ET.Custom;
-            this.textButton1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textButton1.ForeColor = System.Drawing.Color.Black;
-            this.textButton1.Icon = null;
-            this.textButton1.Location = new System.Drawing.Point(8, 154);
-            this.textButton1.MouseState = MaterialSurface.MouseState.OUT;
-            this.textButton1.Name = "textButton1";
-            this.textButton1.PrimaryColor = System.Drawing.Color.Black;
-            this.textButton1.Radius = 8;
-            this.textButton1.Size = new System.Drawing.Size(252, 40);
-            this.textButton1.TabIndex = 9;
-            this.textButton1.Text = "Đổi mật khẩu";
-            this.textButton1.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.textButton1.UseVisualStyleBackColor = true;
+            this.btnChangePass.EffectType = MaterialSurface.ET.Custom;
+            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePass.ForeColor = System.Drawing.Color.Black;
+            this.btnChangePass.Icon = null;
+            this.btnChangePass.Location = new System.Drawing.Point(8, 154);
+            this.btnChangePass.MouseState = MaterialSurface.MouseState.OUT;
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.PrimaryColor = System.Drawing.Color.Black;
+            this.btnChangePass.Radius = 8;
+            this.btnChangePass.Size = new System.Drawing.Size(252, 40);
+            this.btnChangePass.TabIndex = 9;
+            this.btnChangePass.Text = "Đổi mật khẩu";
+            this.btnChangePass.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnChangePass.UseVisualStyleBackColor = true;
+            this.btnChangePass.Click += new System.EventHandler(this.OnChangePassword);
             // 
             // btnShowMore
             // 
@@ -815,9 +816,9 @@ namespace TutteeFrame2.View
         private System.Windows.Forms.Label lbInformation;
         private MaterialSurface.MaterialCard utilityBar;
         private MaterialSkin.Controls.MaterialButton btnShowMore;
-        private MaterialSurface.TextButton textButton3;
-        private MaterialSurface.TextButton textButton2;
-        private MaterialSurface.TextButton textButton1;
+        private MaterialSurface.TextButton btnInformation;
+        private MaterialSurface.TextButton btnSetting;
+        private MaterialSurface.TextButton btnChangePass;
         private MaterialSkin.Controls.MaterialDivider materialDivider2;
         private System.Windows.Forms.Label lbPosition;
         private System.Windows.Forms.Label lbName;

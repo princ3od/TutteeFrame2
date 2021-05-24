@@ -36,14 +36,6 @@ namespace TutteeFrame2.View
             studentView.SetHome(this);
         }
 
-        public void CreateLoginView()
-        {
-            this.WindowState = FormWindowState.Normal;
-            this.CenterToScreen();
-            this.Hide();
-            Application.Restart();
-        }
-
         public void LoadTeacher(string teacherID, string sessionID)
         {
             controller.sessionID = sessionID;
@@ -202,6 +194,13 @@ namespace TutteeFrame2.View
                         break;
                     }
             }
+        }
+
+        private void OnChangePassword(object sender, EventArgs e)
+        {
+            ChangePassView changePassView = new ChangePassView(controller.mainTeacher.ID);
+            OverlayForm _ = new OverlayForm(this, changePassView);
+            changePassView.Show();
         }
     }
 }
