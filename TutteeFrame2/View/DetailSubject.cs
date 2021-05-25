@@ -15,22 +15,25 @@ namespace TutteeFrame2.View
     public partial class DetailSubject : Form
     {
         Subject subject;
-        public DetailSubject(ref object subject)
+        public DetailSubject(ref object input)
         {
             InitializeComponent();
          
-            if(subject is Subject)
+            if(input is Subject)
             {
                 
-                this.subject = (Subject)subject;
+                this.subject = (Subject)input;
                 LoadData();
             }
             else
             {
-                
-                subject = new Subject();
-                this.subject = (Subject)subject;
+
+                this.subject = new Subject();
+                this.subject.ID = (input is string) ? (string)input : null;
+                input = this.subject;
+                txtSubjectId.Text = this.subject.ID;
             }
+            txtSubjectId.Enabled = false;
         }
         public  void LoadData()
         {

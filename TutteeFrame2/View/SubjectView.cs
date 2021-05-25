@@ -55,7 +55,14 @@ namespace TutteeFrame2.View
 
         private void btnAddNewSubject_Click(object sender, EventArgs e)
         {
-            object subject = null;
+            string subjectID;
+
+            do
+            {
+                subjectID = "SJ" + IdentifierFactory.GenerateNumberID(length: 4);
+            }
+            while (subjectController.subjects.FindIndex(x => x.ID == subjectID) != -1);
+            object subject = subjectID;
             DetailSubject detailSubject = new DetailSubject(ref subject);
             OverlayForm overlay = new OverlayForm(homeView, detailSubject);
             var dialogResult = detailSubject.ShowDialog();
