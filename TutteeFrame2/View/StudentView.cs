@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
 using TutteeFrame2.Utils;
-using System.Collections.Generic;
 using MaterialSurface;
 
 namespace TutteeFrame2.View

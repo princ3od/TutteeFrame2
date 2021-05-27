@@ -17,6 +17,7 @@ namespace TutteeFrame2.View
         public HomeView()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             controller = new HomeController(this);
         }
 

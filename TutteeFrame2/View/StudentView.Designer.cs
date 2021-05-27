@@ -72,21 +72,20 @@ namespace TutteeFrame2.View
             this.clmStudentClassID,
             this.clmStudentStatus});
             this.listViewStudents.Depth = 0;
-            this.listViewStudents.Font = new System.Drawing.Font("Segoe UI", 30F);
+            this.listViewStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.listViewStudents.FullRowSelect = true;
             this.listViewStudents.HideSelection = false;
-            this.listViewStudents.Location = new System.Drawing.Point(14, 106);
+            this.listViewStudents.Location = new System.Drawing.Point(14, 128);
             this.listViewStudents.Margin = new System.Windows.Forms.Padding(2);
             this.listViewStudents.MinimumSize = new System.Drawing.Size(150, 81);
             this.listViewStudents.MouseLocation = new System.Drawing.Point(-1, -1);
             this.listViewStudents.MouseState = MaterialSkin.MouseState.OUT;
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.OwnerDraw = true;
-            this.listViewStudents.Size = new System.Drawing.Size(843, 352);
+            this.listViewStudents.Size = new System.Drawing.Size(843, 330);
             this.listViewStudents.TabIndex = 11;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
             this.listViewStudents.View = System.Windows.Forms.View.Details;
-            this.listViewStudents.SelectedIndexChanged += new System.EventHandler(this.OnSortTypeChaned);
             // 
             // clmStudentID
             // 
@@ -148,7 +147,7 @@ namespace TutteeFrame2.View
             this.lbTotalStudentTittle.Location = new System.Drawing.Point(220, 8);
             this.lbTotalStudentTittle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTotalStudentTittle.Name = "lbTotalStudentTittle";
-            this.lbTotalStudentTittle.Size = new System.Drawing.Size(159, 28);
+            this.lbTotalStudentTittle.Size = new System.Drawing.Size(127, 21);
             this.lbTotalStudentTittle.TabIndex = 16;
             this.lbTotalStudentTittle.Text = "Tổng số học sinh";
             // 
@@ -159,7 +158,7 @@ namespace TutteeFrame2.View
             this.lbFrmSumClass.Location = new System.Drawing.Point(46, 8);
             this.lbFrmSumClass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFrmSumClass.Name = "lbFrmSumClass";
-            this.lbFrmSumClass.Size = new System.Drawing.Size(153, 28);
+            this.lbFrmSumClass.Size = new System.Drawing.Size(121, 21);
             this.lbFrmSumClass.TabIndex = 15;
             this.lbFrmSumClass.Text = "Tổng số lớp học";
             // 
@@ -273,7 +272,7 @@ namespace TutteeFrame2.View
             this.txtSearch.ReadOnly = false;
             this.txtSearch.ShortcutsEnable = true;
             this.txtSearch.ShowCaret = true;
-            this.txtSearch.Size = new System.Drawing.Size(296, 72);
+            this.txtSearch.Size = new System.Drawing.Size(296, 67);
             this.txtSearch.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSearch.TabIndex = 42;
             this.txtSearch.UseSystemPasswordChar = false;
