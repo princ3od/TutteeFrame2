@@ -55,6 +55,7 @@ namespace TutteeFrame2.Controller
             {
                 students = originalStudents;
             }
+            
         }
         public void FilterStudentByGrade()
         {
@@ -75,6 +76,7 @@ namespace TutteeFrame2.Controller
                 default:
                     break;
             }
+            ChangeSortType();
             studentView.ShowStudentsOnListView();
         }
         public void ChangeSortType()
@@ -92,6 +94,12 @@ namespace TutteeFrame2.Controller
                     break;
                 case StudentView.SortType.BySex:
                     students = students.OrderBy(o => o.Sex).ToList();
+                    break;
+                case StudentView.SortType.ByClassID:
+                    students = students.OrderBy(o => o.ClassID).ToList();
+                    break;
+                case StudentView.SortType.ByStatus:
+                    students = students.OrderBy(o => o.Status).ToList();
                     break;
                 default:
                     break;

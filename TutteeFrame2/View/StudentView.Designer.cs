@@ -76,7 +76,7 @@ namespace TutteeFrame2.View
             this.listViewStudents.FullRowSelect = true;
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(14, 106);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(2);
             this.listViewStudents.MinimumSize = new System.Drawing.Size(150, 81);
             this.listViewStudents.MouseLocation = new System.Drawing.Point(-1, -1);
             this.listViewStudents.MouseState = MaterialSkin.MouseState.OUT;
@@ -86,6 +86,7 @@ namespace TutteeFrame2.View
             this.listViewStudents.TabIndex = 11;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
             this.listViewStudents.View = System.Windows.Forms.View.Details;
+            this.listViewStudents.SelectedIndexChanged += new System.EventHandler(this.OnSortTypeChaned);
             // 
             // clmStudentID
             // 
@@ -147,7 +148,7 @@ namespace TutteeFrame2.View
             this.lbTotalStudentTittle.Location = new System.Drawing.Point(220, 8);
             this.lbTotalStudentTittle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTotalStudentTittle.Name = "lbTotalStudentTittle";
-            this.lbTotalStudentTittle.Size = new System.Drawing.Size(127, 21);
+            this.lbTotalStudentTittle.Size = new System.Drawing.Size(159, 28);
             this.lbTotalStudentTittle.TabIndex = 16;
             this.lbTotalStudentTittle.Text = "Tổng số học sinh";
             // 
@@ -158,7 +159,7 @@ namespace TutteeFrame2.View
             this.lbFrmSumClass.Location = new System.Drawing.Point(46, 8);
             this.lbFrmSumClass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFrmSumClass.Name = "lbFrmSumClass";
-            this.lbFrmSumClass.Size = new System.Drawing.Size(121, 21);
+            this.lbFrmSumClass.Size = new System.Drawing.Size(153, 28);
             this.lbFrmSumClass.TabIndex = 15;
             this.lbFrmSumClass.Text = "Tổng số lớp học";
             // 
@@ -170,7 +171,7 @@ namespace TutteeFrame2.View
             this.btnDeleteStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnDeleteStudent.Icon = null;
             this.btnDeleteStudent.Location = new System.Drawing.Point(700, 462);
-            this.btnDeleteStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteStudent.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteStudent.MouseState = MaterialSurface.MouseState.OUT;
             this.btnDeleteStudent.Name = "btnDeleteStudent";
             this.btnDeleteStudent.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -192,7 +193,7 @@ namespace TutteeFrame2.View
             this.btnUpdateStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnUpdateStudent.Icon = null;
             this.btnUpdateStudent.Location = new System.Drawing.Point(184, 462);
-            this.btnUpdateStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateStudent.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateStudent.MouseState = MaterialSurface.MouseState.OUT;
             this.btnUpdateStudent.Name = "btnUpdateStudent";
             this.btnUpdateStudent.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -214,7 +215,7 @@ namespace TutteeFrame2.View
             this.btnAddStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnAddStudent.Icon = null;
             this.btnAddStudent.Location = new System.Drawing.Point(50, 462);
-            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddStudent.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddStudent.MouseState = MaterialSurface.MouseState.OUT;
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -236,7 +237,7 @@ namespace TutteeFrame2.View
             this.btnAddPunis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnAddPunis.Icon = null;
             this.btnAddPunis.Location = new System.Drawing.Point(328, 462);
-            this.btnAddPunis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddPunis.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddPunis.MouseState = MaterialSurface.MouseState.OUT;
             this.btnAddPunis.Name = "btnAddPunis";
             this.btnAddPunis.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -262,7 +263,7 @@ namespace TutteeFrame2.View
             this.txtSearch.HideSelection = true;
             this.txtSearch.HintText = "Tìm kiếm";
             this.txtSearch.Location = new System.Drawing.Point(27, 57);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.MouseState = MaterialSurface.MouseState.OUT;
             this.txtSearch.Multiline = false;
@@ -272,7 +273,7 @@ namespace TutteeFrame2.View
             this.txtSearch.ReadOnly = false;
             this.txtSearch.ShortcutsEnable = true;
             this.txtSearch.ShowCaret = true;
-            this.txtSearch.Size = new System.Drawing.Size(296, 67);
+            this.txtSearch.Size = new System.Drawing.Size(296, 72);
             this.txtSearch.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSearch.TabIndex = 42;
             this.txtSearch.UseSystemPasswordChar = false;
@@ -297,8 +298,8 @@ namespace TutteeFrame2.View
             "10",
             "11",
             "12"});
-            this.cbbFilterByGrade.Location = new System.Drawing.Point(507, 59);
-            this.cbbFilterByGrade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterByGrade.Location = new System.Drawing.Point(464, 59);
+            this.cbbFilterByGrade.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterByGrade.MaxDropDownItems = 4;
             this.cbbFilterByGrade.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbFilterByGrade.Name = "cbbFilterByGrade";
@@ -319,13 +320,13 @@ namespace TutteeFrame2.View
             this.cbbFilterByClass.FormattingEnabled = true;
             this.cbbFilterByClass.HintText = "Lớp";
             this.cbbFilterByClass.ItemHeight = 41;
-            this.cbbFilterByClass.Location = new System.Drawing.Point(613, 59);
-            this.cbbFilterByClass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbFilterByClass.Location = new System.Drawing.Point(570, 59);
+            this.cbbFilterByClass.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterByClass.MaxDropDownItems = 4;
             this.cbbFilterByClass.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbFilterByClass.Name = "cbbFilterByClass";
             this.cbbFilterByClass.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.cbbFilterByClass.Size = new System.Drawing.Size(102, 47);
+            this.cbbFilterByClass.Size = new System.Drawing.Size(115, 47);
             this.cbbFilterByClass.TabIndex = 43;
             this.cbbFilterByClass.SelectedIndexChanged += new System.EventHandler(this.OnFilterClassChanged);
             // 
@@ -345,14 +346,16 @@ namespace TutteeFrame2.View
             "ID",
             "Ngày sinh",
             "Họ tên",
-            "Giới tính"});
-            this.cbbSortBy.Location = new System.Drawing.Point(719, 59);
-            this.cbbSortBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            "Giới tính",
+            "Theo lớp",
+            "Theo trạng thái"});
+            this.cbbSortBy.Location = new System.Drawing.Point(689, 59);
+            this.cbbSortBy.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSortBy.MaxDropDownItems = 4;
             this.cbbSortBy.MouseState = MaterialSurface.MouseState.OUT;
             this.cbbSortBy.Name = "cbbSortBy";
             this.cbbSortBy.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.cbbSortBy.Size = new System.Drawing.Size(126, 47);
+            this.cbbSortBy.Size = new System.Drawing.Size(156, 47);
             this.cbbSortBy.TabIndex = 44;
             this.cbbSortBy.SelectedIndexChanged += new System.EventHandler(this.OnSortTypeChaned);
             // 
@@ -405,7 +408,7 @@ namespace TutteeFrame2.View
             this.Controls.Add(this.listViewStudents);
             this.Controls.Add(this.lbTotalStudentTittle);
             this.Controls.Add(this.lbFrmSumClass);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StudentView";
             this.Size = new System.Drawing.Size(874, 514);
             this.ResumeLayout(false);

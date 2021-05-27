@@ -26,6 +26,8 @@ namespace TutteeFrame2.View
             ByBirthday = 1,
             ByName = 2,
             BySex = 3,
+            ByClassID =4, 
+            ByStatus = 5,
         }
         public enum GradeFilter
         {
@@ -34,7 +36,7 @@ namespace TutteeFrame2.View
             Grade11 = 2,
             Grade12 = 3,
         }
-        public SortType sortType = SortType.ByID;
+        public SortType sortType = SortType.ByClassID;
         public GradeFilter gradeFilter = GradeFilter.All;
         public string classFilter = "Tất cả";
 
@@ -53,7 +55,7 @@ namespace TutteeFrame2.View
         {
             base.OnLoad(e);
             cbbFilterByGrade.SelectedIndex = 0;
-            cbbSortBy.SelectedIndex = 0;
+            cbbSortBy.SelectedIndex = 4;
         }
         public void SetHome(HomeView homeView)
         {
