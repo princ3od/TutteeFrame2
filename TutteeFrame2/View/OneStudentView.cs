@@ -84,7 +84,7 @@ namespace TutteeFrame2.View
                 cbbCurrentClass.Items.Clear();
                 foreach (var _class in classes)
                 {
-                    cbbCurrentClass.Items.Add(_class.classID);
+                    cbbCurrentClass.Items.Add(_class.ClassID);
                 }
             }
             OnFirstLoad();

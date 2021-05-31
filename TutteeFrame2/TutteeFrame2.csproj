@@ -59,6 +59,7 @@
     <Compile Include="Controller\ClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\PunishmentController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
@@ -71,12 +72,15 @@
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\ClassDA.cs" />
+    <Compile Include="DataAccess\PunishmentDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
     <Compile Include="DataAccess\StudentDA.cs" />
     <Compile Include="DataAccess\SubjectDA.cs" />
     <Compile Include="DataAccess\TeacherDA.cs" />
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Punishment.cs" />
+    <Compile Include="Model\ResultObject.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
@@ -109,6 +113,12 @@
     </Compile>
     <Compile Include="View\OneStudentView.Designer.cs">
       <DependentUpon>OneStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PunishmentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PunishmentView.Designer.cs">
+      <DependentUpon>PunishmentView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StudentView.cs">
       <SubType>UserControl</SubType>
@@ -171,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\OneStudentView.resx">
       <DependentUpon>OneStudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PunishmentView.resx">
+      <DependentUpon>PunishmentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentView.resx">
       <DependentUpon>StudentView.cs</DependentUpon>
