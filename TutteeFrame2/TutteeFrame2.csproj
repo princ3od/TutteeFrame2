@@ -108,6 +108,12 @@
     <Compile Include="View\DetailSubject.Designer.cs">
       <DependentUpon>DetailSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OnePunishmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OnePunishmentView.Designer.cs">
+      <DependentUpon>OnePunishmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\OneStudentView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\DetailSubject.resx">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OnePunishmentView.resx">
+      <DependentUpon>OnePunishmentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OneStudentView.resx">
       <DependentUpon>OneStudentView.cs</DependentUpon>

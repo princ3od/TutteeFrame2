@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSurface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
+using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.View
 {
@@ -18,7 +20,7 @@ namespace TutteeFrame2.View
         public HomeView Home;
         public string classIDFilter = "";
         public string gradeFilter = "";
-        public bool firstLoad;
+        public bool firstLoad = true;
         public PunishmentView()
         {
             InitializeComponent();
@@ -68,7 +70,21 @@ namespace TutteeFrame2.View
                     }));
             }
         }
-
+        public void ShowDeleteResult(TeacherController.DeleteResult result)
+        {
+            switch (result)
+            {
+                case TeacherController.DeleteResult.Success:
+                    Snackbar.MakeSnackbar(Home, "Đã xoá thành công!", "OK");
+                    Fetch();
+                    break;
+                case TeacherController.DeleteResult.Fail:
+                    Dialog.Show(Home, "Xoá thất bại, đã có lỗi xảy ra!", "Lỗi");
+                    break;
+                default:
+                    break;
+            }
+        }
         private void OnChangeGrade(object sender, EventArgs e)
         {
             if (firstLoad)
@@ -98,6 +114,38 @@ namespace TutteeFrame2.View
         private void OnSearch(object sender, EventArgs e)
         {
             controller.FilterSearch(txtSearch.Text);
+        }
+
+        private void OnChoosePunishment(object sender, EventArgs e)
+        {
+            btnUpdate.Enabled = btnDelete.Enabled = (listViewPunishment.SelectedItems.Count > 0);
+        }
+
+        private void OnDeletePunishment(object sender, EventArgs e)
+        {
+            if (listViewPunishment.SelectedItems.Count > 0)
+            {
+                if (Dialog.Show(Home, "Bạn chắc chắn muốn xoá vi phạm này?", "Xác nhận", Buttons.YesNo) == DialogResult.Yes)
+                    controller.DeletePunishment(listViewPunishment.SelectedItems[0].SubItems[1].Text);
+            }
+        }
+
+        private void OnAddPunishment(object sender, EventArgs e)
+        {
+            if (listViewPunishment.SelectedItems.Count <= 0)
+                return;
+            OnePunishmentView onePunishmentView = new OnePunishmentView(listViewPunishment.SelectedItems[0].SubItems[2].Text,
+                OnePunishmentView.Mode.Edit, OnePunishmentView.OpenMode.Full, listViewPunishment.SelectedItems[0].SubItems[1].Text);
+            OverlayForm _ = new OverlayForm(Home, onePunishmentView);
+            onePunishmentView.FormClosing += (s, ev) =>
+            {
+                if (onePunishmentView.success)
+                {
+                    Snackbar.MakeSnackbar(Home, string.Format("Cập nhật/thêm vi phạm thành công (ID: {0})", onePunishmentView.punishmentID), "OK");
+                    Fetch();
+                }
+            };
+            onePunishmentView.Show();
         }
     }
 }

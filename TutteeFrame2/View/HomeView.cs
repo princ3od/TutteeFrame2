@@ -66,6 +66,7 @@ namespace TutteeFrame2.View
             ptbSmallAvatar.Image = ImageHelper.CropCircle(controller.mainTeacher.Avatar);
             ptbAvatarBig.Image = ImageHelper.CropCircle(controller.mainTeacher.Avatar);
             lbPositionBig.Text = lbPosition.Text = controller.mainTeacher.Position;
+            Snackbar.MakeSnackbar(this, string.Format("Xin chào {0}", controller.mainTeacher.GetName()), "HELLO");
             Decentralize();
         }
 

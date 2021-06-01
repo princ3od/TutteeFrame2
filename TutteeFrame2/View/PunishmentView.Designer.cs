@@ -77,6 +77,7 @@ namespace TutteeFrame2.View
             this.listViewPunishment.TabIndex = 18;
             this.listViewPunishment.UseCompatibleStateImageBehavior = false;
             this.listViewPunishment.View = System.Windows.Forms.View.Details;
+            this.listViewPunishment.SelectedIndexChanged += new System.EventHandler(this.OnChoosePunishment);
             // 
             // columnHeader18
             // 
@@ -139,6 +140,7 @@ namespace TutteeFrame2.View
             this.btnUpdate.Text = "Cập nhật/Thêm kỉ luật";
             this.btnUpdate.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.OnAddPunishment);
             // 
             // btnDelete
             // 
@@ -160,6 +162,7 @@ namespace TutteeFrame2.View
             this.btnDelete.Text = "Xoá";
             this.btnDelete.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.OnDeletePunishment);
             // 
             // cbbFilterByClass
             // 

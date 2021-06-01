@@ -25,7 +25,7 @@ namespace TutteeFrame2.View
             ByBirthday = 1,
             ByName = 2,
             BySex = 3,
-            ByClassID =4, 
+            ByClassID = 4,
             ByStatus = 5,
         }
         public enum GradeFilter
@@ -166,7 +166,7 @@ namespace TutteeFrame2.View
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 studentController.FindStudent(txtSearch.Text);
             }
@@ -180,6 +180,24 @@ namespace TutteeFrame2.View
         private void txtSearch_MouseLeave(object sender, EventArgs e)
         {
             txtSearch.HelperText = "";
+        }
+
+        private void OnAddFault(object sender, EventArgs e)
+        {
+            OnePunishmentView onePunishmentView = new OnePunishmentView(listViewStudents.SelectedItems[0].SubItems[0].Text,
+               OnePunishmentView.Mode.Add, OnePunishmentView.OpenMode.FaultOnly);
+            OverlayForm _ = new OverlayForm(homeView, onePunishmentView);
+            onePunishmentView.FormClosing += (s, ev) =>
+            {
+                if (onePunishmentView.success)
+                {
+                    ListViewItem lvi = listViewStudents.SelectedItems[0];
+                    Student student = (lvi.Tag is Student) ? (Student)lvi.Tag : new Student();
+                    Snackbar.MakeSnackbar(homeView, string.Format("Thêm vi phạm (ID: {0}) cho học sinh {1} thành công.",
+                        onePunishmentView.punishmentID, student.GetName()), "OK");
+                }
+            };
+            onePunishmentView.Show();
         }
     }
 }

@@ -26,9 +26,12 @@ namespace TutteeFrame2.Controller
         }
         public async void FetchData()
         {
-            await FetchClasses();
-            //await FetchPunishments();
-            view.firstLoad = false;
+            if (view.firstLoad)
+            {
+                await FetchClasses();
+                view.firstLoad = false;
+            }
+            await FetchPunishments();
         }
         public async Task FetchPunishments()
         {
@@ -77,6 +80,16 @@ namespace TutteeFrame2.Controller
             else
                 punishments = GetPunishmentsBySearch(searchParam, originalPunishments);
             view.ShowData();
+        }
+        public async void DeletePunishment(string punishmentID)
+        {
+            view.Home.SetLoad(true, "Đang xoá vi phạm...");
+            await Task.Run(() => punishmentID = PunishmentDA.Instance.DeletePunishment(punishmentID));
+            if (punishmentID == null)
+                view.ShowDeleteResult(TeacherController.DeleteResult.Fail);
+            else
+                view.ShowDeleteResult(TeacherController.DeleteResult.Success);
+            view.Home.SetLoad(false);
         }
         List<Punishment> GetPunishmentsBySearch(string searchParam, List<Punishment> _origin)
         {
