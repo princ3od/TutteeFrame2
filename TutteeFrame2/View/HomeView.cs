@@ -50,6 +50,7 @@ namespace TutteeFrame2.View
             Dialog.PrimaryColor = Color.FromArgb(47, 144, 176);
             teacherView.SetHome(this);
             subjectView.SetHome(this);
+            classView.SetHome(this);
             studentView.SetHome(this);
             punishmentView.SetHome(this);
         }
@@ -185,6 +186,7 @@ namespace TutteeFrame2.View
                     subjectView.LoadSubjects();
                     break;
                 case TabName.QuanLiLop:
+                    classView.Fetch();
                     break;
                 case TabName.QuanLiKiLuat:
                     punishmentView.Fetch();

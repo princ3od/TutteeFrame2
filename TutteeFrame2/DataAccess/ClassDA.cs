@@ -15,12 +15,12 @@ namespace TutteeFrame2.DataAccess
         private ClassDA() { }
 
         public static new ClassDA Instance => _classDA;
-        public bool AddClass(Class _class)
+        public Class AddClass(Class _class)
         {
             bool success = Connect();
 
             if (!success)
-                return false;
+                return null;
             try
             {
                 string query = "INSERT INTO CLASS(ClassID,RoomNum,StudentNum,TeacherID) VALUES (@classid,@classroom,@studentnum,@teacherid)";
@@ -34,74 +34,125 @@ namespace TutteeFrame2.DataAccess
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-                return false;
+                return null;
             }
             finally
             {
                 Disconnect();
             }
-            return true;
+            return _class;
         }
 
-        public bool DeletedClass(string classId)
-        {
-            bool success = Connect();
-            if (!success) return false;
-            try
-            {
-                strQuery = "DELETE  FROM CLASS WHERE ClassID = @classId";
-                SqlCommand cmd = new SqlCommand(strQuery, connection);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = strQuery;
-                cmd.Parameters.Add("@classId", System.Data.SqlDbType.VarChar).Value = classId;
-                cmd.ExecuteNonQuery();
-                if (connection.State == System.Data.ConnectionState.Open) Disconnect();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-        }
-
-        public bool UpdateClassInfo(Class _class)
+        public string DeletedClass(string classId)
         {
             bool success = Connect();
 
             if (!success)
-                return false;
+                return classId;
+
             try
             {
-                strQuery = "UPDATE CLASS SET RoomNum = @romNumber,StudentNum = @studentNumber, TeacherID =@teacherFormalID  WHERE ClassID = @classID";
+                strQuery = "DELETE  FROM CLASS WHERE ClassID = @classId";
                 using (SqlCommand cmd = new SqlCommand(strQuery, connection))
                 {
-                    cmd.Parameters.AddWithValue("@romNumber", _class.RoomNumber);
-                    cmd.Parameters.AddWithValue("@classID", _class.ClassID);
-                    cmd.Parameters.AddWithValue("@studentNumber", _class.StudentNumber);
-                    cmd.Parameters.AddWithValue("@teacherFormalID", _class.FormalTeacherID);
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = strQuery;
+                    cmd.Parameters.Add("@classId", System.Data.SqlDbType.VarChar).Value = classId;
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return false;
+                return null;
             }
             finally
             {
                 Disconnect();
             }
-            return true;
+            return classId;
+        }
+
+        public Class UpdateClassInfo(Class _class)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+            try
+            {
+                strQuery = "UPDATE CLASS SET RoomNum = @romNumber, StudentNum = @studentNumber, TeacherID =@teacherFormalID  WHERE ClassID = @classID";
+                using (SqlCommand cmd = new SqlCommand(strQuery, connection))
+                {
+                    cmd.Parameters.AddWithValue("@romNumber", _class.RoomNumber);
+                    cmd.Parameters.AddWithValue("@classID", _class.ClassID);
+                    cmd.Parameters.AddWithValue("@studentNumber", _class.StudentNumber);
+                    if (_class.FormalTeacherID == null)
+                        cmd.Parameters.AddWithValue("@teacherFormalID", DBNull.Value);
+                    else
+                        cmd.Parameters.AddWithValue("@teacherFormalID", _class.FormalTeacherID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return _class;
 
         }
-        public List<Class> GetClasses(string grade = "")
+        public Class GetClass(string classID)
         {
-
-            List<Class> NhomLops = new List<Class>();
             bool success = Connect();
             if (!success)
                 return null;
+
+            Class _class = new Class();
+            try
+            {
+                strQuery = "SELECT * FROM CLASS WHERE ClassID = @classid";
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = strQuery;
+                    command.Parameters.AddWithValue("@classid", classID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        reader.Read();
+                        _class.ClassID = reader.GetString(0);
+                        _class.RoomNumber = reader.GetString(1);
+                        _class.StudentNumber = reader.GetByte(2);
+                        if (!reader.IsDBNull(3))
+                            _class.FormalTeacherID = reader.GetString(3);
+                        else
+                            _class.FormalTeacherID = null;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return _class;
+        }
+        public List<Class> GetClasses(string grade = "")
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+
+            List<Class> classes = new List<Class>();
             try
             {
                 if (string.IsNullOrEmpty(grade))
@@ -115,24 +166,24 @@ namespace TutteeFrame2.DataAccess
                 using (SqlDataReader reader = cmd.ExecuteReader())
                     while (reader.Read())
                     {
-                        Class i = new Class();
-                        i.ClassID = reader.GetString(0);
-                        i.RoomNumber = reader.GetString(1);
-                        i.StudentNumber = (byte)reader.GetByte(2);
-                        i.FormalTeacherID = !reader.IsDBNull(3) ? reader.GetString(3) : "Chưa phân công";
-                        NhomLops.Add(i);
+                        Class _class = new Class();
+                        _class.ClassID = reader.GetString(0);
+                        _class.RoomNumber = reader.GetString(1);
+                        _class.StudentNumber = (byte)reader.GetByte(2);
+                        _class.FormalTeacherID = !reader.IsDBNull(3) ? reader.GetString(3) : "Chưa phân công";
+                        classes.Add(_class);
                     }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return NhomLops;
+                return classes;
             }
             finally
             {
                 Disconnect();
             }
-            return NhomLops;
+            return classes;
         }
 
     }

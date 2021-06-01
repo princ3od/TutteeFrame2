@@ -49,7 +49,6 @@ namespace TutteeFrame2.View
             this.label1 = new System.Windows.Forms.Label();
             this.lbPositionBig = new System.Windows.Forms.Label();
             this.lbNameBig = new System.Windows.Forms.Label();
-            this.ptbAvatarBig = new System.Windows.Forms.PictureBox();
             this.quanLiGiaoVien = new System.Windows.Forms.TabPage();
             this.quanLiHocSinh = new System.Windows.Forms.TabPage();
             this.bangDiemHocSinh = new System.Windows.Forms.TabPage();
@@ -64,35 +63,38 @@ namespace TutteeFrame2.View
             this.quanLiLichHop = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainProgressbar = new MaterialSurface.MaterialProgressbar();
             this.lbInformation = new System.Windows.Forms.Label();
             this.utilityBar = new MaterialSurface.MaterialCard();
             this.lbPosition = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
-            this.ptbSmallAvatar = new System.Windows.Forms.PictureBox();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.btnInformation = new MaterialSurface.TextButton();
             this.btnSetting = new MaterialSurface.TextButton();
             this.btnChangePass = new MaterialSurface.TextButton();
+            this.ptbSmallAvatar = new System.Windows.Forms.PictureBox();
             this.btnShowMore = new MaterialSkin.Controls.MaterialButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptbAvatarBig = new System.Windows.Forms.PictureBox();
             this.teacherView = new TutteeFrame2.View.TeacherView();
             this.studentView = new TutteeFrame2.View.StudentView();
             this.subjectView = new TutteeFrame2.View.SubjectView();
             this.punishmentView = new TutteeFrame2.View.PunishmentView();
+            this.classView = new TutteeFrame2.View.ClassView();
             this.mainTabControl.SuspendLayout();
             this.home.SuspendLayout();
             this.materialCard2.SuspendLayout();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).BeginInit();
             this.quanLiGiaoVien.SuspendLayout();
             this.quanLiHocSinh.SuspendLayout();
             this.quanLiMon.SuspendLayout();
+            this.quanLiLop.SuspendLayout();
             this.quanLiKiLuat.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.utilityBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSmallAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -399,23 +401,12 @@ namespace TutteeFrame2.View
             this.lbNameBig.Text = "-----";
             this.lbNameBig.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ptbAvatarBig
-            // 
-            this.ptbAvatarBig.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ptbAvatarBig.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
-            this.ptbAvatarBig.Location = new System.Drawing.Point(419, 20);
-            this.ptbAvatarBig.Name = "ptbAvatarBig";
-            this.ptbAvatarBig.Size = new System.Drawing.Size(96, 96);
-            this.ptbAvatarBig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAvatarBig.TabIndex = 1;
-            this.ptbAvatarBig.TabStop = false;
-            // 
             // quanLiGiaoVien
             // 
             this.quanLiGiaoVien.Controls.Add(this.teacherView);
-            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 44);
+            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 22);
             this.quanLiGiaoVien.Name = "quanLiGiaoVien";
-            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 586);
             this.quanLiGiaoVien.TabIndex = 1;
             this.quanLiGiaoVien.Tag = "1";
             this.quanLiGiaoVien.Text = "Quản lí giáo viên";
@@ -434,9 +425,9 @@ namespace TutteeFrame2.View
             // 
             // bangDiemHocSinh
             // 
-            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 22);
+            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 44);
             this.bangDiemHocSinh.Name = "bangDiemHocSinh";
-            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 586);
+            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 564);
             this.bangDiemHocSinh.TabIndex = 3;
             this.bangDiemHocSinh.Tag = "3";
             this.bangDiemHocSinh.Text = "Bảng điểm học sinh";
@@ -445,9 +436,9 @@ namespace TutteeFrame2.View
             // quanLiMon
             // 
             this.quanLiMon.Controls.Add(this.subjectView);
-            this.quanLiMon.Location = new System.Drawing.Point(4, 22);
+            this.quanLiMon.Location = new System.Drawing.Point(4, 44);
             this.quanLiMon.Name = "quanLiMon";
-            this.quanLiMon.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiMon.Size = new System.Drawing.Size(1116, 564);
             this.quanLiMon.TabIndex = 4;
             this.quanLiMon.Tag = "4";
             this.quanLiMon.Text = "Quản lí môn";
@@ -455,9 +446,10 @@ namespace TutteeFrame2.View
             // 
             // quanLiLop
             // 
-            this.quanLiLop.Location = new System.Drawing.Point(4, 22);
+            this.quanLiLop.Controls.Add(this.classView);
+            this.quanLiLop.Location = new System.Drawing.Point(4, 44);
             this.quanLiLop.Name = "quanLiLop";
-            this.quanLiLop.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiLop.Size = new System.Drawing.Size(1116, 564);
             this.quanLiLop.TabIndex = 5;
             this.quanLiLop.Tag = "5";
             this.quanLiLop.Text = "Quản lí lớp";
@@ -466,9 +458,9 @@ namespace TutteeFrame2.View
             // quanLiKiLuat
             // 
             this.quanLiKiLuat.Controls.Add(this.punishmentView);
-            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 44);
+            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 22);
             this.quanLiKiLuat.Name = "quanLiKiLuat";
-            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 586);
             this.quanLiKiLuat.TabIndex = 6;
             this.quanLiKiLuat.Tag = "6";
             this.quanLiKiLuat.Text = "Quản lí kỉ luật";
@@ -554,16 +546,6 @@ namespace TutteeFrame2.View
             this.materialDivider1.Size = new System.Drawing.Size(175, 1);
             this.materialDivider1.TabIndex = 2;
             this.materialDivider1.Text = "materialDivider1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(96, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // mainProgressbar
             // 
@@ -651,16 +633,6 @@ namespace TutteeFrame2.View
             this.lbName.TabIndex = 13;
             this.lbName.Text = "-----";
             // 
-            // ptbSmallAvatar
-            // 
-            this.ptbSmallAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
-            this.ptbSmallAvatar.Location = new System.Drawing.Point(13, 12);
-            this.ptbSmallAvatar.Name = "ptbSmallAvatar";
-            this.ptbSmallAvatar.Size = new System.Drawing.Size(32, 32);
-            this.ptbSmallAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbSmallAvatar.TabIndex = 0;
-            this.ptbSmallAvatar.TabStop = false;
-            // 
             // materialDivider2
             // 
             this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -724,6 +696,16 @@ namespace TutteeFrame2.View
             this.btnChangePass.UseVisualStyleBackColor = true;
             this.btnChangePass.Click += new System.EventHandler(this.OnChangePassword);
             // 
+            // ptbSmallAvatar
+            // 
+            this.ptbSmallAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
+            this.ptbSmallAvatar.Location = new System.Drawing.Point(13, 12);
+            this.ptbSmallAvatar.Name = "ptbSmallAvatar";
+            this.ptbSmallAvatar.Size = new System.Drawing.Size(32, 32);
+            this.ptbSmallAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbSmallAvatar.TabIndex = 0;
+            this.ptbSmallAvatar.TabStop = false;
+            // 
             // btnShowMore
             // 
             this.btnShowMore.AutoSize = false;
@@ -743,13 +725,34 @@ namespace TutteeFrame2.View
             this.btnShowMore.UseVisualStyleBackColor = true;
             this.btnShowMore.Click += new System.EventHandler(this.OpenUtilityBar);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(96, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // ptbAvatarBig
+            // 
+            this.ptbAvatarBig.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ptbAvatarBig.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
+            this.ptbAvatarBig.Location = new System.Drawing.Point(419, 20);
+            this.ptbAvatarBig.Name = "ptbAvatarBig";
+            this.ptbAvatarBig.Size = new System.Drawing.Size(96, 96);
+            this.ptbAvatarBig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAvatarBig.TabIndex = 1;
+            this.ptbAvatarBig.TabStop = false;
+            // 
             // teacherView
             // 
             this.teacherView.BackColor = System.Drawing.Color.White;
             this.teacherView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherView.Location = new System.Drawing.Point(0, 0);
             this.teacherView.Name = "teacherView";
-            this.teacherView.Size = new System.Drawing.Size(1116, 564);
+            this.teacherView.Size = new System.Drawing.Size(1116, 586);
             this.teacherView.TabIndex = 0;
             // 
             // studentView
@@ -770,7 +773,7 @@ namespace TutteeFrame2.View
             this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.subjectView.Location = new System.Drawing.Point(0, 0);
             this.subjectView.Name = "subjectView";
-            this.subjectView.Size = new System.Drawing.Size(1116, 586);
+            this.subjectView.Size = new System.Drawing.Size(1116, 564);
             this.subjectView.TabIndex = 1;
             // 
             // punishmentView
@@ -779,8 +782,17 @@ namespace TutteeFrame2.View
             this.punishmentView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.punishmentView.Location = new System.Drawing.Point(0, 0);
             this.punishmentView.Name = "punishmentView";
-            this.punishmentView.Size = new System.Drawing.Size(1116, 564);
+            this.punishmentView.Size = new System.Drawing.Size(1116, 586);
             this.punishmentView.TabIndex = 0;
+            // 
+            // classView
+            // 
+            this.classView.BackColor = System.Drawing.Color.White;
+            this.classView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classView.Location = new System.Drawing.Point(0, 0);
+            this.classView.Name = "classView";
+            this.classView.Size = new System.Drawing.Size(1116, 564);
+            this.classView.TabIndex = 0;
             // 
             // HomeView
             // 
@@ -804,16 +816,17 @@ namespace TutteeFrame2.View
             this.materialCard2.PerformLayout();
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).EndInit();
             this.quanLiGiaoVien.ResumeLayout(false);
             this.quanLiHocSinh.ResumeLayout(false);
             this.quanLiMon.ResumeLayout(false);
+            this.quanLiLop.ResumeLayout(false);
             this.quanLiKiLuat.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.utilityBar.ResumeLayout(false);
             this.utilityBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSmallAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,6 +883,7 @@ namespace TutteeFrame2.View
         private SubjectView subjectView;
         private StudentView studentView;
         private PunishmentView punishmentView;
+        private ClassView classView;
     }
 }
 

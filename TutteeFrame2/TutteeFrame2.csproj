@@ -102,11 +102,23 @@
     <Compile Include="View\ChooseServerView.Designer.cs">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ClassView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ClassView.Designer.cs">
+      <DependentUpon>ClassView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DetailSubject.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\DetailSubject.Designer.cs">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneClassView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneClassView.Designer.cs">
+      <DependentUpon>OneClassView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OnePunishmentView.cs">
       <SubType>Form</SubType>
@@ -182,8 +194,14 @@
     <EmbeddedResource Include="View\ChooseServerView.resx">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ClassView.resx">
+      <DependentUpon>ClassView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DetailSubject.resx">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneClassView.resx">
+      <DependentUpon>OneClassView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OnePunishmentView.resx">
       <DependentUpon>OnePunishmentView.cs</DependentUpon>

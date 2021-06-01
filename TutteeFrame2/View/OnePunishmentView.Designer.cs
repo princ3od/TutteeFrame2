@@ -285,9 +285,11 @@ namespace TutteeFrame2.View
             // 
             // OnePunishmentView
             // 
+            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(600, 450);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtPunishmentContent);
@@ -303,6 +305,7 @@ namespace TutteeFrame2.View
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OnePunishmentView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "OnePunishmentView";
             this.ResumeLayout(false);
             this.PerformLayout();

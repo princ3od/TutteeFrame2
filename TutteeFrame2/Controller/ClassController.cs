@@ -5,26 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
+using TutteeFrame2.View;
 
 namespace TutteeFrame2.Controller
 {
     class ClassController
     {
-        public bool AddClass(Class _class)
+        ClassView view;
+        public List<Class> classes;
+        public ClassController(ClassView view)
         {
-            return ClassDA.Instance.AddClass(_class);
+            this.view = view;
         }
-        public bool DeleteClass(string classID)
+        public async void FetchData()
         {
-            return ClassDA.Instance.DeletedClass( classID);
+            if (view.firstLoad)
+                view.firstLoad = false;
+            view.Home.SetLoad(true, "Đang tải danh sách lớp...");
+            await Task.Run(() => classes = ClassDA.Instance.GetClasses(view.gradeFilter));
+            view.ShowData();
+            view.Home.SetLoad(false);
         }
-        public bool UpdateClassInfo(Class _class)
+        public async void DeleteClass(string classID)
         {
-            return ClassDA.Instance.UpdateClassInfo(_class);
-        }
-        public List<Class> GetClasses()
-        {
-            return ClassDA.Instance.GetClasses();
+            view.Home.SetLoad(true, "Đang xoá vi phạm...");
+            await Task.Run(() => classID = ClassDA.Instance.DeletedClass(classID));
+            if (classID == null)
+                view.ShowDeleteResult(TeacherController.DeleteResult.Fail);
+            else
+                view.ShowDeleteResult(TeacherController.DeleteResult.Success);
+            view.Home.SetLoad(false);
         }
     }
 }
