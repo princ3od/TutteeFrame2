@@ -38,7 +38,7 @@
       <HintPath>..\packages\MaterialSkin.2.2.1.4\lib\net461\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSurface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSurface.1.0.0\lib\net452\MaterialSurface.dll</HintPath>
+      <HintPath>..\packages\MaterialSurface.1.1.0\lib\net452\MaterialSurface.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -56,15 +56,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\PunishmentController.cs" />
+    <Compile Include="Controller\StudentController.cs" />
+    <Compile Include="Controller\SubjectController.cs" />
+    <Compile Include="Controller\TeacherController.cs" />
+    <Compile Include="Controls\UtilityBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UtilityBar.Designer.cs">
+      <DependentUpon>UtilityBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
+    <Compile Include="DataAccess\ClassDA.cs" />
+    <Compile Include="DataAccess\PunishmentDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
+    <Compile Include="DataAccess\StudentDA.cs" />
+    <Compile Include="DataAccess\SubjectDA.cs" />
+    <Compile Include="DataAccess\TeacherDA.cs" />
+    <Compile Include="Model\Class.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Punishment.cs" />
+    <Compile Include="Model\ResultObject.cs" />
+    <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\Subject.cs" />
+    <Compile Include="Model\Teacher.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
+    <Compile Include="Utils\ImageHelper.cs" />
     <Compile Include="Utils\OverlayForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChangePassView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChangePassView.Designer.cs">
+      <DependentUpon>ChangePassView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChooseServerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChooseServerView.Designer.cs">
+      <DependentUpon>ChooseServerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClassView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ClassView.Designer.cs">
+      <DependentUpon>ClassView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetailSubject.Designer.cs">
+      <DependentUpon>DetailSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneClassView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneClassView.Designer.cs">
+      <DependentUpon>OneClassView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OnePunishmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OnePunishmentView.Designer.cs">
+      <DependentUpon>OnePunishmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneStudentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneStudentView.Designer.cs">
+      <DependentUpon>OneStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PunishmentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PunishmentView.Designer.cs">
+      <DependentUpon>PunishmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentView.Designer.cs">
+      <DependentUpon>StudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubjectView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SubjectView.Designer.cs">
+      <DependentUpon>SubjectView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.cs">
       <SubType>Form</SubType>
@@ -89,6 +173,51 @@
     <Compile Include="View\NoConnectionView.Designer.cs">
       <DependentUpon>NoConnectionView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OneTeacherView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneTeacherView.Designer.cs">
+      <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TeacherView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TeacherView.Designer.cs">
+      <DependentUpon>TeacherView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\UtilityBar.resx">
+      <DependentUpon>UtilityBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChangePassView.resx">
+      <DependentUpon>ChangePassView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChooseServerView.resx">
+      <DependentUpon>ChooseServerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ClassView.resx">
+      <DependentUpon>ClassView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DetailSubject.resx">
+      <DependentUpon>DetailSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneClassView.resx">
+      <DependentUpon>OneClassView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OnePunishmentView.resx">
+      <DependentUpon>OnePunishmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneStudentView.resx">
+      <DependentUpon>OneStudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PunishmentView.resx">
+      <DependentUpon>PunishmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentView.resx">
+      <DependentUpon>StudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SubjectView.resx">
+      <DependentUpon>SubjectView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +237,12 @@
     <EmbeddedResource Include="View\NoConnectionView.resx">
       <DependentUpon>NoConnectionView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\OneTeacherView.resx">
+      <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TeacherView.resx">
+      <DependentUpon>TeacherView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -126,6 +261,8 @@
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\TutteeFrame.sql" />
+    <None Include="Resources\default_avatar.png" />
     <None Include="Resources\WaitCurser.gif" />
   </ItemGroup>
   <ItemGroup>

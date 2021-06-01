@@ -34,15 +34,15 @@ namespace TutteeFrame2.View
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtID = new MaterialSurface.MaterialTextfield();
             this.txtPassword = new MaterialSurface.MaterialTextfield();
             this.ckbRemember = new MaterialSurface.MaterialCheckbox();
             this.btnLogin = new MaterialSurface.ContainedButton();
             this.mainProgressbar = new MaterialSurface.MaterialProgressbar();
-            this.btnChooseServer = new MaterialSkin.Controls.MaterialButton();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
+            this.btnChooseServer = new MaterialSkin.Controls.MaterialButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -92,32 +92,9 @@ namespace TutteeFrame2.View
             this.label2.Location = new System.Drawing.Point(599, 472);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 17);
+            this.label2.Size = new System.Drawing.Size(121, 17);
             this.label2.TabIndex = 28;
-            this.label2.Text = "TutteeFrame © 2020";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(535, 45);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(270, 74);
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(426, 600);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
+            this.label2.Text = "TutteeFrame © 2021";
             // 
             // txtID
             // 
@@ -228,23 +205,6 @@ namespace TutteeFrame2.View
             this.mainProgressbar.Value = 35;
             this.mainProgressbar.Visible = false;
             // 
-            // btnChooseServer
-            // 
-            this.btnChooseServer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnChooseServer.Depth = 0;
-            this.btnChooseServer.DrawShadows = false;
-            this.btnChooseServer.HighEmphasis = false;
-            this.btnChooseServer.Icon = ((System.Drawing.Image)(resources.GetObject("btnChooseServer.Icon")));
-            this.btnChooseServer.Location = new System.Drawing.Point(810, 0);
-            this.btnChooseServer.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnChooseServer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnChooseServer.Name = "btnChooseServer";
-            this.btnChooseServer.Size = new System.Drawing.Size(44, 36);
-            this.btnChooseServer.TabIndex = 37;
-            this.btnChooseServer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
-            this.btnChooseServer.UseAccentColor = false;
-            this.btnChooseServer.UseVisualStyleBackColor = true;
-            // 
             // btnClose
             // 
             this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -263,6 +223,47 @@ namespace TutteeFrame2.View
             this.btnClose.UseAccentColor = false;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.Exit);
+            // 
+            // btnChooseServer
+            // 
+            this.btnChooseServer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnChooseServer.Depth = 0;
+            this.btnChooseServer.DrawShadows = false;
+            this.btnChooseServer.HighEmphasis = false;
+            this.btnChooseServer.Icon = ((System.Drawing.Image)(resources.GetObject("btnChooseServer.Icon")));
+            this.btnChooseServer.Location = new System.Drawing.Point(810, 0);
+            this.btnChooseServer.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnChooseServer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnChooseServer.Name = "btnChooseServer";
+            this.btnChooseServer.Size = new System.Drawing.Size(44, 36);
+            this.btnChooseServer.TabIndex = 37;
+            this.btnChooseServer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
+            this.btnChooseServer.UseAccentColor = false;
+            this.btnChooseServer.UseVisualStyleBackColor = true;
+            this.btnChooseServer.Click += new System.EventHandler(this.OnChooseServer);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(535, 45);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(270, 74);
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(426, 600);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginView
             // 
