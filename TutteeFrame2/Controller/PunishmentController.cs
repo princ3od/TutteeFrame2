@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
 using TutteeFrame2.View;
@@ -26,9 +27,9 @@ namespace TutteeFrame2.Controller
         public async void FetchData()
         {
             await FetchClasses();
-            await FetchPunishments();
+            //await FetchPunishments();
+            view.firstLoad = false;
         }
-
         public async Task FetchPunishments()
         {
             if (isLoading)
@@ -37,18 +38,25 @@ namespace TutteeFrame2.Controller
             view.Home.SetLoad(isLoading, "Đang tải danh sách kỉ luật...");
             studentClass.Clear();
             studentName.Clear();
-            await Task.Run(() => originalPunishments = PunishmentDA.Instance.GetPunishmentsByClass(view.classIDFilter));
-            await Task.Run(() =>
+            await Task.Run(() => originalPunishments = PunishmentDA.Instance.GetPunishments(view.classIDFilter, view.gradeFilter));
+            if (originalPunishments == null)
+                return;
+            for (int i = 0; i < originalPunishments.Count; i++)
             {
-                foreach (Punishment punishment in originalPunishments)
+                Student student = new Student();
+                await Task.Run(() => student = StudentDA.Instance.GetStudentByID(originalPunishments[i].StudentID));
+                if (student != null)
                 {
-                    Student student = StudentDA.Instance.GetStudentByID(punishment.StudentID);
-                    studentName.Add(punishment.ID, student.GetName());
-                    studentClass.Add(punishment.ID, student.ClassID);
+                    studentClass.Add(originalPunishments[i].ID, student.ClassID);
+                    studentName.Add(originalPunishments[i].ID, student.GetName());
                 }
-            });
-            punishments = originalPunishments;
-            view.ShowData();
+                else
+                {
+                    studentClass.Add(originalPunishments[i].ID, "");
+                    studentName.Add(originalPunishments[i].ID, "");
+                }
+            }
+            FilterSearch();
             isLoading = false;
             view.Home.SetLoad(isLoading);
         }
@@ -61,6 +69,25 @@ namespace TutteeFrame2.Controller
             view.ShowClasses(classes);
             isLoading = false;
             view.Home.SetLoad(isLoading);
+        }
+        public void FilterSearch(string searchParam = "")
+        {
+            if (string.IsNullOrEmpty(searchParam))
+                punishments = originalPunishments;
+            else
+                punishments = GetPunishmentsBySearch(searchParam, originalPunishments);
+            view.ShowData();
+        }
+        List<Punishment> GetPunishmentsBySearch(string searchParam, List<Punishment> _origin)
+        {
+            List<Punishment> result = new List<Punishment>();
+            foreach (Punishment punishment in _origin)
+            {
+                if (punishment.ID.Contains(searchParam) || studentClass[punishment.ID].Contains(searchParam)
+                    || studentName[punishment.ID].Contains(searchParam))
+                    result.Add(punishment);
+            }
+            return result;
         }
     }
 }

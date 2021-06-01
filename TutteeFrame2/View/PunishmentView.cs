@@ -17,7 +17,8 @@ namespace TutteeFrame2.View
         PunishmentController controller;
         public HomeView Home;
         public string classIDFilter = "";
-        public string gradeFilter = "10";
+        public string gradeFilter = "";
+        public bool firstLoad;
         public PunishmentView()
         {
             InitializeComponent();
@@ -27,6 +28,8 @@ namespace TutteeFrame2.View
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            if (DesignMode)
+                return;
             cbbFilterByGrade.SelectedIndex = 0;
         }
         public void SetHome(HomeView home)
@@ -40,17 +43,13 @@ namespace TutteeFrame2.View
         public void ShowClasses(List<Class> classes)
         {
             cbbFilterByClass.Items.Clear();
+            cbbFilterByClass.Items.Add("Tất cả");
             foreach (Class _class in classes)
             {
                 cbbFilterByClass.Items.Add(_class.ClassID);
             }
-            if (cbbFilterByClass.Items.Count > 0)
-            {
-                cbbFilterByClass.SelectedIndex = 0;
-                classIDFilter = cbbFilterByClass.Text;
-            }
-            else
-                classIDFilter = "";
+            classIDFilter = "";
+            cbbFilterByClass.SelectedIndex = 0;
         }
         public void ShowData()
         {
@@ -60,7 +59,8 @@ namespace TutteeFrame2.View
                 Punishment punishment = controller.punishments[i];
                 listViewPunishment.Items.Add(new ListViewItem(new string[]
                     {
-                        (i + 1).ToString(), punishment.ID, punishment.StudentID, controller.studentName[punishment.ID],
+                        (i + 1).ToString(), punishment.ID, punishment.StudentID,
+                        controller.studentName[punishment.ID],
                         string.Format("Học kì {0} ({1}", punishment.Semester, punishment.Year),
                         controller.studentClass[punishment.ID],
                         punishment.Fault,
@@ -69,18 +69,35 @@ namespace TutteeFrame2.View
             }
         }
 
-        private async void OnChangeGrade(object sender, EventArgs e)
+        private void OnChangeGrade(object sender, EventArgs e)
         {
-            gradeFilter = cbbFilterByGrade.Text;
+            if (firstLoad)
+                return;
+            if (cbbFilterByGrade.SelectedIndex == 0)
+                gradeFilter = "";
+            else
+                gradeFilter = cbbFilterByGrade.Text;
             txtSearch.Clear();
-            await controller.FetchClasses();
+            _ = controller.FetchClasses();
         }
 
-        private async void OnChangeClass(object sender, EventArgs e)
+        private void OnChangeClass(object sender, EventArgs e)
         {
-            classIDFilter = cbbFilterByClass.Text;
+            if (firstLoad)
+                return;
+            if (cbbFilterByClass.SelectedIndex == 0)
+                classIDFilter = "";
+            else
+                classIDFilter = cbbFilterByClass.Text;
             txtSearch.Clear();
-            await controller.FetchPunishments();
+            cbbFilterByGrade.Enabled = false;
+            _ = controller.FetchPunishments();
+            cbbFilterByGrade.Enabled = true;
+        }
+
+        private void OnSearch(object sender, EventArgs e)
+        {
+            controller.FilterSearch(txtSearch.Text);
         }
     }
 }

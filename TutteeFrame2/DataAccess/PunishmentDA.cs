@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TutteeFrame2.Model;
 
 namespace TutteeFrame2.DataAccess
@@ -157,7 +158,7 @@ namespace TutteeFrame2.DataAccess
             }
             return punishmentID;
         }
-        public List<Punishment> GetPunishmentsByClass(string classID)
+        public List<Punishment> GetPunishments(string classID = "", string grade = "")
         {
             bool success = Connect();
 
@@ -170,13 +171,23 @@ namespace TutteeFrame2.DataAccess
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandType = System.Data.CommandType.Text;
-                    if (string.IsNullOrEmpty(classID))
+
+                    if (string.IsNullOrEmpty(grade) && string.IsNullOrEmpty(classID))
                         cmd.CommandText = "SELECT * FROM PUNISHMENT";
                     else
                     {
-                        cmd.CommandText = "SELECT * FROM PUNISHMENT JOIN STUDENT ON PUNISHMENT.StudentID = STUDENT.StudentID WHERE ClassID = @classid";
-                        cmd.Parameters.AddWithValue("@classid", classID);
+                        if (string.IsNullOrEmpty(classID))
+                        {
+                            cmd.CommandText = "SELECT * FROM PUNISHMENT JOIN STUDENT ON PUNISHMENT.StudentID = STUDENT.StudentID WHERE ClassID LIKE @grade";
+                            cmd.Parameters.AddWithValue("@grade", string.Format(grade + "%%"));
+                        }
+                        else
+                        {
+                            cmd.CommandText = "SELECT * FROM PUNISHMENT JOIN STUDENT ON PUNISHMENT.StudentID = STUDENT.StudentID WHERE ClassID = @classid";
+                            cmd.Parameters.AddWithValue("@classid", classID);
+                        }
                     }
+
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -199,8 +210,8 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
-                return null;
+                MessageBox.Show(ex.Message);
+                return punishments;
             }
             finally
             {

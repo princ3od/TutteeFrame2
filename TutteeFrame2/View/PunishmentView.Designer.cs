@@ -196,6 +196,7 @@ namespace TutteeFrame2.View
             this.cbbFilterByGrade.HintText = "Khối";
             this.cbbFilterByGrade.ItemHeight = 41;
             this.cbbFilterByGrade.Items.AddRange(new object[] {
+            "Tất cả",
             "10",
             "11",
             "12"});
@@ -236,6 +237,7 @@ namespace TutteeFrame2.View
             this.txtSearch.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSearch.TabIndex = 44;
             this.txtSearch.UseSystemPasswordChar = false;
+            this.txtSearch.TextChanged += new System.EventHandler(this.OnSearch);
             // 
             // PunishmentView
             // 
