@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialSurface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,23 +39,30 @@ namespace TutteeFrame2.Controller
             {
                 TeacherDA.Instance.GetTeacherNum(ref ministryNum, ref adminNum);
                 originalTeachers = TeacherDA.Instance.GetTeachers();
-                switch (view.sortType)
-                {
-                    case TeacherView.SortType.ByID:
-                        originalTeachers = originalTeachers.OrderBy(o => o.ID).ToList();
-                        break;
-                    case TeacherView.SortType.ByName:
-                        originalTeachers = originalTeachers.OrderBy(o => o.FirstName).ThenBy(o => o.SurName).ToList();
-
-                        break;
-                    case TeacherView.SortType.ByBirthday:
-                        originalTeachers = originalTeachers.OrderBy(o => o.DateBorn).ToList();
-                        break;
-                    default:
-                        break;
-                }
-                Filter();
             });
+            if (originalTeachers == null)
+            {
+                Dialog.Show(view.Home, "Đã có lỗi xảy ra, vui lòng thử lại sau.", "Lỗi");
+                view.Home.SetLoad(false);
+                isLoading = false;
+                return;
+            }    
+            switch (view.sortType)
+            {
+                case TeacherView.SortType.ByID:
+                    originalTeachers = originalTeachers.OrderBy(o => o.ID).ToList();
+                    break;
+                case TeacherView.SortType.ByName:
+                    originalTeachers = originalTeachers.OrderBy(o => o.FirstName).ThenBy(o => o.SurName).ToList();
+
+                    break;
+                case TeacherView.SortType.ByBirthday:
+                    originalTeachers = originalTeachers.OrderBy(o => o.DateBorn).ToList();
+                    break;
+                default:
+                    break;
+            }
+            Filter();
             view.ShowData();
             view.SetNumberLabel(ministryNum, adminNum);
             view.Home.SetLoad(false);

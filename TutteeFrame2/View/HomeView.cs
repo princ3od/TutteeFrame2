@@ -53,6 +53,7 @@ namespace TutteeFrame2.View
             classView.SetHome(this);
             studentView.SetHome(this);
             punishmentView.SetHome(this);
+            teacherAssignmentView.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
@@ -146,6 +147,7 @@ namespace TutteeFrame2.View
         {
             lbInformation.Text = loadInformation;
             mainProgressbar.Visible = lbInformation.Visible = isLoading;
+            mainTabControl.Enabled = !isLoading;
         }
         private void OnLogout(object sender, EventArgs e)
         {
@@ -196,6 +198,7 @@ namespace TutteeFrame2.View
                 case TabName.LopChuNhiem:
                     break;
                 case TabName.PhanCongGiaoVien:
+                    teacherAssignmentView.Fetch();
                     break;
                 case TabName.QuanLiViPham:
                     break;

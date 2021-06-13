@@ -14,7 +14,7 @@ namespace TutteeFrame2.Controller
     class StudentController
     {
         public readonly StudentView studentView;
-        public  List<Student> students;
+        public List<Student> students;
         public List<Student> originalStudents;
         public List<string> cbbClassItems;
         bool isLoading = false;
@@ -27,10 +27,17 @@ namespace TutteeFrame2.Controller
             if (isLoading) return;
             isLoading = true;
             studentView.homeView.SetLoad(true, "Đang đồng bộ hóa dữ liệu, vui lòng chờ trong ít phút...");
-            await Task.Run(() => {
+            await Task.Run(() =>
+            {
                 originalStudents = DataAccess.StudentDA.Instance.GetStudents();
-          
             });
+            if (originalStudents == null)
+            {
+                Dialog.Show(studentView.homeView, "Đã xảy ra lỗi, vui lòng thử lại sau!", "Lỗi");
+                studentView.homeView.SetLoad(false);
+                isLoading = false;
+                return;
+            }    
             FilterStudentByGrade();
             FetchCbbClassItems();
             isLoading = false;
@@ -55,7 +62,7 @@ namespace TutteeFrame2.Controller
             {
                 students = originalStudents;
             }
-            
+
         }
         public void FilterStudentByGrade()
         {
@@ -90,7 +97,7 @@ namespace TutteeFrame2.Controller
                     students = students.OrderBy(o => o.DateBorn).ToList();
                     break;
                 case StudentView.SortType.ByName:
-                    students = students.OrderBy(o => o.FirstName).ThenBy(o=>o.SurName).ToList();
+                    students = students.OrderBy(o => o.FirstName).ThenBy(o => o.SurName).ToList();
                     break;
                 case StudentView.SortType.BySex:
                     students = students.OrderBy(o => o.Sex).ToList();
@@ -110,16 +117,16 @@ namespace TutteeFrame2.Controller
         public void FilterStudentByClass()
         {
             List<Student> classStudents = new List<Student>();
-            if(studentView.classFilter=="Tất cả")
+            if (studentView.classFilter == "Tất cả")
             {
                 FilterStudentByGrade();
                 classStudents = students;
             }
             else
             {
-                foreach(var student in originalStudents)
+                foreach (var student in originalStudents)
                 {
-                    if(student.ClassID == studentView.classFilter)
+                    if (student.ClassID == studentView.classFilter)
                     {
                         classStudents.Add(student);
                     }
@@ -128,11 +135,11 @@ namespace TutteeFrame2.Controller
             students = classStudents;
             studentView.ShowStudentsOnListView();
         }
-        
+
         public void FetchCbbClassItems()
         {
             cbbClassItems = new List<string>();
-            foreach(var item in students)
+            foreach (var item in students)
             {
                 if (cbbClassItems.IndexOf(item.ClassID) == -1)
                 {
@@ -142,7 +149,7 @@ namespace TutteeFrame2.Controller
             studentView.FetchCbbClassItems();
             studentView.SetIndexOfCbbClassItemSelected(0);
         }
-    
+
         public Student GetStudentByID(string studentID)
         {
             return StudentDA.Instance.GetStudentByID(studentID);
@@ -160,11 +167,11 @@ namespace TutteeFrame2.Controller
 
         public async void DeleteStudent(string studentID)
         {
-            bool progressResult = false ;
+            bool progressResult = false;
             studentView.homeView.SetLoad(true, "Thao tác đang được thực hiện");
-            Task.Delay(1000);
-            await Task.Run(()=> {
-                progressResult =  StudentDA.Instance.DeleteStudent(studentID);
+            await Task.Run(() =>
+            {
+                progressResult = StudentDA.Instance.DeleteStudent(studentID);
             });
             studentView.homeView.SetLoad(false);
             if (progressResult)
@@ -176,7 +183,7 @@ namespace TutteeFrame2.Controller
         public void FindStudent(String searchStr)
         {
             students = new List<Student>();
-            if(searchStr.All(Char.IsDigit) && searchStr.Length == 8)
+            if (searchStr.All(Char.IsDigit) && searchStr.Length == 8)
             {
                 foreach (var student in originalStudents)
                 {
@@ -197,7 +204,6 @@ namespace TutteeFrame2.Controller
                     }
                 }
             }
-
             this.studentView.ShowStudentsOnListView();
         }
 

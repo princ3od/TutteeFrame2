@@ -77,6 +77,7 @@
     <Compile Include="DataAccess\StudentDA.cs" />
     <Compile Include="DataAccess\SubjectDA.cs" />
     <Compile Include="DataAccess\TeacherDA.cs" />
+    <Compile Include="DataAccess\TeachingDA.cs" />
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Punishment.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
+    <Compile Include="Model\Teaching.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
     <Compile Include="Utils\ImageHelper.cs" />
@@ -101,6 +103,12 @@
     </Compile>
     <Compile Include="View\ChooseServerView.Designer.cs">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChooseTeacherView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChooseTeacherView.Designer.cs">
+      <DependentUpon>ChooseTeacherView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ClassView.cs">
       <SubType>UserControl</SubType>
@@ -131,6 +139,12 @@
     </Compile>
     <Compile Include="View\OneStudentView.Designer.cs">
       <DependentUpon>OneStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneTeacherAssignmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneTeacherAssignmentView.Designer.cs">
+      <DependentUpon>OneTeacherAssignmentView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\PunishmentView.cs">
       <SubType>UserControl</SubType>
@@ -179,6 +193,12 @@
     <Compile Include="View\OneTeacherView.Designer.cs">
       <DependentUpon>OneTeacherView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TeacherAssignmentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TeacherAssignmentView.Designer.cs">
+      <DependentUpon>TeacherAssignmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TeacherView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +214,9 @@
     <EmbeddedResource Include="View\ChooseServerView.resx">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ChooseTeacherView.resx">
+      <DependentUpon>ChooseTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ClassView.resx">
       <DependentUpon>ClassView.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\OneStudentView.resx">
       <DependentUpon>OneStudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneTeacherAssignmentView.resx">
+      <DependentUpon>OneTeacherAssignmentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\PunishmentView.resx">
       <DependentUpon>PunishmentView.cs</DependentUpon>
@@ -239,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\OneTeacherView.resx">
       <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TeacherAssignmentView.resx">
+      <DependentUpon>TeacherAssignmentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TeacherView.resx">
       <DependentUpon>TeacherView.cs</DependentUpon>
