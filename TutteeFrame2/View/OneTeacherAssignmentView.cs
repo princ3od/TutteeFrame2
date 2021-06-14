@@ -236,14 +236,10 @@ namespace TutteeFrame2.View
             SetLoad(true, "Đang cập nhật thông tin giảng dạy...");
             foreach (KeyValuePair<string, Teaching> teaching in teachingSem1)
             {
-                if (teaching.Value.TeacherID == null)
-                    continue;
                 Teaching resultTeaching = await Task.Run(() => TeachingDA.Instance.UpdateTeaching(teaching.Value));
             }
             foreach (KeyValuePair<string, Teaching> teaching in teachingSem2)
             {
-                if (teaching.Value.TeacherID == null)
-                    continue;
                 Teaching resultTeaching = await Task.Run(() => TeachingDA.Instance.UpdateTeaching(teaching.Value));
             }
             success = true;

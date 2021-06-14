@@ -152,6 +152,79 @@ namespace TutteeFrame2.DataAccess
             }
             return teaching;
         }
+        public List<Teaching> GetTeachings(Teacher teacher, string _classID)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+
+            List<Teaching> teachings = new List<Teaching>();
+            try
+            {
+                strQuery = "SELECT Semester,Schoolyear,Editable FROM TEACHING WHERE ClassID = @classid AND TeacherID = @teacherid AND SubjectID = @subjectid ORDER BY Semester";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@classid", _classID);
+                    sqlCommand.Parameters.AddWithValue("@teacherid", teacher.ID);
+                    sqlCommand.Parameters.AddWithValue("@subjectid", teacher.Subject.ID);
+                    using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            Teaching teaching = new Teaching();
+                            teaching.ClassID = _classID;
+                            teaching.TeacherID = teacher.ID;
+                            teaching.Subject = teacher.Subject;
+                            teaching.Semester = reader.GetInt32(0);
+                            teaching.Year = reader.GetInt32(1);
+                            teaching.Editable = reader.GetBoolean(2);
+                            teachings.Add(teaching);
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return teachings;
+        }
+        public List<string> GetTeachingClasses(string teacherID)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+
+            List<string> classes = new List<string>();
+            try
+            {
+                strQuery = "SELECT DISTINCT ClassID FROM TEACHING WHERE TeacherID = @teacherid ORDER BY ClassID";
+                using (SqlCommand command = new SqlCommand(strQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@teacherid", teacherID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            classes.Add(reader.GetString(0));
+                        }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return classes;
+        }
         public int GetLastTeachingID()
         {
             bool success = Connect();

@@ -63,6 +63,7 @@ namespace TutteeFrame2.View
                 if (passValue is Student)
                 {
                     this.student = (Student)passValue;
+                    lbName.Text = student.GetName();
                     this.mode = Mode.Edit;
                 }
             }
@@ -178,13 +179,17 @@ namespace TutteeFrame2.View
 
             bool progressResult = false;
             await Task.Run(() =>
-           {
+            {
 
-               StudentController studentController = new StudentController(null);
-               progressResult = (this.mode == Mode.Edit) ? studentController.UpdateStudent(this.student) :
-               studentController.AddStudent(this.student);
-
-           });
+                StudentController studentController = new StudentController(null);
+                progressResult = (this.mode == Mode.Edit) ? studentController.UpdateStudent(this.student) :
+                            studentController.AddStudent(this.student);
+                if (this.mode == Mode.Add)
+                {
+                    List<Subject> subjects = SubjectDA.Instance.GetSubjects();
+                    ScoreboardDA.Instance.AddStudentLearnResult(this.student, subjects);
+                }
+            });
             SetLoad(false);
             if (progressResult)
             {

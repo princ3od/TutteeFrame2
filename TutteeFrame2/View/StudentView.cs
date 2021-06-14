@@ -62,11 +62,11 @@ namespace TutteeFrame2.View
         }
         public void FetchData()
         {
+            firstLoad = true;
             studentController.FetchData();
         }
         public void ShowStudentsOnListView()
         {
-
             listViewStudents.Items.Clear();
             foreach (Student student in studentController.students)
             {

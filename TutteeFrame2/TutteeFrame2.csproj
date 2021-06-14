@@ -61,6 +61,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
     <Compile Include="Controller\StudentController.cs" />
+    <Compile Include="Controller\StudentScoreboardController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controls\UtilityBar.cs">
@@ -73,6 +74,7 @@
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\ClassDA.cs" />
     <Compile Include="DataAccess\PunishmentDA.cs" />
+    <Compile Include="DataAccess\ScoreboardDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
     <Compile Include="DataAccess\StudentDA.cs" />
     <Compile Include="DataAccess\SubjectDA.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Punishment.cs" />
     <Compile Include="Model\ResultObject.cs" />
+    <Compile Include="Model\Score.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
@@ -122,6 +125,7 @@
     <Compile Include="View\DetailSubject.Designer.cs">
       <DependentUpon>DetailSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\RemoveFlickerHelper.cs" />
     <Compile Include="View\OneClassView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +155,12 @@
     </Compile>
     <Compile Include="View\PunishmentView.Designer.cs">
       <DependentUpon>PunishmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentScoreboardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentScoreboardView.Designer.cs">
+      <DependentUpon>StudentScoreboardView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StudentView.cs">
       <SubType>UserControl</SubType>
@@ -237,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PunishmentView.resx">
       <DependentUpon>PunishmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentScoreboardView.resx">
+      <DependentUpon>StudentScoreboardView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentView.resx">
       <DependentUpon>StudentView.cs</DependentUpon>

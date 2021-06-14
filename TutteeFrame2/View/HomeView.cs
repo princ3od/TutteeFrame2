@@ -54,6 +54,7 @@ namespace TutteeFrame2.View
             studentView.SetHome(this);
             punishmentView.SetHome(this);
             teacherAssignmentView.SetHome(this);
+            studentScoreboardView.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
@@ -69,6 +70,7 @@ namespace TutteeFrame2.View
             ptbAvatarBig.Image = ImageHelper.CropCircle(controller.mainTeacher.Avatar);
             lbPositionBig.Text = lbPosition.Text = controller.mainTeacher.Position;
             Snackbar.MakeSnackbar(this, string.Format("Xin chào {0}", controller.mainTeacher.GetName()), "HELLO");
+            studentScoreboardView.SetMainTeacher(controller.mainTeacher);
             Decentralize();
         }
 
@@ -183,6 +185,7 @@ namespace TutteeFrame2.View
                     studentView.FetchData();
                     break;
                 case TabName.BangDiemHocSinh:
+                    studentScoreboardView.Fetch();
                     break;
                 case TabName.QuanLiMon:
                     subjectView.LoadSubjects();
