@@ -16,7 +16,7 @@ namespace TutteeFrame2.View
     public partial class frmStudentReport : Form
 
     {
-
+        HomeView homeView;
         public enum GradeFilter
         {
             All = 0,
@@ -27,6 +27,10 @@ namespace TutteeFrame2.View
         public GradeFilter gradeFilter = GradeFilter.All;
         public string classFilter = "Tất cả";
         public ReportStudentController controller;
+        public void SetHome(HomeView homeView)
+        {
+            this.homeView = homeView;
+        }
         public frmStudentReport()
         {
 
@@ -80,6 +84,7 @@ namespace TutteeFrame2.View
         {
             if (cbbFilterByClass.SelectedIndex < 0) return;
             classFilter = (String)cbbFilterByClass.SelectedItem;
+            controller.cbbSlectedItem = (String)cbbFilterByClass.SelectedItem;
             controller.FilterStudentByClass();
         }
 
@@ -90,6 +95,11 @@ namespace TutteeFrame2.View
 
             DataTable table = controller.convertListStudentToDataTable(controller.students);
             Console.WriteLine(table);
+        }
+
+        private void frmStudentReport_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.homeView.Select();
         }
     }
 }

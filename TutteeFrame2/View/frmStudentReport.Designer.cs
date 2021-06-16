@@ -305,6 +305,7 @@ namespace TutteeFrame2.View
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStudentReport";
             this.Text = "frmStudentReport";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStudentReport_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

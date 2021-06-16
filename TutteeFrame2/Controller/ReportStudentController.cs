@@ -19,6 +19,7 @@ namespace TutteeFrame2.Controller
         private List<Student> originalStudents = new List<Student>();
         public List<Student> students;
         public List<string> cbbClassItems;
+        public String cbbSlectedItem;
         private void FilterStudentsInOrginalByGrade(String grade)
         {
             students = new List<Student>();
@@ -178,6 +179,17 @@ namespace TutteeFrame2.Controller
         {
             DataTable studentInfoTable = convertListStudentToDataTable(students);
             return studentInfoTable;
+        }
+        public String GetTeachername(string cbbSlectedItem)
+        {
+            if (cbbSlectedItem !="Tất cả")
+            {
+                return DataAccess.ClassDA.Instance.GetTeacherFromClassID(cbbSlectedItem);
+            }
+            else
+            {
+                return "Tất cả";
+            }
         }
 
 

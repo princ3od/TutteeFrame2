@@ -27,6 +27,7 @@ namespace TutteeFrame2.View
         private void btnPrint_Click(object sender, EventArgs e)
         {
             frmStudentReport frmStudentReport = new frmStudentReport();
+            frmStudentReport.SetHome(this.homeView);
             OverlayForm overlayForm = new OverlayForm(homeView, frmStudentReport);
             frmStudentReport.ShowDialog();
         }

@@ -186,5 +186,38 @@ namespace TutteeFrame2.DataAccess
             return classes;
         }
 
+        public  String GetTeacherFromClassID(String classID)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+            
+            try
+            {
+                strQuery = $"SELECT TEACHER.Surname,TEACHER.Firstname FROM CLASS,TEACHER  " +
+                    $"WHERE CLASS.TeacherID = TEACHER.TeacherID AND CLASS.ClassID = '{classID}' ";
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = strQuery;
+                String nameTeacher ="";
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                         nameTeacher = reader.GetString(0) + " " + reader.GetString(1);
+                        break;
+                    }
+                }
+                Disconnect();
+                return nameTeacher;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+
     }
 }

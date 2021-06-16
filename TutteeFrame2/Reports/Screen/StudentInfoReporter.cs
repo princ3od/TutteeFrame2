@@ -35,8 +35,8 @@ namespace TutteeFrame2.Reports
             rds.Value = controller.LoadDataToStudentInfoReporter();
             ReportParameter[] pars = new ReportParameter[]
             {
-                    new ReportParameter("namePage", $"{"Pamramester Class"}"),
-                    new ReportParameter("formalTeacher", $"{"Teacher fomal"}")
+                    new ReportParameter("namePage", $"{controller.cbbSlectedItem}"),
+                    new ReportParameter("formalTeacher", $"{controller.GetTeachername(controller.cbbSlectedItem)}")
             };
 
             ReportDataSource rds1 = new ReportDataSource();
