@@ -78,7 +78,8 @@
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
-    <Compile Include="Controller\ReportStudentController.cs" />
+    <Compile Include="DataAccess\PrepareToPrintDA.cs" />
+    <Compile Include="Reports\ReportControll\ReportStudentController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\StudentScoreboardController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
@@ -117,6 +118,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportControll\ReportStudentResultControll.cs" />
+    <Compile Include="Reports\ReportModel\StudentResult.cs" />
     <Compile Include="Reports\Screen\StudentInfoReporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,11 +164,17 @@
       <DependentUpon>DetailSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\RemoveFlickerHelper.cs" />
-    <Compile Include="View\frmStudentReport.cs">
+    <Compile Include="View\frmStudentInfoReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmStudentReport.Designer.cs">
-      <DependentUpon>frmStudentReport.cs</DependentUpon>
+    <Compile Include="View\frmStudentInfoReport.Designer.cs">
+      <DependentUpon>frmStudentInfoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmStudentResultReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmStudentResultReport.Designer.cs">
+      <DependentUpon>frmStudentResultReport.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OneClassView.cs">
       <SubType>Form</SubType>
@@ -202,7 +211,7 @@
     </Compile>
     <Compile Include="View\StudentScoreboardView.Designer.cs">
       <DependentUpon>StudentScoreboardView.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="View\ReportViewTag.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -286,8 +295,11 @@
     <EmbeddedResource Include="View\DetailSubject.resx">
       <DependentUpon>DetailSubject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmStudentReport.resx">
-      <DependentUpon>frmStudentReport.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmStudentInfoReport.resx">
+      <DependentUpon>frmStudentInfoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmStudentResultReport.resx">
+      <DependentUpon>frmStudentResultReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OneClassView.resx">
       <DependentUpon>OneClassView.cs</DependentUpon>
@@ -306,7 +318,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentScoreboardView.resx">
       <DependentUpon>StudentScoreboardView.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ReportViewTag.resx">
       <DependentUpon>ReportViewTag.cs</DependentUpon>
     </EmbeddedResource>

@@ -12,10 +12,10 @@ namespace TutteeFrame2.Controller
 {
     public class ReportStudentController
     {
-        public ReportStudentController(frmStudentReport frmStudentReport) {
+        public ReportStudentController(frmStudentInfoReport frmStudentReport) {
             this.frmStudentReport = frmStudentReport;
         }
-        private frmStudentReport frmStudentReport;
+        private frmStudentInfoReport frmStudentReport;
         private List<Student> originalStudents = new List<Student>();
         public List<Student> students;
         public List<string> cbbClassItems;
@@ -46,16 +46,16 @@ namespace TutteeFrame2.Controller
         {
             switch (frmStudentReport.gradeFilter)
             {
-                case frmStudentReport.GradeFilter.All:
+                case frmStudentInfoReport.GradeFilter.All:
                     FilterStudentsInOrginalByGrade("All");
                     break;
-                case frmStudentReport.GradeFilter.Grade10:
+                case frmStudentInfoReport.GradeFilter.Grade10:
                     FilterStudentsInOrginalByGrade("10");
                     break;
-                case frmStudentReport.GradeFilter.Grade11:
+                case frmStudentInfoReport.GradeFilter.Grade11:
                     FilterStudentsInOrginalByGrade("11");
                     break;
-                case frmStudentReport.GradeFilter.Grade12:
+                case frmStudentInfoReport.GradeFilter.Grade12:
                     FilterStudentsInOrginalByGrade("12");
                     break;
                 default:

@@ -13,7 +13,7 @@ using TutteeFrame2.Reports;
 
 namespace TutteeFrame2.View
 {
-    public partial class frmStudentReport : Form
+    public partial class frmStudentInfoReport : Form
 
     {
         HomeView homeView;
@@ -31,14 +31,12 @@ namespace TutteeFrame2.View
         {
             this.homeView = homeView;
         }
-        public frmStudentReport()
+        public frmStudentInfoReport()
         {
 
             controller = new ReportStudentController(this);
             controller.FetchData();
             InitializeComponent();
-            cbbPrintType.SelectedIndex = 1;
-            cbbOptionPrint.SelectedIndex = 0;
             cbbFilterByGrade.SelectedIndex = 0;
         }
 

@@ -1,7 +1,7 @@
 ﻿
 namespace TutteeFrame2.View
 {
-    partial class frmStudentReport
+    partial class frmStudentInfoReport
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,12 @@ namespace TutteeFrame2.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentReport));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentInfoReport));
             this.lbTittle = new System.Windows.Forms.Label();
             this.btnExit = new MaterialSkin.Controls.MaterialButton();
             this.btnPrintStudents = new MaterialSurface.ContainedButton();
             this.cbbFilterByClass = new MaterialSurface.MaterialComboBox();
             this.cbbFilterByGrade = new MaterialSurface.MaterialComboBox();
-            this.cbbOptionPrint = new MaterialSurface.MaterialComboBox();
-            this.cbbPrintType = new MaterialSurface.MaterialComboBox();
             this.listViewStudents = new MaterialSkin.Controls.MaterialListView();
             this.clmStudentID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmStudentSurname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -153,54 +151,6 @@ namespace TutteeFrame2.View
             this.cbbFilterByGrade.TabIndex = 69;
             this.cbbFilterByGrade.SelectedIndexChanged += new System.EventHandler(this.cbbFilterByGrade_SelectedIndexChanged);
             // 
-            // cbbOptionPrint
-            // 
-            this.cbbOptionPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbOptionPrint.AutoSizing = false;
-            this.cbbOptionPrint.ComboBoxType = MaterialSurface.BoxType.Normal;
-            this.cbbOptionPrint.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbbOptionPrint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbOptionPrint.DropDownWidth = 121;
-            this.cbbOptionPrint.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.cbbOptionPrint.FormattingEnabled = true;
-            this.cbbOptionPrint.HintText = "In theo";
-            this.cbbOptionPrint.ItemHeight = 41;
-            this.cbbOptionPrint.Items.AddRange(new object[] {
-            "Theo lớp",
-            "Cá nhân"});
-            this.cbbOptionPrint.Location = new System.Drawing.Point(347, 61);
-            this.cbbOptionPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.cbbOptionPrint.MaxDropDownItems = 4;
-            this.cbbOptionPrint.MouseState = MaterialSurface.MouseState.OUT;
-            this.cbbOptionPrint.Name = "cbbOptionPrint";
-            this.cbbOptionPrint.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.cbbOptionPrint.Size = new System.Drawing.Size(202, 47);
-            this.cbbOptionPrint.TabIndex = 70;
-            // 
-            // cbbPrintType
-            // 
-            this.cbbPrintType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbPrintType.AutoSizing = false;
-            this.cbbPrintType.ComboBoxType = MaterialSurface.BoxType.Normal;
-            this.cbbPrintType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbbPrintType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPrintType.DropDownWidth = 121;
-            this.cbbPrintType.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.cbbPrintType.FormattingEnabled = true;
-            this.cbbPrintType.HintText = "Loại bản in";
-            this.cbbPrintType.ItemHeight = 41;
-            this.cbbPrintType.Items.AddRange(new object[] {
-            "Bảng điểm",
-            "Danh sách "});
-            this.cbbPrintType.Location = new System.Drawing.Point(33, 61);
-            this.cbbPrintType.Margin = new System.Windows.Forms.Padding(2);
-            this.cbbPrintType.MaxDropDownItems = 4;
-            this.cbbPrintType.MouseState = MaterialSurface.MouseState.OUT;
-            this.cbbPrintType.Name = "cbbPrintType";
-            this.cbbPrintType.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.cbbPrintType.Size = new System.Drawing.Size(209, 47);
-            this.cbbPrintType.TabIndex = 71;
-            // 
             // listViewStudents
             // 
             this.listViewStudents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -295,8 +245,6 @@ namespace TutteeFrame2.View
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1205, 668);
             this.Controls.Add(this.listViewStudents);
-            this.Controls.Add(this.cbbOptionPrint);
-            this.Controls.Add(this.cbbPrintType);
             this.Controls.Add(this.cbbFilterByClass);
             this.Controls.Add(this.cbbFilterByGrade);
             this.Controls.Add(this.btnPrintStudents);
@@ -317,8 +265,6 @@ namespace TutteeFrame2.View
         private MaterialSurface.ContainedButton btnPrintStudents;
         private MaterialSurface.MaterialComboBox cbbFilterByClass;
         private MaterialSurface.MaterialComboBox cbbFilterByGrade;
-        private MaterialSurface.MaterialComboBox cbbOptionPrint;
-        private MaterialSurface.MaterialComboBox cbbPrintType;
         private MaterialSkin.Controls.MaterialListView listViewStudents;
         private System.Windows.Forms.ColumnHeader clmStudentID;
         private System.Windows.Forms.ColumnHeader clmStudentSurname;
