@@ -60,7 +60,9 @@
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ScheduleController.cs" />
+    <Compile Include="Controller\PunishmentController.cs" />
     <Compile Include="Controller\StudentController.cs" />
+    <Compile Include="Controller\StudentScoreboardController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controls\UtilityBar.cs">
@@ -73,12 +75,18 @@
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\ClassDA.cs" />
     <Compile Include="DataAccess\ScheduleDA.cs" />
+    <Compile Include="DataAccess\PunishmentDA.cs" />
+    <Compile Include="DataAccess\ScoreboardDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
     <Compile Include="DataAccess\StudentDA.cs" />
     <Compile Include="DataAccess\SubjectDA.cs" />
     <Compile Include="DataAccess\TeacherDA.cs" />
+    <Compile Include="DataAccess\TeachingDA.cs" />
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Punishment.cs" />
+    <Compile Include="Model\ResultObject.cs" />
+    <Compile Include="Model\Score.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
@@ -90,6 +98,7 @@
     </Compile>
     <Compile Include="Rim.cs" />
     <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Teaching.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
     <Compile Include="Utils\ImageHelper.cs" />
@@ -108,11 +117,36 @@
     <Compile Include="View\ChooseServerView.Designer.cs">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ChooseTeacherView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChooseTeacherView.Designer.cs">
+      <DependentUpon>ChooseTeacherView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClassView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ClassView.Designer.cs">
+      <DependentUpon>ClassView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DetailSubject.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\DetailSubject.Designer.cs">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\RemoveFlickerHelper.cs" />
+    <Compile Include="View\OneClassView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneClassView.Designer.cs">
+      <DependentUpon>OneClassView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OnePunishmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OnePunishmentView.Designer.cs">
+      <DependentUpon>OnePunishmentView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OneStudentView.cs">
       <SubType>Form</SubType>
@@ -125,6 +159,24 @@
     </Compile>
     <Compile Include="View\ScheduleView.Designer.cs">
       <DependentUpon>ScheduleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneTeacherAssignmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneTeacherAssignmentView.Designer.cs">
+      <DependentUpon>OneTeacherAssignmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PunishmentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\PunishmentView.Designer.cs">
+      <DependentUpon>PunishmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentScoreboardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentScoreboardView.Designer.cs">
+      <DependentUpon>StudentScoreboardView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StudentView.cs">
       <SubType>UserControl</SubType>
@@ -167,6 +219,12 @@
     <Compile Include="View\OneTeacherView.Designer.cs">
       <DependentUpon>OneTeacherView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TeacherAssignmentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TeacherAssignmentView.Designer.cs">
+      <DependentUpon>TeacherAssignmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TeacherView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,11 +243,32 @@
     <EmbeddedResource Include="View\ChooseServerView.resx">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ChooseTeacherView.resx">
+      <DependentUpon>ChooseTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ClassView.resx">
+      <DependentUpon>ClassView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DetailSubject.resx">
       <DependentUpon>DetailSubject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\OneClassView.resx">
+      <DependentUpon>OneClassView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OnePunishmentView.resx">
+      <DependentUpon>OnePunishmentView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\OneStudentView.resx">
       <DependentUpon>OneStudentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OneTeacherAssignmentView.resx">
+      <DependentUpon>OneTeacherAssignmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PunishmentView.resx">
+      <DependentUpon>PunishmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentScoreboardView.resx">
+      <DependentUpon>StudentScoreboardView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentView.resx">
       <DependentUpon>StudentView.cs</DependentUpon>
@@ -218,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\OneTeacherView.resx">
       <DependentUpon>OneTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TeacherAssignmentView.resx">
+      <DependentUpon>TeacherAssignmentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TeacherView.resx">
       <DependentUpon>TeacherView.cs</DependentUpon>

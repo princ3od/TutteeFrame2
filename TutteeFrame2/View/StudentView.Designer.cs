@@ -248,6 +248,7 @@ namespace TutteeFrame2.View
             this.btnAddPunis.Text = "Thêm vi phạm";
             this.btnAddPunis.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnAddPunis.UseVisualStyleBackColor = true;
+            this.btnAddPunis.Click += new System.EventHandler(this.OnAddFault);
             // 
             // txtSearch
             // 

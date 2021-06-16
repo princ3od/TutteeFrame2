@@ -551,6 +551,7 @@ namespace TutteeFrame2.View
             this.btnChooseAvatar.TabIndex = 58;
             this.btnChooseAvatar.Text = "materialFloatingActionButton1";
             this.btnChooseAvatar.UseVisualStyleBackColor = true;
+            this.btnChooseAvatar.Click += new System.EventHandler(this.OnChooseAvatar);
             // 
             // OneTeacherView
             // 

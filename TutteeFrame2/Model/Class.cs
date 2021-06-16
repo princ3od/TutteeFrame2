@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace TutteeFrame2.Model
 {
-    class Class
+    public class Class
     {
         private string _classID;
         private string _roomNumber;
         private int _studentNumber;
         private string _teacherFormalID;
-        public string classID
+        public string ClassID
         {
             get
             {
-                return  _classID;
+                return _classID;
             }
             set
             {
                 _classID = value;
             }
         }
-        public string roomNumber
+        public string RoomNumber
         {
             get
             {
@@ -33,8 +33,8 @@ namespace TutteeFrame2.Model
             {
                 _roomNumber = value;
             }
-        }  
-        public int studentNumber
+        }
+        public int StudentNumber
         {
             get
             {
@@ -45,7 +45,7 @@ namespace TutteeFrame2.Model
                 _studentNumber = value;
             }
         }
-        public string teacherFormalID
+        public string FormalTeacherID
         {
             get
             {

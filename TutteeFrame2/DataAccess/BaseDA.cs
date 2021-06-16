@@ -86,7 +86,7 @@ namespace TutteeFrame2.DataAccess
         /// Hàm mở kết nối đến server.
         /// </summary>
         /// <returns> Thực hiện kết nối thành công hay không. </returns>
-        protected bool Connect()
+        protected virtual bool Connect()
         {
             try
             {

@@ -227,6 +227,17 @@ namespace TutteeFrame2.View
                     break;
             }
         }
+
+        private void OnChooseAvatar(object sender, EventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            of.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            if (of.ShowDialog() == DialogResult.OK)
+            {
+                ptbAvatar.ImageLocation = of.FileName;
+
+            }
+        }
     }
 
 }

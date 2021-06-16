@@ -51,14 +51,19 @@ namespace TutteeFrame2.View
             this.lbNameBig = new System.Windows.Forms.Label();
             this.ptbAvatarBig = new System.Windows.Forms.PictureBox();
             this.quanLiGiaoVien = new System.Windows.Forms.TabPage();
+            this.teacherView = new TutteeFrame2.View.TeacherView();
             this.quanLiHocSinh = new System.Windows.Forms.TabPage();
             this.bangDiemHocSinh = new System.Windows.Forms.TabPage();
+            this.studentScoreboardView = new TutteeFrame2.View.StudentScoreboardView();
             this.quanLiMon = new System.Windows.Forms.TabPage();
             this.quanLiLop = new System.Windows.Forms.TabPage();
+            this.classView = new TutteeFrame2.View.ClassView();
             this.quanLiKiLuat = new System.Windows.Forms.TabPage();
+            this.punishmentView = new TutteeFrame2.View.PunishmentView();
             this.baoCao = new System.Windows.Forms.TabPage();
             this.lopChuNhiem = new System.Windows.Forms.TabPage();
             this.phanCongGiaoVien = new System.Windows.Forms.TabPage();
+            this.teacherAssignmentView = new TutteeFrame2.View.TeacherAssignmentView();
             this.quanLiViPham = new System.Windows.Forms.TabPage();
             this.quanLiTKB = new System.Windows.Forms.TabPage();
             this.quanLiLichHop = new System.Windows.Forms.TabPage();
@@ -87,8 +92,11 @@ namespace TutteeFrame2.View
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).BeginInit();
             this.quanLiGiaoVien.SuspendLayout();
             this.quanLiHocSinh.SuspendLayout();
+            this.bangDiemHocSinh.SuspendLayout();
             this.quanLiMon.SuspendLayout();
-            this.quanLiTKB.SuspendLayout();
+            this.quanLiLop.SuspendLayout();
+            this.quanLiKiLuat.SuspendLayout();
+            this.phanCongGiaoVien.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.utilityBar.SuspendLayout();
@@ -174,6 +182,7 @@ namespace TutteeFrame2.View
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(1116, 558);
             this.home.TabIndex = 0;
+            this.home.Tag = "0";
             this.home.Text = "Trang chủ";
             // 
             // materialCard2
@@ -411,113 +420,194 @@ namespace TutteeFrame2.View
             // 
             // quanLiGiaoVien
             // 
-            this.quanLiGiaoVien.Controls.Add(this.teacherView1);
-            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 25);
+            this.quanLiGiaoVien.Controls.Add(this.teacherView);
+            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 24);
             this.quanLiGiaoVien.Name = "quanLiGiaoVien";
-            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 583);
+            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 584);
             this.quanLiGiaoVien.TabIndex = 1;
+            this.quanLiGiaoVien.Tag = "1";
             this.quanLiGiaoVien.Text = "Quản lí giáo viên";
             this.quanLiGiaoVien.UseVisualStyleBackColor = true;
+            // 
+            // teacherView
+            // 
+            this.teacherView.BackColor = System.Drawing.Color.White;
+            this.teacherView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherView.Location = new System.Drawing.Point(0, 0);
+            this.teacherView.Name = "teacherView";
+            this.teacherView.Size = new System.Drawing.Size(1116, 584);
+            this.teacherView.TabIndex = 0;
             // 
             // quanLiHocSinh
             // 
             this.quanLiHocSinh.Controls.Add(this.studentView);
-            this.quanLiHocSinh.Location = new System.Drawing.Point(4, 25);
+            this.quanLiHocSinh.Location = new System.Drawing.Point(4, 24);
             this.quanLiHocSinh.Name = "quanLiHocSinh";
-            this.quanLiHocSinh.Size = new System.Drawing.Size(1116, 583);
+            this.quanLiHocSinh.Size = new System.Drawing.Size(1116, 584);
             this.quanLiHocSinh.TabIndex = 2;
+            this.quanLiHocSinh.Tag = "2";
             this.quanLiHocSinh.Text = "Quản lí học sinh";
             this.quanLiHocSinh.UseVisualStyleBackColor = true;
             // 
+            // studentView
+            // 
+            this.studentView.BackColor = System.Drawing.Color.White;
+            this.studentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentView.Location = new System.Drawing.Point(0, 0);
+            this.studentView.Margin = new System.Windows.Forms.Padding(2);
+            this.studentView.Name = "studentView";
+            this.studentView.Size = new System.Drawing.Size(1116, 584);
+            this.studentView.TabIndex = 0;
+            // 
             // bangDiemHocSinh
             // 
-            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 25);
+            this.bangDiemHocSinh.Controls.Add(this.studentScoreboardView);
+            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 24);
             this.bangDiemHocSinh.Name = "bangDiemHocSinh";
-            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 583);
+            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 584);
             this.bangDiemHocSinh.TabIndex = 3;
+            this.bangDiemHocSinh.Tag = "3";
             this.bangDiemHocSinh.Text = "Bảng điểm học sinh";
             this.bangDiemHocSinh.UseVisualStyleBackColor = true;
+            // 
+            // studentScoreboardView
+            // 
+            this.studentScoreboardView.BackColor = System.Drawing.Color.White;
+            this.studentScoreboardView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentScoreboardView.Location = new System.Drawing.Point(0, 0);
+            this.studentScoreboardView.Name = "studentScoreboardView";
+            this.studentScoreboardView.Size = new System.Drawing.Size(1116, 584);
+            this.studentScoreboardView.TabIndex = 0;
             // 
             // quanLiMon
             // 
             this.quanLiMon.Controls.Add(this.subjectView);
-            this.quanLiMon.Location = new System.Drawing.Point(4, 25);
+            this.quanLiMon.Location = new System.Drawing.Point(4, 24);
             this.quanLiMon.Name = "quanLiMon";
-            this.quanLiMon.Size = new System.Drawing.Size(1116, 583);
+            this.quanLiMon.Size = new System.Drawing.Size(1116, 584);
             this.quanLiMon.TabIndex = 4;
+            this.quanLiMon.Tag = "4";
             this.quanLiMon.Text = "Quản lí môn";
             this.quanLiMon.UseVisualStyleBackColor = true;
             // 
+            // subjectView
+            // 
+            this.subjectView.BackColor = System.Drawing.Color.White;
+            this.subjectView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.subjectView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.subjectView.Location = new System.Drawing.Point(0, 0);
+            this.subjectView.Name = "subjectView";
+            this.subjectView.Size = new System.Drawing.Size(1116, 584);
+            this.subjectView.TabIndex = 1;
+            // 
             // quanLiLop
             // 
-            this.quanLiLop.Location = new System.Drawing.Point(4, 25);
+            this.quanLiLop.Controls.Add(this.classView);
+            this.quanLiLop.Location = new System.Drawing.Point(4, 24);
             this.quanLiLop.Name = "quanLiLop";
-            this.quanLiLop.Size = new System.Drawing.Size(1116, 583);
+            this.quanLiLop.Size = new System.Drawing.Size(1116, 584);
             this.quanLiLop.TabIndex = 5;
+            this.quanLiLop.Tag = "5";
             this.quanLiLop.Text = "Quản lí lớp";
             this.quanLiLop.UseVisualStyleBackColor = true;
             // 
+            // classView
+            // 
+            this.classView.BackColor = System.Drawing.Color.White;
+            this.classView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classView.Location = new System.Drawing.Point(0, 0);
+            this.classView.Name = "classView";
+            this.classView.Size = new System.Drawing.Size(1116, 584);
+            this.classView.TabIndex = 0;
+            // 
             // quanLiKiLuat
             // 
-            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 25);
+            this.quanLiKiLuat.Controls.Add(this.punishmentView);
+            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 24);
             this.quanLiKiLuat.Name = "quanLiKiLuat";
-            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 583);
+            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 584);
             this.quanLiKiLuat.TabIndex = 6;
+            this.quanLiKiLuat.Tag = "6";
             this.quanLiKiLuat.Text = "Quản lí kỉ luật";
             this.quanLiKiLuat.UseVisualStyleBackColor = true;
             // 
+            // punishmentView
+            // 
+            this.punishmentView.BackColor = System.Drawing.Color.White;
+            this.punishmentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.punishmentView.Location = new System.Drawing.Point(0, 0);
+            this.punishmentView.Name = "punishmentView";
+            this.punishmentView.Size = new System.Drawing.Size(1116, 584);
+            this.punishmentView.TabIndex = 0;
+            // 
             // baoCao
             // 
-            this.baoCao.Location = new System.Drawing.Point(4, 25);
+            this.baoCao.Location = new System.Drawing.Point(4, 24);
             this.baoCao.Name = "baoCao";
-            this.baoCao.Size = new System.Drawing.Size(1116, 583);
+            this.baoCao.Size = new System.Drawing.Size(1116, 584);
             this.baoCao.TabIndex = 7;
+            this.baoCao.Tag = "7";
             this.baoCao.Text = "Báo cáo";
             this.baoCao.UseVisualStyleBackColor = true;
             // 
             // lopChuNhiem
             // 
-            this.lopChuNhiem.Location = new System.Drawing.Point(4, 25);
+            this.lopChuNhiem.Location = new System.Drawing.Point(4, 24);
             this.lopChuNhiem.Name = "lopChuNhiem";
-            this.lopChuNhiem.Size = new System.Drawing.Size(1116, 583);
+            this.lopChuNhiem.Size = new System.Drawing.Size(1116, 584);
             this.lopChuNhiem.TabIndex = 8;
+            this.lopChuNhiem.Tag = "8";
             this.lopChuNhiem.Text = "Lớp chủ nhiệm";
             this.lopChuNhiem.UseVisualStyleBackColor = true;
             // 
             // phanCongGiaoVien
             // 
-            this.phanCongGiaoVien.Location = new System.Drawing.Point(4, 25);
+            this.phanCongGiaoVien.Controls.Add(this.teacherAssignmentView);
+            this.phanCongGiaoVien.Location = new System.Drawing.Point(4, 24);
             this.phanCongGiaoVien.Name = "phanCongGiaoVien";
-            this.phanCongGiaoVien.Size = new System.Drawing.Size(1116, 583);
+            this.phanCongGiaoVien.Size = new System.Drawing.Size(1116, 584);
             this.phanCongGiaoVien.TabIndex = 9;
+            this.phanCongGiaoVien.Tag = "9";
             this.phanCongGiaoVien.Text = "Phân công giáo viên";
             this.phanCongGiaoVien.UseVisualStyleBackColor = true;
             // 
+            // teacherAssignmentView
+            // 
+            this.teacherAssignmentView.BackColor = System.Drawing.Color.White;
+            this.teacherAssignmentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherAssignmentView.Location = new System.Drawing.Point(0, 0);
+            this.teacherAssignmentView.Name = "teacherAssignmentView";
+            this.teacherAssignmentView.Size = new System.Drawing.Size(1116, 584);
+            this.teacherAssignmentView.TabIndex = 0;
+            // 
             // quanLiViPham
             // 
-            this.quanLiViPham.Location = new System.Drawing.Point(4, 25);
+            this.quanLiViPham.Location = new System.Drawing.Point(4, 24);
             this.quanLiViPham.Name = "quanLiViPham";
-            this.quanLiViPham.Size = new System.Drawing.Size(1116, 583);
+            this.quanLiViPham.Size = new System.Drawing.Size(1116, 584);
             this.quanLiViPham.TabIndex = 11;
+            this.quanLiViPham.Tag = "10";
             this.quanLiViPham.Text = "Quản lí vi phạm";
             this.quanLiViPham.UseVisualStyleBackColor = true;
             // 
             // quanLiTKB
             // 
-            this.quanLiTKB.Controls.Add(this.schedule1);
-            this.quanLiTKB.Location = new System.Drawing.Point(4, 50);
+            this.quanLiTKB.Location = new System.Drawing.Point(4, 44);
             this.quanLiTKB.Name = "quanLiTKB";
-            this.quanLiTKB.Size = new System.Drawing.Size(1116, 558);
+            this.quanLiTKB.Size = new System.Drawing.Size(1116, 564);
             this.quanLiTKB.TabIndex = 12;
+            this.quanLiTKB.Tag = "11";
             this.quanLiTKB.Text = "Quản lí thời khóa biểu";
             this.quanLiTKB.UseVisualStyleBackColor = true;
             // 
             // quanLiLichHop
             // 
-            this.quanLiLichHop.Location = new System.Drawing.Point(4, 46);
+            this.quanLiLichHop.Location = new System.Drawing.Point(4, 44);
             this.quanLiLichHop.Name = "quanLiLichHop";
-            this.quanLiLichHop.Size = new System.Drawing.Size(1116, 562);
+            this.quanLiLichHop.Size = new System.Drawing.Size(1116, 564);
             this.quanLiLichHop.TabIndex = 13;
+            this.quanLiLichHop.Tag = "12";
             this.quanLiLichHop.Text = "Quản lí lịch họp";
             this.quanLiLichHop.UseVisualStyleBackColor = true;
             // 
@@ -794,8 +884,11 @@ namespace TutteeFrame2.View
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).EndInit();
             this.quanLiGiaoVien.ResumeLayout(false);
             this.quanLiHocSinh.ResumeLayout(false);
+            this.bangDiemHocSinh.ResumeLayout(false);
             this.quanLiMon.ResumeLayout(false);
-            this.quanLiTKB.ResumeLayout(false);
+            this.quanLiLop.ResumeLayout(false);
+            this.quanLiKiLuat.ResumeLayout(false);
+            this.phanCongGiaoVien.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.utilityBar.ResumeLayout(false);
@@ -852,11 +945,13 @@ namespace TutteeFrame2.View
         private MaterialSurface.ChoiceChip choiceChip8;
         private MaterialSurface.ChoiceChip choiceChip9;
         private System.Windows.Forms.TabPage quanLiLichHop;
-        private TeacherView teacherView1;
+        private TeacherView teacherView;
         private SubjectView subjectView;
         private StudentView studentView;
-        private System.Windows.Forms.TabPage quanLiTKB;
-        private Schedule schedule1;
+        private PunishmentView punishmentView;
+        private ClassView classView;
+        private TeacherAssignmentView teacherAssignmentView;
+        private StudentScoreboardView studentScoreboardView;
     }
 }
 

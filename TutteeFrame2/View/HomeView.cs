@@ -11,6 +11,22 @@ namespace TutteeFrame2.View
 {
     public partial class HomeView : Form
     {
+        public enum TabName
+        {
+            TrangChu,
+            QuanLiGiaoVien,
+            QuanLiHocSinh,
+            BangDiemHocSinh,
+            QuanLiMon,
+            QuanLiLop,
+            QuanLiKiLuat,
+            BaoCao,
+            LopChuNhiem,
+            PhanCongGiaoVien,
+            QuanLiViPham,
+            QuanLiTKB,
+            QuanLiLichHop,
+        };
         HomeController controller;
         public bool isChildShowing = false;
         NoConnectionView noConnectionView;
@@ -32,9 +48,13 @@ namespace TutteeFrame2.View
             base.OnShown(e);
             Snackbar.PrimaryColor = Color.FromArgb(47, 144, 176);
             Dialog.PrimaryColor = Color.FromArgb(47, 144, 176);
-            teacherView1.SetHome(this);
+            teacherView.SetHome(this);
             subjectView.SetHome(this);
+            classView.SetHome(this);
             studentView.SetHome(this);
+            punishmentView.SetHome(this);
+            teacherAssignmentView.SetHome(this);
+            studentScoreboardView.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
@@ -49,6 +69,8 @@ namespace TutteeFrame2.View
             ptbSmallAvatar.Image = ImageHelper.CropCircle(controller.mainTeacher.Avatar);
             ptbAvatarBig.Image = ImageHelper.CropCircle(controller.mainTeacher.Avatar);
             lbPositionBig.Text = lbPosition.Text = controller.mainTeacher.Position;
+            Snackbar.MakeSnackbar(this, string.Format("Xin chào {0}", controller.mainTeacher.GetName()), "HELLO");
+            studentScoreboardView.SetMainTeacher(controller.mainTeacher);
             Decentralize();
         }
 
@@ -127,6 +149,7 @@ namespace TutteeFrame2.View
         {
             lbInformation.Text = loadInformation;
             mainProgressbar.Visible = lbInformation.Visible = isLoading;
+            mainTabControl.Enabled = !isLoading;
         }
         private void OnLogout(object sender, EventArgs e)
         {
@@ -149,56 +172,45 @@ namespace TutteeFrame2.View
 
         private void OnTabpageChanged(object sender, EventArgs e)
         {
-            switch (mainTabControl.SelectedIndex)
+            if (mainTabControl.SelectedTab == null)
+                return;
+            switch ((TabName)(Int32.Parse(mainTabControl.SelectedTab.Tag.ToString())))
             {
-                case 0:
-                    {
-                        break;
-                    }
-                case 1:
-                    {
-                        teacherView1.Fetch();
-                        break;
-                    }
-                case 2:
-                    {
-                        break;
-                    }
-                case 3:
-                    {
-                        subjectView.LoadSubjects();
-                        break;
-                    }
-                case 4:
-                    {
-                        studentView.FetchData();
-                        break;
-                    }
-                case 5:
-                    {
-                        break;
-                    }
-                case 6:
-                    {
-                        break;
-                    }
-                case 7:
-                    {
-                        break;
-                    }
-                case 8:
-                    {
-                        break;
-                    }
-                case 11:
-                    {
-                        schedule1.FetchData();
-                        break;
-                    }
+                case TabName.TrangChu:
+                    break;
+                case TabName.QuanLiGiaoVien:
+                    teacherView.Fetch();
+                    break;
+                case TabName.QuanLiHocSinh:
+                    studentView.FetchData();
+                    break;
+                case TabName.BangDiemHocSinh:
+                    studentScoreboardView.Fetch();
+                    break;
+                case TabName.QuanLiMon:
+                    subjectView.LoadSubjects();
+                    break;
+                case TabName.QuanLiLop:
+                    classView.Fetch();
+                    break;
+                case TabName.QuanLiKiLuat:
+                    punishmentView.Fetch();
+                    break;
+                case TabName.BaoCao:
+                    break;
+                case TabName.LopChuNhiem:
+                    break;
+                case TabName.PhanCongGiaoVien:
+                    teacherAssignmentView.Fetch();
+                    break;
+                case TabName.QuanLiViPham:
+                    break;
+                case TabName.QuanLiTKB:
+                    break;
+                case TabName.QuanLiLichHop:
+                    break;
                 default:
-                    {
-                        break;
-                    }
+                    break;
             }
         }
 
