@@ -190,6 +190,11 @@ namespace TutteeFrame2.View
                     {
                         break;
                     }
+                case 11:
+                    {
+                        schedule1.FetchData();
+                        break;
+                    }
                 default:
                     {
                         break;

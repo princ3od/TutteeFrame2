@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace TutteeFrame2
 {
-    class Tkb
+    class Session
     {
-        public int tiet;
+        public int ID;
         public int thu;
+        public int tiet;
         public string mon;
-        public string gv;
+        public Session()
+        {
+
+        }
     }
 }

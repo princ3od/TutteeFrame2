@@ -59,6 +59,7 @@
     <Compile Include="Controller\ClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ScheduleController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\ClassDA.cs" />
+    <Compile Include="DataAccess\ScheduleDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
     <Compile Include="DataAccess\StudentDA.cs" />
     <Compile Include="DataAccess\SubjectDA.cs" />
@@ -80,14 +82,14 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
-    <Compile Include="Controls\Schedule.cs">
+    <Compile Include="View\Schedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Schedule.Designer.cs">
+    <Compile Include="View\Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
     <Compile Include="Rim.cs" />
-    <Compile Include="Tkb.cs" />
+    <Compile Include="Model\Session.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
     <Compile Include="Utils\ImageHelper.cs" />
@@ -117,6 +119,12 @@
     </Compile>
     <Compile Include="View\OneStudentView.Designer.cs">
       <DependentUpon>OneStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScheduleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ScheduleView.Designer.cs">
+      <DependentUpon>ScheduleView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StudentView.cs">
       <SubType>UserControl</SubType>
@@ -168,7 +176,7 @@
     <EmbeddedResource Include="Controls\UtilityBar.resx">
       <DependentUpon>UtilityBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Schedule.resx">
+    <EmbeddedResource Include="View\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChangePassView.resx">

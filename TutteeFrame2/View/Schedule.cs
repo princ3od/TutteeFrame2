@@ -7,23 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TutteeFrame2.Model;
+using TutteeFrame2.DataAccess;
+using TutteeFrame2.Controller;
+using TutteeFrame2.Utils;
 
-namespace TutteeFrame2
+namespace TutteeFrame2.View
 {
     enum mouse { Ver, Hori, none }
     public partial class Schedule : UserControl
     {
         Graphics g;
-        List<Tkb> t = new List<Tkb>();
+        List<Session> t = new List<Session>();
+        List<Subject> subject = new List<Subject>();
+        public string scheduleID;
         Bitmap bitmap;
         Rim r = new Rim();
         Point Lastmouse = new Point(0, 0);
         bool ismousedown = false;
         bool chosen = false;
         mouse m = mouse.none;
+        readonly ScheduleController scheduleController;
+        public HomeView homeView;
         public Schedule()
         {
             InitializeComponent();
+            scheduleController = new ScheduleController(this);
             Create();
             redraw();
             pictureBox1.MouseMove += (s, e) =>
@@ -147,8 +156,7 @@ namespace TutteeFrame2
                                 redraw();
                                 textBox1.Clear();
                                 textBox2.Clear();
-                                textBox3.Clear();
-                                textBox4.Clear();
+                                materialComboBox6.SelectedIndex = -1;
                                 chosen = false;
                             }
                             else
@@ -191,7 +199,7 @@ namespace TutteeFrame2
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Tkb tkb = new Tkb();
+            Session tkb = new Session();
             if (Int32.TryParse(textBox1.Text, out int i))
             {
                 if (i > 1 && i < 8)
@@ -222,17 +230,15 @@ namespace TutteeFrame2
             {
                 return;
             }
-            tkb.mon = textBox3.Text;
-            tkb.gv = textBox4.Text;
+            tkb.mon = ConvertToID(materialComboBox6.SelectedItem.ToString());
             textBox1.Clear();
             textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
+            materialComboBox6.SelectedIndex = -1;
             add(tkb);
         }
-        private void add(Tkb tkb)
+        private void add(Session tkb)
         {
-            foreach (Tkb s in t)
+            foreach (Session s in t)
             {
                 if (s.thu == tkb.thu && s.tiet == tkb.tiet)
                 {
@@ -242,17 +248,18 @@ namespace TutteeFrame2
                 }
             }
             t.Add(tkb);
+            ScheduleDA.Instance.AddSession(tkb, scheduleID);    
             draw(tkb);
         }
         private void update()
         {
             pictureBox1.Image = bitmap;
         }
-        private void draw(Tkb tkb)
+        private void draw(Session tkb)
         {
             Font f = new Font("Arial", 12);
             Brush br = new SolidBrush(Color.Black);
-            g.DrawString(tkb.mon, f, br, r.Intersec[tkb.tiet, tkb.thu - 1]);
+            g.DrawString(ConvertToName(tkb.mon), f, br, r.Intersec[tkb.tiet, tkb.thu - 1]);
             update();
         }
         private void redraw()
@@ -260,7 +267,7 @@ namespace TutteeFrame2
             bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             g = Graphics.FromImage(bitmap);
             VeBang();
-            foreach (Tkb tkb in t)
+            foreach (Session tkb in t)
             {
                 draw(tkb);
             }
@@ -302,30 +309,15 @@ namespace TutteeFrame2
         {
             textBox1.Text = (a + 1).ToString();
             textBox2.Text = b.ToString();
-            foreach (Tkb tkb in t)
+            foreach (Session tkb in t)
             {
                 if (tkb.thu == a + 1 && tkb.tiet == b)
                 {
-                    textBox3.Text = tkb.mon;
-                    textBox4.Text = tkb.gv;
+                    textBox3.Text = ConvertToName(tkb.mon);
                     return;
                 }
             }
-            textBox3.Clear();
-            textBox4.Clear();
-        }
-
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            if (g == null) return;
-            Create();
-            redraw();
-            if (chosen)
-            {
-                int a = Int32.Parse(textBox1.Text);
-                int b = Int32.Parse(textBox2.Text);
-                drawline(a - 1, a, b, b + 1);
-            }
+            materialComboBox6.SelectedIndex = -1;
         }
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
@@ -338,6 +330,98 @@ namespace TutteeFrame2
                 int a = Int32.Parse(textBox1.Text);
                 int b = Int32.Parse(textBox2.Text);
                 drawline(a - 1, a, b, b + 1);
+            }
+        }
+
+        private void Schedule_SizeChanged(object sender, EventArgs e)
+        {
+            if (g == null) return;
+            Create();
+            redraw();
+            if (chosen)
+            {
+                int a = Int32.Parse(textBox1.Text);
+                int b = Int32.Parse(textBox2.Text);
+                drawline(a - 1, a, b, b + 1);
+            }
+        }
+
+        private void materialComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (materialComboBox2.SelectedItem)
+            {
+                case "10":
+                {
+                    materialComboBox3.Items.Add("10A1");
+                    materialComboBox3.Items.Add("10A2");
+                    break;
+                }
+                case "11":
+                {
+                    materialComboBox3.Items.Add("11A1");
+                    materialComboBox3.Items.Add("11A2");
+                    break;
+                }
+                case "12":
+                {
+                    materialComboBox3.Items.Add("12A1");
+                    materialComboBox3.Items.Add("12A2");
+                    materialComboBox3.Items.Add("12A3");
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string lop = materialComboBox3.Text;
+            int hk = Int32.Parse(materialComboBox1.Text);
+            int nam = Int32.Parse(materialComboBox0.Text);
+            scheduleController.GetSchedule(lop, hk, nam);
+            redraw();
+        }
+        public void GetSchedule()
+        {
+            scheduleID = scheduleController.scheduleID;
+        }
+        private string ConvertToID(string sub)
+        {
+            string id = new string(new char[] { });
+            foreach (Subject s in subject)
+            {
+                if (s.Name == sub)
+                {
+                    id = s.ID;
+                    return id;
+                }                                  
+            }
+            return null;
+        }
+        private string ConvertToName(string id)
+        {
+            string sub = new string(new char[] { });
+            foreach (Subject s in subject)
+            {
+                if (s.ID == id)
+                {
+                    sub = s.Name;
+                    return sub;
+                }
+            }
+            return null;
+        }
+        public void FetchData()
+        {
+            scheduleController.FetchData();
+        }
+        public void GetSubject()
+        {
+            materialComboBox6.Items.Clear();
+            foreach(Subject s in scheduleController.subject)
+            {
+                materialComboBox6.Items.Add(s);
             }
         }
     }
