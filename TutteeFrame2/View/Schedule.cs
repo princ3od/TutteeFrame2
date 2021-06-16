@@ -174,6 +174,10 @@ namespace TutteeFrame2.View
                 ismousedown = false;
             };
         }
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+        }
         private void VeBang()
         {
             g.Clear(Color.White);
