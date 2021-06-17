@@ -88,7 +88,7 @@ namespace TutteeFrame2.View
 
         private void btnPrintStudents_Click(object sender, EventArgs e)
         {
-            StudentInfoReporter studentInfoReporter = new StudentInfoReporter(controller);
+            StudentInfoReporter studentInfoReporter = new StudentInfoReporter(TypePrint.List,controller,null);
             studentInfoReporter.ShowDialog();
 
             DataTable table = controller.convertListStudentToDataTable(controller.students);

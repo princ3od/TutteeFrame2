@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TutteeFrame2.Reports.ReportModel
 {
-    class StudentResult
+    public class StudentResult
     {
          public String studentID;
          public String surName;

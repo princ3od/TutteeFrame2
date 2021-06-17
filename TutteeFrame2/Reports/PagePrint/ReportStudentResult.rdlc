@@ -59,8 +59,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSStudentResult</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Admin\OneDrive\Documents\GitHub\TutteeFrame\TutteeFrame\Reports\DSStudentResult.xsd</rd:SchemaPath>
+        <rd:DataSetName>ReportStudentResultDs</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ADMIN\Source\Repos\TutteeFrame2\TutteeFrame2\Reports\Data\ReportStudentResultDs.xsd</rd:SchemaPath>
         <rd:TableName>RESULTSTUDENTS1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -115,8 +115,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSStudentResult</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Admin\OneDrive\Documents\GitHub\TutteeFrame\TutteeFrame\Reports\DSStudentResult.xsd</rd:SchemaPath>
+        <rd:DataSetName>ReportStudentResultDs</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ADMIN\Source\Repos\TutteeFrame2\TutteeFrame2\Reports\Data\ReportStudentResultDs.xsd</rd:SchemaPath>
         <rd:TableName>RESULTSTUDENTS2</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -147,8 +147,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSStudentResult</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Admin\OneDrive\Documents\GitHub\TutteeFrame\TutteeFrame\Reports\DSStudentResult.xsd</rd:SchemaPath>
+        <rd:DataSetName>ReportStudentResultDs</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ADMIN\Source\Repos\TutteeFrame2\TutteeFrame2\Reports\Data\ReportStudentResultDs.xsd</rd:SchemaPath>
         <rd:TableName>SCHOOLINFO</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -2250,10 +2250,10 @@
       </Body>
       <Width>6.54311in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <LeftMargin>0.5in</LeftMargin>
+        <RightMargin>0.5in</RightMargin>
+        <TopMargin>0.2in</TopMargin>
+        <BottomMargin>0.1in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -2383,6 +2383,7 @@ zNesuYZoq2sWAHiGatO0zN74xrl8XDX56EIkdXZ7ubWNC9+NpM+dHG+iFjfpJh1tq9Ds56dFloFFe2eX
 FgIRAA9RNBjRaiBCRLTl7p5pOysvfsuarzP6+ntGX19nZP5/xw1pxuObA44Qr0E01oujkOEcjfXiyBA4wuoieaq9lp36oVbpw+KSQ98UsyWjU3HRBwBQyNE9G7i9RcfY28Y64pv+lujHxvqGFbO5acXPKl10XtvWLeDqTc1sd9FxKiytdDhDmtkcQzTtSE+VbQZAAOgLXzYPqLr0Lbt2k+jaTaLvbjLq+X9PsOIzmKM7BhPdMZgjn0FEdwwmuu+uEfhcNARpWgDQ35xuaGKtlzuo6/sf06jHjx1NMZFhmr++VZ42sfOXO3p/DrpTR17Dh/aLugFokWrWGenPEsYguAAAAO3ozw3zxBh9v60bgBYpPpsWAAAAAAAMTAhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgn/n/dpSTpip8zxwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTAtMDFUMDY6Mzk6NTkrMDA6MDDf+RWEAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEwLTAxVDA2OjM5OjU5KzAwOjAwrqStOAAAAABJRU5ErkJggg==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>7c35ba1a-9be5-4f7d-a5b0-3f661de3b330</rd:ReportID>
 </Report>

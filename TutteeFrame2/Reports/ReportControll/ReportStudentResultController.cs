@@ -1,6 +1,7 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,12 @@ using TutteeFrame2.View;
 
 namespace TutteeFrame2.Reports.ReportControll
 {
-    class ReportStudentResultControll
+   public class ReportStudentResultController
     {
         public frmStudentResultReport frmStudentResultReport;
         private MaterialSurface.MaterialComboBox cbbSemester;
         private MaterialSurface.MaterialComboBox cbbFilterByClass;
+        private MaterialSurface.MaterialComboBox cbbType;
         private List<String> cbbFilterByClassItems = new List<String>();
         private MaterialSurface.MaterialComboBox cbbFilterByGrade;
         private List<StudentResult> rawStudentResults;
@@ -22,13 +24,15 @@ namespace TutteeFrame2.Reports.ReportControll
         private List<StudentResult> studentResultsCache;
         private bool firstLoadSemester;
         private MaterialListView listViewStudentResult;
-        public ReportStudentResultControll(frmStudentResultReport frmStudentResultReport,
+        public ReportStudentResultController(frmStudentResultReport frmStudentResultReport,
             MaterialSurface.MaterialComboBox cbbFilterByClass,
             MaterialSurface.MaterialComboBox cbbFilterByGrade,
               MaterialSurface.MaterialComboBox cbbSemester,
-              MaterialListView listViewStudentResult
+              MaterialListView listViewStudentResult,
+               MaterialSurface.MaterialComboBox cbbType
             )
         {
+            this.cbbType = cbbType;
             this.listViewStudentResult = listViewStudentResult;
             this.frmStudentResultReport = frmStudentResultReport;
             this.cbbFilterByGrade = cbbFilterByGrade;
@@ -37,8 +41,6 @@ namespace TutteeFrame2.Reports.ReportControll
             cbbFilterByGrade.SelectedIndex = 0;
             cbbFilterByClass.SelectedIndex = 0;
             cbbSemester.SelectedIndex = 0;
-
-            // cbbGradeSelectedItem = frmStudentResultReport.
         }
 
 
@@ -132,7 +134,35 @@ namespace TutteeFrame2.Reports.ReportControll
 
         public void ChangeTypeOfResult()
         {
-            listViewStudentResult.Columns.Clear();
+            //listViewStudentResult.Columns.Clear();
         }
+        
+        public String GetIDOfSelectedStudent()
+        {
+            return ((StudentResult)listViewStudentResult.SelectedItems[0].Tag).studentID;
+        }
+
+
+        public bool GetSchoolInfoPrepareToPrint(DataSet input)
+        {
+            return PrepareToPrintDA.instance.GetSchoolInfoPrepareToPrint(input);
+        }
+        public bool GetAllInfoAndResultOfStudentPrepareToPrint(TutteeFrame.Reports.ReportModel.InformationOfStudentResultPrepareForPrint input, string studentID)
+        {
+            return PrepareToPrintDA.instance.GetAllInfoAndResultOfStudentPrepareToPrint(input, studentID);
+        }
+
+        public void ProgressPrintIndividualStudentResult()
+        {
+            StudentInfoReporter studentReportPrinter = new StudentInfoReporter(TypePrint.Individual,null,this);
+            studentReportPrinter.ShowDialog();
+        }
+
+        public void ProgressPrintListResultOfClass()
+        {
+
+        }
+
+
     }
 }

@@ -35,7 +35,7 @@ namespace TutteeFrame2.View
         private void btnPrintResluts_Click(object sender, EventArgs e)
         {
             frmStudentResultReport frmStudentResultReport = new frmStudentResultReport();
-           // frmStudentResultReport.SetHome(this.homeView);
+            frmStudentResultReport.SetHome(this.homeView);
             OverlayForm overlayForm = new OverlayForm(homeView, frmStudentResultReport);
             frmStudentResultReport.ShowDialog();
         }

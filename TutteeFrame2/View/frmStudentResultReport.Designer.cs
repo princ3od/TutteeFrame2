@@ -36,14 +36,14 @@ namespace TutteeFrame2.View
             this.clmStudentFirstname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmStudentClassID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmAveragePoint = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clmSemester = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbbFilterByClass = new MaterialSurface.MaterialComboBox();
             this.cbbFilterByGrade = new MaterialSurface.MaterialComboBox();
             this.btnPrintStudents = new MaterialSurface.ContainedButton();
             this.lbTittle = new System.Windows.Forms.Label();
             this.btnExit = new MaterialSkin.Controls.MaterialButton();
-            this.clmSemester = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbbSemester = new MaterialSurface.MaterialComboBox();
-            this.btnClear = new MaterialSurface.ContainedButton();
+            this.cbbType = new MaterialSurface.MaterialComboBox();
             this.SuspendLayout();
             // 
             // listStudentResult
@@ -107,6 +107,11 @@ namespace TutteeFrame2.View
             this.clmAveragePoint.Text = "Điểm trung bình";
             this.clmAveragePoint.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmAveragePoint.Width = 150;
+            // 
+            // clmSemester
+            // 
+            this.clmSemester.Text = "Học kì";
+            this.clmSemester.Width = 120;
             // 
             // cbbFilterByClass
             // 
@@ -176,9 +181,10 @@ namespace TutteeFrame2.View
             this.btnPrintStudents.ShawdowOpacity = 50;
             this.btnPrintStudents.Size = new System.Drawing.Size(346, 69);
             this.btnPrintStudents.TabIndex = 75;
-            this.btnPrintStudents.Text = "In Danh Sách";
+            this.btnPrintStudents.Text = "In Biểu Mẫu";
             this.btnPrintStudents.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnPrintStudents.UseVisualStyleBackColor = true;
+            this.btnPrintStudents.Click += new System.EventHandler(this.btnPrintStudents_Click);
             // 
             // lbTittle
             // 
@@ -212,11 +218,6 @@ namespace TutteeFrame2.View
             this.btnExit.UseAccentColor = false;
             this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // clmSemester
-            // 
-            this.clmSemester.Text = "Học kì";
-            this.clmSemester.Width = 120;
-            // 
             // cbbSemester
             // 
             this.cbbSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -242,27 +243,30 @@ namespace TutteeFrame2.View
             this.cbbSemester.TabIndex = 79;
             this.cbbSemester.SelectedIndexChanged += new System.EventHandler(this.cbbSemester_SelectedIndexChanged);
             // 
-            // btnClear
+            // cbbType
             // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.EffectType = MaterialSurface.ET.Custom;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
-            this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(770, 571);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.MouseState = MaterialSurface.MouseState.OUT;
-            this.btnClear.Name = "btnClear";
-            this.btnClear.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.btnClear.Radius = 2;
-            this.btnClear.ShawdowDepth = 3;
-            this.btnClear.ShawdowOpacity = 50;
-            this.btnClear.Size = new System.Drawing.Size(205, 78);
-            this.btnClear.TabIndex = 80;
-            this.btnClear.Text = "btnClearToTest";
-            this.btnClear.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.cbbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbType.AutoSizing = false;
+            this.cbbType.ComboBoxType = MaterialSurface.BoxType.Normal;
+            this.cbbType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbType.DropDownWidth = 121;
+            this.cbbType.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.cbbType.FormattingEnabled = true;
+            this.cbbType.HintText = "Loại bảng điểm";
+            this.cbbType.ItemHeight = 41;
+            this.cbbType.Items.AddRange(new object[] {
+            "Danh sách",
+            "Cá nhân"});
+            this.cbbType.Location = new System.Drawing.Point(32, 72);
+            this.cbbType.Margin = new System.Windows.Forms.Padding(2);
+            this.cbbType.MaxDropDownItems = 4;
+            this.cbbType.MouseState = MaterialSurface.MouseState.OUT;
+            this.cbbType.Name = "cbbType";
+            this.cbbType.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.cbbType.Size = new System.Drawing.Size(186, 47);
+            this.cbbType.TabIndex = 80;
+            this.cbbType.SelectedIndexChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);
             // 
             // frmStudentResultReport
             // 
@@ -270,7 +274,7 @@ namespace TutteeFrame2.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1127, 746);
-            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.cbbType);
             this.Controls.Add(this.cbbSemester);
             this.Controls.Add(this.listStudentResult);
             this.Controls.Add(this.cbbFilterByClass);
@@ -281,6 +285,7 @@ namespace TutteeFrame2.View
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStudentResultReport";
             this.Text = "frmStudentResultReport";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStudentResultReport_FormClosed);
             this.Shown += new System.EventHandler(this.frmStudentResultReport_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,6 +307,6 @@ namespace TutteeFrame2.View
         private MaterialSkin.Controls.MaterialButton btnExit;
         private System.Windows.Forms.ColumnHeader clmSemester;
         private MaterialSurface.MaterialComboBox cbbSemester;
-        private MaterialSurface.ContainedButton btnClear;
+        private MaterialSurface.MaterialComboBox cbbType;
     }
 }

@@ -79,6 +79,11 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
+    <Compile Include="Reports\Data\ReportStudentResultDs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportStudentResultDs.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportControll\ReportStudentController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\StudentScoreboardController.cs" />
@@ -118,7 +123,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ReportControll\ReportStudentResultControll.cs" />
+    <Compile Include="Reports\ReportControll\ReportStudentResultController.cs" />
+    <Compile Include="Reports\ReportModel\InformationOfStudentResultPrepareForPrint.cs" />
     <Compile Include="Reports\ReportModel\StudentResult.cs" />
     <Compile Include="Reports\Screen\StudentInfoReporter.cs">
       <SubType>Form</SubType>
@@ -396,6 +402,17 @@
     </None>
     <None Include="Reports\Data\ReportStudentInfoDS.xss">
       <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportStudentResultDs.xsc">
+      <DependentUpon>ReportStudentResultDs.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportStudentResultDs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportStudentResultDs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Data\ReportStudentResultDs.xss">
+      <DependentUpon>ReportStudentResultDs.xsd</DependentUpon>
     </None>
     <None Include="Resources\default_avatar.png" />
     <None Include="Resources\WaitCurser.gif" />
