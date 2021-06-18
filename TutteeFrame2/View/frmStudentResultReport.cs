@@ -23,7 +23,7 @@ namespace TutteeFrame2.View
 
             InitializeComponent();
             controller = new ReportStudentResultController(this, this.cbbFilterByClass,
-                this.cbbFilterByGrade,this.cbbSemester,this.listStudentResult,this.cbbType);
+                this.cbbFilterByGrade, this.cbbSemester, this.listStudentResult, this.cbbType);
 
         }
         public void SetHome(HomeView homeView)
@@ -33,8 +33,8 @@ namespace TutteeFrame2.View
 
         private void cbbFilterByGrade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(controller!=null)
-            controller.FilterByGrade();
+            if (controller != null)
+                controller.FilterByGrade();
         }
 
         private void cbbFilterByClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace TutteeFrame2.View
             listStudentResult.Items.Clear();
             foreach (var result in results)
             {
-                ListViewItem lvi = new ListViewItem(new string[] { 
+                ListViewItem lvi = new ListViewItem(new string[] {
                     result.studentID,result.surName,result.firstName,result.classID,result.averagePoint.ToString(),result.semester.ToString()
                 });
                 lvi.Tag = result;
@@ -64,7 +64,7 @@ namespace TutteeFrame2.View
 
         private void cbbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(controller!=null) controller.FilterBySemester();
+            if (controller != null) controller.FilterBySemester();
         }
 
 
@@ -78,15 +78,20 @@ namespace TutteeFrame2.View
         {
             if (cbbType.SelectedIndex == 1)
             {
-                if (listStudentResult.SelectedItems.Count ==0)
+                if (listStudentResult.SelectedItems.Count == 0)
                 {
                     Dialog.Show(this, "Hãy chọn học sinh bạn muốn in kết quả", "Thông báo", Buttons.Ok);
                     return;
                 }
                 controller.ProgressPrintIndividualStudentResult();
             }
-            else if(cbbType.SelectedIndex == 0)
+            else if (cbbType.SelectedIndex == 0)
             {
+                if(cbbFilterByClass.SelectedIndex == 0)
+                {
+                    Dialog.Show(this, "Hãy chọn lớp bạn muốn in kết quả", "Thông báo", Buttons.Ok);
+                    return;
+                }
                 controller.ProgressPrintListResultOfClass();
             }
             else

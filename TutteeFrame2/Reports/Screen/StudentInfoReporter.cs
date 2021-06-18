@@ -5,13 +5,15 @@ using System.Windows.Forms;
 using TutteeFrame.Reports.ReportModel;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Reports.ReportControll;
+using TutteeFrame2.Reports.ReportModel;
 
 namespace TutteeFrame2.Reports
 {
     public enum TypePrint
     {
         Individual,
-        List
+        List,
+        ClassResult
     }
     public partial class StudentInfoReporter : Form
     {
@@ -63,12 +65,13 @@ namespace TutteeFrame2.Reports
                     break;
                 case TypePrint.Individual:
 
-                    if (!reportStudentResultController.GetAllInfoAndResultOfStudentPrepareToPrint(informationOfStudent, reportStudentResultController.GetIDOfSelectedStudent()) )return;
+                    if (!reportStudentResultController.GetAllInfoAndResultOfStudentPrepareToPrint(informationOfStudent, reportStudentResultController.GetIDOfSelectedStudent())) return;
 
                     this.reportViewer1.LocalReport.ReportEmbeddedResource = "TutteeFrame2.Reports.PagePrint.ReportStudentResult.rdlc";
                     ReportDataSource rds4 = new ReportDataSource("DataSet1", informationOfStudent.scoreBoards.Tables[0]);
                     ReportDataSource rds5 = new ReportDataSource("DataSet2", informationOfStudent.scoreBoards.Tables[1]);
                     ReportDataSource rds6 = new ReportDataSource("DataSet3", informationOfStudent.BaseInforSchool.Tables[0]);
+
                     ReportParameter[] pars2 = new ReportParameter[]
                     {
                         new ReportParameter("studentName",$"{this.informationOfStudent.nameOfStudent}"),
@@ -79,7 +82,7 @@ namespace TutteeFrame2.Reports
                         new ReportParameter("conductS2",$"{ this.informationOfStudent.conductS2}"),
                         new ReportParameter("conductYear",$"{ this.informationOfStudent.conductS3}")
                     };
-                    MessageBox.Show(this.reportViewer1.LocalReport.ToString());
+
                     this.reportViewer1.LocalReport.SetParameters(pars2);
                     this.reportViewer1.LocalReport.DataSources.Add(rds4);
                     this.reportViewer1.LocalReport.DataSources.Add(rds5);
@@ -87,8 +90,32 @@ namespace TutteeFrame2.Reports
 
                     this.reportViewer1.RefreshReport();
                     this.reportViewer1.ShowExportButton = true;
+                    break;
+                case TypePrint.ClassResult:
 
 
+                    InfomationOfStudensResultOfClassPrepareToPrint containerInfo
+                        = new InfomationOfStudensResultOfClassPrepareToPrint();
+                    if (!reportStudentResultController.GetDataOfAllStudentsInClassPrepareToPrint(containerInfo)) return;
+                    this.reportViewer1.LocalReport.ReportEmbeddedResource = "TutteeFrame2.Reports.PagePrint.ReportClassResult.rdlc";
+
+                    ReportDataSource rds3 = new ReportDataSource();
+                    rds3.Name = "DataSet1";
+                    rds3.Value = containerInfo.ds.Tables[0];
+                    ReportDataSource rds2 = new ReportDataSource();
+                    rds2.Name = "DataSet2";
+                    rds2.Value = containerInfo.BaseInforSchool.Tables[0];
+
+                    ReportParameter[] pars3 = new ReportParameter[]
+                    {
+                            new ReportParameter("fomalTeacher",$"{containerInfo.formalTeacher}"),
+                            new ReportParameter("className",$"{containerInfo.classID}")
+                    };
+                    this.reportViewer1.LocalReport.SetParameters(pars3);
+                    this.reportViewer1.LocalReport.DataSources.Add(rds2);
+                    this.reportViewer1.LocalReport.DataSources.Add(rds3);
+                    this.reportViewer1.RefreshReport();
+                    this.reportViewer1.ShowExportButton = true;
                     break;
                 default:
                     break;

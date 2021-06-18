@@ -160,7 +160,22 @@ namespace TutteeFrame2.Reports.ReportControll
 
         public void ProgressPrintListResultOfClass()
         {
+            StudentInfoReporter studentReportPrinter = new StudentInfoReporter(TypePrint.ClassResult, null, this);
+            studentReportPrinter.ShowDialog();
 
+        }
+        public bool GetDataOfAllStudentsInClassPrepareToPrint(InfomationOfStudensResultOfClassPrepareToPrint container)
+        {
+            if( PrepareToPrintDA.instance.GetDataOfAllStudentsInClassPrepareToPrint(container, cbbFilterByClass.Text))
+            {
+                return true;
+               // Do something
+            }
+            else
+            {
+                return false;
+                // Do something
+            }
         }
 
 

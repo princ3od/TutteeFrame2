@@ -55,8 +55,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSClassResultBySE</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Admin\OneDrive\Documents\GitHub\TutteeFrame\TutteeFrame\Reports\DSClassResultBySE.xsd</rd:SchemaPath>
+        <rd:DataSetName>ReportClassResultDS</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ADMIN\Source\Repos\TutteeFrame2\TutteeFrame2\Reports\Data\ReportClassResultDS.xsd</rd:SchemaPath>
         <rd:TableName>CLASRESULT</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -87,8 +87,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DSClassResultBySE</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Admin\OneDrive\Documents\GitHub\TutteeFrame\TutteeFrame\Reports\DSClassResultBySE.xsd</rd:SchemaPath>
+        <rd:DataSetName>ReportClassResultDS</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ADMIN\Source\Repos\TutteeFrame2\TutteeFrame2\Reports\Data\ReportClassResultDS.xsd</rd:SchemaPath>
         <rd:TableName>SCHOOLINFO</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -125,8 +125,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>1.33209in</Top>
-            <Left>2.15823in</Left>
+            <Top>1.43282in</Top>
+            <Left>3.10118in</Left>
             <Height>0.25in</Height>
             <Width>2.46968in</Width>
             <Style>
@@ -158,8 +158,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>1.79736in</Top>
-            <Left>0.28in</Left>
+            <Top>1.89809in</Top>
+            <Left>1.59795in</Left>
             <Height>0.25in</Height>
             <Width>0.34375in</Width>
             <ZIndex>1</ZIndex>
@@ -192,8 +192,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>1.79736in</Top>
-            <Left>0.69319in</Left>
+            <Top>1.89809in</Top>
+            <Left>2.01114in</Left>
             <Height>0.26042in</Height>
             <Width>0.59375in</Width>
             <ZIndex>2</ZIndex>
@@ -237,8 +237,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>1.8425in</Top>
-            <Left>2.15823in</Left>
+            <Top>1.94323in</Top>
+            <Left>3.47618in</Left>
             <Height>0.25in</Height>
             <Width>1.1141in</Width>
             <ZIndex>3</ZIndex>
@@ -269,8 +269,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>1.83209in</Top>
-            <Left>3.20635in</Left>
+            <Top>1.93282in</Top>
+            <Left>4.5243in</Left>
             <Height>0.26042in</Height>
             <Width>1.67708in</Width>
             <ZIndex>4</ZIndex>
@@ -299,8 +299,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>1.33209in</Top>
-            <Left>5.155in</Left>
+            <Top>1.43282in</Top>
+            <Left>6.09795in</Left>
             <Height>0.25in</Height>
             <Width>1.25in</Width>
             <ZIndex>5</ZIndex>
@@ -1046,8 +1046,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>2.36334in</Top>
-            <Left>0.03in</Left>
+            <Top>2.46407in</Top>
+            <Left>1.34795in</Left>
             <Height>0.5in</Height>
             <Width>6.24285in</Width>
             <ZIndex>6</ZIndex>
@@ -1062,8 +1062,8 @@
             <Value>=First(Fields!Logo.Value, "DataSet2")</Value>
             <MIMEType>image/bmp</MIMEType>
             <Sizing>FitProportional</Sizing>
-            <Top>0.0898in</Top>
-            <Left>0.07254in</Left>
+            <Top>0.19053in</Top>
+            <Left>1.01549in</Left>
             <Height>0.30208in</Height>
             <Width>0.6875in</Width>
             <ZIndex>7</ZIndex>
@@ -1093,8 +1093,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>0.29688in</Top>
-            <Left>1.58326in</Left>
+            <Top>0.39761in</Top>
+            <Left>2.52621in</Left>
             <Height>0.25in</Height>
             <Width>3.32348in</Width>
             <ZIndex>8</ZIndex>
@@ -1129,8 +1129,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox23</rd:DefaultName>
-            <Top>0.70313in</Top>
-            <Left>2.00021in</Left>
+            <Top>0.80386in</Top>
+            <Left>2.94316in</Left>
             <Height>0.25in</Height>
             <Width>2.63067in</Width>
             <ZIndex>9</ZIndex>
@@ -1149,12 +1149,8 @@
         <Height>3.08209in</Height>
         <Style />
       </Body>
-      <Width>6.4768in</Width>
+      <Width>8.39347in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -1219,6 +1215,7 @@ zNesuYZoq2sWAHiGatO0zN74xrl8XDX56EIkdXZ7ubWNC9+NpM+dHG+iFjfpJh1tq9Ds56dFloFFe2eX
 FgIRAA9RNBjRaiBCRLTl7p5pOysvfsuarzP6+ntGX19nZP5/xw1pxuObA44Qr0E01oujkOEcjfXiyBA4wuoieaq9lp36oVbpw+KSQ98UsyWjU3HRBwBQyNE9G7i9RcfY28Y64pv+lujHxvqGFbO5acXPKl10XtvWLeDqTc1sd9FxKiytdDhDmtkcQzTtSE+VbQZAAOgLXzYPqLr0Lbt2k+jaTaLvbjLq+X9PsOIzmKM7BhPdMZgjn0FEdwwmuu+uEfhcNARpWgDQ35xuaGKtlzuo6/sf06jHjx1NMZFhmr++VZ42sfOXO3p/DrpTR17Dh/aLugFokWrWGenPEsYguAAAAO3ozw3zxBh9v60bgBYpPpsWAAAAAAAMTAhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAABAEQhGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgn/n/dpSTpip8zxwAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTAtMDFUMDY6Mzk6NTkrMDA6MDDf+RWEAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEwLTAxVDA2OjM5OjU5KzAwOjAwrqStOAAAAABJRU5ErkJggg==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>188f7dfd-af6e-4714-b116-8cd1299ce0ad</rd:ReportID>
 </Report>

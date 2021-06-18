@@ -79,6 +79,11 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
+    <Compile Include="Reports\Data\ReportClassResultDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportClassResultDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Data\ReportStudentResultDs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,6 +129,7 @@
       <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReportControll\ReportStudentResultController.cs" />
+    <Compile Include="Reports\ReportModel\InfomationOfStudensResultOfClassPrepareToPrint.cs" />
     <Compile Include="Reports\ReportModel\InformationOfStudentResultPrepareForPrint.cs" />
     <Compile Include="Reports\ReportModel\StudentResult.cs" />
     <Compile Include="Reports\Screen\StudentInfoReporter.cs">
@@ -392,6 +398,17 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Reports\Data\ReportClassResultDS.xsc">
+      <DependentUpon>ReportClassResultDS.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportClassResultDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportClassResultDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Data\ReportClassResultDS.xss">
+      <DependentUpon>ReportClassResultDS.xsd</DependentUpon>
+    </None>
     <None Include="Reports\Data\ReportStudentInfoDS.xsc">
       <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
     </None>
