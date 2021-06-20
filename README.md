@@ -10,20 +10,25 @@ A school management application./
     - Teacher management
     - Teacher assignment 
     - Subject management
+
 - **Role: Ministry Teacher**
     - Student management
     - Clas management
     - Student's punishment management
     - Class' shedule management
+
 - **Role: Form Teacher**
     - Student's conduct/fault management
     - Exporting reports - charts
     - Exporting student's transcript
+
 - **Role: Teacher**
     - Inputting score
+
 - **Other features**
     - Login/logout, remember me
     - Auto lost-connection detecting
+
 ## Tech Stack
 
 **Client:** Winform C#
