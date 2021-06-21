@@ -55,6 +55,7 @@ namespace TutteeFrame2.View
             this.btnChart.Text = "Xuất Biểu Đồ";
             this.btnChart.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnChart.UseVisualStyleBackColor = false;
+            this.btnChart.Click += new System.EventHandler(this.btnChart_Click);
             // 
             // btnPrint
             // 

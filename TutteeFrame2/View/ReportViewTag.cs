@@ -39,5 +39,12 @@ namespace TutteeFrame2.View
             OverlayForm overlayForm = new OverlayForm(homeView, frmStudentResultReport);
             frmStudentResultReport.ShowDialog();
         }
+
+        private void btnChart_Click(object sender, EventArgs e)
+        {
+            frmChart chart = new frmChart();
+            OverlayForm overlayForm = new OverlayForm(homeView, chart);
+            chart.ShowDialog();
+        }
     }
 }
