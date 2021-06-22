@@ -42,6 +42,26 @@ namespace TutteeFrame2.Model
         {
             return SurName + " " + FirstName;
         }
+        public string GetID()
+        {
+            return iD;
+        }
+        public string GetBirthday()
+        {
+            return DateBorn.ToString();
+        }
+        public string GetAdress()
+        {
+            return address;
+        }
+        public string GetMail()
+        {
+            return mail;
+        }
+        public string GetNumber()
+        {
+            return phone;
+        }
         public byte[] GetAvatar()
         {
             return ImageHelper.ImageToBytes(avatar);

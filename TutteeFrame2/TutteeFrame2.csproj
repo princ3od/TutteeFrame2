@@ -59,6 +59,7 @@
     <Compile Include="Controller\ClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ScheduleController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\StudentScoreboardController.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\ClassDA.cs" />
+    <Compile Include="DataAccess\ScheduleDA.cs" />
     <Compile Include="DataAccess\PunishmentDA.cs" />
     <Compile Include="DataAccess\ScoreboardDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
@@ -88,6 +90,14 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
+    <Compile Include="View\Schedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Schedule.Designer.cs">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rim.cs" />
+    <Compile Include="Model\Session.cs" />
     <Compile Include="Model\Teaching.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
@@ -143,6 +153,12 @@
     </Compile>
     <Compile Include="View\OneStudentView.Designer.cs">
       <DependentUpon>OneStudentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScheduleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ScheduleView.Designer.cs">
+      <DependentUpon>ScheduleView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OneTeacherAssignmentView.cs">
       <SubType>Form</SubType>
@@ -217,6 +233,9 @@
     </Compile>
     <EmbeddedResource Include="Controls\UtilityBar.resx">
       <DependentUpon>UtilityBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChangePassView.resx">
       <DependentUpon>ChangePassView.cs</DependentUpon>
@@ -304,6 +323,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\TutteeFrame.sql" />
+    <None Include="Resources\auricular-phone-symbol-in-a-circle_icon-icons.com_56570.png" />
+    <None Include="Resources\letter_icon-icons.com_67753.png" />
+    <None Include="Resources\3643769-building-home-house-main-menu-start_113416.png" />
+    <None Include="Resources\blank_calendar_icon_124195.png" />
+    <None Include="Resources\birthdaycakewithcandles_79795.png" />
+    <None Include="Resources\sex-unknown_87127.png" />
+    <None Include="Resources\arrow_cloud_up_upload_icon_123722.png" />
+    <None Include="Resources\ic-profile-info_97647.png" />
+    <None Include="Resources\bookstack_libr_3024.png" />
+    <None Include="Resources\person.png" />
     <None Include="Resources\default_avatar.png" />
     <None Include="Resources\WaitCurser.gif" />
   </ItemGroup>
