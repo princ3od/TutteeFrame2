@@ -8,7 +8,7 @@ namespace TutteeFrame2
 {
     class Session
     {
-        public int ID;
+        public string ID;
         public int thu;
         public int tiet;
         public string mon;

@@ -323,6 +323,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\TutteeFrame.sql" />
+    <None Include="Resources\auricular-phone-symbol-in-a-circle_icon-icons.com_56570.png" />
+    <None Include="Resources\letter_icon-icons.com_67753.png" />
+    <None Include="Resources\3643769-building-home-house-main-menu-start_113416.png" />
+    <None Include="Resources\blank_calendar_icon_124195.png" />
+    <None Include="Resources\birthdaycakewithcandles_79795.png" />
+    <None Include="Resources\sex-unknown_87127.png" />
+    <None Include="Resources\arrow_cloud_up_upload_icon_123722.png" />
+    <None Include="Resources\ic-profile-info_97647.png" />
+    <None Include="Resources\bookstack_libr_3024.png" />
+    <None Include="Resources\person.png" />
     <None Include="Resources\default_avatar.png" />
     <None Include="Resources\WaitCurser.gif" />
   </ItemGroup>

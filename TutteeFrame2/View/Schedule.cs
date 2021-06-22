@@ -151,12 +151,12 @@ namespace TutteeFrame2.View
                         }
                         else
                         {
-                            if (textBox1.Text == (a + 1).ToString() && textBox2.Text == c.ToString())
+                            if (materialTextfield0.Text == (a + 1).ToString() && materialTextfield1.Text == c.ToString())
                             {
                                 redraw();
-                                textBox1.Clear();
-                                textBox2.Clear();
-                                materialComboBox6.SelectedIndex = -1;
+                                materialTextfield0.Clear();
+                                materialTextfield1.Clear();
+                                materialTextfield2.Clear();
                                 chosen = false;
                             }
                             else
@@ -204,40 +204,15 @@ namespace TutteeFrame2.View
         private void button1_Click(object sender, EventArgs e)
         {
             Session tkb = new Session();
-            if (Int32.TryParse(textBox1.Text, out int i))
-            {
-                if (i > 1 && i < 8)
-                {
-                    tkb.thu = i;
-                }
-                else
-                {
-                    return;
-                }
-            }
-            else
-            {
-                return;
-            }
-            if (Int32.TryParse(textBox2.Text, out int j))
-            {
-                if (j > 0 && j < 11)
-                {
-                    tkb.tiet = j;
-                }
-                else
-                {
-                    return;
-                }
-            }
-            else
-            {
-                return;
-            }
+            string day = materialComboBox4.SelectedItem.ToString();
+            tkb.thu = Int32.Parse(day);
+            string session = materialComboBox5.SelectedItem.ToString();
+            tkb.tiet = Int32.Parse(session);
             tkb.mon = ConvertToID(materialComboBox6.SelectedItem.ToString());
-            textBox1.Clear();
-            textBox2.Clear();
+            materialComboBox4.SelectedIndex = -1;
+            materialComboBox5.SelectedIndex = -1;
             materialComboBox6.SelectedIndex = -1;
+            tkb.ID = scheduleID + (tkb.thu*10 + tkb.tiet).ToString();
             add(tkb);
         }
         private void add(Session tkb)
@@ -252,7 +227,7 @@ namespace TutteeFrame2.View
                 }
             }
             t.Add(tkb);
-            ScheduleDA.Instance.AddSession(tkb, scheduleID);    
+            scheduleController.Add(tkb, scheduleID);
             draw(tkb);
         }
         private void update()
@@ -261,7 +236,7 @@ namespace TutteeFrame2.View
         }
         private void draw(Session tkb)
         {
-            Font f = new Font("Arial", 12);
+            Font f = this.Font;
             Brush br = new SolidBrush(Color.Black);
             g.DrawString(ConvertToName(tkb.mon), f, br, r.Intersec[tkb.tiet, tkb.thu - 1]);
             update();
@@ -311,30 +286,17 @@ namespace TutteeFrame2.View
         }
         private void getinfo(int a, int b)
         {
-            textBox1.Text = (a + 1).ToString();
-            textBox2.Text = b.ToString();
+            materialTextfield0.Text = (a + 1).ToString();
+            materialTextfield1.Text = b.ToString();
             foreach (Session tkb in t)
             {
                 if (tkb.thu == a + 1 && tkb.tiet == b)
                 {
-                    textBox3.Text = ConvertToName(tkb.mon);
+                    materialTextfield2.Text = ConvertToName(tkb.mon);
                     return;
                 }
             }
             materialComboBox6.SelectedIndex = -1;
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-            if (g == null) return;
-            Create();
-            redraw();
-            if (chosen)
-            {
-                int a = Int32.Parse(textBox1.Text);
-                int b = Int32.Parse(textBox2.Text);
-                drawline(a - 1, a, b, b + 1);
-            }
         }
 
         private void Schedule_SizeChanged(object sender, EventArgs e)
@@ -344,8 +306,8 @@ namespace TutteeFrame2.View
             redraw();
             if (chosen)
             {
-                int a = Int32.Parse(textBox1.Text);
-                int b = Int32.Parse(textBox2.Text);
+                int a = Int32.Parse(materialTextfield0.Text);
+                int b = Int32.Parse(materialTextfield1.Text);
                 drawline(a - 1, a, b, b + 1);
             }
         }
@@ -382,13 +344,14 @@ namespace TutteeFrame2.View
         {
             string lop = materialComboBox3.Text;
             int hk = Int32.Parse(materialComboBox1.Text);
-            int nam = Int32.Parse(materialComboBox0.Text);
+            int nam = 2020;
             scheduleController.GetSchedule(lop, hk, nam);
             redraw();
         }
         public void GetSchedule()
         {
             scheduleID = scheduleController.scheduleID;
+            scheduleController.FetchSchedule(scheduleID);
         }
         private string ConvertToID(string sub)
         {
@@ -422,11 +385,17 @@ namespace TutteeFrame2.View
         }
         public void GetSubject()
         {
-            materialComboBox6.Items.Clear();
+            //materialComboBox6.Items.Clear();
+            subject = scheduleController.subject;
             foreach(Subject s in scheduleController.subject)
             {
-                materialComboBox6.Items.Add(s);
+                materialComboBox6.Items.Add(s.Name);
             }
+        }
+        public void FetchSchedule()
+        {
+            t = scheduleController.sessions;
+            redraw();
         }
     }
 }

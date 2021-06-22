@@ -14,6 +14,7 @@ namespace TutteeFrame2.Controller
         public List<Subject> subject;
         readonly Schedule schedule;
         public string scheduleID;
+        public List<Session> sessions;
         public ScheduleController(Schedule schedule)
         {
             this.schedule = schedule;
@@ -35,6 +36,23 @@ namespace TutteeFrame2.Controller
                 scheduleID = ScheduleDA.Instance.GetSchedule(lop, hk, nam);
             });
             schedule.GetSchedule();
+        }
+        public async void FetchSchedule(string scheduleid)
+        {
+            await Task.Delay(600);
+            await Task.Run(() =>
+            {
+                sessions = ScheduleDA.Instance.GetSessions(scheduleid);
+            });
+            schedule.FetchSchedule();
+        }
+        public async void Add(Session s, string scheduleid)
+        {
+            await Task.Delay(600);
+            await Task.Run(() =>
+            {
+                ScheduleDA.Instance.AddSession(s, scheduleid);
+            });
         }
     }
 }

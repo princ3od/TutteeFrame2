@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.DataAccess
 {
@@ -27,10 +28,10 @@ namespace TutteeFrame2.DataAccess
                 return null;
             try
             {
-                String sqrQuery = $"SELECT * FROM SCHEDULES WHERE ClassID = @classid AND Semester = @semester AND Year = @year";
-                using (SqlCommand sqlcomannd = new SqlCommand(strQuery, connection))
+                string sqrQuery = "SELECT * FROM SCHEDULES WHERE ClassID = @classid AND Semester = @semester AND Year = @year";
+                using (SqlCommand sqlcomannd = new SqlCommand(sqrQuery, connection))
                 {
-                    sqlcomannd.Parameters.AddWithValue("@classid", classID.ToString());
+                    sqlcomannd.Parameters.AddWithValue("@classid", classID);
                     sqlcomannd.Parameters.AddWithValue("@semester", semester);
                     sqlcomannd.Parameters.AddWithValue("@year", year);
                     SqlDataReader sqlDataReader = sqlcomannd.ExecuteReader();
@@ -38,10 +39,11 @@ namespace TutteeFrame2.DataAccess
                     {
                         scheduleID = sqlDataReader["SchedulesID"] != null ? (string)sqlDataReader["SchedulesID"] : null;
                     }
-                }
+                }                
             }
             catch (Exception e)
             {
+                
                 MessageBox.Show(e.Message);
                 return null;
             }
@@ -49,7 +51,43 @@ namespace TutteeFrame2.DataAccess
             {
                 Disconnect();
             }
+            if (scheduleID == "")
+            {
+                scheduleID = CreateSchedule(classID, semester, year);
+                return scheduleID;
+            }
             return scheduleID;
+        }
+
+        public string CreateSchedule(string classid, int semester, int year)
+        {
+            string scheduleid = IdentifierFactory.GenerateNumberID(6);
+            bool success = Connect();
+            if (!success)
+                return null;
+            try
+            {
+                strQuery = "INSERT INTO SCHEDULES(SchedulesID, ClassID, Semester, Year) " + 
+                    "VALUES(@scheduleid, @classid, @semester, @year)";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@scheduleid", scheduleid);
+                    sqlCommand.Parameters.AddWithValue("@classid", classid);
+                    sqlCommand.Parameters.AddWithValue("@semester", semester.ToString());
+                    sqlCommand.Parameters.AddWithValue("@year", year.ToString());
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return scheduleid;
         }
         public List<Session> GetSessions(string scheduleID)
         {
@@ -59,17 +97,17 @@ namespace TutteeFrame2.DataAccess
                 return null;
             try
             {
-                string sqrQuery = $"SELLECT * FROM SCHEDULE WHERE SchedulesID = @scheduleid";
+                string strQuery = "SELECT * FROM SCHEDULE WHERE SchedulesID = @scheduleid";
                 using (SqlCommand sqlcommand = new SqlCommand(strQuery, connection))
                 {
-                    sqlcommand.Parameters.AddWithValue("@scheduleid", scheduleID.ToString());
+                    sqlcommand.Parameters.AddWithValue("@scheduleid", scheduleID);
                     SqlDataReader sqlDataReader = sqlcommand.ExecuteReader();
                     while (sqlDataReader.Read())
                     {
                         Session session = new Session();
-                        session.thu = sqlDataReader["Day"] != null ? (int)sqlDataReader["Day"] : 0;
-                        session.tiet = sqlDataReader["Session"] != null ? (int)sqlDataReader["Session"] : 0;
-                        session.mon = sqlDataReader["SubjectID"] != null ? (string)sqlDataReader["SubjectID"] : null;
+                        session.thu = sqlDataReader.GetByte(2);
+                        session.tiet = sqlDataReader.GetByte(3);
+                        session.mon = sqlDataReader["SubjectID"] != DBNull.Value ? (string)sqlDataReader["SubjectID"] : null;
                         sessions.Add(session);
                     }
                 }
@@ -124,8 +162,8 @@ namespace TutteeFrame2.DataAccess
                 return false;
             try
             {
-                strQuery = "INSERT INTO SCHEDULE(id, subjectID, day, session, scheduleID) " + 
-                    "VALUE(@id, @subjectID, @day, @session, @scheduleID)";
+                string strQuery = "INSERT INTO SCHEDULE(ID, SubjectID, Day, Session, SchedulesID) " + 
+                    "VALUES(@id, @subjectID, @day, @session, @scheduleID)";
                 using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
                 {
                     sqlCommand.Parameters.AddWithValue("@id", session.ID);

@@ -41,5 +41,13 @@ namespace TutteeFrame2.Model
             }
             return teacherNote;
         }
+        public string GetSubject()
+        {
+            return subject.Name;
+        }
+        public string GetPosition()
+        {
+            return position;
+        }
     }
 }
