@@ -206,6 +206,7 @@ namespace TutteeFrame2.View
                     punishmentView.Fetch();
                     break;
                 case TabName.BaoCao:
+                    reportViewTag1.SetHome(this);
                     break;
                 case TabName.LopChuNhiem:
                     break;
@@ -230,5 +231,8 @@ namespace TutteeFrame2.View
             OverlayForm _ = new OverlayForm(this, changePassView);
             changePassView.Show();
         }
+
+
+
     }
 }
