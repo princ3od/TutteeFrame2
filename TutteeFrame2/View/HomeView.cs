@@ -53,6 +53,8 @@ namespace TutteeFrame2.View
             classView.SetHome(this);
             studentView.SetHome(this);
             punishmentView.SetHome(this);
+            teacherAssignmentView.SetHome(this);
+            studentScoreboardView.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
@@ -63,11 +65,21 @@ namespace TutteeFrame2.View
         }
         public void ShowData()
         {
-            lbNameBig.Text = lbName.Text = controller.mainTeacher.GetName();
+            lbName.Text = materialLabel1.Text = controller.mainTeacher.GetName();
+            materialLabel2.Text = controller.mainTeacher.GetSubject();
+            materialLabel3.Text = controller.mainTeacher.GetID();
+            materialLabel4.Text = controller.mainTeacher.GetPosition();
+            materialLabel5.Text = (controller.mainTeacher.Sex) ? "Nam" : "Nữ";
+            materialLabel6.Text = controller.mainTeacher.GetBirthday().Substring(0, 8);
+            materialLabel7.Text = "Tổ " + controller.mainTeacher.GetSubject();
+            materialLabel8.Text = controller.mainTeacher.GetAdress();
+            materialLabel9.Text = controller.mainTeacher.GetMail();
+            materialLabel10.Text = controller.mainTeacher.GetNumber();
             ptbSmallAvatar.Image = ImageHelper.CropCircle(controller.mainTeacher.Avatar);
             ptbAvatarBig.Image = ImageHelper.CropCircle(controller.mainTeacher.Avatar);
-            lbPositionBig.Text = lbPosition.Text = controller.mainTeacher.Position;
+            lbPosition.Text = controller.mainTeacher.Position;
             Snackbar.MakeSnackbar(this, string.Format("Xin chào {0}", controller.mainTeacher.GetName()), "HELLO");
+            studentScoreboardView.SetMainTeacher(controller.mainTeacher);
             Decentralize();
         }
 
@@ -146,6 +158,7 @@ namespace TutteeFrame2.View
         {
             lbInformation.Text = loadInformation;
             mainProgressbar.Visible = lbInformation.Visible = isLoading;
+            mainTabControl.Enabled = !isLoading;
         }
         private void OnLogout(object sender, EventArgs e)
         {
@@ -181,6 +194,7 @@ namespace TutteeFrame2.View
                     studentView.FetchData();
                     break;
                 case TabName.BangDiemHocSinh:
+                    studentScoreboardView.Fetch();
                     break;
                 case TabName.QuanLiMon:
                     subjectView.LoadSubjects();
@@ -192,14 +206,17 @@ namespace TutteeFrame2.View
                     punishmentView.Fetch();
                     break;
                 case TabName.BaoCao:
+                    reportViewTag1.SetHome(this);
                     break;
                 case TabName.LopChuNhiem:
                     break;
                 case TabName.PhanCongGiaoVien:
+                    teacherAssignmentView.Fetch();
                     break;
                 case TabName.QuanLiViPham:
                     break;
                 case TabName.QuanLiTKB:
+                    schedule.FetchData();
                     break;
                 case TabName.QuanLiLichHop:
                     break;
@@ -214,5 +231,8 @@ namespace TutteeFrame2.View
             OverlayForm _ = new OverlayForm(this, changePassView);
             changePassView.Show();
         }
+
+
+
     }
 }

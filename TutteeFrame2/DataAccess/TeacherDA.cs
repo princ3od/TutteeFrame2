@@ -308,5 +308,40 @@ namespace TutteeFrame2.DataAccess
             }
             return _teacherID;
         }
+        public string GetInchargeClass(string _teacherID)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return null;
+
+            string classID = null;
+            try
+            {
+                string strQuery = "SELECT * FROM CLASS WHERE TeacherID=@teacherid";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@teacherid", _teacherID);
+                    using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+                        if (!dataReader.HasRows)
+                            classID = null;
+                        else
+                        {
+                            dataReader.Read();
+                            classID = dataReader.GetString(0);
+                        }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return classID;
+        }
     }
 }

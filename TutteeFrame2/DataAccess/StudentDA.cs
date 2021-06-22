@@ -21,7 +21,7 @@ namespace TutteeFrame2.DataAccess
 
         #region Methods
         #endregion
-        public List<Student> GetStudents()
+        public List<Student> GetStudents(string classID = "")
         {
             List<Student> students = new List<Student>();
             bool success = Connect();
@@ -31,8 +31,12 @@ namespace TutteeFrame2.DataAccess
             try
             {
                 String strQuery = "SELECT * FROM STUDENT";
+                if (!string.IsNullOrEmpty(classID))
+                    strQuery = "SELECT * FROM STUDENT WHERE ClassID = @classid";
                 using (SqlCommand sqlcomannd = new SqlCommand(strQuery, connection))
                 {
+                    if (!string.IsNullOrEmpty(classID))
+                        sqlcomannd.Parameters.AddWithValue("@classid", classID);
                     SqlDataReader sqlDataReader = sqlcomannd.ExecuteReader();
                     while (sqlDataReader.Read())
                     {

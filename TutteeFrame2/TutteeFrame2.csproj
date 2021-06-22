@@ -34,17 +34,57 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.2.2.1.4\lib\net461\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSurface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSurface.1.1.0\lib\net452\MaterialSurface.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,13 +94,30 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ScheduleController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
+    <Compile Include="DataAccess\PrepareToPrintDA.cs" />
+    <Compile Include="Reports\Data\ReportClassResultDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportClassResultDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Data\ReportStudentResultDs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportStudentResultDs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportControll\frmChartController.cs" />
+    <Compile Include="Reports\ReportControll\ReportStudentController.cs" />
     <Compile Include="Controller\StudentController.cs" />
+    <Compile Include="Controller\StudentScoreboardController.cs" />
     <Compile Include="Controller\SubjectController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controls\UtilityBar.cs">
@@ -72,18 +129,53 @@
     <Compile Include="DataAccess\AccountDA.cs" />
     <Compile Include="DataAccess\BaseDA.cs" />
     <Compile Include="DataAccess\ClassDA.cs" />
+    <Compile Include="DataAccess\ScheduleDA.cs" />
     <Compile Include="DataAccess\PunishmentDA.cs" />
+    <Compile Include="DataAccess\ScoreboardDA.cs" />
+    <Compile Include="DataAccess\SchoolDA.cs" />
     <Compile Include="DataAccess\SessionDA.cs" />
     <Compile Include="DataAccess\StudentDA.cs" />
     <Compile Include="DataAccess\SubjectDA.cs" />
     <Compile Include="DataAccess\TeacherDA.cs" />
+    <Compile Include="DataAccess\TeachingDA.cs" />
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Punishment.cs" />
     <Compile Include="Model\ResultObject.cs" />
+    <Compile Include="Model\Score.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
+    <Compile Include="View\Schedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Schedule.Designer.cs">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rim.cs" />
+    <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Teaching.cs" />
+    <Compile Include="Reports\Data\ReportStudentInfoDS.cs">
+      <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Data\ReportStudentInfoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportControll\ReportStudentResultController.cs" />
+    <Compile Include="Reports\ReportDataAccess\frmChartDA.cs" />
+    <Compile Include="Reports\ReportModel\InfomationOfStudensResultOfClassPrepareToPrint.cs" />
+    <Compile Include="Reports\ReportModel\InformationOfStudentResultPrepareForPrint.cs" />
+    <Compile Include="Reports\ReportModel\StudentPointResouce.cs" />
+    <Compile Include="Reports\ReportModel\StudentResult.cs" />
+    <Compile Include="Reports\Screen\StudentInfoReporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Screen\StudentInfoReporter.Designer.cs">
+      <DependentUpon>StudentInfoReporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\IdentifierFactory.cs" />
     <Compile Include="Utils\ImageHelper.cs" />
@@ -102,6 +194,12 @@
     <Compile Include="View\ChooseServerView.Designer.cs">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ChooseTeacherView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChooseTeacherView.Designer.cs">
+      <DependentUpon>ChooseTeacherView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ClassView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +211,25 @@
     </Compile>
     <Compile Include="View\DetailSubject.Designer.cs">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\RemoveFlickerHelper.cs" />
+    <Compile Include="View\frmChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChart.Designer.cs">
+      <DependentUpon>frmChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmStudentInfoReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmStudentInfoReport.Designer.cs">
+      <DependentUpon>frmStudentInfoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmStudentResultReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmStudentResultReport.Designer.cs">
+      <DependentUpon>frmStudentResultReport.cs</DependentUpon>
     </Compile>
     <Compile Include="View\OneClassView.cs">
       <SubType>Form</SubType>
@@ -132,11 +249,35 @@
     <Compile Include="View\OneStudentView.Designer.cs">
       <DependentUpon>OneStudentView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ScheduleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ScheduleView.Designer.cs">
+      <DependentUpon>ScheduleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OneTeacherAssignmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OneTeacherAssignmentView.Designer.cs">
+      <DependentUpon>OneTeacherAssignmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\PunishmentView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\PunishmentView.Designer.cs">
       <DependentUpon>PunishmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentScoreboardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\StudentScoreboardView.Designer.cs">
+      <DependentUpon>StudentScoreboardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportViewTag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ReportViewTag.Designer.cs">
+      <DependentUpon>ReportViewTag.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StudentView.cs">
       <SubType>UserControl</SubType>
@@ -179,6 +320,12 @@
     <Compile Include="View\OneTeacherView.Designer.cs">
       <DependentUpon>OneTeacherView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TeacherAssignmentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TeacherAssignmentView.Designer.cs">
+      <DependentUpon>TeacherAssignmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TeacherView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,17 +335,38 @@
     <EmbeddedResource Include="Controls\UtilityBar.resx">
       <DependentUpon>UtilityBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PagePrint\ReportClassResult.rdlc" />
+    <EmbeddedResource Include="Reports\PagePrint\ReportStudentInfo.rdlc" />
+    <EmbeddedResource Include="Reports\PagePrint\ReportStudentResult.rdlc" />
+    <EmbeddedResource Include="Reports\Screen\StudentInfoReporter.resx">
+      <DependentUpon>StudentInfoReporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ChangePassView.resx">
       <DependentUpon>ChangePassView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChooseServerView.resx">
       <DependentUpon>ChooseServerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ChooseTeacherView.resx">
+      <DependentUpon>ChooseTeacherView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ClassView.resx">
       <DependentUpon>ClassView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\DetailSubject.resx">
       <DependentUpon>DetailSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmChart.resx">
+      <DependentUpon>frmChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmStudentInfoReport.resx">
+      <DependentUpon>frmStudentInfoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmStudentResultReport.resx">
+      <DependentUpon>frmStudentResultReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\OneClassView.resx">
       <DependentUpon>OneClassView.cs</DependentUpon>
@@ -209,8 +377,17 @@
     <EmbeddedResource Include="View\OneStudentView.resx">
       <DependentUpon>OneStudentView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\OneTeacherAssignmentView.resx">
+      <DependentUpon>OneTeacherAssignmentView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\PunishmentView.resx">
       <DependentUpon>PunishmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentScoreboardView.resx">
+      <DependentUpon>StudentScoreboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportViewTag.resx">
+      <DependentUpon>ReportViewTag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentView.resx">
       <DependentUpon>StudentView.cs</DependentUpon>
@@ -240,6 +417,9 @@
     <EmbeddedResource Include="View\OneTeacherView.resx">
       <DependentUpon>OneTeacherView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\TeacherAssignmentView.resx">
+      <DependentUpon>TeacherAssignmentView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\TeacherView.resx">
       <DependentUpon>TeacherView.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,11 +437,65 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\TutteeFrame.sql" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Reports\Data\ReportClassResultDS.xsc">
+      <DependentUpon>ReportClassResultDS.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportClassResultDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportClassResultDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Data\ReportClassResultDS.xss">
+      <DependentUpon>ReportClassResultDS.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportStudentInfoDS.xsc">
+      <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportStudentInfoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportStudentInfoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Data\ReportStudentInfoDS.xss">
+      <DependentUpon>ReportStudentInfoDS.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportStudentResultDs.xsc">
+      <DependentUpon>ReportStudentResultDs.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Data\ReportStudentResultDs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportStudentResultDs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Data\ReportStudentResultDs.xss">
+      <DependentUpon>ReportStudentResultDs.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\auricular-phone-symbol-in-a-circle_icon-icons.com_56570.png" />
+    <None Include="Resources\letter_icon-icons.com_67753.png" />
+    <None Include="Resources\3643769-building-home-house-main-menu-start_113416.png" />
+    <None Include="Resources\blank_calendar_icon_124195.png" />
+    <None Include="Resources\birthdaycakewithcandles_79795.png" />
+    <None Include="Resources\sex-unknown_87127.png" />
+    <None Include="Resources\arrow_cloud_up_upload_icon_123722.png" />
+    <None Include="Resources\ic-profile-info_97647.png" />
+    <None Include="Resources\bookstack_libr_3024.png" />
+    <None Include="Resources\person.png" />
     <None Include="Resources\default_avatar.png" />
     <None Include="Resources\WaitCurser.gif" />
   </ItemGroup>
