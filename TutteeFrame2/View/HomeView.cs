@@ -70,7 +70,7 @@ namespace TutteeFrame2.View
             materialLabel3.Text = controller.mainTeacher.GetID();
             materialLabel4.Text = controller.mainTeacher.GetPosition();
             materialLabel5.Text = (controller.mainTeacher.Sex) ? "Nam" : "Nữ";
-            materialLabel6.Text = controller.mainTeacher.GetBirthday();
+            materialLabel6.Text = controller.mainTeacher.GetBirthday().Substring(0, 8);
             materialLabel7.Text = "Tổ " + controller.mainTeacher.GetSubject();
             materialLabel8.Text = controller.mainTeacher.GetAdress();
             materialLabel9.Text = controller.mainTeacher.GetMail();
