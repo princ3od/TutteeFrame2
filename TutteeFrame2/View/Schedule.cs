@@ -462,5 +462,15 @@ namespace TutteeFrame2.View
             else
                 containedButton1.Enabled = false;
         }
+
+        private void materialTextfield2_TextChanged(object sender, EventArgs e)
+        {
+            if (materialTextfield2.Text != "")
+            {
+                containedButton2.Enabled = true;
+            }
+            else
+                containedButton2.Enabled = false;
+        }
     }
 }
