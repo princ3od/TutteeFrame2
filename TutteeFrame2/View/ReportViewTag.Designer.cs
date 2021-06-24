@@ -88,7 +88,7 @@ namespace TutteeFrame2.View
             this.btnPrintResluts.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintResluts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnPrintResluts.Icon = null;
-            this.btnPrintResluts.Location = new System.Drawing.Point(564, 225);
+            this.btnPrintResluts.Location = new System.Drawing.Point(559, 225);
             this.btnPrintResluts.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintResluts.MouseState = MaterialSurface.MouseState.OUT;
             this.btnPrintResluts.Name = "btnPrintResluts";
@@ -96,7 +96,7 @@ namespace TutteeFrame2.View
             this.btnPrintResluts.Radius = 2;
             this.btnPrintResluts.ShawdowDepth = 3;
             this.btnPrintResluts.ShawdowOpacity = 50;
-            this.btnPrintResluts.Size = new System.Drawing.Size(156, 50);
+            this.btnPrintResluts.Size = new System.Drawing.Size(161, 50);
             this.btnPrintResluts.TabIndex = 44;
             this.btnPrintResluts.Text = "In Bảng Điểm";
             this.btnPrintResluts.TextAlignment = System.Drawing.StringAlignment.Center;

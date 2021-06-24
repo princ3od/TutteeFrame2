@@ -16,41 +16,115 @@ namespace TutteeFrame2.View
 {
     public partial class frmChart : Form
     {
+
         private frmChartController controller;
         public frmChart()
         {
             InitializeComponent();
             controller = new frmChartController(this);
             controller.FetchData();
+
+        }
+        public void SetProgressBar(bool visible, String textinfo = "")
+        {
+            mainProgressbar.Visible = visible;
+            lbInformation.Text = textinfo;
+            lbInformation.Visible = visible;
         }
 
         private void btnGenarate_Click(object sender, EventArgs e)
         {
+            SetProgressBar(true, "On creating user charts..");
+            cartesianChart.DataTooltip = new LiveCharts.Wpf.DefaultTooltip();
+            if (cbbType.Text == "TBHK Lớp")
+            {
+                if (cbbSemester.SelectedIndex == 2 || cbbSemester.SelectedIndex==-1)
+                {
+                    controller.GeneralChartOfAveragePointOfClass(cbbClass.Text);
+                }
+                else
+                {
+                    controller.GeneralChartOfAveragePointOfClass(cbbClass.Text, cbbSemester.Text);
+                }
+            }
+            else if (cbbType.Text == "TBHK Khối")
+            {
+                controller.GeneralChartOfAveragePointOfGrade(cbbGrade.Text);
+            }
+            else if (cbbType.Text == "TBHK Môn-Lớp")
+            {
 
-
-            cartesianChart.Series.Clear();
-
-            //LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
-            //int[] y = { 10, 20, 30, 40, 50 };
-            //var objChart = new ColumnSeries
-            //{
-            //    Title = "Số học sinh",
-            //    Values = new ChartValues<int>(y),
-            //    DataLabels = true,
-            //    LabelsPosition = BarLabelPosition.Top,
-            //    FontFamily = new System.Windows.Media.FontFamily("Segoe UI"),
-            //    FontSize = 11,
-            //};
-            //series.Add(objChart);
-            //cartesianChart.Series = series;
-            controller.GeneralChartOfAveragePointOfClass("10A2");
-
-            cartesianChart.AxisX = controller.AxesX;
-            cartesianChart.AxisY = controller.AxesY;
-            cartesianChart.Series = controller.series;
+            }
 
         }
 
+        public void SetCartesianChart()
+        {
+            var AxesX = new AxesCollection();
+            var AxesY = new AxesCollection();
+            LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
+            series.Clear();
+
+            if (cbbType.Text == "TBHK Khối")
+            {
+
+                AxesX.Add(new LiveCharts.Wpf.Axis
+                {
+                    Title = "Điểm trung bình",
+                    LabelFormatter = value => value.ToString(),
+                    Separator = new Separator { Step = 1 }
+                });
+                AxesY.Add(new LiveCharts.Wpf.Axis
+                {
+                    Title = "Lớp",
+                    Labels = controller.cbbClassItem,
+                    Separator = new Separator { Step = 1 },
+
+                });
+
+                var objChart = new RowSeries { };
+                objChart.Values = new ChartValues<double>(controller.value);
+                objChart.Title = "Điểm trung bình";
+                objChart.DataLabels = true;
+                objChart.LabelPoint = point => point.X + "Đ";
+                objChart.LabelsPosition = BarLabelPosition.Top;
+                objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
+                objChart.FontSize = 11;
+                series.Add(objChart);
+
+            }
+            else if (cbbType.Text == "TBHK Lớp")
+            {
+
+                AxesX.Add(new LiveCharts.Wpf.Axis
+                {
+                    Title = "Điểm trung bình",
+                    Labels = new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" },
+                    Separator = new Separator { Step = 2 }
+                });
+                AxesY.Add(new LiveCharts.Wpf.Axis
+                {
+                    Title = "Số học sinh",
+                    LabelFormatter = value => value.ToString()
+
+                });
+
+                var objChart = new ColumnSeries { };
+                objChart.Title = "Số học sinh";
+                objChart.Values = new ChartValues<double>(controller.value);
+                objChart.DataLabels = true;
+                objChart.LabelsPosition = BarLabelPosition.Top;
+                objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
+                objChart.FontSize = 11;
+                series.Add(objChart);
+                
+
+            }
+            cartesianChart.Series = series;
+            cartesianChart.AxisX = AxesX;
+            cartesianChart.AxisY = AxesY;
+            cartesianChart.Refresh();
+        }
         private void frmChart_Load(object sender, EventArgs e)
         {
             cartesianChart.AxisX.Add(new LiveCharts.Wpf.Axis
@@ -67,6 +141,48 @@ namespace TutteeFrame2.View
 
             });
             cartesianChart.LegendLocation = LiveCharts.LegendLocation.Right;
+        }
+
+        private void cbbGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controller.FilterClassByGrade(cbbGrade.Text);
+            FetchClassItem();
+        }
+        public void FetchClassItem()
+        {
+            cbbClass.Items.Clear();
+            foreach (var item in controller.cbbClassItem)
+            {
+                cbbClass.Items.Add(item);
+            }
+        }
+
+        private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbType.SelectedIndex == 0)
+            {
+                cbbGrade.Visible = true;
+                cbbClass.Visible = true;
+                cbbSemester.Visible = true;
+            }
+            else if (cbbType.SelectedIndex == 1)
+            {
+                cbbGrade.Visible = true;
+                cbbClass.Visible = false;
+                cbbSemester.Visible = false;
+            }
+            else if (cbbType.SelectedIndex == 2)
+            {
+                cbbGrade.Visible = true;
+                cbbClass.Visible = true;
+                cbbSemester.Visible = true;
+            }
+        }
+
+        private void cbbClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
         }
     }
 }
