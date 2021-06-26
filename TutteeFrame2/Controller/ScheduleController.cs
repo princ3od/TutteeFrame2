@@ -54,5 +54,13 @@ namespace TutteeFrame2.Controller
                 ScheduleDA.Instance.AddSession(s, scheduleid);
             });
         }
+        public async void Detele(string id)
+        {
+            await Task.Delay(600);
+            await Task.Run(() =>
+            {
+                ScheduleDA.Instance.Delete(id);
+            });
+        }
     }
 }
