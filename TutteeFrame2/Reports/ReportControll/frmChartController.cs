@@ -14,11 +14,11 @@ namespace TutteeFrame2.Reports.ReportControll
 {
     class frmChartController
     {
+
         private frmChart frmchart;
-        public LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
-        public AxesCollection AxesX = new AxesCollection();
-        public AxesCollection AxesY = new AxesCollection();
         private List<StudentPointResouce> ogrinalStudentPoint = new List<StudentPointResouce>();
+        public List<String> cbbClassItem;
+        public List<double> value = new List<double>();
         public frmChartController(frmChart frmChart)
         {
             this.frmchart = frmChart;
@@ -26,70 +26,160 @@ namespace TutteeFrame2.Reports.ReportControll
 
         public void FetchData()
         {
-            bool isFetching = true;
-            Task.Run(() =>
-            {
-                ogrinalStudentPoint = frmChartDA.istance.GetStudentPointResouce();
-                isFetching = false;
-            }
-            );
+            frmchart.SetProgressBar(true, "On featching data from sever..");
+            var t = Task.Run(() =>
+             {
+                 ogrinalStudentPoint = frmChartDA.istance.GetStudentPointResouce();
+
+             });
+            t.Wait();
+            frmchart.SetProgressBar(false);
+
         }
-
-        public void OnGeneralClicked(int selectedIndex)
+        public void FilterClassByGrade(String grade)
         {
-            switch (selectedIndex)
-            {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-            }
-        }
-
-        public void GeneralChartOfAveragePointOfClass(String classID)
-        {
-            series.Clear();
-            var objChart = new ColumnSeries { };
-            objChart.Title = "Số học sinh";
-            String[] x = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-            AxesX.Clear();
-            AxesX.Add(new LiveCharts.Wpf.Axis
-            {
-                Title = "Điểm trung bình",
-                Labels = new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" },
-                Separator = new Separator { Step = 2 }
-            });
-
-            AxesY.Clear();
-            AxesY.Add(new LiveCharts.Wpf.Axis
-            {
-                Title = "Số học sinh",
-                LabelFormatter = value => value.ToString()
-
-            });
-
-            int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            cbbClassItem = new List<String>();
             foreach (var item in ogrinalStudentPoint)
             {
-                if (item.classID == classID)
+                if (item.classID.Substring(0, 2) == grade && cbbClassItem.IndexOf(item.classID) == -1)
                 {
-                    for (int i = 0; i < 10; i++)
-                    {
-                        if (i <= item.averageYear && item.averageYear < i + 1) y[i] += 1;
-                        if (item.averageYear == 10) y[10] += 1;
-                    }
+                    cbbClassItem.Add(item.classID);
                 }
             }
-            objChart.Values = new ChartValues<int>(y);
-            objChart.DataLabels = true;
-            objChart.LabelsPosition = BarLabelPosition.Top;
-            objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
-            objChart.FontSize = 11;
-            series.Add(objChart);
         }
 
 
+        public async void GeneralChartOfAveragePointOfClass(String classID)
+        {
+          
+            await Task.Run(() =>
+            {
+                int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                foreach (var item in ogrinalStudentPoint)
+                {
+                    if (item.classID == classID)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            if (i <= item.averageYear && item.averageYear < i + 1) y[i] += 1;
+                            if (item.averageYear == 10) y[10] += 1;
+                        }
+                    }
+                }
+                value.Clear();
+                for (int i = 0; i < y.Length; i++)
+                {
+                    value.Add(y[i]);
+                }
+
+            });
+            frmchart.SetProgressBar(false);
+            frmchart.SetCartesianChart();
+        }
+
+        public async void GeneralChartOfAveragePointOfClass(String classID, String Semester)
+        {
+            frmchart.SetProgressBar(true, "On creating the chart...");
+            await Task.Run(() =>
+            {
+                int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                if (Semester == "Học kì 1")
+                {
+                    foreach (var item in ogrinalStudentPoint)
+                    {
+                        if (item.classID == classID)
+                        {
+                            for (int i = 0; i < 10; i++)
+                            {
+                                if (i <= item.averageSE01 && item.averageSE01 < i + 1) y[i] += 1;
+                                if (item.averageSE01 == 10) y[10] += 1;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var item in ogrinalStudentPoint)
+                    {
+                        if (item.classID == classID)
+                        {
+                            for (int i = 0; i < 10; i++)
+                            {
+                                if (i <= item.averageSE02 && item.averageSE02 < i + 1) y[i] += 1;
+                                if (item.averageSE02 == 10) y[10] += 1;
+                            }
+                        }
+                    }
+                }
+                value.Clear();
+                for (int i = 0; i < y.Length; i++)
+                {
+                    value.Add(y[i]);
+                }
+
+            });
+
+            frmchart.SetProgressBar(false);
+            frmchart.SetCartesianChart();
+        }
+
+        public async void GeneralChartOfAveragePointOfGrade(String grade)
+        {
+            frmchart.SetProgressBar(true, "On loading ui");
+            
+            await Task.Run(() =>
+            {
+                double[] y = new double[cbbClassItem.Count];
+                for (int i = 0; i < y.Length; i++)
+                {
+                    y[i] = 0;
+                }
+                for (int i = 0; i < cbbClassItem.Count; i++)
+                {
+                    int count = 0;
+                    double sum = 0;
+                    for (int j = 0; j < ogrinalStudentPoint.Count; j++)
+                    {
+                        if (cbbClassItem[i] == ogrinalStudentPoint[j].classID)
+                        {
+                            count += 1;
+                            sum += ogrinalStudentPoint[j].averageYear;
+                        }
+                    }
+                    y[i] = Math.Round((sum / count), 2);
+                }
+
+                List<String> classItem = new List<String>(cbbClassItem);
+                InsertionSort(y, classItem);
+                value.Clear();
+                for (int i = 0; i < y.Length; i++)
+                {
+                    value.Add(y[i]);
+                }
+            });
+            frmchart.SetProgressBar(false);
+            frmchart.SetCartesianChart();
+
+        }
+        private void InsertionSort(double[] arr, List<String> arr2)
+        {
+            int j;
+            double temp;
+            String temp2;
+            for (int i = 1; i <= arr.Length - 1; i++)
+            {
+                temp = arr[i];
+                temp2 = arr2[i];
+                j = i - 1;
+                while (j >= 0 && arr[j] > temp)
+                {
+                    arr[j + 1] = arr[j];
+                    arr2[j + 1] = arr2[j];
+                    j--;
+                }
+                arr[j + 1] = temp;
+                arr2[j + 1] = temp2;
+            }
+        }
     }
 }
