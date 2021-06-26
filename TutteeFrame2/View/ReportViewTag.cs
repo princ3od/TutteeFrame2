@@ -28,15 +28,14 @@ namespace TutteeFrame2.View
         {
             frmStudentInfoReport frmStudentReport = new frmStudentInfoReport();
             frmStudentReport.SetHome(this.homeView);
-            OverlayForm overlayForm = new OverlayForm(homeView, frmStudentReport);
-            frmStudentReport.ShowDialog();
+            frmStudentReport.Show();
         }
 
         private void btnPrintResluts_Click(object sender, EventArgs e)
         {
             frmStudentResultReport frmStudentResultReport = new frmStudentResultReport();
             frmStudentResultReport.SetHome(this.homeView);
-            OverlayForm overlayForm = new OverlayForm(homeView, frmStudentResultReport);
+            //OverlayForm overlayForm = new OverlayForm(homeView, frmStudentResultReport);
             frmStudentResultReport.ShowDialog();
         }
 

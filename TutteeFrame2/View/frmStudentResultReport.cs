@@ -102,7 +102,7 @@ namespace TutteeFrame2.View
 
         private void frmStudentResultReport_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.homeView.Select();
+            //this.homeView.Select();
         }
     }
 }
