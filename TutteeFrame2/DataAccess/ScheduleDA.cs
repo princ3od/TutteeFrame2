@@ -185,5 +185,30 @@ namespace TutteeFrame2.DataAccess
             }
             return true;
         }
+        public bool Delete(string id)
+        {
+            bool success = Connect();
+            if (!success)
+                return false;
+            try
+            {
+                string strQuery = $"DELETE FROM SCHEDULE WHERE SCHEDULE.ID = @id";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@id", id);
+                    sqlCommand.ExecuteNonQuery();
+                }                   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return true;
+        }
     }
 }
