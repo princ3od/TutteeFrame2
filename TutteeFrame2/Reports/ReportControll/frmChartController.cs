@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms.DataVisualization.Charting;
 using TutteeFrame2.Reports.ReportDataAccess;
 using TutteeFrame2.Reports.ReportModel;
 using TutteeFrame2.View;
+
 
 namespace TutteeFrame2.Reports.ReportControll
 {
@@ -17,7 +19,9 @@ namespace TutteeFrame2.Reports.ReportControll
 
         private frmChart frmchart;
         private List<StudentPointResouce> ogrinalStudentPoint = new List<StudentPointResouce>();
+        private List<StudentSubjectScore> orinalStudentSubjectScore = new List<StudentSubjectScore>();
         public List<String> cbbClassItem;
+        public List<String> cbbSubjectItems;
         public List<double> value = new List<double>();
         public frmChartController(frmChart frmChart)
         {
@@ -30,11 +34,12 @@ namespace TutteeFrame2.Reports.ReportControll
             var t = Task.Run(() =>
              {
                  ogrinalStudentPoint = frmChartDA.istance.GetStudentPointResouce();
-
+                 orinalStudentSubjectScore = frmChartDA.istance.GetStudentSubjectScore();
+                 FetchItemCbbSubject();
              });
-            t.Wait();
+            t.Wait(1000);
             frmchart.SetProgressBar(false);
-
+            frmchart.FetchSubjectItems();
         }
         public void FilterClassByGrade(String grade)
         {
@@ -48,6 +53,23 @@ namespace TutteeFrame2.Reports.ReportControll
             }
         }
 
+        public void FetchItemCbbSubject()
+        {
+            cbbSubjectItems = new List<String>();
+            Dictionary<String, String> subjectItems = new Dictionary<String, String> ();
+
+            foreach(StudentSubjectScore item in orinalStudentSubjectScore)
+            {
+
+                if (!subjectItems.ContainsKey(item.subjectID))
+                {
+                    cbbSubjectItems.Add(item.subjectName);
+                    subjectItems.Add(item.subjectID, item.subjectName);
+                }
+            }
+
+           
+        }
 
         public async void GeneralChartOfAveragePointOfClass(String classID)
         {
@@ -73,7 +95,7 @@ namespace TutteeFrame2.Reports.ReportControll
                 }
 
             });
-            frmchart.SetProgressBar(false);
+           
             frmchart.SetCartesianChart();
         }
 
@@ -119,7 +141,7 @@ namespace TutteeFrame2.Reports.ReportControll
 
             });
 
-            frmchart.SetProgressBar(false);
+           
             frmchart.SetCartesianChart();
         }
 
@@ -157,7 +179,7 @@ namespace TutteeFrame2.Reports.ReportControll
                     value.Add(y[i]);
                 }
             });
-            frmchart.SetProgressBar(false);
+            
             frmchart.SetCartesianChart();
 
         }
@@ -181,5 +203,57 @@ namespace TutteeFrame2.Reports.ReportControll
                 arr2[j + 1] = temp2;
             }
         }
+    
+        public async void GeneralChartOfSubjectByClass(String cbbClass,  String cbbSubject,  String cbbSemester)
+        {
+           bool avalible = true;
+           var t =  Task.Run(() =>
+            {
+                List<StudentSubjectScore> studentSubjectScores = new List<StudentSubjectScore>();
+                foreach(var item in orinalStudentSubjectScore)
+                {
+                    String semester = $"Học kì {item.semester}";
+                    if(item.classID == cbbClass && item.subjectName == cbbSubject && semester == cbbSemester)
+                    {
+                        studentSubjectScores.Add(item);
+
+                    }
+                }
+                int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                for (int i = 0; i < 10 && avalible; i++)
+                {
+                    for(int j = 0; j < studentSubjectScores.Count && avalible; j++)
+                    {
+                        if(studentSubjectScores[j].subjectAverage <= i)
+                        {
+                            if(studentSubjectScores[j].subjectAverage < 0)
+                            {
+                                avalible = false;
+                            }
+                            y[i] += 1;
+                            studentSubjectScores.Remove(studentSubjectScores[j]);
+                            j -= 1;
+                        }
+                    }
+                }
+                value.Clear();
+                if(avalible)
+                for (int i = 0; i < y.Length; i++)
+                {
+                    value.Add(y[i]);
+                }
+
+            });
+            t.Wait();
+            if(avalible)
+            {
+                frmchart.SetCartesianChart();
+            }
+            else
+            {
+                MessageBox.Show("Dữ liêu chưa đủ để lập biểu đồ");
+            }
+        }
+
     }
 }

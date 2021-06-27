@@ -38,8 +38,8 @@ namespace TutteeFrame2.Reports.ReportDataAccess
                         StudentPointResouce result = new StudentPointResouce();
                         result.id = reader.GetString(0);
                         result.classID = reader.GetString(1);
-                        if(!reader.IsDBNull(2))
-                        result.averageSE01 = (float)reader.GetDouble(2);
+                        if (!reader.IsDBNull(2))
+                            result.averageSE01 = (float)reader.GetDouble(2);
                         if (!reader.IsDBNull(3))
                             result.averageSE02 = (float)reader.GetDouble(3);
                         results.Add(result);
@@ -57,5 +57,48 @@ namespace TutteeFrame2.Reports.ReportDataAccess
 
         }
 
+        public List<StudentSubjectScore> GetStudentSubjectScore()
+        {
+            List<StudentSubjectScore> results = new List<StudentSubjectScore>();
+            bool success = Connect();
+            if (!success) return null;
+            try
+            {
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    strQuery = "SELECT STUDENT.StudentID,ClassID,SUBJECTSCORE.SubjectID,SUBJECT.SubjectName,Semester,SubjectAverage";
+                    strQuery += " FROM STUDENT,SCOREBOARD,SUBJECTSCORE ,SUBJECT";
+                    strQuery += " WHERE STUDENT.StudentID = SCOREBOARD.StudentID AND SUBJECTSCORE.ScoreBoardID =SCOREBOARD.ScoreBoardID";
+                    strQuery += " AND SUBJECT.SubjectID = SUBJECTSCORE.SubjectID";
+
+                    cmd.CommandText = strQuery;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        String studentID = reader.GetString(0);
+                        String classID = reader.GetString(1);
+                        String subjectID = reader.GetString(2);
+                        String subjectName = reader.GetString(3);
+                        int semester =-1;
+                        double subjectAverage = -1;
+                        if (!reader.IsDBNull(4))
+                             semester = reader.GetInt32(4);
+                        if (!reader.IsDBNull(5))
+                            subjectAverage = reader.GetDouble(5);
+                        StudentSubjectScore item = new StudentSubjectScore(studentID, classID, subjectID, subjectName, semester, subjectAverage);
+                        results.Add(item);
+                    }
+                    Disconnect();
+                    return results;
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Disconnect();
+                return null;
+            }
+        }
     }
 }

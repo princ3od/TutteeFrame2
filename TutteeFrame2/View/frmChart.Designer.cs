@@ -37,6 +37,7 @@ namespace TutteeFrame2.View
             this.cartesianChart = new LiveCharts.WinForms.CartesianChart();
             this.lbInformation = new System.Windows.Forms.Label();
             this.mainProgressbar = new MaterialSurface.MaterialProgressbar();
+            this.cbbSubject = new MaterialSurface.MaterialComboBox();
             this.SuspendLayout();
             // 
             // btnGenarate
@@ -60,7 +61,7 @@ namespace TutteeFrame2.View
             this.btnGenarate.Text = "Khởi tạo";
             this.btnGenarate.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnGenarate.UseVisualStyleBackColor = false;
-            this.btnGenarate.Click += new System.EventHandler(this.btnGenarate_Click);
+            this.btnGenarate.Click += new System.EventHandler(this.btnGenarate_ClickAsync);
             // 
             // cbbType
             // 
@@ -106,7 +107,7 @@ namespace TutteeFrame2.View
             "10",
             "11",
             "12"});
-            this.cbbGrade.Location = new System.Drawing.Point(11, 148);
+            this.cbbGrade.Location = new System.Drawing.Point(11, 205);
             this.cbbGrade.Margin = new System.Windows.Forms.Padding(2);
             this.cbbGrade.MaxDropDownItems = 4;
             this.cbbGrade.MouseState = MaterialSurface.MouseState.OUT;
@@ -129,7 +130,7 @@ namespace TutteeFrame2.View
             this.cbbClass.FormattingEnabled = true;
             this.cbbClass.HintText = "Lớp";
             this.cbbClass.ItemHeight = 38;
-            this.cbbClass.Location = new System.Drawing.Point(11, 237);
+            this.cbbClass.Location = new System.Drawing.Point(11, 275);
             this.cbbClass.Margin = new System.Windows.Forms.Padding(2);
             this.cbbClass.MaxDropDownItems = 4;
             this.cbbClass.MouseState = MaterialSurface.MouseState.OUT;
@@ -156,7 +157,7 @@ namespace TutteeFrame2.View
             "Học kì 1",
             "Học kì 2",
             "Cả năm"});
-            this.cbbSemester.Location = new System.Drawing.Point(11, 325);
+            this.cbbSemester.Location = new System.Drawing.Point(11, 349);
             this.cbbSemester.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSemester.MaxDropDownItems = 4;
             this.cbbSemester.MouseState = MaterialSurface.MouseState.OUT;
@@ -210,6 +211,33 @@ namespace TutteeFrame2.View
             this.mainProgressbar.Value = 36;
             this.mainProgressbar.Visible = false;
             // 
+            // cbbSubject
+            // 
+            this.cbbSubject.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbbSubject.AutoSizing = false;
+            this.cbbSubject.ComboBoxType = MaterialSurface.BoxType.Outlined;
+            this.cbbSubject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbSubject.DropDownWidth = 121;
+            this.cbbSubject.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSubject.FormattingEnabled = true;
+            this.cbbSubject.HintText = "Môn";
+            this.cbbSubject.ItemHeight = 38;
+            this.cbbSubject.Items.AddRange(new object[] {
+            "10",
+            "11",
+            "12"});
+            this.cbbSubject.Location = new System.Drawing.Point(11, 134);
+            this.cbbSubject.Margin = new System.Windows.Forms.Padding(2);
+            this.cbbSubject.MaxDropDownItems = 4;
+            this.cbbSubject.MouseState = MaterialSurface.MouseState.OUT;
+            this.cbbSubject.Name = "cbbSubject";
+            this.cbbSubject.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.cbbSubject.Size = new System.Drawing.Size(199, 44);
+            this.cbbSubject.TabIndex = 70;
+            this.cbbSubject.SelectedIndexChanged += new System.EventHandler(this.cbbGrade_SelectedIndexChanged);
+            // 
             // frmChart
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -220,6 +248,7 @@ namespace TutteeFrame2.View
             this.Controls.Add(this.cartesianChart);
             this.Controls.Add(this.cbbSemester);
             this.Controls.Add(this.cbbClass);
+            this.Controls.Add(this.cbbSubject);
             this.Controls.Add(this.cbbGrade);
             this.Controls.Add(this.cbbType);
             this.Controls.Add(this.btnGenarate);
@@ -240,5 +269,6 @@ namespace TutteeFrame2.View
         private LiveCharts.WinForms.CartesianChart cartesianChart;
         private System.Windows.Forms.Label lbInformation;
         private MaterialSurface.MaterialProgressbar mainProgressbar;
+        private MaterialSurface.MaterialComboBox cbbSubject;
     }
 }
