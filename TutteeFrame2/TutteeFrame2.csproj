@@ -169,6 +169,7 @@
     <Compile Include="Reports\ReportModel\InformationOfStudentResultPrepareForPrint.cs" />
     <Compile Include="Reports\ReportModel\StudentPointResouce.cs" />
     <Compile Include="Reports\ReportModel\StudentResult.cs" />
+    <Compile Include="Reports\ReportModel\StudentSubjetScore.cs" />
     <Compile Include="Reports\Screen\StudentInfoReporter.cs">
       <SubType>Form</SubType>
     </Compile>

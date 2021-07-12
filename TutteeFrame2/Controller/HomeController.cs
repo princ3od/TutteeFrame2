@@ -71,7 +71,6 @@ namespace TutteeFrame2.Controller
                     view.OnReconnect();
                     break;
                 case SessionStatus.NotValid:
-                    Logout();
                     break;
                 case SessionStatus.NoConnection:
                     break;

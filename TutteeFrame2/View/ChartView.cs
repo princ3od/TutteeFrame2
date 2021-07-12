@@ -14,11 +14,11 @@ using LiveCharts.Wpf;
 
 namespace TutteeFrame2.View
 {
-    public partial class frmChart : Form
+    public partial class ChartView : Form
     {
 
         private frmChartController controller;
-        public frmChart()
+        public ChartView()
         {
             InitializeComponent();
             controller = new frmChartController(this);
@@ -32,10 +32,9 @@ namespace TutteeFrame2.View
             lbInformation.Visible = visible;
         }
 
-        private void   btnGenarate_ClickAsync(object sender, EventArgs e)
+        private void btnGenarate_Click(object sender, EventArgs e)
         {
             SetProgressBar(true, "On creating user charts..");
-
             cartesianChart.DataTooltip = new LiveCharts.Wpf.DefaultTooltip();
             if (cbbType.Text == "TBHK Lớp")
             {
@@ -55,7 +54,6 @@ namespace TutteeFrame2.View
             else if (cbbType.Text == "TBHK Môn-Lớp")
             {
 
-                controller.GeneralChartOfSubjectByClass(cbbClass.Text,cbbSubject.Text,cbbSemester.Text);
             }
 
         }
@@ -122,34 +120,9 @@ namespace TutteeFrame2.View
                 
 
             }
-            else if(cbbType.Text == "TBHK Môn-Lớp")
-            {
-                AxesX.Add(new LiveCharts.Wpf.Axis
-                {
-                    Title = $"Điểm trung bình môn {cbbSubject.Text}",
-                    Labels = new[] { "0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10" },
-                    Separator = new Separator { Step = 2 }
-                });
-                AxesY.Add(new LiveCharts.Wpf.Axis
-                {
-                    Title = "Số học sinh",
-                    LabelFormatter = value => value.ToString()
-
-                });
-
-                var objChart = new ColumnSeries { };
-                objChart.Title = "Số học sinh";
-                objChart.Values = new ChartValues<double>(controller.value);
-                objChart.DataLabels = true;
-                objChart.LabelsPosition = BarLabelPosition.Top;
-                objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
-                objChart.FontSize = 11;
-                series.Add(objChart);
-            }
             cartesianChart.Series = series;
             cartesianChart.AxisX = AxesX;
             cartesianChart.AxisY = AxesY;
-            SetProgressBar(false);
             cartesianChart.Refresh();
         }
         private void frmChart_Load(object sender, EventArgs e)
@@ -183,14 +156,6 @@ namespace TutteeFrame2.View
                 cbbClass.Items.Add(item);
             }
         }
-        public void FetchSubjectItems()
-        {
-            cbbSubject.Items.Clear();
-            foreach(var item in controller.cbbSubjectItems)
-            {
-                cbbSubject.Items.Add(item);
-            }
-        }
 
         private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -199,21 +164,18 @@ namespace TutteeFrame2.View
                 cbbGrade.Visible = true;
                 cbbClass.Visible = true;
                 cbbSemester.Visible = true;
-                cbbSubject.Visible = false;
             }
             else if (cbbType.SelectedIndex == 1)
             {
                 cbbGrade.Visible = true;
                 cbbClass.Visible = false;
                 cbbSemester.Visible = false;
-                cbbSubject.Visible = false;
             }
             else if (cbbType.SelectedIndex == 2)
             {
                 cbbGrade.Visible = true;
                 cbbClass.Visible = true;
                 cbbSemester.Visible = true;
-                cbbSubject.Visible = true;
             }
         }
 
