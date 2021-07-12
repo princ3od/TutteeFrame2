@@ -103,6 +103,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ScheduleController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
+    <Compile Include="Controller\SchoolInfoController.cs" />
     <Compile Include="Controls\CircularButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -110,6 +111,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
+    <Compile Include="Model\School.cs" />
     <Compile Include="Reports\Data\ReportClassResultDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -36,27 +36,23 @@ namespace TutteeFrame2.View
             this.lbTitle = new System.Windows.Forms.Label();
             this.txtSologan = new MaterialSurface.MaterialTextfield();
             this.txtFullSchoolName = new MaterialSurface.MaterialTextfield();
-            this.txtContact = new MaterialSurface.MaterialTextfield();
-            this.btnChooseAvatar = new TutteeFrame2.Controls.CircularButton();
-            this.ptbAvatar = new TutteeFrame2.Controls.CircularPicture();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.btnChooseAvatar = new TutteeFrame2.Controls.CircularButton();
+            this.ptbAvatar = new TutteeFrame2.Controls.CircularPicture();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // mainProgressbar
             // 
-            this.mainProgressbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.mainProgressbar.ChangeDelay = 85;
             this.mainProgressbar.CircularWidth = 3.8F;
+            this.mainProgressbar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mainProgressbar.IsIndetermine = true;
-            this.mainProgressbar.Location = new System.Drawing.Point(0, 459);
+            this.mainProgressbar.Location = new System.Drawing.Point(0, 455);
             this.mainProgressbar.Margin = new System.Windows.Forms.Padding(4);
             this.mainProgressbar.Maximum = 100;
             this.mainProgressbar.Minimum = 0;
@@ -72,13 +68,12 @@ namespace TutteeFrame2.View
             // 
             // lbInformation
             // 
-            this.lbInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbInformation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbInformation.AutoSize = true;
             this.lbInformation.BackColor = System.Drawing.Color.Transparent;
             this.lbInformation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbInformation.Location = new System.Drawing.Point(4, 438);
+            this.lbInformation.Location = new System.Drawing.Point(4, 433);
             this.lbInformation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbInformation.Name = "lbInformation";
             this.lbInformation.Size = new System.Drawing.Size(225, 19);
@@ -87,13 +82,12 @@ namespace TutteeFrame2.View
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSubmit.EffectType = MaterialSurface.ET.Custom;
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(490, 389);
+            this.btnSubmit.Location = new System.Drawing.Point(490, 385);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.MouseState = MaterialSurface.MouseState.OUT;
             this.btnSubmit.Name = "btnSubmit";
@@ -110,13 +104,12 @@ namespace TutteeFrame2.View
             // 
             // lbTitle
             // 
-            this.lbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTitle.AutoSize = true;
             this.lbTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbTitle.Font = new System.Drawing.Font("Segoe UI Semilight", 20F, System.Drawing.FontStyle.Bold);
             this.lbTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbTitle.Location = new System.Drawing.Point(287, 54);
+            this.lbTitle.Location = new System.Drawing.Point(287, 50);
             this.lbTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(356, 46);
@@ -126,8 +119,7 @@ namespace TutteeFrame2.View
             // 
             // txtSologan
             // 
-            this.txtSologan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtSologan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSologan.AutoScaleColor = true;
             this.txtSologan.BackColor = System.Drawing.Color.White;
             this.txtSologan.CountText = false;
@@ -139,7 +131,7 @@ namespace TutteeFrame2.View
             this.txtSologan.HelperText = "";
             this.txtSologan.HideSelection = true;
             this.txtSologan.HintText = "Sologan";
-            this.txtSologan.Location = new System.Drawing.Point(295, 167);
+            this.txtSologan.Location = new System.Drawing.Point(295, 178);
             this.txtSologan.Margin = new System.Windows.Forms.Padding(30);
             this.txtSologan.MaxLength = 32767;
             this.txtSologan.MouseState = MaterialSurface.MouseState.OUT;
@@ -157,8 +149,7 @@ namespace TutteeFrame2.View
             // 
             // txtFullSchoolName
             // 
-            this.txtFullSchoolName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtFullSchoolName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFullSchoolName.AutoScaleColor = true;
             this.txtFullSchoolName.BackColor = System.Drawing.Color.White;
             this.txtFullSchoolName.CountText = false;
@@ -170,7 +161,7 @@ namespace TutteeFrame2.View
             this.txtFullSchoolName.HelperText = "";
             this.txtFullSchoolName.HideSelection = true;
             this.txtFullSchoolName.HintText = "Tên trường";
-            this.txtFullSchoolName.Location = new System.Drawing.Point(295, 236);
+            this.txtFullSchoolName.Location = new System.Drawing.Point(295, 265);
             this.txtFullSchoolName.Margin = new System.Windows.Forms.Padding(30);
             this.txtFullSchoolName.MaxLength = 32767;
             this.txtFullSchoolName.MouseState = MaterialSurface.MouseState.OUT;
@@ -186,85 +177,11 @@ namespace TutteeFrame2.View
             this.txtFullSchoolName.TabIndex = 75;
             this.txtFullSchoolName.UseSystemPasswordChar = false;
             // 
-            // txtContact
-            // 
-            this.txtContact.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtContact.AutoScaleColor = true;
-            this.txtContact.BackColor = System.Drawing.Color.White;
-            this.txtContact.CountText = false;
-            this.txtContact.Enabled = false;
-            this.txtContact.FieldType = MaterialSurface.BoxType.Normal;
-            this.txtContact.FloatingLabelText = "FloatingLabel";
-            this.txtContact.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtContact.HandleError = false;
-            this.txtContact.HelperText = "";
-            this.txtContact.HideSelection = true;
-            this.txtContact.HintText = "Liên hệ";
-            this.txtContact.Location = new System.Drawing.Point(295, 306);
-            this.txtContact.Margin = new System.Windows.Forms.Padding(30);
-            this.txtContact.MaxLength = 32767;
-            this.txtContact.MouseState = MaterialSurface.MouseState.OUT;
-            this.txtContact.Multiline = false;
-            this.txtContact.Name = "txtContact";
-            this.txtContact.PasswordChar = '\0';
-            this.txtContact.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.txtContact.ReadOnly = false;
-            this.txtContact.ShortcutsEnable = true;
-            this.txtContact.ShowCaret = true;
-            this.txtContact.Size = new System.Drawing.Size(360, 54);
-            this.txtContact.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
-            this.txtContact.TabIndex = 76;
-            this.txtContact.UseSystemPasswordChar = false;
-            // 
-            // btnChooseAvatar
-            // 
-            this.btnChooseAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnChooseAvatar.BackColor = System.Drawing.Color.Silver;
-            this.btnChooseAvatar.FlatAppearance.BorderSize = 0;
-            this.btnChooseAvatar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseAvatar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnChooseAvatar.Image = global::TutteeFrame2.Properties.Resources.outline_edit_black_24dp1;
-            this.btnChooseAvatar.Location = new System.Drawing.Point(106, 106);
-            this.btnChooseAvatar.Name = "btnChooseAvatar";
-            this.btnChooseAvatar.Size = new System.Drawing.Size(40, 40);
-            this.btnChooseAvatar.TabIndex = 82;
-            this.btnChooseAvatar.UseVisualStyleBackColor = false;
-            this.btnChooseAvatar.Click += new System.EventHandler(this.btnChooseAvatar_Click);
-            // 
-            // ptbAvatar
-            // 
-            this.ptbAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ptbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ptbAvatar.Image = global::TutteeFrame2.Properties.Resources.enemy_spot;
-            this.ptbAvatar.Location = new System.Drawing.Point(12, 12);
-            this.ptbAvatar.Name = "ptbAvatar";
-            this.ptbAvatar.Size = new System.Drawing.Size(134, 134);
-            this.ptbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAvatar.TabIndex = 81;
-            this.ptbAvatar.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox2.Image = global::TutteeFrame2.Properties.Resources.contact_icon_png_4071_Windows;
-            this.pictureBox2.Location = new System.Drawing.Point(238, 310);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 78;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::TutteeFrame2.Properties.Resources.slogan_3317101_27879741;
-            this.pictureBox1.Location = new System.Drawing.Point(238, 171);
+            this.pictureBox1.Location = new System.Drawing.Point(238, 182);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 50);
@@ -274,10 +191,9 @@ namespace TutteeFrame2.View
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox10.Image = global::TutteeFrame2.Properties.Resources.school;
-            this.pictureBox10.Location = new System.Drawing.Point(238, 240);
+            this.pictureBox10.Location = new System.Drawing.Point(238, 269);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(30);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(50, 50);
@@ -287,15 +203,14 @@ namespace TutteeFrame2.View
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClose.Depth = 0;
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.DrawShadows = false;
             this.btnClose.HighEmphasis = false;
             this.btnClose.Icon = ((System.Drawing.Image)(resources.GetObject("btnClose.Icon")));
-            this.btnClose.Location = new System.Drawing.Point(742, 16);
+            this.btnClose.Location = new System.Drawing.Point(742, 12);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -306,16 +221,41 @@ namespace TutteeFrame2.View
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnChooseAvatar
+            // 
+            this.btnChooseAvatar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnChooseAvatar.BackColor = System.Drawing.Color.Silver;
+            this.btnChooseAvatar.FlatAppearance.BorderSize = 0;
+            this.btnChooseAvatar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseAvatar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnChooseAvatar.Image = global::TutteeFrame2.Properties.Resources.outline_edit_black_24dp1;
+            this.btnChooseAvatar.Location = new System.Drawing.Point(106, 102);
+            this.btnChooseAvatar.Name = "btnChooseAvatar";
+            this.btnChooseAvatar.Size = new System.Drawing.Size(40, 40);
+            this.btnChooseAvatar.TabIndex = 82;
+            this.btnChooseAvatar.UseVisualStyleBackColor = false;
+            this.btnChooseAvatar.Click += new System.EventHandler(this.btnChooseAvatar_Click);
+            // 
+            // ptbAvatar
+            // 
+            this.ptbAvatar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ptbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ptbAvatar.Image = global::TutteeFrame2.Properties.Resources.enemy_spot;
+            this.ptbAvatar.Location = new System.Drawing.Point(12, 8);
+            this.ptbAvatar.Name = "ptbAvatar";
+            this.ptbAvatar.Size = new System.Drawing.Size(134, 134);
+            this.ptbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAvatar.TabIndex = 81;
+            this.ptbAvatar.TabStop = false;
+            // 
             // ChangeSchooInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 471);
+            this.ClientSize = new System.Drawing.Size(800, 462);
             this.Controls.Add(this.btnChooseAvatar);
             this.Controls.Add(this.ptbAvatar);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtContact);
             this.Controls.Add(this.txtFullSchoolName);
             this.Controls.Add(this.txtSologan);
             this.Controls.Add(this.pictureBox10);
@@ -329,11 +269,11 @@ namespace TutteeFrame2.View
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ChangeSchooInfo";
             this.Text = "ChangeSchooInfo";
+            this.Load += new System.EventHandler(this.ChangeSchooInfo_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ChangeSchoolInfo_MouseDown);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,9 +289,7 @@ namespace TutteeFrame2.View
         private System.Windows.Forms.PictureBox pictureBox10;
         private MaterialSurface.MaterialTextfield txtSologan;
         private MaterialSurface.MaterialTextfield txtFullSchoolName;
-        private MaterialSurface.MaterialTextfield txtContact;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private Controls.CircularPicture ptbAvatar;
         private Controls.CircularButton btnChooseAvatar;
     }

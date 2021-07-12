@@ -234,8 +234,8 @@ namespace TutteeFrame2.View
         }
         private void OnChangeSchoolInfo(object sender, EventArgs e)
         {
-            ChangeSchooInfo changeSchoolInfoView = new ChangeSchooInfo();
-           // OverlayForm _ = new OverlayForm(this, changeSchoolInfoView);
+            ChangeSchooInfo changeSchoolInfoView = new ChangeSchooInfo(controller.mainTeacher.ID.ToUpper());
+            OverlayForm _ = new OverlayForm(this, changeSchoolInfoView);
             changeSchoolInfoView.Show();
         }
 
