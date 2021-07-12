@@ -58,6 +58,7 @@ namespace TutteeFrame2.View
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1 = new MaterialSurface.MaterialCard();
+            this.materialListView1 = new MaterialSkin.Controls.MaterialListView();
             this.choiceChip6 = new MaterialSurface.ChoiceChip();
             this.choiceChip7 = new MaterialSurface.ChoiceChip();
             this.choiceChip4 = new MaterialSurface.ChoiceChip();
@@ -87,7 +88,6 @@ namespace TutteeFrame2.View
             this.quanLiTKB = new System.Windows.Forms.TabPage();
             this.schedule = new TutteeFrame2.View.Schedule();
             this.quanLiLichHop = new System.Windows.Forms.TabPage();
-            this.reportViewTag1 = new TutteeFrame2.View.ReportViewTag();
             this.panel2 = new System.Windows.Forms.Panel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -102,6 +102,7 @@ namespace TutteeFrame2.View
             this.btnSetting = new MaterialSurface.TextButton();
             this.btnChangePass = new MaterialSurface.TextButton();
             this.btnShowMore = new MaterialSkin.Controls.MaterialButton();
+            this.reportViewTag1 = new TutteeFrame2.View.ReportViewTag();
             this.mainTabControl.SuspendLayout();
             this.home.SuspendLayout();
             this.materialCard4.SuspendLayout();
@@ -479,6 +480,7 @@ namespace TutteeFrame2.View
             this.materialCard1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialCard1.BackColor = System.Drawing.Color.White;
             this.materialCard1.CardColor = System.Drawing.Color.White;
+            this.materialCard1.Controls.Add(this.materialListView1);
             this.materialCard1.Controls.Add(this.choiceChip6);
             this.materialCard1.Controls.Add(this.choiceChip7);
             this.materialCard1.Controls.Add(this.choiceChip4);
@@ -499,6 +501,25 @@ namespace TutteeFrame2.View
             this.materialCard1.Size = new System.Drawing.Size(509, 194);
             this.materialCard1.Style = MaterialSurface.MaterialCard.CardStyle.Elevated;
             this.materialCard1.TabIndex = 30;
+            // 
+            // materialListView1
+            // 
+            this.materialListView1.AutoSizeTable = false;
+            this.materialListView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialListView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.materialListView1.Depth = 0;
+            this.materialListView1.FullRowSelect = true;
+            this.materialListView1.HideSelection = false;
+            this.materialListView1.Location = new System.Drawing.Point(21, 75);
+            this.materialListView1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.materialListView1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialListView1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialListView1.Name = "materialListView1";
+            this.materialListView1.OwnerDraw = true;
+            this.materialListView1.Size = new System.Drawing.Size(200, 100);
+            this.materialListView1.TabIndex = 39;
+            this.materialListView1.UseCompatibleStateImageBehavior = false;
+            this.materialListView1.View = System.Windows.Forms.View.Details;
             // 
             // choiceChip6
             // 
@@ -807,10 +828,12 @@ namespace TutteeFrame2.View
             // 
             // schedule
             // 
+            this.schedule.AutoSize = true;
             this.schedule.BackColor = System.Drawing.Color.White;
             this.schedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.schedule.Location = new System.Drawing.Point(0, 0);
-            this.schedule.Margin = new System.Windows.Forms.Padding(2);
+            this.schedule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.schedule.Name = "schedule";
             this.schedule.Size = new System.Drawing.Size(1116, 558);
             this.schedule.TabIndex = 0;
@@ -824,15 +847,6 @@ namespace TutteeFrame2.View
             this.quanLiLichHop.Tag = "12";
             this.quanLiLichHop.Text = "Quản lí lịch họp";
             this.quanLiLichHop.UseVisualStyleBackColor = true;
-            // 
-            // reportViewTag1
-            // 
-            this.reportViewTag1.BackColor = System.Drawing.Color.White;
-            this.reportViewTag1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewTag1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewTag1.Name = "reportViewTag1";
-            this.reportViewTag1.Size = new System.Drawing.Size(1116, 558);
-            this.reportViewTag1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -1043,6 +1057,15 @@ namespace TutteeFrame2.View
             this.btnShowMore.UseVisualStyleBackColor = true;
             this.btnShowMore.Click += new System.EventHandler(this.OpenUtilityBar);
             // 
+            // reportViewTag1
+            // 
+            this.reportViewTag1.BackColor = System.Drawing.Color.White;
+            this.reportViewTag1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewTag1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewTag1.Name = "reportViewTag1";
+            this.reportViewTag1.Size = new System.Drawing.Size(1116, 558);
+            this.reportViewTag1.TabIndex = 0;
+            // 
             // HomeView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1088,6 +1111,7 @@ namespace TutteeFrame2.View
             this.quanLiKiLuat.ResumeLayout(false);
             this.phanCongGiaoVien.ResumeLayout(false);
             this.quanLiTKB.ResumeLayout(false);
+            this.quanLiTKB.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.utilityBar.ResumeLayout(false);
@@ -1171,6 +1195,7 @@ namespace TutteeFrame2.View
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private MaterialSkin.Controls.MaterialListView materialListView1;
     }
 }
 

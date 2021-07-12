@@ -80,6 +80,7 @@ namespace TutteeFrame2.View
             this.materialTextfield0.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.materialTextfield0.TabIndex = 50;
             this.materialTextfield0.UseSystemPasswordChar = false;
+            this.materialTextfield0.TextChanged += new System.EventHandler(this.materialTextfield0_TextChanged);
             // 
             // materialTextfield1
             // 

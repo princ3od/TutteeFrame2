@@ -36,6 +36,7 @@ namespace TutteeFrame2.Controller
             await Task.Run(() =>
             {
                 mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
+                mainTeacher.Classes = TeacherDA.Instance.GetClasses(teacherID);
                 if (mainTeacher.ID.ToUpper() == "AD999999")
                 {
                     mainTeacher.Type = TeacherType.SuperUser;
@@ -79,5 +80,17 @@ namespace TutteeFrame2.Controller
                     break;
             }
         }
+        public async void FetchSchedule()
+        {
+
+        }
+        //public async void GetClasses(string teacherID)
+        //{
+        //    await Task.Delay(600);
+        //    await Task.Run(() =>
+        //    {
+        //        teacher.Classes = TeacherDA.Instance.GetClasses(teacherID);
+        //    });
+        //}
     }
 }

@@ -15,11 +15,17 @@ using TutteeFrame2.Utils;
 namespace TutteeFrame2.View
 {
     enum mouse { Ver, Hori, none }
+    class Cs
+    {
+        public string name;
+        public int index;
+    }
     public partial class Schedule : UserControl
     {
         Graphics g;
         List<Session> t = new List<Session>();
         List<Subject> subject = new List<Subject>();
+        List<Cs> cs = new List<Cs>(); 
         public string scheduleID;
         Bitmap bitmap;
         Rim r = new Rim();
@@ -30,6 +36,7 @@ namespace TutteeFrame2.View
         mouse m = mouse.none;
         readonly ScheduleController scheduleController;
         public HomeView homeView;
+        List<Class> classes;
         public Schedule()
         {
             InitializeComponent();
@@ -148,7 +155,7 @@ namespace TutteeFrame2.View
                         {
                             drawline(a, b, c, d);
                             getinfo(a, c);
-                            chosen = true;
+                            chosen = true;                            
                             containedButton2.Enabled = true;
                         }
                         else
@@ -159,6 +166,9 @@ namespace TutteeFrame2.View
                                 materialTextfield0.Clear();
                                 materialTextfield1.Clear();
                                 materialTextfield2.Clear();
+                                materialComboBox4.SelectedIndex = -1;
+                                materialComboBox5.SelectedIndex = -1;
+                                materialComboBox6.SelectedIndex = -1;
                                 chosen = false;
                                 containedButton1.Enabled = false;
                             }
@@ -196,11 +206,11 @@ namespace TutteeFrame2.View
             }
             for (int i = 1; i < 7; i++)
             {
-                g.DrawString("Thứ " + (i + 1).ToString(), f, br, r.Intersec[0, i]);
+                g.DrawString("Thứ " + (i + 1).ToString(), f, br, r.Intersec[0, i].X + pictureBox1.Width / 35, r.Intersec[0, i].Y + pictureBox1.Height / 55);
             }
             for (int i = 1; i < 11; i++)
             {
-                g.DrawString(i.ToString(), f, br, r.Intersec[i, 0]);
+                g.DrawString(i.ToString(), f, br, r.Intersec[i, 0].X + pictureBox1.Width / 21, r.Intersec[i, 0].Y + pictureBox1.Height / 55);
             }
             update();
         }
@@ -255,7 +265,7 @@ namespace TutteeFrame2.View
         {
             Font f = this.Font;
             Brush br = new SolidBrush(Color.Black);
-            g.DrawString(ConvertToName(tkb.mon), f, br, r.Intersec[tkb.tiet, tkb.thu - 1]);
+            g.DrawString(ConvertToName(tkb.mon), f, br, r.Intersec[tkb.tiet, tkb.thu - 1].X + pictureBox1.Width / 35, r.Intersec[tkb.tiet, tkb.thu - 1].Y + pictureBox1.Height / 55);
             update();
         }
         public void redraw()
@@ -305,14 +315,18 @@ namespace TutteeFrame2.View
         {
             materialTextfield0.Text = (a + 1).ToString();
             materialTextfield1.Text = b.ToString();
+            materialComboBox4.SelectedIndex = a - 1;
+            materialComboBox5.SelectedIndex = b - 1;
             foreach (Session tkb in t)
             {
                 if (tkb.thu == a + 1 && tkb.tiet == b)
                 {
                     materialTextfield2.Text = ConvertToName(tkb.mon);
+                    materialComboBox6.
                     return;
                 }
             }
+            materialTextfield2.Clear();
             materialComboBox6.SelectedIndex = -1;
         }
 
@@ -335,9 +349,10 @@ namespace TutteeFrame2.View
             {
                 case "10":
                 {
-                    materialComboBox3.Items.Clear();
+                    materialComboBox3.Items.Clear();                    
                     materialComboBox3.Items.Add("10A1");
                     materialComboBox3.Items.Add("10A2");
+                    materialComboBox3.SelectedIndex = -1;
                     break;
                 }
                 case "11":
@@ -345,6 +360,7 @@ namespace TutteeFrame2.View
                     materialComboBox3.Items.Clear();
                     materialComboBox3.Items.Add("11A1");
                     materialComboBox3.Items.Add("11A2");
+                    materialComboBox3.SelectedIndex = -1;
                     break;
                 }
                 case "12":
@@ -353,6 +369,7 @@ namespace TutteeFrame2.View
                     materialComboBox3.Items.Add("12A1");
                     materialComboBox3.Items.Add("12A2");
                     materialComboBox3.Items.Add("12A3");
+                    materialComboBox3.SelectedIndex = -1;
                     break;
                 }
                 default:
@@ -361,18 +378,39 @@ namespace TutteeFrame2.View
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
+            homeView.SetLoad(true, "Đang tải thời khóa biểu");
             string lop = materialComboBox3.Text;
             int hk = Int32.Parse(materialComboBox1.Text);
             int nam = 2020;
-            scheduleController.GetSchedule(lop, hk, nam);
-            redraw();
+            await Task.Delay(600);
+            await Task.Run(() => 
+            {
+                scheduleController.GetSchedule(lop, hk, nam);
+            });
+            homeView.SetLoad(false);
         }
-        public void GetSchedule()
+        private async void AutoViewSchedule()
         {
-            scheduleID = scheduleController.scheduleID;
-            scheduleController.FetchSchedule(scheduleID);
+            homeView.SetLoad(true, "Đang tải thời khóa biểu");
+            string lop = materialComboBox3.Text;
+            int hk = Int32.Parse(materialComboBox1.Text);
+            int nam = 2020;
+            await Task.Delay(600);
+            await Task.Run(() =>
+            {
+                scheduleController.GetSchedule(lop, hk, nam);
+            });
+            homeView.SetLoad(false);
+        }
+        public async void GetSchedule()
+        {
+            await Task.Run(() =>
+            {
+                scheduleID = scheduleController.scheduleID;
+                scheduleController.FetchSchedule(scheduleID);
+            });
         }
         private string ConvertToID(string sub)
         {
@@ -408,13 +446,17 @@ namespace TutteeFrame2.View
         {
             //materialComboBox6.Items.Clear();
             subject = scheduleController.subject;
-            foreach(Subject s in scheduleController.subject)
+            foreach (Subject s in scheduleController.subject)
             {
                 materialComboBox6.Items.Add(s.Name);
+                Cs c = new Cs();
+                c.name = s.Name;
+                c.index = cs.Count;
+                cs.Add(c);
             }
         }
         public void FetchSchedule()
-        {
+        {            
             t = scheduleController.sessions;
             redraw();
         }
@@ -447,6 +489,7 @@ namespace TutteeFrame2.View
         {
             if (materialComboBox1.SelectedIndex != -1 && materialComboBox3.SelectedIndex != -1)
             {
+                AutoViewSchedule();
                 containedButton0.Enabled = true;
             }
             else
@@ -471,6 +514,15 @@ namespace TutteeFrame2.View
             }
             else
                 containedButton2.Enabled = false;
+        }
+        public void SetHome(HomeView homeView)
+        {
+            this.homeView = homeView;
+        }
+
+        private void materialTextfield0_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
