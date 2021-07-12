@@ -35,22 +35,12 @@ namespace TutteeFrame2.View
             this.mainTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.home = new System.Windows.Forms.TabPage();
             this.materialCard4 = new MaterialSkin.Controls.MaterialCard();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -66,60 +56,60 @@ namespace TutteeFrame2.View
             this.choiceChip2 = new MaterialSurface.ChoiceChip();
             this.choiceChip1 = new MaterialSurface.ChoiceChip();
             this.label1 = new System.Windows.Forms.Label();
-            this.ptbAvatarBig = new System.Windows.Forms.PictureBox();
             this.quanLiGiaoVien = new System.Windows.Forms.TabPage();
-            this.teacherView = new TutteeFrame2.View.TeacherView();
             this.quanLiHocSinh = new System.Windows.Forms.TabPage();
-            this.studentView = new TutteeFrame2.View.StudentView();
             this.bangDiemHocSinh = new System.Windows.Forms.TabPage();
-            this.studentScoreboardView = new TutteeFrame2.View.StudentScoreboardView();
             this.quanLiMon = new System.Windows.Forms.TabPage();
-            this.subjectView = new TutteeFrame2.View.SubjectView();
             this.quanLiLop = new System.Windows.Forms.TabPage();
-            this.classView = new TutteeFrame2.View.ClassView();
             this.quanLiKiLuat = new System.Windows.Forms.TabPage();
-            this.punishmentView = new TutteeFrame2.View.PunishmentView();
             this.baoCao = new System.Windows.Forms.TabPage();
             this.lopChuNhiem = new System.Windows.Forms.TabPage();
             this.phanCongGiaoVien = new System.Windows.Forms.TabPage();
-            this.teacherAssignmentView = new TutteeFrame2.View.TeacherAssignmentView();
             this.quanLiViPham = new System.Windows.Forms.TabPage();
             this.quanLiTKB = new System.Windows.Forms.TabPage();
-            this.schedule = new TutteeFrame2.View.Schedule();
             this.quanLiLichHop = new System.Windows.Forms.TabPage();
-            this.reportViewTag1 = new TutteeFrame2.View.ReportViewTag();
             this.panel2 = new System.Windows.Forms.Panel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainProgressbar = new MaterialSurface.MaterialProgressbar();
             this.lbInformation = new System.Windows.Forms.Label();
             this.utilityBar = new MaterialSurface.MaterialCard();
             this.lbPosition = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
-            this.ptbSmallAvatar = new System.Windows.Forms.PictureBox();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.btnInformation = new MaterialSurface.TextButton();
             this.btnSetting = new MaterialSurface.TextButton();
             this.btnChangePass = new MaterialSurface.TextButton();
-            this.btnShowMore = new MaterialSkin.Controls.MaterialButton();
+            this.teacherView = new TutteeFrame2.View.TeacherView();
+            this.studentView = new TutteeFrame2.View.StudentView();
+            this.studentScoreboardView = new TutteeFrame2.View.StudentScoreboardView();
+            this.subjectView = new TutteeFrame2.View.SubjectView();
+            this.classView = new TutteeFrame2.View.ClassView();
+            this.punishmentView = new TutteeFrame2.View.PunishmentView();
             this.reportViewTag2 = new TutteeFrame2.View.ReportViewTag();
+            this.formClassView = new TutteeFrame2.View.FormClassView();
+            this.teacherAssignmentView = new TutteeFrame2.View.TeacherAssignmentView();
+            this.schedule = new TutteeFrame2.View.Schedule();
+            this.reportViewTag1 = new TutteeFrame2.View.ReportViewTag();
+            this.ptbSmallAvatar = new System.Windows.Forms.PictureBox();
+            this.btnShowMore = new MaterialSkin.Controls.MaterialButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.ptbAvatarBig = new System.Windows.Forms.PictureBox();
             this.mainTabControl.SuspendLayout();
             this.home.SuspendLayout();
             this.materialCard4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.materialCard3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.materialCard2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).BeginInit();
             this.quanLiGiaoVien.SuspendLayout();
             this.quanLiHocSinh.SuspendLayout();
             this.bangDiemHocSinh.SuspendLayout();
@@ -127,12 +117,24 @@ namespace TutteeFrame2.View
             this.quanLiLop.SuspendLayout();
             this.quanLiKiLuat.SuspendLayout();
             this.baoCao.SuspendLayout();
+            this.lopChuNhiem.SuspendLayout();
             this.phanCongGiaoVien.SuspendLayout();
             this.quanLiTKB.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.utilityBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSmallAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -236,33 +238,6 @@ namespace TutteeFrame2.View
             this.materialCard4.Size = new System.Drawing.Size(316, 201);
             this.materialCard4.TabIndex = 38;
             // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::TutteeFrame2.Properties.Resources.auricular_phone_symbol_in_a_circle_icon_icons_com_56570;
-            this.pictureBox11.Location = new System.Drawing.Point(42, 141);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox11.TabIndex = 46;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::TutteeFrame2.Properties.Resources.letter_icon_icons_com_67753;
-            this.pictureBox10.Location = new System.Drawing.Point(42, 86);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox10.TabIndex = 45;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::TutteeFrame2.Properties.Resources._3643769_building_home_house_main_menu_start_113416;
-            this.pictureBox9.Location = new System.Drawing.Point(42, 31);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox9.TabIndex = 44;
-            this.pictureBox9.TabStop = false;
-            // 
             // materialLabel10
             // 
             this.materialLabel10.AutoSize = true;
@@ -311,15 +286,6 @@ namespace TutteeFrame2.View
             this.materialCard3.Size = new System.Drawing.Size(316, 100);
             this.materialCard3.TabIndex = 22;
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::TutteeFrame2.Properties.Resources.blank_calendar_icon_124195;
-            this.pictureBox8.Location = new System.Drawing.Point(42, 35);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox8.TabIndex = 43;
-            this.pictureBox8.TabStop = false;
-            // 
             // materialLabel7
             // 
             this.materialLabel7.AutoSize = true;
@@ -355,60 +321,6 @@ namespace TutteeFrame2.View
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
             this.materialCard2.Size = new System.Drawing.Size(316, 381);
             this.materialCard2.TabIndex = 37;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::TutteeFrame2.Properties.Resources.birthdaycakewithcandles_79795;
-            this.pictureBox7.Location = new System.Drawing.Point(42, 306);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox7.TabIndex = 42;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::TutteeFrame2.Properties.Resources.sex_unknown_87127;
-            this.pictureBox6.Location = new System.Drawing.Point(42, 251);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox6.TabIndex = 41;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::TutteeFrame2.Properties.Resources.arrow_cloud_up_upload_icon_123722;
-            this.pictureBox5.Location = new System.Drawing.Point(42, 196);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox5.TabIndex = 40;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::TutteeFrame2.Properties.Resources.ic_profile_info_97647;
-            this.pictureBox4.Location = new System.Drawing.Point(42, 141);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.TabIndex = 39;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::TutteeFrame2.Properties.Resources.bookstack_libr_3024;
-            this.pictureBox3.Location = new System.Drawing.Point(42, 86);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.TabIndex = 38;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::TutteeFrame2.Properties.Resources.person;
-            this.pictureBox2.Location = new System.Drawing.Point(42, 31);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.TabIndex = 37;
-            this.pictureBox2.TabStop = false;
             // 
             // materialLabel1
             // 
@@ -612,146 +524,78 @@ namespace TutteeFrame2.View
             this.label1.TabIndex = 14;
             this.label1.Text = "Lịch dạy tuần";
             // 
-            // ptbAvatarBig
-            // 
-            this.ptbAvatarBig.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ptbAvatarBig.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
-            this.ptbAvatarBig.Location = new System.Drawing.Point(11, 20);
-            this.ptbAvatarBig.Name = "ptbAvatarBig";
-            this.ptbAvatarBig.Size = new System.Drawing.Size(96, 96);
-            this.ptbAvatarBig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbAvatarBig.TabIndex = 1;
-            this.ptbAvatarBig.TabStop = false;
-            // 
             // quanLiGiaoVien
             // 
             this.quanLiGiaoVien.Controls.Add(this.teacherView);
-            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 22);
+            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 44);
             this.quanLiGiaoVien.Name = "quanLiGiaoVien";
-            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 564);
             this.quanLiGiaoVien.TabIndex = 1;
             this.quanLiGiaoVien.Tag = "1";
             this.quanLiGiaoVien.Text = "Quản lí giáo viên";
             this.quanLiGiaoVien.UseVisualStyleBackColor = true;
             // 
-            // teacherView
-            // 
-            this.teacherView.BackColor = System.Drawing.Color.White;
-            this.teacherView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teacherView.Location = new System.Drawing.Point(0, 0);
-            this.teacherView.Name = "teacherView";
-            this.teacherView.Size = new System.Drawing.Size(1116, 586);
-            this.teacherView.TabIndex = 0;
-            // 
             // quanLiHocSinh
             // 
             this.quanLiHocSinh.Controls.Add(this.studentView);
-            this.quanLiHocSinh.Location = new System.Drawing.Point(4, 22);
+            this.quanLiHocSinh.Location = new System.Drawing.Point(4, 44);
             this.quanLiHocSinh.Name = "quanLiHocSinh";
-            this.quanLiHocSinh.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiHocSinh.Size = new System.Drawing.Size(1116, 564);
             this.quanLiHocSinh.TabIndex = 2;
             this.quanLiHocSinh.Tag = "2";
             this.quanLiHocSinh.Text = "Quản lí học sinh";
             this.quanLiHocSinh.UseVisualStyleBackColor = true;
             // 
-            // studentView
-            // 
-            this.studentView.BackColor = System.Drawing.Color.White;
-            this.studentView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentView.Location = new System.Drawing.Point(0, 0);
-            this.studentView.Margin = new System.Windows.Forms.Padding(2);
-            this.studentView.Name = "studentView";
-            this.studentView.Size = new System.Drawing.Size(1116, 586);
-            this.studentView.TabIndex = 0;
-            // 
             // bangDiemHocSinh
             // 
             this.bangDiemHocSinh.Controls.Add(this.studentScoreboardView);
-            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 22);
+            this.bangDiemHocSinh.Location = new System.Drawing.Point(4, 44);
             this.bangDiemHocSinh.Name = "bangDiemHocSinh";
-            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 586);
+            this.bangDiemHocSinh.Size = new System.Drawing.Size(1116, 564);
             this.bangDiemHocSinh.TabIndex = 3;
             this.bangDiemHocSinh.Tag = "3";
             this.bangDiemHocSinh.Text = "Bảng điểm học sinh";
             this.bangDiemHocSinh.UseVisualStyleBackColor = true;
             // 
-            // studentScoreboardView
-            // 
-            this.studentScoreboardView.BackColor = System.Drawing.Color.White;
-            this.studentScoreboardView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentScoreboardView.Location = new System.Drawing.Point(0, 0);
-            this.studentScoreboardView.Name = "studentScoreboardView";
-            this.studentScoreboardView.Size = new System.Drawing.Size(1116, 586);
-            this.studentScoreboardView.TabIndex = 0;
-            // 
             // quanLiMon
             // 
             this.quanLiMon.Controls.Add(this.subjectView);
-            this.quanLiMon.Location = new System.Drawing.Point(4, 22);
+            this.quanLiMon.Location = new System.Drawing.Point(4, 44);
             this.quanLiMon.Name = "quanLiMon";
-            this.quanLiMon.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiMon.Size = new System.Drawing.Size(1116, 564);
             this.quanLiMon.TabIndex = 4;
             this.quanLiMon.Tag = "4";
             this.quanLiMon.Text = "Quản lí môn";
             this.quanLiMon.UseVisualStyleBackColor = true;
             // 
-            // subjectView
-            // 
-            this.subjectView.BackColor = System.Drawing.Color.White;
-            this.subjectView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.subjectView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.subjectView.Location = new System.Drawing.Point(0, 0);
-            this.subjectView.Name = "subjectView";
-            this.subjectView.Size = new System.Drawing.Size(1116, 586);
-            this.subjectView.TabIndex = 1;
-            // 
             // quanLiLop
             // 
             this.quanLiLop.Controls.Add(this.classView);
-            this.quanLiLop.Location = new System.Drawing.Point(4, 22);
+            this.quanLiLop.Location = new System.Drawing.Point(4, 44);
             this.quanLiLop.Name = "quanLiLop";
-            this.quanLiLop.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiLop.Size = new System.Drawing.Size(1116, 564);
             this.quanLiLop.TabIndex = 5;
             this.quanLiLop.Tag = "5";
             this.quanLiLop.Text = "Quản lí lớp";
             this.quanLiLop.UseVisualStyleBackColor = true;
             // 
-            // classView
-            // 
-            this.classView.BackColor = System.Drawing.Color.White;
-            this.classView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classView.Location = new System.Drawing.Point(0, 0);
-            this.classView.Name = "classView";
-            this.classView.Size = new System.Drawing.Size(1116, 586);
-            this.classView.TabIndex = 0;
-            // 
             // quanLiKiLuat
             // 
             this.quanLiKiLuat.Controls.Add(this.punishmentView);
-            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 22);
+            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 44);
             this.quanLiKiLuat.Name = "quanLiKiLuat";
-            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 564);
             this.quanLiKiLuat.TabIndex = 6;
             this.quanLiKiLuat.Tag = "6";
             this.quanLiKiLuat.Text = "Quản lí kỉ luật";
             this.quanLiKiLuat.UseVisualStyleBackColor = true;
             // 
-            // punishmentView
-            // 
-            this.punishmentView.BackColor = System.Drawing.Color.White;
-            this.punishmentView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.punishmentView.Location = new System.Drawing.Point(0, 0);
-            this.punishmentView.Name = "punishmentView";
-            this.punishmentView.Size = new System.Drawing.Size(1116, 586);
-            this.punishmentView.TabIndex = 0;
-            // 
             // baoCao
             // 
             this.baoCao.Controls.Add(this.reportViewTag2);
-            this.baoCao.Location = new System.Drawing.Point(4, 44);
+            this.baoCao.Location = new System.Drawing.Point(4, 22);
             this.baoCao.Name = "baoCao";
-            this.baoCao.Size = new System.Drawing.Size(1116, 564);
+            this.baoCao.Size = new System.Drawing.Size(1116, 586);
             this.baoCao.TabIndex = 7;
             this.baoCao.Tag = "7";
             this.baoCao.Text = "Báo cáo";
@@ -759,6 +603,7 @@ namespace TutteeFrame2.View
             // 
             // lopChuNhiem
             // 
+            this.lopChuNhiem.Controls.Add(this.formClassView);
             this.lopChuNhiem.Location = new System.Drawing.Point(4, 22);
             this.lopChuNhiem.Name = "lopChuNhiem";
             this.lopChuNhiem.Size = new System.Drawing.Size(1116, 586);
@@ -777,15 +622,6 @@ namespace TutteeFrame2.View
             this.phanCongGiaoVien.Tag = "9";
             this.phanCongGiaoVien.Text = "Phân công giáo viên";
             this.phanCongGiaoVien.UseVisualStyleBackColor = true;
-            // 
-            // teacherAssignmentView
-            // 
-            this.teacherAssignmentView.BackColor = System.Drawing.Color.White;
-            this.teacherAssignmentView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teacherAssignmentView.Location = new System.Drawing.Point(0, 0);
-            this.teacherAssignmentView.Name = "teacherAssignmentView";
-            this.teacherAssignmentView.Size = new System.Drawing.Size(1116, 586);
-            this.teacherAssignmentView.TabIndex = 0;
             // 
             // quanLiViPham
             // 
@@ -808,16 +644,6 @@ namespace TutteeFrame2.View
             this.quanLiTKB.Text = "Quản lí thời khóa biểu";
             this.quanLiTKB.UseVisualStyleBackColor = true;
             // 
-            // schedule
-            // 
-            this.schedule.BackColor = System.Drawing.Color.White;
-            this.schedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schedule.Location = new System.Drawing.Point(0, 0);
-            this.schedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.schedule.Name = "schedule";
-            this.schedule.Size = new System.Drawing.Size(1116, 586);
-            this.schedule.TabIndex = 0;
-            // 
             // quanLiLichHop
             // 
             this.quanLiLichHop.Location = new System.Drawing.Point(4, 22);
@@ -827,16 +653,6 @@ namespace TutteeFrame2.View
             this.quanLiLichHop.Tag = "12";
             this.quanLiLichHop.Text = "Quản lí lịch họp";
             this.quanLiLichHop.UseVisualStyleBackColor = true;
-            // 
-            // reportViewTag1
-            // 
-            this.reportViewTag1.BackColor = System.Drawing.Color.White;
-            this.reportViewTag1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewTag1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewTag1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.reportViewTag1.Name = "reportViewTag1";
-            this.reportViewTag1.Size = new System.Drawing.Size(1116, 558);
-            this.reportViewTag1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -858,16 +674,6 @@ namespace TutteeFrame2.View
             this.materialDivider1.Size = new System.Drawing.Size(175, 1);
             this.materialDivider1.TabIndex = 2;
             this.materialDivider1.Text = "materialDivider1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(96, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // mainProgressbar
             // 
@@ -955,16 +761,6 @@ namespace TutteeFrame2.View
             this.lbName.TabIndex = 13;
             this.lbName.Text = "-----";
             // 
-            // ptbSmallAvatar
-            // 
-            this.ptbSmallAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
-            this.ptbSmallAvatar.Location = new System.Drawing.Point(13, 12);
-            this.ptbSmallAvatar.Name = "ptbSmallAvatar";
-            this.ptbSmallAvatar.Size = new System.Drawing.Size(32, 32);
-            this.ptbSmallAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbSmallAvatar.TabIndex = 0;
-            this.ptbSmallAvatar.TabStop = false;
-            // 
             // materialDivider2
             // 
             this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -1028,6 +824,121 @@ namespace TutteeFrame2.View
             this.btnChangePass.UseVisualStyleBackColor = true;
             this.btnChangePass.Click += new System.EventHandler(this.OnChangePassword);
             // 
+            // teacherView
+            // 
+            this.teacherView.BackColor = System.Drawing.Color.White;
+            this.teacherView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherView.Location = new System.Drawing.Point(0, 0);
+            this.teacherView.Name = "teacherView";
+            this.teacherView.Size = new System.Drawing.Size(1116, 564);
+            this.teacherView.TabIndex = 0;
+            // 
+            // studentView
+            // 
+            this.studentView.BackColor = System.Drawing.Color.White;
+            this.studentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentView.Location = new System.Drawing.Point(0, 0);
+            this.studentView.Margin = new System.Windows.Forms.Padding(2);
+            this.studentView.Name = "studentView";
+            this.studentView.Size = new System.Drawing.Size(1116, 564);
+            this.studentView.TabIndex = 0;
+            // 
+            // studentScoreboardView
+            // 
+            this.studentScoreboardView.BackColor = System.Drawing.Color.White;
+            this.studentScoreboardView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentScoreboardView.Location = new System.Drawing.Point(0, 0);
+            this.studentScoreboardView.Name = "studentScoreboardView";
+            this.studentScoreboardView.Size = new System.Drawing.Size(1116, 564);
+            this.studentScoreboardView.TabIndex = 0;
+            // 
+            // subjectView
+            // 
+            this.subjectView.BackColor = System.Drawing.Color.White;
+            this.subjectView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.subjectView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subjectView.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.subjectView.Location = new System.Drawing.Point(0, 0);
+            this.subjectView.Name = "subjectView";
+            this.subjectView.Size = new System.Drawing.Size(1116, 564);
+            this.subjectView.TabIndex = 1;
+            // 
+            // classView
+            // 
+            this.classView.BackColor = System.Drawing.Color.White;
+            this.classView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classView.Location = new System.Drawing.Point(0, 0);
+            this.classView.Name = "classView";
+            this.classView.Size = new System.Drawing.Size(1116, 564);
+            this.classView.TabIndex = 0;
+            // 
+            // punishmentView
+            // 
+            this.punishmentView.BackColor = System.Drawing.Color.White;
+            this.punishmentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.punishmentView.Location = new System.Drawing.Point(0, 0);
+            this.punishmentView.Name = "punishmentView";
+            this.punishmentView.Size = new System.Drawing.Size(1116, 564);
+            this.punishmentView.TabIndex = 0;
+            // 
+            // reportViewTag2
+            // 
+            this.reportViewTag2.BackColor = System.Drawing.Color.White;
+            this.reportViewTag2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewTag2.Location = new System.Drawing.Point(0, 0);
+            this.reportViewTag2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportViewTag2.Name = "reportViewTag2";
+            this.reportViewTag2.Size = new System.Drawing.Size(1116, 586);
+            this.reportViewTag2.TabIndex = 0;
+            // 
+            // formClassView
+            // 
+            this.formClassView.BackColor = System.Drawing.Color.White;
+            this.formClassView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formClassView.Location = new System.Drawing.Point(0, 0);
+            this.formClassView.Name = "formClassView";
+            this.formClassView.Size = new System.Drawing.Size(1116, 586);
+            this.formClassView.TabIndex = 0;
+            // 
+            // teacherAssignmentView
+            // 
+            this.teacherAssignmentView.BackColor = System.Drawing.Color.White;
+            this.teacherAssignmentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherAssignmentView.Location = new System.Drawing.Point(0, 0);
+            this.teacherAssignmentView.Name = "teacherAssignmentView";
+            this.teacherAssignmentView.Size = new System.Drawing.Size(1116, 586);
+            this.teacherAssignmentView.TabIndex = 0;
+            // 
+            // schedule
+            // 
+            this.schedule.BackColor = System.Drawing.Color.White;
+            this.schedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedule.Location = new System.Drawing.Point(0, 0);
+            this.schedule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.schedule.Name = "schedule";
+            this.schedule.Size = new System.Drawing.Size(1116, 586);
+            this.schedule.TabIndex = 0;
+            // 
+            // reportViewTag1
+            // 
+            this.reportViewTag1.BackColor = System.Drawing.Color.White;
+            this.reportViewTag1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewTag1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewTag1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportViewTag1.Name = "reportViewTag1";
+            this.reportViewTag1.Size = new System.Drawing.Size(1116, 558);
+            this.reportViewTag1.TabIndex = 0;
+            // 
+            // ptbSmallAvatar
+            // 
+            this.ptbSmallAvatar.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
+            this.ptbSmallAvatar.Location = new System.Drawing.Point(13, 12);
+            this.ptbSmallAvatar.Name = "ptbSmallAvatar";
+            this.ptbSmallAvatar.Size = new System.Drawing.Size(32, 32);
+            this.ptbSmallAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbSmallAvatar.TabIndex = 0;
+            this.ptbSmallAvatar.TabStop = false;
+            // 
             // btnShowMore
             // 
             this.btnShowMore.AutoSize = false;
@@ -1047,15 +958,116 @@ namespace TutteeFrame2.View
             this.btnShowMore.UseVisualStyleBackColor = true;
             this.btnShowMore.Click += new System.EventHandler(this.OpenUtilityBar);
             // 
-            // reportViewTag2
+            // pictureBox1
             // 
-            this.reportViewTag2.BackColor = System.Drawing.Color.White;
-            this.reportViewTag2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewTag2.Location = new System.Drawing.Point(0, 0);
-            this.reportViewTag2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.reportViewTag2.Name = "reportViewTag2";
-            this.reportViewTag2.Size = new System.Drawing.Size(1116, 564);
-            this.reportViewTag2.TabIndex = 0;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(96, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::TutteeFrame2.Properties.Resources.auricular_phone_symbol_in_a_circle_icon_icons_com_56570;
+            this.pictureBox11.Location = new System.Drawing.Point(42, 141);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox11.TabIndex = 46;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::TutteeFrame2.Properties.Resources.letter_icon_icons_com_67753;
+            this.pictureBox10.Location = new System.Drawing.Point(42, 86);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox10.TabIndex = 45;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::TutteeFrame2.Properties.Resources._3643769_building_home_house_main_menu_start_113416;
+            this.pictureBox9.Location = new System.Drawing.Point(42, 31);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox9.TabIndex = 44;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::TutteeFrame2.Properties.Resources.blank_calendar_icon_124195;
+            this.pictureBox8.Location = new System.Drawing.Point(42, 35);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox8.TabIndex = 43;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::TutteeFrame2.Properties.Resources.birthdaycakewithcandles_79795;
+            this.pictureBox7.Location = new System.Drawing.Point(42, 306);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox7.TabIndex = 42;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::TutteeFrame2.Properties.Resources.sex_unknown_87127;
+            this.pictureBox6.Location = new System.Drawing.Point(42, 251);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox6.TabIndex = 41;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::TutteeFrame2.Properties.Resources.arrow_cloud_up_upload_icon_123722;
+            this.pictureBox5.Location = new System.Drawing.Point(42, 196);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox5.TabIndex = 40;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::TutteeFrame2.Properties.Resources.ic_profile_info_97647;
+            this.pictureBox4.Location = new System.Drawing.Point(42, 141);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.TabIndex = 39;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::TutteeFrame2.Properties.Resources.bookstack_libr_3024;
+            this.pictureBox3.Location = new System.Drawing.Point(42, 86);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.TabIndex = 38;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TutteeFrame2.Properties.Resources.person;
+            this.pictureBox2.Location = new System.Drawing.Point(42, 31);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.TabIndex = 37;
+            this.pictureBox2.TabStop = false;
+            // 
+            // ptbAvatarBig
+            // 
+            this.ptbAvatarBig.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ptbAvatarBig.Image = global::TutteeFrame2.Properties.Resources.default_avatar;
+            this.ptbAvatarBig.Location = new System.Drawing.Point(11, 20);
+            this.ptbAvatarBig.Name = "ptbAvatarBig";
+            this.ptbAvatarBig.Size = new System.Drawing.Size(96, 96);
+            this.ptbAvatarBig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbAvatarBig.TabIndex = 1;
+            this.ptbAvatarBig.TabStop = false;
             // 
             // HomeView
             // 
@@ -1077,23 +1089,12 @@ namespace TutteeFrame2.View
             this.home.ResumeLayout(false);
             this.materialCard4.ResumeLayout(false);
             this.materialCard4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.materialCard3.ResumeLayout(false);
             this.materialCard3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.materialCard2.ResumeLayout(false);
             this.materialCard2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).EndInit();
             this.quanLiGiaoVien.ResumeLayout(false);
             this.quanLiHocSinh.ResumeLayout(false);
             this.bangDiemHocSinh.ResumeLayout(false);
@@ -1101,13 +1102,25 @@ namespace TutteeFrame2.View
             this.quanLiLop.ResumeLayout(false);
             this.quanLiKiLuat.ResumeLayout(false);
             this.baoCao.ResumeLayout(false);
+            this.lopChuNhiem.ResumeLayout(false);
             this.phanCongGiaoVien.ResumeLayout(false);
             this.quanLiTKB.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.utilityBar.ResumeLayout(false);
             this.utilityBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbSmallAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbAvatarBig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1187,6 +1200,7 @@ namespace TutteeFrame2.View
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private ReportViewTag reportViewTag2;
+        private FormClassView formClassView;
     }
 }
 

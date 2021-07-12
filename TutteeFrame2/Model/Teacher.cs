@@ -28,13 +28,13 @@ namespace TutteeFrame2.Model
                     teacherNote = "";
                     break;
                 case TeacherType.Adminstrator:
-                    teacherNote = "Ban giám hiệu.";
+                    teacherNote = "Ban giám hiệu";
                     break;
                 case TeacherType.Ministry:
-                    teacherNote = "Giáo vụ.";
+                    teacherNote = "Giáo vụ";
                     break;
                 case TeacherType.FormerTeacher:
-                    teacherNote = "GVCN lớp " + formClassID + ".";
+                    teacherNote = "GVCN lớp " + formClassID;
                     break;
                 default:
                     break;

@@ -131,7 +131,7 @@ namespace TutteeFrame2.Controller
             List<Teacher> result = new List<Teacher>();
             foreach (Teacher teacher in _origin)
             {
-                if (teacher.ID.Contains(searchText) || teacher.GetName().Contains(searchText))
+                if (teacher.ID.ToLower().Contains(searchText) || teacher.GetName().ToLower().Contains(searchText))
                     result.Add(teacher);
             }
             return result;

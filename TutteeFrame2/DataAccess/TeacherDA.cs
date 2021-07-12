@@ -88,7 +88,8 @@ namespace TutteeFrame2.DataAccess
             List<Teacher> teachers = new List<Teacher>();
             try
             {
-                string query = "SELECT * FROM TEACHER JOIN [SUBJECT] ON TEACHER.SubjectID = SUBJECT.SubjectID ORDER BY " + order;
+                string query = "SELECT * FROM TEACHER JOIN [SUBJECT] ON TEACHER.SubjectID = SUBJECT.SubjectID" +
+                    " LEFT JOIN CLASS ON TEACHER.TeacherID = CLASS.TeacherID ORDER BY TEACHER." + order;
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -122,6 +123,12 @@ namespace TutteeFrame2.DataAccess
                                 teacher.Type = TeacherType.Adminstrator;
                                 teacher.Position = "Ban giám hiệu";
                             }
+                            else if (!(reader["ClassID"] is DBNull))
+                            {
+                                teacher.Type = TeacherType.FormerTeacher;
+                                teacher.FormClassID = reader["ClassID"].ToString();
+                                teacher.Position = string.Format("GVCN lớp {0}", teacher.FormClassID);
+                            }
                             else
                             {
                                 teacher.Type = TeacherType.Teacher;
@@ -134,8 +141,9 @@ namespace TutteeFrame2.DataAccess
                     }
                 }
             }
-            catch
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return null;
             }
             finally

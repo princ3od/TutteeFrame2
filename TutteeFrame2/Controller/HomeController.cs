@@ -32,10 +32,15 @@ namespace TutteeFrame2.Controller
         public async void LoadTeacher(string teacherID)
         {
             view.SetLoad(true, "Đang tải thông tin người dùng...");
-            await Task.Delay(600);
+            await Task.Delay(200);
             await Task.Run(() =>
             {
                 mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
+                mainTeacher.FormClassID = TeacherDA.Instance.GetInchargeClass(mainTeacher.ID);
+                if (!string.IsNullOrEmpty(mainTeacher.FormClassID))
+                {
+                    mainTeacher.Type = TeacherType.FormerTeacher;
+                }
                 if (mainTeacher.ID.ToUpper() == "AD999999")
                 {
                     mainTeacher.Type = TeacherType.SuperUser;
