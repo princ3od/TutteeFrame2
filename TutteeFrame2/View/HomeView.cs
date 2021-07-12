@@ -55,7 +55,7 @@ namespace TutteeFrame2.View
             punishmentView.SetHome(this);
             teacherAssignmentView.SetHome(this);
             studentScoreboardView.SetHome(this);
-            reportViewTag1.SetHome(this);
+            reportView.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
