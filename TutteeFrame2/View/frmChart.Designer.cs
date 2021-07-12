@@ -29,15 +29,16 @@ namespace TutteeFrame2.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChart));
             this.btnGenarate = new MaterialSurface.ContainedButton();
             this.cbbType = new MaterialSurface.MaterialComboBox();
             this.cbbGrade = new MaterialSurface.MaterialComboBox();
             this.cbbClass = new MaterialSurface.MaterialComboBox();
             this.cbbSemester = new MaterialSurface.MaterialComboBox();
             this.cartesianChart = new LiveCharts.WinForms.CartesianChart();
-            this.lbInformation = new System.Windows.Forms.Label();
             this.mainProgressbar = new MaterialSurface.MaterialProgressbar();
             this.cbbSubject = new MaterialSurface.MaterialComboBox();
+            this.lbInformation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenarate
@@ -177,27 +178,13 @@ namespace TutteeFrame2.View
             this.cartesianChart.TabIndex = 72;
             this.cartesianChart.Text = "cartesianChart";
             // 
-            // lbInformation
-            // 
-            this.lbInformation.AutoSize = true;
-            this.lbInformation.BackColor = System.Drawing.Color.White;
-            this.lbInformation.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lbInformation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbInformation.Location = new System.Drawing.Point(0, 708);
-            this.lbInformation.Name = "lbInformation";
-            this.lbInformation.Size = new System.Drawing.Size(103, 19);
-            this.lbInformation.TabIndex = 74;
-            this.lbInformation.Text = "*Đang kết nối...";
-            this.lbInformation.Visible = false;
-            // 
             // mainProgressbar
             // 
+            this.mainProgressbar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mainProgressbar.ChangeDelay = 70;
             this.mainProgressbar.CircularWidth = 3.8F;
-            this.mainProgressbar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mainProgressbar.IsIndetermine = true;
-            this.mainProgressbar.Location = new System.Drawing.Point(0, 727);
+            this.mainProgressbar.Location = new System.Drawing.Point(-2, 727);
             this.mainProgressbar.Maximum = 100;
             this.mainProgressbar.Minimum = 0;
             this.mainProgressbar.MouseState = MaterialSurface.MouseState.HOVER;
@@ -238,6 +225,20 @@ namespace TutteeFrame2.View
             this.cbbSubject.TabIndex = 70;
             this.cbbSubject.SelectedIndexChanged += new System.EventHandler(this.cbbGrade_SelectedIndexChanged);
             // 
+            // lbInformation
+            // 
+            this.lbInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbInformation.AutoSize = true;
+            this.lbInformation.BackColor = System.Drawing.Color.White;
+            this.lbInformation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbInformation.Location = new System.Drawing.Point(17, 713);
+            this.lbInformation.Name = "lbInformation";
+            this.lbInformation.Size = new System.Drawing.Size(103, 19);
+            this.lbInformation.TabIndex = 75;
+            this.lbInformation.Text = "*Đang kết nối...";
+            this.lbInformation.Visible = false;
+            // 
             // frmChart
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -252,8 +253,9 @@ namespace TutteeFrame2.View
             this.Controls.Add(this.cbbGrade);
             this.Controls.Add(this.cbbType);
             this.Controls.Add(this.btnGenarate);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmChart";
-            this.Text = "frmChartcs";
+            this.Text = " Biểu đồ thống kê";
             this.Load += new System.EventHandler(this.frmChart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -267,8 +269,8 @@ namespace TutteeFrame2.View
         private MaterialSurface.MaterialComboBox cbbClass;
         private MaterialSurface.MaterialComboBox cbbSemester;
         private LiveCharts.WinForms.CartesianChart cartesianChart;
-        private System.Windows.Forms.Label lbInformation;
         private MaterialSurface.MaterialProgressbar mainProgressbar;
         private MaterialSurface.MaterialComboBox cbbSubject;
+        private System.Windows.Forms.Label lbInformation;
     }
 }

@@ -55,6 +55,7 @@ namespace TutteeFrame2.View
             punishmentView.SetHome(this);
             teacherAssignmentView.SetHome(this);
             studentScoreboardView.SetHome(this);
+            reportViewTag2.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
@@ -231,5 +232,13 @@ namespace TutteeFrame2.View
             OverlayForm _ = new OverlayForm(this, changePassView);
             changePassView.Show();
         }
+        private void OnChangeSchoolInfo(object sender, EventArgs e)
+        {
+            ChangeSchooInfo changeSchoolInfoView = new ChangeSchooInfo();
+           // OverlayForm _ = new OverlayForm(this, changeSchoolInfoView);
+            changeSchoolInfoView.Show();
+        }
+
+
     }
 }

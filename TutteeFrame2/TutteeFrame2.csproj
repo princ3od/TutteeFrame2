@@ -103,6 +103,12 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ScheduleController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
+    <Compile Include="Controls\CircularButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CircularPicture.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
     <Compile Include="Reports\Data\ReportClassResultDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -146,6 +152,12 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
+    <Compile Include="View\ChangeSchooInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChangeSchooInfo.Designer.cs">
+      <DependentUpon>ChangeSchooInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Schedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -342,6 +354,9 @@
     <EmbeddedResource Include="Reports\Screen\StudentInfoReporter.resx">
       <DependentUpon>StudentInfoReporter.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\ChangeSchooInfo.resx">
+      <DependentUpon>ChangeSchooInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,6 +455,18 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\contact-icon-png-4071-Windows.ico" />
+    <None Include="Resources\enemy_spot.png" />
+    <Content Include="Resources\logo_1_removebg_preview_hoi_icon.ico" />
+    <None Include="Resources\outline_school_black_24dp.png" />
+    <None Include="Resources\outline_school_black_24dp1.png" />
+    <None Include="Resources\slogan-3317101-2787974.png" />
+    <None Include="Resources\slogan-3317101-2787974.ico" />
+    <None Include="Resources\school.ico" />
+    <None Include="Resources\pictureImage.png" />
+    <None Include="Resources\outline_image_black_24dp.png" />
+    <None Include="Resources\outline_edit_black_24dp.png" />
+    <None Include="Resources\outline_edit_black_24dp1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
