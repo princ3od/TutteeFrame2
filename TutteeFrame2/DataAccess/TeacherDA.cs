@@ -351,5 +351,74 @@ namespace TutteeFrame2.DataAccess
             }
             return classID;
         }
+        public List<string> GetClasses(string teacherID)
+        {
+            List<string> classes = new List<string>();
+            bool success = Connect();
+            if (!success)
+                return null;
+            if (teacherID == "AD999999")
+                return null;
+            try
+            {
+                string strQuery = "SELECT * FROM TEACHING WHERE TeacherID=@teacherID AND Semester = 2";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@teacherid", teacherID);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
+                    {
+                        string s = sqlDataReader["ClassID"] != null ? (string)sqlDataReader["ClassID"] : null;
+                        if (s != null) 
+                        {
+                            classes.Add(s);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return classes;
+        }
+        public List<int> GetSessions(Teacher teacher, int day, string schedulesid)
+        {
+            List<int> sessions = new List<int>();
+            bool success = Connect();
+            if (!success)
+                return null;
+            try
+            {
+                string strQuery = "SELECT * FROM SCHEDULE WHERE SchedulesID = @scheduleid AND Day = @day AND SubjectID = @subid";
+                using (SqlCommand sqlCommand = new SqlCommand(strQuery, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@scheduleid", schedulesid);
+                    sqlCommand.Parameters.AddWithValue("@day", day);
+                    sqlCommand.Parameters.AddWithValue("@subid", teacher.Subject.ID);
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
+                    {
+                        int i = sqlDataReader.GetByte(4);
+                        sessions.Add(i);
+                    }    
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return sessions;
+        }
     }
 }

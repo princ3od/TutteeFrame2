@@ -56,14 +56,16 @@ namespace TutteeFrame2.View
             teacherAssignmentView.SetHome(this);
             studentScoreboardView.SetHome(this);
             reportView.SetHome(this);
+            schedule.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
         {
             controller.sessionID = sessionID;
             controller.logined = true;
-            controller.LoadTeacher(teacherID);
+            controller.LoadTeacher(teacherID);  
         }
+
         public void ShowData()
         {
             lbName.Text = materialLabel1.Text = controller.mainTeacher.GetName();

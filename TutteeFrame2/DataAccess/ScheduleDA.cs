@@ -105,8 +105,8 @@ namespace TutteeFrame2.DataAccess
                     while (sqlDataReader.Read())
                     {
                         Session session = new Session();
-                        session.thu = sqlDataReader.GetByte(2);
-                        session.tiet = sqlDataReader.GetByte(3);
+                        session.thu = sqlDataReader.GetByte(3);
+                        session.tiet = sqlDataReader.GetByte(4);
                         session.mon = sqlDataReader["SubjectID"] != DBNull.Value ? (string)sqlDataReader["SubjectID"] : null;
                         sessions.Add(session);
                     }

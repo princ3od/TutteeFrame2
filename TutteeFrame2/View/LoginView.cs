@@ -90,6 +90,7 @@ namespace TutteeFrame2.View
             if (controller.logined)
             {
                 homeView.LoadTeacher(controller.teacherID, controller.sessionID);
+                
                 DialogResult = DialogResult.OK;
             }
             else

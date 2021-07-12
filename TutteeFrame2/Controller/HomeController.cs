@@ -83,5 +83,17 @@ namespace TutteeFrame2.Controller
                     break;
             }
         }
+        public async void FetchSchedule()
+        {
+
+        }
+        //public async void GetClasses(string teacherID)
+        //{
+        //    await Task.Delay(600);
+        //    await Task.Run(() =>
+        //    {
+        //        teacher.Classes = TeacherDA.Instance.GetClasses(teacherID);
+        //    });
+        //}
     }
 }
