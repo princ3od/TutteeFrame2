@@ -212,9 +212,9 @@ namespace TutteeFrame2.View
             this.home.Controls.Add(this.materialCard2);
             this.home.Controls.Add(this.materialCard1);
             this.home.Controls.Add(this.ptbAvatarBig);
-            this.home.Location = new System.Drawing.Point(4, 44);
+            this.home.Location = new System.Drawing.Point(4, 50);
             this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(1116, 564);
+            this.home.Size = new System.Drawing.Size(1116, 558);
             this.home.TabIndex = 0;
             this.home.Tag = "0";
             this.home.Text = "Trang chủ";
@@ -520,7 +520,7 @@ namespace TutteeFrame2.View
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 25);
+            this.label1.Size = new System.Drawing.Size(145, 30);
             this.label1.TabIndex = 14;
             this.label1.Text = "Lịch dạy tuần";
             // 
@@ -606,7 +606,7 @@ namespace TutteeFrame2.View
             this.lopChuNhiem.Controls.Add(this.formClassView);
             this.lopChuNhiem.Location = new System.Drawing.Point(4, 22);
             this.lopChuNhiem.Name = "lopChuNhiem";
-            this.lopChuNhiem.Size = new System.Drawing.Size(1116, 586);
+            this.lopChuNhiem.Size = new System.Drawing.Size(1116, 583);
             this.lopChuNhiem.TabIndex = 8;
             this.lopChuNhiem.Tag = "8";
             this.lopChuNhiem.Text = "Lớp chủ nhiệm";
@@ -615,9 +615,9 @@ namespace TutteeFrame2.View
             // phanCongGiaoVien
             // 
             this.phanCongGiaoVien.Controls.Add(this.teacherAssignmentView);
-            this.phanCongGiaoVien.Location = new System.Drawing.Point(4, 22);
+            this.phanCongGiaoVien.Location = new System.Drawing.Point(4, 25);
             this.phanCongGiaoVien.Name = "phanCongGiaoVien";
-            this.phanCongGiaoVien.Size = new System.Drawing.Size(1116, 586);
+            this.phanCongGiaoVien.Size = new System.Drawing.Size(1116, 583);
             this.phanCongGiaoVien.TabIndex = 9;
             this.phanCongGiaoVien.Tag = "9";
             this.phanCongGiaoVien.Text = "Phân công giáo viên";
@@ -625,9 +625,9 @@ namespace TutteeFrame2.View
             // 
             // quanLiViPham
             // 
-            this.quanLiViPham.Location = new System.Drawing.Point(4, 22);
+            this.quanLiViPham.Location = new System.Drawing.Point(4, 50);
             this.quanLiViPham.Name = "quanLiViPham";
-            this.quanLiViPham.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiViPham.Size = new System.Drawing.Size(1116, 558);
             this.quanLiViPham.TabIndex = 11;
             this.quanLiViPham.Tag = "10";
             this.quanLiViPham.Text = "Quản lí vi phạm";
@@ -636,9 +636,9 @@ namespace TutteeFrame2.View
             // quanLiTKB
             // 
             this.quanLiTKB.Controls.Add(this.schedule);
-            this.quanLiTKB.Location = new System.Drawing.Point(4, 22);
+            this.quanLiTKB.Location = new System.Drawing.Point(4, 46);
             this.quanLiTKB.Name = "quanLiTKB";
-            this.quanLiTKB.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiTKB.Size = new System.Drawing.Size(1116, 562);
             this.quanLiTKB.TabIndex = 12;
             this.quanLiTKB.Tag = "11";
             this.quanLiTKB.Text = "Quản lí thời khóa biểu";
@@ -646,9 +646,9 @@ namespace TutteeFrame2.View
             // 
             // quanLiLichHop
             // 
-            this.quanLiLichHop.Location = new System.Drawing.Point(4, 22);
+            this.quanLiLichHop.Location = new System.Drawing.Point(4, 46);
             this.quanLiLichHop.Name = "quanLiLichHop";
-            this.quanLiLichHop.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiLichHop.Size = new System.Drawing.Size(1116, 562);
             this.quanLiLichHop.TabIndex = 13;
             this.quanLiLichHop.Tag = "12";
             this.quanLiLichHop.Text = "Quản lí lịch họp";
@@ -705,7 +705,7 @@ namespace TutteeFrame2.View
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbInformation.Location = new System.Drawing.Point(257, 691);
             this.lbInformation.Name = "lbInformation";
-            this.lbInformation.Size = new System.Drawing.Size(88, 13);
+            this.lbInformation.Size = new System.Drawing.Size(103, 19);
             this.lbInformation.TabIndex = 27;
             this.lbInformation.Text = "*Đang kết nối...";
             this.lbInformation.Visible = false;
@@ -747,7 +747,7 @@ namespace TutteeFrame2.View
             this.lbPosition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbPosition.Location = new System.Drawing.Point(55, 32);
             this.lbPosition.Name = "lbPosition";
-            this.lbPosition.Size = new System.Drawing.Size(23, 13);
+            this.lbPosition.Size = new System.Drawing.Size(33, 19);
             this.lbPosition.TabIndex = 28;
             this.lbPosition.Text = "----";
             // 
@@ -757,7 +757,7 @@ namespace TutteeFrame2.View
             this.lbName.Font = new System.Drawing.Font("Segoe UI Semibold", 11.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.Location = new System.Drawing.Point(54, 10);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(40, 21);
+            this.lbName.Size = new System.Drawing.Size(52, 28);
             this.lbName.TabIndex = 13;
             this.lbName.Text = "-----";
             // 
@@ -785,9 +785,10 @@ namespace TutteeFrame2.View
             this.btnInformation.Radius = 8;
             this.btnInformation.Size = new System.Drawing.Size(252, 40);
             this.btnInformation.TabIndex = 11;
-            this.btnInformation.Text = "Thông tin cá nhân";
+            this.btnInformation.Text = "Thông tin trường ";
             this.btnInformation.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnInformation.UseVisualStyleBackColor = true;
+            this.btnInformation.Click += new System.EventHandler(this.OnChangeSchoolInfo);
             // 
             // btnSetting
             // 
@@ -1068,6 +1069,45 @@ namespace TutteeFrame2.View
             this.ptbAvatarBig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbAvatarBig.TabIndex = 1;
             this.ptbAvatarBig.TabStop = false;
+            // 
+            // reportViewTag2
+            // 
+            this.reportViewTag2.BackColor = System.Drawing.Color.White;
+            this.reportViewTag2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewTag2.Location = new System.Drawing.Point(0, 0);
+            this.reportViewTag2.Margin = new System.Windows.Forms.Padding(2);
+            this.reportViewTag2.Name = "reportViewTag2";
+            this.reportViewTag2.Size = new System.Drawing.Size(1116, 583);
+            this.reportViewTag2.TabIndex = 0;
+            // 
+            // teacherAssignmentView
+            // 
+            this.teacherAssignmentView.BackColor = System.Drawing.Color.White;
+            this.teacherAssignmentView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherAssignmentView.Location = new System.Drawing.Point(0, 0);
+            this.teacherAssignmentView.Name = "teacherAssignmentView";
+            this.teacherAssignmentView.Size = new System.Drawing.Size(1116, 583);
+            this.teacherAssignmentView.TabIndex = 0;
+            // 
+            // schedule
+            // 
+            this.schedule.BackColor = System.Drawing.Color.White;
+            this.schedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedule.Location = new System.Drawing.Point(0, 0);
+            this.schedule.Margin = new System.Windows.Forms.Padding(2);
+            this.schedule.Name = "schedule";
+            this.schedule.Size = new System.Drawing.Size(1116, 562);
+            this.schedule.TabIndex = 0;
+            // 
+            // reportViewTag1
+            // 
+            this.reportViewTag1.BackColor = System.Drawing.Color.White;
+            this.reportViewTag1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewTag1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewTag1.Margin = new System.Windows.Forms.Padding(2);
+            this.reportViewTag1.Name = "reportViewTag1";
+            this.reportViewTag1.Size = new System.Drawing.Size(1116, 558);
+            this.reportViewTag1.TabIndex = 0;
             // 
             // HomeView
             // 

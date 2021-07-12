@@ -30,7 +30,7 @@ namespace TutteeFrame2.Reports.ReportControll
 
         public void FetchData()
         {
-            frmchart.SetProgressBar(true, "On featching data from sever..");
+            frmchart.SetProgressBar(true, "Đang đồng bộ hóa dữ liệu từ server");
             var t = Task.Run(() =>
              {
                  ogrinalStudentPoint = frmChartDA.istance.GetStudentPointResouce();
@@ -101,7 +101,7 @@ namespace TutteeFrame2.Reports.ReportControll
 
         public async void GeneralChartOfAveragePointOfClass(String classID, String Semester)
         {
-            frmchart.SetProgressBar(true, "On creating the chart...");
+            frmchart.SetProgressBar(true, "Đang  trong quá trình tạo biểu đồ..");
             await Task.Run(() =>
             {
                 int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -147,7 +147,7 @@ namespace TutteeFrame2.Reports.ReportControll
 
         public async void GeneralChartOfAveragePointOfGrade(String grade)
         {
-            frmchart.SetProgressBar(true, "On loading ui");
+            frmchart.SetProgressBar(true,"Đang thực hiện câp nhật giao diện..");
             
             await Task.Run(() =>
             {
@@ -219,12 +219,12 @@ namespace TutteeFrame2.Reports.ReportControll
 
                     }
                 }
-                int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
                 for (int i = 0; i < 10 && avalible; i++)
                 {
                     for(int j = 0; j < studentSubjectScores.Count && avalible; j++)
                     {
-                        if(studentSubjectScores[j].subjectAverage <= i)
+                        if(studentSubjectScores[j].subjectAverage <= i+1)
                         {
                             if(studentSubjectScores[j].subjectAverage < 0)
                             {
@@ -252,6 +252,7 @@ namespace TutteeFrame2.Reports.ReportControll
             else
             {
                 MessageBox.Show("Dữ liêu chưa đủ để lập biểu đồ");
+                frmchart.SetProgressBar(false);
             }
         }
 
