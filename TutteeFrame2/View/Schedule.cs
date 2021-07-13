@@ -29,6 +29,7 @@ namespace TutteeFrame2.View
         bool ismousedown = false;
         bool chosen = false;
         bool chosing = false;
+        
         bool edge = false;
         mouse m = mouse.none;
         readonly ScheduleController scheduleController;
@@ -148,6 +149,7 @@ namespace TutteeFrame2.View
                     }
                     if (found1 && found2)
                     {
+                        chosing = true;
                         if (chosen == false)
                         {
                             //containedButton2.Enabled = true;
@@ -164,6 +166,7 @@ namespace TutteeFrame2.View
                                 materialComboBox5.SelectedIndex = -1;
                                 materialComboBox6.SelectedIndex = -1;
                                 chosen = false;
+                                chosing = false;
                                 containedButton2.Enabled = false;
                             }
                             else
@@ -231,10 +234,12 @@ namespace TutteeFrame2.View
         }
         private async void add(Session tkb)
         {
+            homeView.SetLoad(true, "Đang thêm...");
             foreach (Session s in t)
             {
                 if (s.thu == tkb.thu && s.tiet == tkb.tiet)
                 {
+                    homeView.SetLoad(true, "Đang sửa...");
                     s.mon = tkb.mon;
                     await Task.Delay(600);
                     await Task.Run(() =>
@@ -247,9 +252,11 @@ namespace TutteeFrame2.View
                         scheduleController.Add(tkb, scheduleID);
                     });                    
                     redraw();
+                    homeView.SetLoad(false);
                     return;
                 }
             }
+            homeView.SetLoad(true, "Đang thêm...");
             await Task.Delay(600);
             await Task.Run(() =>
             {
@@ -257,6 +264,7 @@ namespace TutteeFrame2.View
             });
             t.Add(tkb);
             draw(tkb);
+            homeView.SetLoad(false);
         }
         private void update()
         {
@@ -335,6 +343,30 @@ namespace TutteeFrame2.View
         {
             materialComboBox4.SelectedIndex = a - 1;
             materialComboBox5.SelectedIndex = b - 1;
+            materialComboBox6.SelectedIndex = -1;
+            foreach (Session tkb in t)
+            {
+                if (tkb.thu == a + 1 && tkb.tiet == b)
+                {
+                    foreach (Cs c in cs)
+                    {
+                        if (c.name == ConvertToName(tkb.mon))
+                        {
+                            materialComboBox6.SelectedIndex = c.index;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            if (materialComboBox6.SelectedIndex != -1)
+                containedButton2.Enabled = true;
+            else
+                containedButton2.Enabled = false;
+            return;
+        }
+        private void PickSubject(int a, int b)
+        {
             materialComboBox6.SelectedIndex = -1;
             foreach (Session tkb in t)
             {
@@ -520,6 +552,7 @@ namespace TutteeFrame2.View
 
         private async void containedButton2_Click(object sender, EventArgs e)
         {
+            homeView.SetLoad(true, "Đang xóa...");
             int thu = Int32.Parse(materialComboBox4.Text);
             int tiet = Int32.Parse(materialComboBox5.Text);
             string id = scheduleID + (thu * 10 + tiet).ToString();
@@ -537,6 +570,8 @@ namespace TutteeFrame2.View
                 {
                     t.Remove(s);
                     redraw();
+                    containedButton2.Enabled = false;
+                    homeView.SetLoad(false);
                     return;
                 }
             }
@@ -554,18 +589,34 @@ namespace TutteeFrame2.View
 
         private void materialComboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1 && materialComboBox6.SelectedIndex != -1 && scheduleID != null)
+            int a = materialComboBox4.SelectedIndex;
+            if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1)
             {
-                containedButton1.Enabled = true;
+                if (materialComboBox6.SelectedIndex != -1 && scheduleID != null)
+                    containedButton1.Enabled = true;
+                else
+                    containedButton1.Enabled = false;
             }
             else
+            {
                 containedButton1.Enabled = false;
-            //if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1 && chosing == false) ;
-            //{
-            //    getinfo(materialComboBox4.SelectedIndex + 1, materialComboBox5.SelectedIndex + 1);
-            //    drawline(materialComboBox4.SelectedIndex + 1, materialComboBox4.SelectedIndex + 2, materialComboBox5.SelectedIndex + 2, materialComboBox5.SelectedIndex + 3);
-            //    chosen = true;
-            //}
+                return;
+            }
+            if (chosing)
+            {
+                if (sender == materialComboBox5)
+                {
+                    chosing = false;
+                }
+                return;
+            }
+            chosen = true;
+            if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1)
+            {
+                redraw();
+                PickSubject(materialComboBox4.SelectedIndex + 1, materialComboBox5.SelectedIndex + 1);
+                drawline(materialComboBox4.SelectedIndex + 1, materialComboBox4.SelectedIndex + 2, materialComboBox5.SelectedIndex + 1, materialComboBox5.SelectedIndex + 2);
+            }
         }
 
         private void materialTextfield2_TextChanged(object sender, EventArgs e)
@@ -606,6 +657,21 @@ namespace TutteeFrame2.View
             if (g == null) return;
             Create();
             redraw();
+        }
+        private void materialComboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1)
+            {
+                if (materialComboBox6.SelectedIndex != -1 && scheduleID != null)
+                    containedButton1.Enabled = true;
+                else
+                    containedButton1.Enabled = false;
+            }
+            else
+            {
+                containedButton1.Enabled = false;
+                return;
+            }
         }
     }
 }

@@ -96,7 +96,7 @@ namespace TutteeFrame2.View
             this.materialComboBox6.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
             this.materialComboBox6.Size = new System.Drawing.Size(102, 47);
             this.materialComboBox6.TabIndex = 48;
-            this.materialComboBox6.SelectedIndexChanged += new System.EventHandler(this.materialComboBox4_SelectedIndexChanged);
+            this.materialComboBox6.SelectedIndexChanged += new System.EventHandler(this.materialComboBox6_SelectedIndexChanged);
             // 
             // materialComboBox4
             // 
