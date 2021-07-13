@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ClassController.cs" />
+    <Compile Include="Controller\FaultController.cs" />
     <Compile Include="Controller\FormClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
@@ -161,6 +162,12 @@
     </Compile>
     <Compile Include="View\DetailScoreboardView.Designer.cs">
       <DependentUpon>DetailScoreboardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FaultView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\FaultView.Designer.cs">
+      <DependentUpon>FaultView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormClassView.cs">
       <SubType>UserControl</SubType>
@@ -384,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\DetailScoreboardView.resx">
       <DependentUpon>DetailScoreboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FaultView.resx">
+      <DependentUpon>FaultView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormClassView.resx">
       <DependentUpon>FormClassView.cs</DependentUpon>
