@@ -42,6 +42,7 @@ namespace TutteeFrame2.View
             this.materialComboBox2 = new MaterialSurface.MaterialComboBox();
             this.materialComboBox1 = new MaterialSurface.MaterialComboBox();
             this.containedButton0 = new MaterialSurface.ContainedButton();
+            this.containedButton3 = new MaterialSurface.ContainedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -356,10 +357,33 @@ namespace TutteeFrame2.View
             this.containedButton0.UseVisualStyleBackColor = true;
             this.containedButton0.Click += new System.EventHandler(this.button3_Click);
             // 
+            // containedButton3
+            // 
+            this.containedButton3.EffectType = MaterialSurface.ET.Custom;
+            this.containedButton3.Enabled = false;
+            this.containedButton3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.containedButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
+            this.containedButton3.Icon = null;
+            this.containedButton3.Location = new System.Drawing.Point(782, 21);
+            this.containedButton3.Margin = new System.Windows.Forms.Padding(2);
+            this.containedButton3.MouseState = MaterialSurface.MouseState.OUT;
+            this.containedButton3.Name = "containedButton3";
+            this.containedButton3.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.containedButton3.Radius = 2;
+            this.containedButton3.ShawdowDepth = 3;
+            this.containedButton3.ShawdowOpacity = 50;
+            this.containedButton3.Size = new System.Drawing.Size(85, 50);
+            this.containedButton3.TabIndex = 54;
+            this.containedButton3.Text = "Import";
+            this.containedButton3.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.containedButton3.UseVisualStyleBackColor = true;
+            this.containedButton3.Click += new System.EventHandler(this.containedButton3_Click);
+            // 
             // Schedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.containedButton3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.containedButton2);
             this.Controls.Add(this.containedButton1);
@@ -396,5 +420,6 @@ namespace TutteeFrame2.View
         private MaterialSurface.MaterialComboBox materialComboBox2;
         private MaterialSurface.MaterialComboBox materialComboBox1;
         private MaterialSurface.ContainedButton containedButton0;
+        private MaterialSurface.ContainedButton containedButton3;
     }
 }

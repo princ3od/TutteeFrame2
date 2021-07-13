@@ -15,11 +15,6 @@ using TutteeFrame2.Utils;
 namespace TutteeFrame2.View
 {
     enum mouse { Ver, Hori, none }
-    class Cs
-    {
-        public string name;
-        public int index;
-    }
     public partial class Schedule : UserControl
     {
         Graphics g;
@@ -35,7 +30,6 @@ namespace TutteeFrame2.View
         bool edge = false;
         mouse m = mouse.none;
         readonly ScheduleController scheduleController;
-        readonly ClassController classController;
         public HomeView homeView;
         List<Class> classes = new List<Class>();
         public Schedule()
@@ -306,10 +300,27 @@ namespace TutteeFrame2.View
         }
         private void drawline(int a, int b, int c, int d)
         {
-            g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[c] + 1, r.Ver[b] - 1, r.Hori[c] + 1);
-            g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[d] - 1, r.Ver[b] - 1, r.Hori[d] - 1);
-            g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[c] + 1, r.Ver[a] + 1, r.Hori[d] - 1);
-            g.DrawLine(new Pen(Color.Red), r.Ver[b] - 1, r.Hori[c] + 1, r.Ver[b] - 1, r.Hori[d] - 1);
+            g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[c] + 1, r.Ver[b] - 1, r.Hori[c] + 1); //trên
+            g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[d] - 1, r.Ver[b] - 1, r.Hori[d] - 1); //dưới
+            g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[c] + 1, r.Ver[a] + 1, r.Hori[d] - 1); //trái
+            g.DrawLine(new Pen(Color.Red), r.Ver[b] - 1, r.Hori[c] + 1, r.Ver[b] - 1, r.Hori[d] - 1); //phải
+            //g.DrawLine(new Pen(Color.Red), 0, r.Hori[c] + 1, pictureBox1.Width, r.Hori[c] + 1); //trên
+            //g.DrawLine(new Pen(Color.Red), 0, r.Hori[d] - 1, pictureBox1.Width, r.Hori[d] - 1); //dưới
+            //g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, 0, r.Ver[a] + 1, pictureBox1.Height); //trái
+            //g.DrawLine(new Pen(Color.Red), r.Ver[b] - 1, 0, r.Ver[b] - 1, pictureBox1.Height); //phải
+            Brush br = new SolidBrush(Color.Black);
+            Brush br1 = new SolidBrush(Color.FromArgb(127, 0, 179, 255));
+            g.FillRectangle(br1, r.Ver[a] + 1, 1, r.Ver[b] - r.Ver[a] - 1, pictureBox1.Height / 11 - 1);
+            g.FillRectangle(br1, 1, r.Hori[c] + 1, pictureBox1.Width / 7 - 1, r.Hori[d] - r.Hori[c] - 1);
+            Font f = new Font("Arial", 12);
+            for (int i = 1; i < 7; i++)
+            {
+                g.DrawString("Thứ " + (i + 1).ToString(), f, br, r.Intersec[0, i].X + pictureBox1.Width / 35, r.Intersec[0, i].Y + pictureBox1.Height / 55);
+            }
+            for (int i = 1; i < 11; i++)
+            {
+                g.DrawString(i.ToString(), f, br, r.Intersec[i, 0].X + pictureBox1.Width / 21, r.Intersec[i, 0].Y + pictureBox1.Height / 55);
+            }
             update();
         }
         private void getinfo(int a, int b)
@@ -351,49 +362,74 @@ namespace TutteeFrame2.View
             }
         }
 
-        private void materialComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private async void materialComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            homeView.SetLoad(true, "Đang tải danh sách lớp...");
+            materialComboBox3.Items.Clear();           
             switch (materialComboBox2.SelectedItem)
             {
                 case "10":
-                {
-                    materialComboBox3.Items.Clear();
-                    scheduleController.GetClass("10");
-                    //materialComboBox3.Items.Add("10A1");
-                    //materialComboBox3.Items.Add("10A2");
-                    materialComboBox3.SelectedIndex = -1;
-                    break;
-                }
+                    {
+                        await Task.Delay(600);
+                        await Task.Run(() =>
+                        {
+                            scheduleController.GetClass("10");
+                        });
+                        //materialComboBox3.Items.Add("10A1");
+                        //materialComboBox3.Items.Add("10A2");
+                        break;
+                    }
                 case "11":
-                {
-                    materialComboBox3.Items.Clear();
-                    scheduleController.GetClass("11");
-                    //materialComboBox3.Items.Add("11A1");
-                    //materialComboBox3.Items.Add("11A2");
-                    materialComboBox3.SelectedIndex = -1;
-                    break;
-                }
+                    {
+                        await Task.Delay(600);
+                        await Task.Run(() =>
+                        {
+                            scheduleController.GetClass("11");
+                        });
+                        //materialComboBox3.Items.Add("11A1");
+                        //materialComboBox3.Items.Add("11A2");
+                        break;
+                    }
                 case "12":
-                {
-                    materialComboBox3.Items.Clear();
-                    scheduleController.GetClass("12");
-                    //materialComboBox3.Items.Add("12A1");
-                    //materialComboBox3.Items.Add("12A2");
-                    //materialComboBox3.Items.Add("12A3");
-                    materialComboBox3.SelectedIndex = -1;
-                    break;
-                }
+                    {
+                        await Task.Delay(600);
+                        await Task.Run(() =>
+                        {
+                            scheduleController.GetClass("12");
+                        });
+                        //materialComboBox3.Items.Add("12A1");
+                        //materialComboBox3.Items.Add("12A2");
+                        //materialComboBox3.Items.Add("12A3");
+                        break;
+                    }
                 default:
-                    materialComboBox3.Items.Clear();
                     break;
             }
+            homeView.SetLoad(false);
         }
         public void AddClasses()
         {
+            //await Task.Run(() =>
+            //{
+            //    classes = scheduleController.classes;
+            //});
             classes = scheduleController.classes;
-            foreach (Class @class in classes)
+            AddItems();
+        }
+        private delegate void dlgAddItem();
+        private void AddItems()
+        {
+            if (materialComboBox3.InvokeRequired)
             {
-                materialComboBox3.Items.Add(@class.ClassID);
+                this.Invoke(new dlgAddItem(AddItems));
+            }
+            else
+            {
+                foreach (Class @class in classes)
+                {
+                    materialComboBox3.Items.Add(@class.ClassID);
+                }
+                materialComboBox3.SelectedIndex = -1;
             }
         }
 
@@ -402,7 +438,7 @@ namespace TutteeFrame2.View
             homeView.SetLoad(true, "Đang tải thời khóa biểu");
             string lop = materialComboBox3.Text;
             int hk = Int32.Parse(materialComboBox1.Text);
-            int nam = 2020;
+            int nam = 2020; 
             await Task.Delay(600);
             await Task.Run(() => 
             {
@@ -542,6 +578,11 @@ namespace TutteeFrame2.View
         private void materialTextfield0_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void containedButton3_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

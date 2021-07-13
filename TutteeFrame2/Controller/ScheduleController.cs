@@ -65,7 +65,7 @@ namespace TutteeFrame2.Controller
         }
         public async void GetClass(string grade)
         {
-            await Task.Delay(600);
+            //await Task.Delay(600);
             await Task.Run(() =>
             {
                 classes = ClassDA.Instance.GetClasses(grade);
