@@ -28,6 +28,7 @@ namespace TutteeFrame2.View
         Point Lastmouse = new Point(0, 0);
         bool ismousedown = false;
         bool chosen = false;
+        bool chosing = false;
         bool edge = false;
         mouse m = mouse.none;
         readonly ScheduleController scheduleController;
@@ -149,10 +150,10 @@ namespace TutteeFrame2.View
                     {
                         if (chosen == false)
                         {
+                            //containedButton2.Enabled = true;
                             drawline(a, b, c, d);
                             getinfo(a, c);
-                            chosen = true;                            
-                            containedButton2.Enabled = true;
+                            chosen = true;
                         }
                         else
                         {
@@ -163,7 +164,7 @@ namespace TutteeFrame2.View
                                 materialComboBox5.SelectedIndex = -1;
                                 materialComboBox6.SelectedIndex = -1;
                                 chosen = false;
-                                containedButton1.Enabled = false;
+                                containedButton2.Enabled = false;
                             }
                             else
                             {
@@ -224,6 +225,9 @@ namespace TutteeFrame2.View
             materialComboBox6.SelectedIndex = -1;
             tkb.ID = scheduleID + (tkb.thu*10 + tkb.tiet).ToString();
             add(tkb);
+            chosen = false;
+            containedButton2.Enabled = false;
+            redraw();
         }
         private async void add(Session tkb)
         {
@@ -331,6 +335,7 @@ namespace TutteeFrame2.View
         {
             materialComboBox4.SelectedIndex = a - 1;
             materialComboBox5.SelectedIndex = b - 1;
+            materialComboBox6.SelectedIndex = -1;
             foreach (Session tkb in t)
             {
                 if (tkb.thu == a + 1 && tkb.tiet == b)
@@ -343,10 +348,14 @@ namespace TutteeFrame2.View
                             break;
                         }
                     }
-                    return;
+                    break;
                 }
             }
-            materialComboBox6.SelectedIndex = -1;
+            if (materialComboBox6.SelectedIndex != -1)
+                containedButton2.Enabled = true;
+            else
+                containedButton2.Enabled = false;
+            return;
         }
 
         private void Schedule_SizeChanged(object sender, EventArgs e)
@@ -538,17 +547,25 @@ namespace TutteeFrame2.View
             if (materialComboBox1.SelectedIndex != -1 && materialComboBox3.SelectedIndex != -1)
             {
                 AutoViewSchedule();
+                materialComboBox4.SelectedIndex = materialComboBox5.SelectedIndex = materialComboBox6.SelectedIndex = -1;
+                chosen = false;
             }
         }
 
         private void materialComboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1 && materialComboBox6.SelectedIndex != -1)
+            if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1 && materialComboBox6.SelectedIndex != -1 && scheduleID != null)
             {
                 containedButton1.Enabled = true;
             }
             else
                 containedButton1.Enabled = false;
+            //if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1 && chosing == false) ;
+            //{
+            //    getinfo(materialComboBox4.SelectedIndex + 1, materialComboBox5.SelectedIndex + 1);
+            //    drawline(materialComboBox4.SelectedIndex + 1, materialComboBox4.SelectedIndex + 2, materialComboBox5.SelectedIndex + 2, materialComboBox5.SelectedIndex + 3);
+            //    chosen = true;
+            //}
         }
 
         private void materialTextfield2_TextChanged(object sender, EventArgs e)
