@@ -18,7 +18,18 @@ namespace TutteeFrame2.View
         private SchoolInfoController schoolInfoController;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-
+        #region Win32 Form
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+        #endregion
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -32,7 +43,7 @@ namespace TutteeFrame2.View
             }
         }
 
-        private void  FetchData()
+        private void FetchData()
         {
             lbInformation.Visible = true;
             lbInformation.Text = "Đang thực hiển đồng bộ hóa dữ liệu...";
@@ -40,7 +51,8 @@ namespace TutteeFrame2.View
             schoolInfoController.FetchDataAsync();
         }
 
-        public void ShowData() {
+        public void ShowData()
+        {
             txtSologan.Text = schoolInfoController.mySchool.Slogan;
             txtFullSchoolName.Text = schoolInfoController.mySchool.FullName;
             ptbAvatar.Image = schoolInfoController.mySchool.Logo;
@@ -53,7 +65,7 @@ namespace TutteeFrame2.View
         {
             InitializeComponent();
             this.userID = userID;
-            if(this.userID == "AD999999")
+            if (this.userID == "AD999999")
             {
                 ptbAvatar.Enabled = true;
                 txtSologan.Enabled = true;
@@ -65,10 +77,11 @@ namespace TutteeFrame2.View
                 ptbAvatar.Enabled = false;
                 txtSologan.Enabled = false;
                 txtFullSchoolName.Enabled = false;
+                btnChooseAvatar.Enabled = false;
                 btnSubmit.Enabled = false;
             }
-            schoolInfoController = new SchoolInfoController(this,this.userID);
-           
+            schoolInfoController = new SchoolInfoController(this, this.userID);
+
 
         }
 

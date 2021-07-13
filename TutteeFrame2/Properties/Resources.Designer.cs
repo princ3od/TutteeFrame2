@@ -63,6 +63,16 @@ namespace TutteeFrame2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _16015343831562853 {
+            get {
+                object obj = ResourceManager.GetObject("_16015343831562853", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3643769_building_home_house_main_menu_start_113416 {
             get {
                 object obj = ResourceManager.GetObject("3643769-building-home-house-main-menu-start_113416", resourceCulture);
@@ -157,6 +167,15 @@ namespace TutteeFrame2.Properties {
             get {
                 object obj = ResourceManager.GetObject("ic-profile-info_97647", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream intro {
+            get {
+                return ResourceManager.GetStream("intro", resourceCulture);
             }
         }
         

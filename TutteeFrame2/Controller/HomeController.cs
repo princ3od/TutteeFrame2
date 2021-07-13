@@ -27,7 +27,16 @@ namespace TutteeFrame2.Controller
         {
             SessionDA.Instance.DeleteSession(mainTeacher.ID, sessionID);
             logined = false;
-            Application.Restart();
+            LoginView loginView = new LoginView(view);
+            view.Hide();
+            loginView.FormClosed += (s, ev) =>
+            {
+                if (loginView.DialogResult == DialogResult.OK)
+                    view.Show();
+                else
+                    Application.Exit();
+            };
+            loginView.ShowDialog();
         }
         public async void LoadTeacher(string teacherID)
         {

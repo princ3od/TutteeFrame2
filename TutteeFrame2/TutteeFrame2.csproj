@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ClassController.cs" />
+    <Compile Include="Controller\FaultController.cs" />
     <Compile Include="Controller\FormClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
@@ -161,6 +162,12 @@
     </Compile>
     <Compile Include="View\DetailScoreboardView.Designer.cs">
       <DependentUpon>DetailScoreboardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FaultView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\FaultView.Designer.cs">
+      <DependentUpon>FaultView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormClassView.cs">
       <SubType>UserControl</SubType>
@@ -296,6 +303,12 @@
     <Compile Include="View\PunishmentView.Designer.cs">
       <DependentUpon>PunishmentView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SplashView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SplashView.Designer.cs">
+      <DependentUpon>SplashView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StudentCardView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +398,9 @@
     <EmbeddedResource Include="View\DetailScoreboardView.resx">
       <DependentUpon>DetailScoreboardView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FaultView.resx">
+      <DependentUpon>FaultView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormClassView.resx">
       <DependentUpon>FormClassView.cs</DependentUpon>
     </EmbeddedResource>
@@ -432,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\PunishmentView.resx">
       <DependentUpon>PunishmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SplashView.resx">
+      <DependentUpon>SplashView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentCardView.resx">
       <DependentUpon>StudentCardView.cs</DependentUpon>
@@ -497,6 +516,8 @@
   <ItemGroup>
     <None Include="Resources\contact-icon-png-4071-Windows.ico" />
     <None Include="Resources\enemy_spot.png" />
+    <None Include="Resources\16015343831562853.png" />
+    <None Include="Resources\intro.wav" />
     <Content Include="Resources\logo_1_removebg_preview_hoi_icon.ico" />
     <None Include="Resources\outline_school_black_24dp.png" />
     <None Include="Resources\outline_school_black_24dp1.png" />
@@ -507,6 +528,7 @@
     <None Include="Resources\outline_image_black_24dp.png" />
     <None Include="Resources\outline_edit_black_24dp.png" />
     <None Include="Resources\outline_edit_black_24dp1.png" />
+    <None Include="Resources\Screenshot_2020-09-28_122305.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

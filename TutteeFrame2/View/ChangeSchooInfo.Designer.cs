@@ -73,12 +73,12 @@ namespace TutteeFrame2.View
             this.lbInformation.BackColor = System.Drawing.Color.Transparent;
             this.lbInformation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.lbInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbInformation.Location = new System.Drawing.Point(4, 433);
+            this.lbInformation.Location = new System.Drawing.Point(13, 440);
             this.lbInformation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbInformation.Name = "lbInformation";
-            this.lbInformation.Size = new System.Drawing.Size(225, 19);
+            this.lbInformation.Size = new System.Drawing.Size(188, 13);
             this.lbInformation.TabIndex = 55;
-            this.lbInformation.Text = "*Đang cập nhật  thông tin trường...";
+            this.lbInformation.Text = "*Đang cập nhật thông tin trường...";
             // 
             // btnSubmit
             // 
@@ -87,7 +87,7 @@ namespace TutteeFrame2.View
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(490, 385);
+            this.btnSubmit.Location = new System.Drawing.Point(350, 363);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.MouseState = MaterialSurface.MouseState.OUT;
             this.btnSubmit.Name = "btnSubmit";
@@ -95,7 +95,7 @@ namespace TutteeFrame2.View
             this.btnSubmit.Radius = 2;
             this.btnSubmit.ShawdowDepth = 3;
             this.btnSubmit.ShawdowOpacity = 50;
-            this.btnSubmit.Size = new System.Drawing.Size(296, 62);
+            this.btnSubmit.Size = new System.Drawing.Size(144, 48);
             this.btnSubmit.TabIndex = 54;
             this.btnSubmit.Text = "OK";
             this.btnSubmit.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -112,7 +112,7 @@ namespace TutteeFrame2.View
             this.lbTitle.Location = new System.Drawing.Point(287, 50);
             this.lbTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(356, 46);
+            this.lbTitle.Size = new System.Drawing.Size(287, 37);
             this.lbTitle.TabIndex = 48;
             this.lbTitle.Text = "THÔNG TIN TRƯỜNG";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,7 +142,7 @@ namespace TutteeFrame2.View
             this.txtSologan.ReadOnly = false;
             this.txtSologan.ShortcutsEnable = true;
             this.txtSologan.ShowCaret = true;
-            this.txtSologan.Size = new System.Drawing.Size(360, 54);
+            this.txtSologan.Size = new System.Drawing.Size(360, 49);
             this.txtSologan.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtSologan.TabIndex = 74;
             this.txtSologan.UseSystemPasswordChar = false;
@@ -172,7 +172,7 @@ namespace TutteeFrame2.View
             this.txtFullSchoolName.ReadOnly = false;
             this.txtFullSchoolName.ShortcutsEnable = true;
             this.txtFullSchoolName.ShowCaret = true;
-            this.txtFullSchoolName.Size = new System.Drawing.Size(360, 54);
+            this.txtFullSchoolName.Size = new System.Drawing.Size(360, 49);
             this.txtFullSchoolName.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
             this.txtFullSchoolName.TabIndex = 75;
             this.txtFullSchoolName.UseSystemPasswordChar = false;
@@ -210,7 +210,7 @@ namespace TutteeFrame2.View
             this.btnClose.DrawShadows = false;
             this.btnClose.HighEmphasis = false;
             this.btnClose.Icon = ((System.Drawing.Image)(resources.GetObject("btnClose.Icon")));
-            this.btnClose.Location = new System.Drawing.Point(742, 12);
+            this.btnClose.Location = new System.Drawing.Point(756, 2);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";

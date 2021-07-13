@@ -104,7 +104,7 @@ namespace TutteeFrame2.View
             this.btnSetting = new MaterialSurface.TextButton();
             this.btnChangePass = new MaterialSurface.TextButton();
             this.btnShowMore = new MaterialSkin.Controls.MaterialButton();
-            this.reportView = new TutteeFrame2.View.ReportViewTag();
+            this.faultView = new TutteeFrame2.View.FaultView();
             this.mainTabControl.SuspendLayout();
             this.home.SuspendLayout();
             this.materialCard4.SuspendLayout();
@@ -131,6 +131,7 @@ namespace TutteeFrame2.View
             this.baoCao.SuspendLayout();
             this.lopChuNhiem.SuspendLayout();
             this.phanCongGiaoVien.SuspendLayout();
+            this.quanLiViPham.SuspendLayout();
             this.quanLiTKB.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -752,9 +753,9 @@ namespace TutteeFrame2.View
             // quanLiKiLuat
             // 
             this.quanLiKiLuat.Controls.Add(this.punishmentView);
-            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 44);
+            this.quanLiKiLuat.Location = new System.Drawing.Point(4, 22);
             this.quanLiKiLuat.Name = "quanLiKiLuat";
-            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 564);
+            this.quanLiKiLuat.Size = new System.Drawing.Size(1116, 586);
             this.quanLiKiLuat.TabIndex = 6;
             this.quanLiKiLuat.Tag = "6";
             this.quanLiKiLuat.Text = "Quản lí kỉ luật";
@@ -766,15 +767,15 @@ namespace TutteeFrame2.View
             this.punishmentView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.punishmentView.Location = new System.Drawing.Point(0, 0);
             this.punishmentView.Name = "punishmentView";
-            this.punishmentView.Size = new System.Drawing.Size(1116, 564);
+            this.punishmentView.Size = new System.Drawing.Size(1116, 586);
             this.punishmentView.TabIndex = 0;
             // 
             // baoCao
             // 
             this.baoCao.Controls.Add(this.reportView);
-            this.baoCao.Location = new System.Drawing.Point(4, 44);
+            this.baoCao.Location = new System.Drawing.Point(4, 22);
             this.baoCao.Name = "baoCao";
-            this.baoCao.Size = new System.Drawing.Size(1116, 564);
+            this.baoCao.Size = new System.Drawing.Size(1116, 586);
             this.baoCao.TabIndex = 7;
             this.baoCao.Tag = "7";
             this.baoCao.Text = "Báo cáo";
@@ -787,15 +788,15 @@ namespace TutteeFrame2.View
             this.reportView.Location = new System.Drawing.Point(0, 0);
             this.reportView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.reportView.Name = "reportView";
-            this.reportView.Size = new System.Drawing.Size(1116, 564);
+            this.reportView.Size = new System.Drawing.Size(1116, 586);
             this.reportView.TabIndex = 0;
             // 
             // lopChuNhiem
             // 
             this.lopChuNhiem.Controls.Add(this.formClassView);
-            this.lopChuNhiem.Location = new System.Drawing.Point(4, 44);
+            this.lopChuNhiem.Location = new System.Drawing.Point(4, 22);
             this.lopChuNhiem.Name = "lopChuNhiem";
-            this.lopChuNhiem.Size = new System.Drawing.Size(1116, 564);
+            this.lopChuNhiem.Size = new System.Drawing.Size(1116, 586);
             this.lopChuNhiem.TabIndex = 8;
             this.lopChuNhiem.Tag = "8";
             this.lopChuNhiem.Text = "Lớp chủ nhiệm";
@@ -807,15 +808,15 @@ namespace TutteeFrame2.View
             this.formClassView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formClassView.Location = new System.Drawing.Point(0, 0);
             this.formClassView.Name = "formClassView";
-            this.formClassView.Size = new System.Drawing.Size(1116, 564);
+            this.formClassView.Size = new System.Drawing.Size(1116, 586);
             this.formClassView.TabIndex = 0;
             // 
             // phanCongGiaoVien
             // 
             this.phanCongGiaoVien.Controls.Add(this.teacherAssignmentView);
-            this.phanCongGiaoVien.Location = new System.Drawing.Point(4, 44);
+            this.phanCongGiaoVien.Location = new System.Drawing.Point(4, 22);
             this.phanCongGiaoVien.Name = "phanCongGiaoVien";
-            this.phanCongGiaoVien.Size = new System.Drawing.Size(1116, 564);
+            this.phanCongGiaoVien.Size = new System.Drawing.Size(1116, 586);
             this.phanCongGiaoVien.TabIndex = 9;
             this.phanCongGiaoVien.Tag = "9";
             this.phanCongGiaoVien.Text = "Phân công giáo viên";
@@ -827,14 +828,15 @@ namespace TutteeFrame2.View
             this.teacherAssignmentView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherAssignmentView.Location = new System.Drawing.Point(0, 0);
             this.teacherAssignmentView.Name = "teacherAssignmentView";
-            this.teacherAssignmentView.Size = new System.Drawing.Size(1116, 564);
+            this.teacherAssignmentView.Size = new System.Drawing.Size(1116, 586);
             this.teacherAssignmentView.TabIndex = 0;
             // 
             // quanLiViPham
             // 
-            this.quanLiViPham.Location = new System.Drawing.Point(4, 22);
+            this.quanLiViPham.Controls.Add(this.faultView);
+            this.quanLiViPham.Location = new System.Drawing.Point(4, 44);
             this.quanLiViPham.Name = "quanLiViPham";
-            this.quanLiViPham.Size = new System.Drawing.Size(1116, 586);
+            this.quanLiViPham.Size = new System.Drawing.Size(1116, 564);
             this.quanLiViPham.TabIndex = 11;
             this.quanLiViPham.Tag = "10";
             this.quanLiViPham.Text = "Quản lí vi phạm";
@@ -1083,14 +1085,14 @@ namespace TutteeFrame2.View
             this.btnShowMore.UseVisualStyleBackColor = true;
             this.btnShowMore.Click += new System.EventHandler(this.OpenUtilityBar);
             // 
-            // reportView
+            // faultView
             // 
-            this.reportView.BackColor = System.Drawing.Color.White;
-            this.reportView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportView.Location = new System.Drawing.Point(0, 0);
-            this.reportView.Name = "reportViewTag1";
-            this.reportView.Size = new System.Drawing.Size(1116, 558);
-            this.reportView.TabIndex = 0;
+            this.faultView.BackColor = System.Drawing.Color.White;
+            this.faultView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.faultView.Location = new System.Drawing.Point(0, 0);
+            this.faultView.Name = "faultView";
+            this.faultView.Size = new System.Drawing.Size(1116, 564);
+            this.faultView.TabIndex = 0;
             // 
             // HomeView
             // 
@@ -1138,6 +1140,7 @@ namespace TutteeFrame2.View
             this.baoCao.ResumeLayout(false);
             this.lopChuNhiem.ResumeLayout(false);
             this.phanCongGiaoVien.ResumeLayout(false);
+            this.quanLiViPham.ResumeLayout(false);
             this.quanLiTKB.ResumeLayout(false);
             this.quanLiTKB.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1225,6 +1228,7 @@ namespace TutteeFrame2.View
         private FormClassView formClassView;
         private System.Windows.Forms.TabPage baoCao;
         private MaterialSkin.Controls.MaterialListView materialListView1;
+        private FaultView faultView;
     }
 }
 

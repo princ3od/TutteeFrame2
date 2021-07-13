@@ -84,6 +84,7 @@ namespace TutteeFrame2.View
             Snackbar.MakeSnackbar(this, string.Format("Xin chào {0}", controller.mainTeacher.GetName()), "HELLO");
             studentScoreboardView.SetMainTeacher(controller.mainTeacher);
             formClassView.SetHome(this, controller.mainTeacher);
+            faultView.SetHome(this, controller.mainTeacher);
             Decentralize();
         }
 
@@ -218,6 +219,7 @@ namespace TutteeFrame2.View
                     teacherAssignmentView.Fetch();
                     break;
                 case TabName.QuanLiViPham:
+                    faultView.Fetch();
                     break;
                 case TabName.QuanLiTKB:
                     schedule.FetchData();
