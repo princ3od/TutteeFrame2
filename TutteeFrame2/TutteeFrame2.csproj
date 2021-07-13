@@ -112,6 +112,7 @@
     <Compile Include="Controls\CircularPicture.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Cs.cs" />
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
     <Compile Include="Model\StudentLearnResult.cs" />
     <Compile Include="Model\School.cs" />
