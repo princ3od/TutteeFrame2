@@ -34,6 +34,8 @@ namespace TutteeFrame2
 
             HomeView homeView = new HomeView();
             LoginView loginView = new LoginView(homeView);
+            SplashView splashView = new SplashView();
+            splashView.ShowDialog();
             loginView.ShowDialog();
             if (loginView.DialogResult == DialogResult.OK)
                 Application.Run(homeView);
