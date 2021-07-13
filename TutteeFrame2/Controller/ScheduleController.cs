@@ -70,6 +70,7 @@ namespace TutteeFrame2.Controller
             {
                 classes = ClassDA.Instance.GetClasses(grade);
             });
+            schedule.AddClasses();
         }
     }
 }

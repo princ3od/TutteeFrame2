@@ -35,8 +35,9 @@ namespace TutteeFrame2.View
         bool edge = false;
         mouse m = mouse.none;
         readonly ScheduleController scheduleController;
+        readonly ClassController classController;
         public HomeView homeView;
-        List<Class> classes;
+        List<Class> classes = new List<Class>();
         public Schedule()
         {
             InitializeComponent();
@@ -322,6 +323,14 @@ namespace TutteeFrame2.View
                 if (tkb.thu == a + 1 && tkb.tiet == b)
                 {
                     materialTextfield2.Text = ConvertToName(tkb.mon);
+                    foreach (Cs c in cs)
+                    {
+                        if (c.name == ConvertToName(tkb.mon))
+                        {
+                            materialComboBox6.SelectedIndex = c.index;
+                            break;
+                        }
+                    }
                     return;
                 }
             }
@@ -348,32 +357,43 @@ namespace TutteeFrame2.View
             {
                 case "10":
                 {
-                    materialComboBox3.Items.Clear();                    
-                    materialComboBox3.Items.Add("10A1");
-                    materialComboBox3.Items.Add("10A2");
+                    materialComboBox3.Items.Clear();
+                    scheduleController.GetClass("10");
+                    //materialComboBox3.Items.Add("10A1");
+                    //materialComboBox3.Items.Add("10A2");
                     materialComboBox3.SelectedIndex = -1;
                     break;
                 }
                 case "11":
                 {
                     materialComboBox3.Items.Clear();
-                    materialComboBox3.Items.Add("11A1");
-                    materialComboBox3.Items.Add("11A2");
+                    scheduleController.GetClass("11");
+                    //materialComboBox3.Items.Add("11A1");
+                    //materialComboBox3.Items.Add("11A2");
                     materialComboBox3.SelectedIndex = -1;
                     break;
                 }
                 case "12":
                 {
                     materialComboBox3.Items.Clear();
-                    materialComboBox3.Items.Add("12A1");
-                    materialComboBox3.Items.Add("12A2");
-                    materialComboBox3.Items.Add("12A3");
+                    scheduleController.GetClass("12");
+                    //materialComboBox3.Items.Add("12A1");
+                    //materialComboBox3.Items.Add("12A2");
+                    //materialComboBox3.Items.Add("12A3");
                     materialComboBox3.SelectedIndex = -1;
                     break;
                 }
                 default:
                     materialComboBox3.Items.Clear();
                     break;
+            }
+        }
+        public void AddClasses()
+        {
+            classes = scheduleController.classes;
+            foreach (Class @class in classes)
+            {
+                materialComboBox3.Items.Add(@class.ClassID);
             }
         }
 
