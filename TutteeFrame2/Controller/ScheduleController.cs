@@ -65,12 +65,14 @@ namespace TutteeFrame2.Controller
         }
         public async void GetClass(string grade)
         {
-            //await Task.Delay(600);
+            schedule.homeView.SetLoad(true, "Đang tải danh sách lớp...");
+            await Task.Delay(600);
             await Task.Run(() =>
             {
                 classes = ClassDA.Instance.GetClasses(grade);
             });
             schedule.AddClasses();
+            schedule.homeView.SetLoad(false);
         }
     }
 }

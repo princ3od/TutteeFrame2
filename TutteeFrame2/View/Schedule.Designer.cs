@@ -30,9 +30,6 @@ namespace TutteeFrame2.View
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.materialTextfield0 = new MaterialSurface.MaterialTextfield();
-            this.materialTextfield1 = new MaterialSurface.MaterialTextfield();
-            this.materialTextfield2 = new MaterialSurface.MaterialTextfield();
             this.containedButton2 = new MaterialSurface.ContainedButton();
             this.materialComboBox6 = new MaterialSurface.MaterialComboBox();
             this.materialComboBox4 = new MaterialSurface.MaterialComboBox();
@@ -41,104 +38,22 @@ namespace TutteeFrame2.View
             this.materialComboBox3 = new MaterialSurface.MaterialComboBox();
             this.materialComboBox2 = new MaterialSurface.MaterialComboBox();
             this.materialComboBox1 = new MaterialSurface.MaterialComboBox();
-            this.containedButton0 = new MaterialSurface.ContainedButton();
             this.containedButton3 = new MaterialSurface.ContainedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(245, 117);
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Location = new System.Drawing.Point(306, 113);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(624, 407);
+            this.pictureBox1.Size = new System.Drawing.Size(810, 445);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // materialTextfield0
-            // 
-            this.materialTextfield0.AutoScaleColor = true;
-            this.materialTextfield0.BackColor = System.Drawing.SystemColors.Control;
-            this.materialTextfield0.CountText = false;
-            this.materialTextfield0.Enabled = false;
-            this.materialTextfield0.FieldType = MaterialSurface.BoxType.Normal;
-            this.materialTextfield0.FloatingLabelText = "FloatingLabel";
-            this.materialTextfield0.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.materialTextfield0.HandleError = false;
-            this.materialTextfield0.HelperText = "";
-            this.materialTextfield0.HideSelection = true;
-            this.materialTextfield0.HintText = "Thứ";
-            this.materialTextfield0.Location = new System.Drawing.Point(19, 308);
-            this.materialTextfield0.MaxLength = 32767;
-            this.materialTextfield0.MouseState = MaterialSurface.MouseState.OUT;
-            this.materialTextfield0.Multiline = false;
-            this.materialTextfield0.Name = "materialTextfield0";
-            this.materialTextfield0.PasswordChar = '\0';
-            this.materialTextfield0.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.materialTextfield0.ReadOnly = false;
-            this.materialTextfield0.ShortcutsEnable = true;
-            this.materialTextfield0.ShowCaret = true;
-            this.materialTextfield0.Size = new System.Drawing.Size(150, 54);
-            this.materialTextfield0.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
-            this.materialTextfield0.TabIndex = 50;
-            this.materialTextfield0.UseSystemPasswordChar = false;
-            this.materialTextfield0.TextChanged += new System.EventHandler(this.materialTextfield0_TextChanged);
-            // 
-            // materialTextfield1
-            // 
-            this.materialTextfield1.AutoScaleColor = true;
-            this.materialTextfield1.BackColor = System.Drawing.SystemColors.Control;
-            this.materialTextfield1.CountText = false;
-            this.materialTextfield1.Enabled = false;
-            this.materialTextfield1.FieldType = MaterialSurface.BoxType.Normal;
-            this.materialTextfield1.FloatingLabelText = "FloatingLabel";
-            this.materialTextfield1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.materialTextfield1.HandleError = false;
-            this.materialTextfield1.HelperText = "";
-            this.materialTextfield1.HideSelection = true;
-            this.materialTextfield1.HintText = "Tiết";
-            this.materialTextfield1.Location = new System.Drawing.Point(19, 380);
-            this.materialTextfield1.MaxLength = 32767;
-            this.materialTextfield1.MouseState = MaterialSurface.MouseState.OUT;
-            this.materialTextfield1.Multiline = false;
-            this.materialTextfield1.Name = "materialTextfield1";
-            this.materialTextfield1.PasswordChar = '\0';
-            this.materialTextfield1.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.materialTextfield1.ReadOnly = false;
-            this.materialTextfield1.ShortcutsEnable = true;
-            this.materialTextfield1.ShowCaret = true;
-            this.materialTextfield1.Size = new System.Drawing.Size(150, 54);
-            this.materialTextfield1.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
-            this.materialTextfield1.TabIndex = 51;
-            this.materialTextfield1.UseSystemPasswordChar = false;
-            // 
-            // materialTextfield2
-            // 
-            this.materialTextfield2.AutoScaleColor = true;
-            this.materialTextfield2.BackColor = System.Drawing.SystemColors.Control;
-            this.materialTextfield2.CountText = false;
-            this.materialTextfield2.Enabled = false;
-            this.materialTextfield2.FieldType = MaterialSurface.BoxType.Normal;
-            this.materialTextfield2.FloatingLabelText = "FloatingLabel";
-            this.materialTextfield2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.materialTextfield2.HandleError = false;
-            this.materialTextfield2.HelperText = "";
-            this.materialTextfield2.HideSelection = true;
-            this.materialTextfield2.HintText = "Môn";
-            this.materialTextfield2.Location = new System.Drawing.Point(19, 440);
-            this.materialTextfield2.MaxLength = 32767;
-            this.materialTextfield2.MouseState = MaterialSurface.MouseState.OUT;
-            this.materialTextfield2.Multiline = false;
-            this.materialTextfield2.Name = "materialTextfield2";
-            this.materialTextfield2.PasswordChar = '\0';
-            this.materialTextfield2.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.materialTextfield2.ReadOnly = false;
-            this.materialTextfield2.ShortcutsEnable = true;
-            this.materialTextfield2.ShowCaret = true;
-            this.materialTextfield2.Size = new System.Drawing.Size(150, 54);
-            this.materialTextfield2.Style = MaterialSurface.MaterialTextfield.TextfieldStyle.HintAsFloatingLabel;
-            this.materialTextfield2.TabIndex = 52;
-            this.materialTextfield2.UseSystemPasswordChar = false;
-            this.materialTextfield2.TextChanged += new System.EventHandler(this.materialTextfield2_TextChanged);
+            this.pictureBox1.SizeChanged += new System.EventHandler(this.pictureBox1_SizeChanged);
             // 
             // containedButton2
             // 
@@ -147,7 +62,7 @@ namespace TutteeFrame2.View
             this.containedButton2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.containedButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.containedButton2.Icon = null;
-            this.containedButton2.Location = new System.Drawing.Point(173, 444);
+            this.containedButton2.Location = new System.Drawing.Point(116, 327);
             this.containedButton2.Margin = new System.Windows.Forms.Padding(2);
             this.containedButton2.MouseState = MaterialSurface.MouseState.OUT;
             this.containedButton2.Name = "containedButton2";
@@ -155,9 +70,9 @@ namespace TutteeFrame2.View
             this.containedButton2.Radius = 2;
             this.containedButton2.ShawdowDepth = 3;
             this.containedButton2.ShawdowOpacity = 50;
-            this.containedButton2.Size = new System.Drawing.Size(50, 50);
+            this.containedButton2.Size = new System.Drawing.Size(100, 50);
             this.containedButton2.TabIndex = 53;
-            this.containedButton2.Text = "Del";
+            this.containedButton2.Text = "Xóa";
             this.containedButton2.TextAlignment = System.Drawing.StringAlignment.Center;
             this.containedButton2.UseVisualStyleBackColor = true;
             this.containedButton2.Click += new System.EventHandler(this.containedButton2_Click);
@@ -250,7 +165,7 @@ namespace TutteeFrame2.View
             this.containedButton1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.containedButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.containedButton1.Icon = null;
-            this.containedButton1.Location = new System.Drawing.Point(161, 220);
+            this.containedButton1.Location = new System.Drawing.Point(12, 327);
             this.containedButton1.Margin = new System.Windows.Forms.Padding(2);
             this.containedButton1.MouseState = MaterialSurface.MouseState.OUT;
             this.containedButton1.Name = "containedButton1";
@@ -258,7 +173,7 @@ namespace TutteeFrame2.View
             this.containedButton1.Radius = 2;
             this.containedButton1.ShawdowDepth = 3;
             this.containedButton1.ShawdowOpacity = 50;
-            this.containedButton1.Size = new System.Drawing.Size(50, 50);
+            this.containedButton1.Size = new System.Drawing.Size(100, 50);
             this.containedButton1.TabIndex = 51;
             this.containedButton1.Text = "OK";
             this.containedButton1.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -335,36 +250,13 @@ namespace TutteeFrame2.View
             this.materialComboBox1.TabIndex = 45;
             this.materialComboBox1.SelectedIndexChanged += new System.EventHandler(this.materialComboBox1_SelectedIndexChanged);
             // 
-            // containedButton0
-            // 
-            this.containedButton0.EffectType = MaterialSurface.ET.Custom;
-            this.containedButton0.Enabled = false;
-            this.containedButton0.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.containedButton0.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
-            this.containedButton0.Icon = null;
-            this.containedButton0.Location = new System.Drawing.Point(458, 21);
-            this.containedButton0.Margin = new System.Windows.Forms.Padding(2);
-            this.containedButton0.MouseState = MaterialSurface.MouseState.OUT;
-            this.containedButton0.Name = "containedButton0";
-            this.containedButton0.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.containedButton0.Radius = 2;
-            this.containedButton0.ShawdowDepth = 3;
-            this.containedButton0.ShawdowOpacity = 50;
-            this.containedButton0.Size = new System.Drawing.Size(50, 50);
-            this.containedButton0.TabIndex = 48;
-            this.containedButton0.Text = "OK";
-            this.containedButton0.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.containedButton0.UseVisualStyleBackColor = true;
-            this.containedButton0.Click += new System.EventHandler(this.button3_Click);
-            // 
             // containedButton3
             // 
             this.containedButton3.EffectType = MaterialSurface.ET.Custom;
-            this.containedButton3.Enabled = false;
             this.containedButton3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.containedButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.containedButton3.Icon = null;
-            this.containedButton3.Location = new System.Drawing.Point(782, 21);
+            this.containedButton3.Location = new System.Drawing.Point(767, 21);
             this.containedButton3.Margin = new System.Windows.Forms.Padding(2);
             this.containedButton3.MouseState = MaterialSurface.MouseState.OUT;
             this.containedButton3.Name = "containedButton3";
@@ -372,33 +264,29 @@ namespace TutteeFrame2.View
             this.containedButton3.Radius = 2;
             this.containedButton3.ShawdowDepth = 3;
             this.containedButton3.ShawdowOpacity = 50;
-            this.containedButton3.Size = new System.Drawing.Size(85, 50);
+            this.containedButton3.Size = new System.Drawing.Size(100, 50);
             this.containedButton3.TabIndex = 54;
-            this.containedButton3.Text = "Import";
+            this.containedButton3.Text = "Xuất";
             this.containedButton3.TextAlignment = System.Drawing.StringAlignment.Center;
             this.containedButton3.UseVisualStyleBackColor = true;
             this.containedButton3.Click += new System.EventHandler(this.containedButton3_Click);
             // 
             // Schedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.containedButton3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.containedButton2);
             this.Controls.Add(this.containedButton1);
-            this.Controls.Add(this.materialTextfield2);
-            this.Controls.Add(this.containedButton0);
-            this.Controls.Add(this.materialTextfield1);
             this.Controls.Add(this.materialComboBox6);
-            this.Controls.Add(this.materialTextfield0);
             this.Controls.Add(this.materialComboBox5);
             this.Controls.Add(this.materialComboBox4);
             this.Controls.Add(this.materialComboBox1);
             this.Controls.Add(this.materialComboBox3);
             this.Controls.Add(this.materialComboBox2);
+            this.DoubleBuffered = true;
             this.Name = "Schedule";
-            this.Size = new System.Drawing.Size(869, 527);
+            this.Size = new System.Drawing.Size(1116, 558);
             this.SizeChanged += new System.EventHandler(this.Schedule_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -408,9 +296,6 @@ namespace TutteeFrame2.View
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private MaterialSurface.MaterialTextfield materialTextfield0;
-        private MaterialSurface.MaterialTextfield materialTextfield1;
-        private MaterialSurface.MaterialTextfield materialTextfield2;
         private MaterialSurface.ContainedButton containedButton2;
         private MaterialSurface.MaterialComboBox materialComboBox6;
         private MaterialSurface.MaterialComboBox materialComboBox4;
@@ -419,7 +304,6 @@ namespace TutteeFrame2.View
         private MaterialSurface.MaterialComboBox materialComboBox3;
         private MaterialSurface.MaterialComboBox materialComboBox2;
         private MaterialSurface.MaterialComboBox materialComboBox1;
-        private MaterialSurface.ContainedButton containedButton0;
         private MaterialSurface.ContainedButton containedButton3;
     }
 }
