@@ -188,6 +188,7 @@ namespace TutteeFrame2.View
         {
             if (mainTabControl.SelectedTab == null)
                 return;
+            lbTittle.Text = mainTabControl.SelectedTab.Text;
             switch ((TabName)(Int32.Parse(mainTabControl.SelectedTab.Tag.ToString())))
             {
                 case TabName.TrangChu:
