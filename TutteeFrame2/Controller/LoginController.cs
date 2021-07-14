@@ -23,8 +23,6 @@ namespace TutteeFrame2.Controller
         public LoginController(LoginView view)
         {
             this.view = view;
-            AppSettings.Instance.Get();
-            ServerSettings.Instance.Get();
         }
         public async void Login()
         {

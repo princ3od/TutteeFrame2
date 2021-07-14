@@ -79,6 +79,7 @@ namespace TutteeFrame2.View
                     lbID.Text = teacherID;
                     lbID.ForeColor = Color.Green;
                     lbName.Text = "--";
+                    cbbSubject.SelectedIndex = 0;
                     break;
                 case Mode.Edit:
                     btnSubmit.Text = "Cập nhật";
@@ -95,6 +96,7 @@ namespace TutteeFrame2.View
                     txtMail.Text = teacher.Mail;
                     ptbAvatar.Image = teacher.Avatar;
                     txtPosition.Text = teacher.Position;
+                    cbbSubject.Text = teacher.Subject.Name;
                     switch (teacher.Type)
                     {
                         case TeacherType.FormerTeacher:
@@ -116,7 +118,6 @@ namespace TutteeFrame2.View
                     break;
             }
             cbbSex.SelectedIndex = 0;
-            cbbSubject.SelectedIndex = 0;
             cbbType.SelectedIndex = 0;
         }
 

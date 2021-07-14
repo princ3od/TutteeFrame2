@@ -44,6 +44,9 @@ namespace TutteeFrame2.View
             this.btnExit = new MaterialSkin.Controls.MaterialButton();
             this.cbbSemester = new MaterialSurface.MaterialComboBox();
             this.cbbType = new MaterialSurface.MaterialComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // listStudentResult
@@ -67,14 +70,14 @@ namespace TutteeFrame2.View
             this.listStudentResult.FullRowSelect = true;
             this.listStudentResult.HideSelection = false;
             this.listStudentResult.HoverSelection = true;
-            this.listStudentResult.Location = new System.Drawing.Point(11, 155);
+            this.listStudentResult.Location = new System.Drawing.Point(48, 155);
             this.listStudentResult.Margin = new System.Windows.Forms.Padding(2);
             this.listStudentResult.MinimumSize = new System.Drawing.Size(150, 81);
             this.listStudentResult.MouseLocation = new System.Drawing.Point(-1, -1);
             this.listStudentResult.MouseState = MaterialSkin.MouseState.OUT;
             this.listStudentResult.Name = "listStudentResult";
             this.listStudentResult.OwnerDraw = true;
-            this.listStudentResult.Size = new System.Drawing.Size(1081, 362);
+            this.listStudentResult.Size = new System.Drawing.Size(1106, 400);
             this.listStudentResult.TabIndex = 78;
             this.listStudentResult.UseCompatibleStateImageBehavior = false;
             this.listStudentResult.View = System.Windows.Forms.View.Details;
@@ -127,7 +130,7 @@ namespace TutteeFrame2.View
             this.cbbFilterByClass.ItemHeight = 41;
             this.cbbFilterByClass.Items.AddRange(new object[] {
             "Tất cả"});
-            this.cbbFilterByClass.Location = new System.Drawing.Point(719, 72);
+            this.cbbFilterByClass.Location = new System.Drawing.Point(797, 72);
             this.cbbFilterByClass.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterByClass.MaxDropDownItems = 4;
             this.cbbFilterByClass.MouseState = MaterialSurface.MouseState.OUT;
@@ -154,7 +157,7 @@ namespace TutteeFrame2.View
             "10",
             "11",
             "12"});
-            this.cbbFilterByGrade.Location = new System.Drawing.Point(497, 72);
+            this.cbbFilterByGrade.Location = new System.Drawing.Point(575, 72);
             this.cbbFilterByGrade.Margin = new System.Windows.Forms.Padding(2);
             this.cbbFilterByGrade.MaxDropDownItems = 4;
             this.cbbFilterByGrade.MouseState = MaterialSurface.MouseState.OUT;
@@ -166,12 +169,12 @@ namespace TutteeFrame2.View
             // 
             // btnPrintStudents
             // 
-            this.btnPrintStudents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintStudents.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnPrintStudents.EffectType = MaterialSurface.ET.Custom;
             this.btnPrintStudents.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(235)))), ((int)(((byte)(166)))));
             this.btnPrintStudents.Icon = null;
-            this.btnPrintStudents.Location = new System.Drawing.Point(388, 580);
+            this.btnPrintStudents.Location = new System.Drawing.Point(439, 593);
             this.btnPrintStudents.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintStudents.MouseState = MaterialSurface.MouseState.OUT;
             this.btnPrintStudents.Name = "btnPrintStudents";
@@ -207,7 +210,7 @@ namespace TutteeFrame2.View
             this.btnExit.DrawShadows = true;
             this.btnExit.HighEmphasis = true;
             this.btnExit.Icon = ((System.Drawing.Image)(resources.GetObject("btnExit.Icon")));
-            this.btnExit.Location = new System.Drawing.Point(1082, -1);
+            this.btnExit.Location = new System.Drawing.Point(1160, -1);
             this.btnExit.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnExit.Name = "btnExit";
@@ -233,7 +236,7 @@ namespace TutteeFrame2.View
             this.cbbSemester.Items.AddRange(new object[] {
             "Kì 1",
             "Kì 2"});
-            this.cbbSemester.Location = new System.Drawing.Point(905, 72);
+            this.cbbSemester.Location = new System.Drawing.Point(983, 72);
             this.cbbSemester.Margin = new System.Windows.Forms.Padding(2);
             this.cbbSemester.MaxDropDownItems = 4;
             this.cbbSemester.MouseState = MaterialSurface.MouseState.OUT;
@@ -258,7 +261,7 @@ namespace TutteeFrame2.View
             this.cbbType.Items.AddRange(new object[] {
             "Danh sách",
             "Cá nhân"});
-            this.cbbType.Location = new System.Drawing.Point(32, 72);
+            this.cbbType.Location = new System.Drawing.Point(110, 72);
             this.cbbType.Margin = new System.Windows.Forms.Padding(2);
             this.cbbType.MaxDropDownItems = 4;
             this.cbbType.MouseState = MaterialSurface.MouseState.OUT;
@@ -268,12 +271,36 @@ namespace TutteeFrame2.View
             this.cbbType.TabIndex = 80;
             this.cbbType.SelectedIndexChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.label1.Location = new System.Drawing.Point(399, 564);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(424, 17);
+            this.label1.TabIndex = 81;
+            this.label1.Text = "____________________________________________________";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(31, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 82;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmStudentResultReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1127, 746);
+            this.ClientSize = new System.Drawing.Size(1205, 668);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbbType);
             this.Controls.Add(this.cbbSemester);
             this.Controls.Add(this.listStudentResult);
@@ -283,10 +310,14 @@ namespace TutteeFrame2.View
             this.Controls.Add(this.lbTittle);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmStudentResultReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStudentResultReport";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStudentResultReport_FormClosed);
             this.Shown += new System.EventHandler(this.frmStudentResultReport_Shown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmStudentResultReport_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +339,7 @@ namespace TutteeFrame2.View
         private System.Windows.Forms.ColumnHeader clmSemester;
         private MaterialSurface.MaterialComboBox cbbSemester;
         private MaterialSurface.MaterialComboBox cbbType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

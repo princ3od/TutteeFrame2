@@ -233,5 +233,106 @@ namespace TutteeFrame2.DataAccess
             }
             return true;
         }
+        public StudentConduct GetStudentConduct(string _studentID, int _grade)
+        {
+            bool success = Connect();
+
+            StudentConduct _studentConduct = new StudentConduct();
+            if (!success)
+                return null;
+
+            try
+            {
+                using (SqlCommand sqlCommand = connection.CreateCommand())
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "SELECT ConductSE01, ConductSE02, YearConduct FROM LEARNRESULT WHERE StudentID = @studentid AND Grade = @grade";
+                    sqlCommand.Parameters.AddWithValue("@studentid", _studentID);
+                    sqlCommand.Parameters.AddWithValue("@grade", _grade);
+                    using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                    {
+                        reader.Read();
+                        for (int i = 0; i < _studentConduct.Conducts.Count; i++)
+                        {
+                            _studentConduct.Conducts[i].type = (Conduct.Type)i;
+                            if (reader.IsDBNull(i))
+                                _studentConduct.Conducts[i].conductType = Conduct.ConductType.ChuaXet;
+                            else
+                            {
+                                switch (reader.GetString(i))
+                                {
+                                    case "Tot":
+                                        _studentConduct.Conducts[i].conductType = Conduct.ConductType.Tot;
+                                        break;
+                                    case "Kha":
+                                        _studentConduct.Conducts[i].conductType = Conduct.ConductType.Kha;
+                                        break;
+                                    case "TB":
+                                        _studentConduct.Conducts[i].conductType = Conduct.ConductType.TrungBinh;
+                                        break;
+                                    case "Yeu":
+                                        _studentConduct.Conducts[i].conductType = Conduct.ConductType.Yeu;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return _studentConduct;
+        }
+        public bool UpdateStudentConduct(string _studentID, int _grade, StudentConduct _studentConduct)
+        {
+            bool success = Connect();
+
+            if (!success)
+                return false;
+
+            try
+            {
+                using (SqlCommand sqlCommand = connection.CreateCommand())
+                {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "UPDATE LEARNRESULT SET ConductSE01 = @conductsem1, ConductSE02 = @conductsem2, YearConduct = @yearconduct " +
+                        "WHERE StudentID = @studentid AND Grade = @grade";
+                    sqlCommand.Parameters.AddWithValue("@studentid", _studentID);
+                    sqlCommand.Parameters.AddWithValue("@grade", _grade);
+                    if (_studentConduct.Conducts[0].ToString() == string.Empty)
+                        sqlCommand.Parameters.AddWithValue("@conductsem1", DBNull.Value);
+                    else
+                        sqlCommand.Parameters.AddWithValue("@conductsem1", _studentConduct.Conducts[0].ToString());
+                    if (_studentConduct.Conducts[1].ToString() == string.Empty)
+                        sqlCommand.Parameters.AddWithValue("@conductsem2", DBNull.Value);
+                    else
+                        sqlCommand.Parameters.AddWithValue("@conductsem2", _studentConduct.Conducts[1].ToString());
+                    if (_studentConduct.Conducts[2].ToString() == string.Empty)
+                        sqlCommand.Parameters.AddWithValue("@yearconduct", DBNull.Value);
+                    else
+                        sqlCommand.Parameters.AddWithValue("@yearconduct", _studentConduct.Conducts[2].ToString());
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+            return true;
+        }
     }
 }

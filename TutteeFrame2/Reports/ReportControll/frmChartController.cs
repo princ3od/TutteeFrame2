@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms.DataVisualization.Charting;
 using TutteeFrame2.Reports.ReportDataAccess;
 using TutteeFrame2.Reports.ReportModel;
 using TutteeFrame2.View;
+
 
 namespace TutteeFrame2.Reports.ReportControll
 {
@@ -17,7 +19,9 @@ namespace TutteeFrame2.Reports.ReportControll
 
         private frmChart frmchart;
         private List<StudentPointResouce> ogrinalStudentPoint = new List<StudentPointResouce>();
+        private List<StudentSubjectScore> orinalStudentSubjectScore = new List<StudentSubjectScore>();
         public List<String> cbbClassItem;
+        public List<String> cbbSubjectItems;
         public List<double> value = new List<double>();
         public frmChartController(frmChart frmChart)
         {
@@ -26,15 +30,16 @@ namespace TutteeFrame2.Reports.ReportControll
 
         public void FetchData()
         {
-            frmchart.SetProgressBar(true, "On featching data from sever..");
+            frmchart.SetProgressBar(true, "Đang đồng bộ hóa dữ liệu từ server");
             var t = Task.Run(() =>
              {
                  ogrinalStudentPoint = frmChartDA.istance.GetStudentPointResouce();
-
+                 orinalStudentSubjectScore = frmChartDA.istance.GetStudentSubjectScore();
+                 FetchItemCbbSubject();
              });
-            t.Wait();
+            t.Wait(1000);
             frmchart.SetProgressBar(false);
-
+            frmchart.FetchSubjectItems();
         }
         public void FilterClassByGrade(String grade)
         {
@@ -48,10 +53,27 @@ namespace TutteeFrame2.Reports.ReportControll
             }
         }
 
+        public void FetchItemCbbSubject()
+        {
+            cbbSubjectItems = new List<String>();
+            Dictionary<String, String> subjectItems = new Dictionary<String, String>();
+
+            foreach (StudentSubjectScore item in orinalStudentSubjectScore)
+            {
+
+                if (!subjectItems.ContainsKey(item.subjectID))
+                {
+                    cbbSubjectItems.Add(item.subjectName);
+                    subjectItems.Add(item.subjectID, item.subjectName);
+                }
+            }
+
+
+        }
 
         public async void GeneralChartOfAveragePointOfClass(String classID)
         {
-          
+
             await Task.Run(() =>
             {
                 int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -73,13 +95,13 @@ namespace TutteeFrame2.Reports.ReportControll
                 }
 
             });
-            frmchart.SetProgressBar(false);
+
             frmchart.SetCartesianChart();
         }
 
         public async void GeneralChartOfAveragePointOfClass(String classID, String Semester)
         {
-            frmchart.SetProgressBar(true, "On creating the chart...");
+            frmchart.SetProgressBar(true, "Đang  trong quá trình tạo biểu đồ..");
             await Task.Run(() =>
             {
                 int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -119,14 +141,14 @@ namespace TutteeFrame2.Reports.ReportControll
 
             });
 
-            frmchart.SetProgressBar(false);
+
             frmchart.SetCartesianChart();
         }
 
         public async void GeneralChartOfAveragePointOfGrade(String grade)
         {
-            frmchart.SetProgressBar(true, "On loading ui");
-            
+            frmchart.SetProgressBar(true, "Đang thực hiện câp nhật giao diện..");
+
             await Task.Run(() =>
             {
                 double[] y = new double[cbbClassItem.Count];
@@ -157,7 +179,7 @@ namespace TutteeFrame2.Reports.ReportControll
                     value.Add(y[i]);
                 }
             });
-            frmchart.SetProgressBar(false);
+
             frmchart.SetCartesianChart();
 
         }
@@ -181,5 +203,121 @@ namespace TutteeFrame2.Reports.ReportControll
                 arr2[j + 1] = temp2;
             }
         }
+
+        public async void GeneralChartOfSubjectByClass(String cbbClass, String cbbSubject, String cbbSemester)
+        {
+            bool avalible = true;
+            var t = Task.Run(() =>
+            {
+                List<StudentSubjectScore> studentSubjectScores = new List<StudentSubjectScore>();
+                int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                bool isSemester;
+                String semester = $"{cbbSemester}";
+                isSemester = semester == "Cả năm" ? false : true;
+                foreach (var item in orinalStudentSubjectScore)
+                {
+                    String itemSemester = $"Học kì {item.semester}";
+                    if (item.classID == cbbClass && item.subjectName == cbbSubject && itemSemester == semester)
+                    {
+                        studentSubjectScores.Add(item);
+
+                    }
+                    else
+                    {
+
+                        if (item.classID == cbbClass && item.subjectName == cbbSubject && "Cả năm" == semester)
+                        {
+                            studentSubjectScores.Add(item);
+
+                        }
+                    }
+                }
+                if (isSemester)
+                {
+                    for (int i = 0; i < 10 && avalible; i++)
+                    {
+                        for (int j = 0; j < studentSubjectScores.Count && avalible; j++)
+                        {
+                            if (studentSubjectScores[j].subjectAverage <= i + 1)
+                            {
+                                if (studentSubjectScores[j].subjectAverage < 0)
+                                {
+                                    avalible = false;
+                                    break;
+                                }
+                                y[i] += 1;
+                                studentSubjectScores.Remove(studentSubjectScores[j]);
+                                j -= 1;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+
+                    for (int j = 0; j < studentSubjectScores.Count && avalible; j++)
+                    {
+                        double S = studentSubjectScores[j].subjectAverage;
+                        if (S < 0)
+                        {
+                            avalible = false;
+                            break;
+                        }
+                        int count = 1;
+                        for (int q = j + 1; q < studentSubjectScores.Count && avalible; q++)
+                        {
+                            if (studentSubjectScores[q].subjectAverage < 0)
+                            {
+                                avalible = false;
+                                break;
+
+                            }
+                            if (studentSubjectScores[q].studentID == studentSubjectScores[j].studentID)
+                            {
+                                S += studentSubjectScores[q].subjectAverage;
+                                if (q > j) studentSubjectScores.Remove(studentSubjectScores[q]);
+                                count = 2;
+                                break;
+                            }
+                        }
+                        if (count == 2 && avalible)
+                        {
+                            var myInt = (int)Math.Ceiling(S / 2);
+                            y[myInt] += 1;
+                            if (j <= studentSubjectScores.Count)
+                            {
+                                studentSubjectScores.Remove(studentSubjectScores[j]);
+                                j -= 1;
+                            }
+                           
+                        }
+                        else
+                        {
+                            avalible = false;
+                        }
+                    }
+
+                }
+
+                value.Clear();
+                if (avalible)
+                    for (int i = 0; i < y.Length; i++)
+                    {
+                        value.Add(y[i]);
+                    }
+
+            });
+            t.Wait();
+            if (avalible)
+            {
+                frmchart.SetCartesianChart();
+            }
+            else
+            {
+                MessageBox.Show("Dữ liêu chưa đủ để lập biểu đồ");
+                frmchart.SetProgressBar(false);
+            }
+        }
+
     }
 }

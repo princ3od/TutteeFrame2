@@ -32,9 +32,10 @@ namespace TutteeFrame2.View
             lbInformation.Visible = visible;
         }
 
-        private void btnGenarate_Click(object sender, EventArgs e)
+        private void   btnGenarate_ClickAsync(object sender, EventArgs e)
         {
-            SetProgressBar(true, "On creating user charts..");
+            SetProgressBar(true, "Đang tạo biểu đồ ...");
+
             cartesianChart.DataTooltip = new LiveCharts.Wpf.DefaultTooltip();
             if (cbbType.Text == "TBHK Lớp")
             {
@@ -54,6 +55,7 @@ namespace TutteeFrame2.View
             else if (cbbType.Text == "TBHK Môn-Lớp")
             {
 
+                controller.GeneralChartOfSubjectByClass(cbbClass.Text,cbbSubject.Text,cbbSemester.Text);
             }
 
         }
@@ -62,6 +64,7 @@ namespace TutteeFrame2.View
         {
             var AxesX = new AxesCollection();
             var AxesY = new AxesCollection();
+            
             LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
             series.Clear();
 
@@ -72,21 +75,24 @@ namespace TutteeFrame2.View
                 {
                     Title = "Điểm trung bình",
                     LabelFormatter = value => value.ToString(),
-                    Separator = new Separator { Step = 1 }
-                });
+                    Separator = new Separator { Step = 1 },
+                    MinValue = 0
+
+                }); ;
                 AxesY.Add(new LiveCharts.Wpf.Axis
                 {
                     Title = "Lớp",
                     Labels = controller.cbbClassItem,
                     Separator = new Separator { Step = 1 },
+                    MinValue = 0
 
-                });
+                }); ;
 
                 var objChart = new RowSeries { };
                 objChart.Values = new ChartValues<double>(controller.value);
                 objChart.Title = "Điểm trung bình";
                 objChart.DataLabels = true;
-                objChart.LabelPoint = point => point.X + "Đ";
+                objChart.LabelPoint = point => point.X +"";
                 objChart.LabelsPosition = BarLabelPosition.Top;
                 objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
                 objChart.FontSize = 11;
@@ -99,11 +105,45 @@ namespace TutteeFrame2.View
                 AxesX.Add(new LiveCharts.Wpf.Axis
                 {
                     Title = "Điểm trung bình",
-                    Labels = new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" },
-                    Separator = new Separator { Step = 2 }
+                    Labels = new[] { "<=1", "<=2", "<=3", "<=4", "<=5", "<=6", "<=7", "<=8", "<=9", "<=10" },
+                    Separator = new Separator { Step = 1 },
+                    LabelsRotation = -90,
+                    
                 });
                 AxesY.Add(new LiveCharts.Wpf.Axis
                 {
+                    Title = "Số học sinh",
+                    LabelFormatter = value => value.ToString(),
+                    MinValue = 0,
+                    Separator = new Separator { Step = 1 },
+
+                }); ;
+
+                var objChart = new ColumnSeries { };
+                objChart.Title = "Số học sinh";
+                objChart.Values = new ChartValues<double>(controller.value);
+                objChart.DataLabels = true;
+                objChart.LabelsPosition = BarLabelPosition.Top;
+                objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
+                objChart.FontSize = 11;
+                series.Add(objChart);
+                
+
+            }
+            else if(cbbType.Text == "TBHK Môn-Lớp")
+            {
+                AxesX.Add(new LiveCharts.Wpf.Axis
+                {
+                    Title = $"Điểm trung bình môn {cbbSubject.Text}",
+                    Labels = new[] { "<=1", "<=2", "<=3", "<=4", "<=5", "<=6", "<=7", "<=8", "<=9", "<=10" },
+                    Separator = new Separator { Step = 1 },
+                    MinValue = 0,
+                    LabelsRotation = -90,
+
+                });
+                AxesY.Add(new LiveCharts.Wpf.Axis
+                {
+                    Separator = new Separator { Step = 1 },
                     Title = "Số học sinh",
                     LabelFormatter = value => value.ToString()
 
@@ -117,12 +157,11 @@ namespace TutteeFrame2.View
                 objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
                 objChart.FontSize = 11;
                 series.Add(objChart);
-                
-
             }
             cartesianChart.Series = series;
             cartesianChart.AxisX = AxesX;
             cartesianChart.AxisY = AxesY;
+            SetProgressBar(false);
             cartesianChart.Refresh();
         }
         private void frmChart_Load(object sender, EventArgs e)
@@ -150,10 +189,19 @@ namespace TutteeFrame2.View
         }
         public void FetchClassItem()
         {
+            if (!cbbClass.Enabled) return;
             cbbClass.Items.Clear();
             foreach (var item in controller.cbbClassItem)
             {
                 cbbClass.Items.Add(item);
+            }
+        }
+        public void FetchSubjectItems()
+        {
+            cbbSubject.Items.Clear();
+            foreach(var item in controller.cbbSubjectItems)
+            {
+                cbbSubject.Items.Add(item);
             }
         }
 
@@ -161,21 +209,33 @@ namespace TutteeFrame2.View
         {
             if (cbbType.SelectedIndex == 0)
             {
-                cbbGrade.Visible = true;
-                cbbClass.Visible = true;
-                cbbSemester.Visible = true;
+                cbbGrade.Enabled = true;
+                cbbClass.Enabled = true;
+                cbbSemester.Enabled = true;
+                cbbSubject.Enabled = false;
+                cbbSemester.SelectedIndex = -1;
+                cbbGrade.SelectedIndex = -1;
+                cbbClass.SelectedIndex = -1;
+
+
             }
             else if (cbbType.SelectedIndex == 1)
             {
-                cbbGrade.Visible = true;
-                cbbClass.Visible = false;
-                cbbSemester.Visible = false;
+                cbbGrade.Enabled = true;
+                cbbClass.Enabled = false;
+                cbbSemester.Enabled = false;
+                cbbSubject.Enabled = false;
+
+                cbbClass.SelectedIndex = -1;
+                cbbSemester.SelectedIndex = -1;
+                cbbSubject.SelectedIndex = -1;
             }
             else if (cbbType.SelectedIndex == 2)
             {
-                cbbGrade.Visible = true;
-                cbbClass.Visible = true;
-                cbbSemester.Visible = true;
+                cbbGrade.Enabled = true;
+                cbbClass.Enabled = true;
+                cbbSemester.Enabled = true;
+                cbbSubject.Enabled = true;
             }
         }
 

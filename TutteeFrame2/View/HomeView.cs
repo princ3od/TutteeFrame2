@@ -55,14 +55,17 @@ namespace TutteeFrame2.View
             punishmentView.SetHome(this);
             teacherAssignmentView.SetHome(this);
             studentScoreboardView.SetHome(this);
+            reportView.SetHome(this);
+            schedule.SetHome(this);
         }
 
         public void LoadTeacher(string teacherID, string sessionID)
         {
             controller.sessionID = sessionID;
             controller.logined = true;
-            controller.LoadTeacher(teacherID);
+            controller.LoadTeacher(teacherID);  
         }
+
         public void ShowData()
         {
             lbName.Text = materialLabel1.Text = controller.mainTeacher.GetName();
@@ -80,6 +83,8 @@ namespace TutteeFrame2.View
             lbPosition.Text = controller.mainTeacher.Position;
             Snackbar.MakeSnackbar(this, string.Format("Xin chào {0}", controller.mainTeacher.GetName()), "HELLO");
             studentScoreboardView.SetMainTeacher(controller.mainTeacher);
+            formClassView.SetHome(this, controller.mainTeacher);
+            faultView.SetHome(this, controller.mainTeacher);
             Decentralize();
         }
 
@@ -206,14 +211,15 @@ namespace TutteeFrame2.View
                     punishmentView.Fetch();
                     break;
                 case TabName.BaoCao:
-                    reportViewTag1.SetHome(this);
                     break;
                 case TabName.LopChuNhiem:
+                    formClassView.Fetch();
                     break;
                 case TabName.PhanCongGiaoVien:
                     teacherAssignmentView.Fetch();
                     break;
                 case TabName.QuanLiViPham:
+                    faultView.Fetch();
                     break;
                 case TabName.QuanLiTKB:
                     schedule.FetchData();
@@ -231,5 +237,13 @@ namespace TutteeFrame2.View
             OverlayForm _ = new OverlayForm(this, changePassView);
             changePassView.Show();
         }
+        private void OnChangeSchoolInfo(object sender, EventArgs e)
+        {
+            ChangeSchooInfo changeSchoolInfoView = new ChangeSchooInfo(controller.mainTeacher.ID.ToUpper());
+            OverlayForm _ = new OverlayForm(this, changeSchoolInfoView);
+            changeSchoolInfoView.Show();
+        }
+
+
     }
 }

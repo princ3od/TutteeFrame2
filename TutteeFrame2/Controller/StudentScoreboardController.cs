@@ -8,7 +8,6 @@ using TutteeFrame2.Model;
 using TutteeFrame2.Utils;
 using TutteeFrame2.DataAccess;
 using MaterialSurface;
-using TutteeFrame.Model;
 using System.Windows.Forms;
 
 namespace TutteeFrame2.Controller

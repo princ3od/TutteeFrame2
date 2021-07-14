@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TutteeFrame.Model
+namespace TutteeFrame2.Model
 {
     class AverageScore
     {

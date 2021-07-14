@@ -15,6 +15,7 @@ namespace TutteeFrame2.Controller
         readonly Schedule schedule;
         public string scheduleID;
         public List<Session> sessions;
+        public List<Class> classes;
         public ScheduleController(Schedule schedule)
         {
             this.schedule = schedule;
@@ -30,7 +31,7 @@ namespace TutteeFrame2.Controller
         }
         public async void GetSchedule(string lop, int hk, int nam)
         {
-            await Task.Delay(600);
+            //await Task.Delay(600);
             await Task.Run(() =>
             {
                 scheduleID = ScheduleDA.Instance.GetSchedule(lop, hk, nam);
@@ -39,7 +40,7 @@ namespace TutteeFrame2.Controller
         }
         public async void FetchSchedule(string scheduleid)
         {
-            await Task.Delay(600);
+            //await Task.Delay(600);
             await Task.Run(() =>
             {
                 sessions = ScheduleDA.Instance.GetSessions(scheduleid);
@@ -61,6 +62,17 @@ namespace TutteeFrame2.Controller
             {
                 ScheduleDA.Instance.Delete(id);
             });
+        }
+        public async void GetClass(string grade)
+        {
+            schedule.homeView.SetLoad(true, "Đang tải danh sách lớp...");
+            await Task.Delay(600);
+            await Task.Run(() =>
+            {
+                classes = ClassDA.Instance.GetClasses(grade);
+            });
+            schedule.AddClasses();
+            schedule.homeView.SetLoad(false);
         }
     }
 }

@@ -45,6 +45,8 @@ namespace TutteeFrame2.View
             this.clmStudentPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmStudentClassID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmStudentStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbTittle
@@ -238,12 +240,23 @@ namespace TutteeFrame2.View
             this.clmStudentStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.clmStudentStatus.Width = 120;
             // 
-            // frmStudentReport
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(31, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 73;
+            this.pictureBox1.TabStop = false;
+            // 
+            // frmStudentInfoReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1205, 668);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listViewStudents);
             this.Controls.Add(this.cbbFilterByClass);
             this.Controls.Add(this.cbbFilterByGrade);
@@ -251,9 +264,14 @@ namespace TutteeFrame2.View
             this.Controls.Add(this.lbTittle);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmStudentReport";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmStudentInfoReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStudentReport";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStudentReport_FormClosed);
+            this.Shown += new System.EventHandler(this.frmStudentInfoReport_Shown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmStudentInfoReport_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +293,6 @@ namespace TutteeFrame2.View
         private System.Windows.Forms.ColumnHeader clmStudentPhone;
         private System.Windows.Forms.ColumnHeader clmStudentClassID;
         private System.Windows.Forms.ColumnHeader clmStudentStatus;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

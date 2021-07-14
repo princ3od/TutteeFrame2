@@ -99,11 +99,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ClassController.cs" />
+    <Compile Include="Controller\FaultController.cs" />
+    <Compile Include="Controller\FormClassController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ScheduleController.cs" />
     <Compile Include="Controller\PunishmentController.cs" />
+    <Compile Include="Controller\SchoolInfoController.cs" />
+    <Compile Include="Controls\CircularButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CircularPicture.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Cs.cs" />
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
+    <Compile Include="Model\StudentLearnResult.cs" />
+    <Compile Include="Model\School.cs" />
     <Compile Include="Reports\Data\ReportClassResultDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,6 +158,30 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Subject.cs" />
     <Compile Include="Model\Teacher.cs" />
+    <Compile Include="View\DetailScoreboardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DetailScoreboardView.Designer.cs">
+      <DependentUpon>DetailScoreboardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FaultView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\FaultView.Designer.cs">
+      <DependentUpon>FaultView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormClassView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\FormClassView.Designer.cs">
+      <DependentUpon>FormClassView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangeSchooInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChangeSchooInfo.Designer.cs">
+      <DependentUpon>ChangeSchooInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Schedule.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +205,7 @@
     <Compile Include="Reports\ReportModel\InformationOfStudentResultPrepareForPrint.cs" />
     <Compile Include="Reports\ReportModel\StudentPointResouce.cs" />
     <Compile Include="Reports\ReportModel\StudentResult.cs" />
+    <Compile Include="Reports\ReportModel\StudentSubjetScore.cs" />
     <Compile Include="Reports\Screen\StudentInfoReporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +304,18 @@
     <Compile Include="View\PunishmentView.Designer.cs">
       <DependentUpon>PunishmentView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SplashView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SplashView.Designer.cs">
+      <DependentUpon>SplashView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\StudentCardView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\StudentCardView.Designer.cs">
+      <DependentUpon>StudentCardView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\StudentScoreboardView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -332,6 +381,12 @@
     <Compile Include="View\TeacherView.Designer.cs">
       <DependentUpon>TeacherView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateConductView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UpdateConductView.Designer.cs">
+      <DependentUpon>UpdateConductView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\UtilityBar.resx">
       <DependentUpon>UtilityBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,6 +395,18 @@
     <EmbeddedResource Include="Reports\PagePrint\ReportStudentResult.rdlc" />
     <EmbeddedResource Include="Reports\Screen\StudentInfoReporter.resx">
       <DependentUpon>StudentInfoReporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DetailScoreboardView.resx">
+      <DependentUpon>DetailScoreboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FaultView.resx">
+      <DependentUpon>FaultView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormClassView.resx">
+      <DependentUpon>FormClassView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChangeSchooInfo.resx">
+      <DependentUpon>ChangeSchooInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
@@ -383,6 +450,12 @@
     <EmbeddedResource Include="View\PunishmentView.resx">
       <DependentUpon>PunishmentView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\SplashView.resx">
+      <DependentUpon>SplashView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\StudentCardView.resx">
+      <DependentUpon>StudentCardView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\StudentScoreboardView.resx">
       <DependentUpon>StudentScoreboardView.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +496,9 @@
     <EmbeddedResource Include="View\TeacherView.resx">
       <DependentUpon>TeacherView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UpdateConductView.resx">
+      <DependentUpon>UpdateConductView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -439,7 +515,21 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Database\TutteeFrame.sql" />
+    <None Include="Resources\contact-icon-png-4071-Windows.ico" />
+    <None Include="Resources\enemy_spot.png" />
+    <None Include="Resources\16015343831562853.png" />
+    <None Include="Resources\intro.wav" />
+    <Content Include="Resources\logo_1_removebg_preview_hoi_icon.ico" />
+    <None Include="Resources\outline_school_black_24dp.png" />
+    <None Include="Resources\outline_school_black_24dp1.png" />
+    <None Include="Resources\slogan-3317101-2787974.png" />
+    <None Include="Resources\slogan-3317101-2787974.ico" />
+    <None Include="Resources\school.ico" />
+    <None Include="Resources\pictureImage.png" />
+    <None Include="Resources\outline_image_black_24dp.png" />
+    <None Include="Resources\outline_edit_black_24dp.png" />
+    <None Include="Resources\outline_edit_black_24dp1.png" />
+    <None Include="Resources\Screenshot_2020-09-28_122305.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

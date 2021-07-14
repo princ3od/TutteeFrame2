@@ -27,15 +27,29 @@ namespace TutteeFrame2.Controller
         {
             SessionDA.Instance.DeleteSession(mainTeacher.ID, sessionID);
             logined = false;
-            Application.Restart();
+            LoginView loginView = new LoginView(view);
+            view.Hide();
+            loginView.FormClosed += (s, ev) =>
+            {
+                if (loginView.DialogResult == DialogResult.OK)
+                    view.Show();
+                else
+                    Application.Exit();
+            };
+            loginView.ShowDialog();
         }
         public async void LoadTeacher(string teacherID)
         {
             view.SetLoad(true, "Đang tải thông tin người dùng...");
-            await Task.Delay(600);
+            await Task.Delay(200);
             await Task.Run(() =>
             {
                 mainTeacher = TeacherDA.Instance.GetTeacher(teacherID);
+                mainTeacher.FormClassID = TeacherDA.Instance.GetInchargeClass(mainTeacher.ID);
+                if (!string.IsNullOrEmpty(mainTeacher.FormClassID))
+                {
+                    mainTeacher.Type = TeacherType.FormerTeacher;
+                }
                 if (mainTeacher.ID.ToUpper() == "AD999999")
                 {
                     mainTeacher.Type = TeacherType.SuperUser;
@@ -71,7 +85,6 @@ namespace TutteeFrame2.Controller
                     view.OnReconnect();
                     break;
                 case SessionStatus.NotValid:
-                    Logout();
                     break;
                 case SessionStatus.NoConnection:
                     break;
@@ -79,5 +92,17 @@ namespace TutteeFrame2.Controller
                     break;
             }
         }
+        public async void FetchSchedule()
+        {
+
+        }
+        //public async void GetClasses(string teacherID)
+        //{
+        //    await Task.Delay(600);
+        //    await Task.Run(() =>
+        //    {
+        //        teacher.Classes = TeacherDA.Instance.GetClasses(teacherID);
+        //    });
+        //}
     }
 }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TutteeFrame.Model;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
 using TutteeFrame2.Utils;

@@ -176,7 +176,7 @@ namespace TutteeFrame2.View
 
         private void OnSearching(object sender, EventArgs e)
         {
-            controller.CreateFilter(txtSearch.Text);
+            controller.CreateFilter(txtSearch.Text.ToLower());
         }
     }
 }
