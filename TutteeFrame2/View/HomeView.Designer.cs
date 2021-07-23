@@ -482,9 +482,9 @@ namespace TutteeFrame2.View
             // quanLiGiaoVien
             // 
             this.quanLiGiaoVien.Controls.Add(this.teacherView);
-            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 40);
+            this.quanLiGiaoVien.Location = new System.Drawing.Point(4, 44);
             this.quanLiGiaoVien.Name = "quanLiGiaoVien";
-            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 568);
+            this.quanLiGiaoVien.Size = new System.Drawing.Size(1116, 564);
             this.quanLiGiaoVien.TabIndex = 1;
             this.quanLiGiaoVien.Tag = "1";
             this.quanLiGiaoVien.Text = "Quản lí giáo viên";
@@ -496,7 +496,7 @@ namespace TutteeFrame2.View
             this.teacherView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherView.Location = new System.Drawing.Point(0, 0);
             this.teacherView.Name = "teacherView";
-            this.teacherView.Size = new System.Drawing.Size(1116, 568);
+            this.teacherView.Size = new System.Drawing.Size(1116, 564);
             this.teacherView.TabIndex = 0;
             // 
             // quanLiHocSinh

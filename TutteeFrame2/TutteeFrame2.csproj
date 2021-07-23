@@ -522,6 +522,7 @@
     <None Include="Resources\enemy_spot.png" />
     <None Include="Resources\16015343831562853.png" />
     <None Include="Resources\intro.wav" />
+    <Content Include="Database\TutteeFrame-data.sql" />
     <Content Include="logo_1_removebg_preview_hoi_icon.ico" />
     <Content Include="Resources\logo_1_removebg_preview_hoi_icon.ico" />
     <None Include="Resources\outline_school_black_24dp.png" />

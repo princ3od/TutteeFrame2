@@ -61,7 +61,6 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return false;
             }
             finally
@@ -142,7 +141,6 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return null;
             }
             finally
@@ -205,7 +203,6 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return false;
             }
             finally
@@ -276,7 +273,6 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return null;
             }
             finally
@@ -317,7 +313,6 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return -1;
             }
             finally
@@ -359,7 +354,6 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return null;
             }
             finally
@@ -414,7 +408,6 @@ namespace TutteeFrame2.DataAccess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 return -1;
             }
             finally

@@ -48,10 +48,10 @@ namespace TutteeFrame2.View
                         List<Score> scores = new List<Score>();
                         scores = ScoreboardDA.Instance.GetStudentScore(studentID, subject.ID, 1, grade);
                         subjectScores.Add(subject.ID, scores);
-                        averageSubjectScoreSem1.Add(subject.ID, scores[8].Value);
+                        averageSubjectScoreSem1.Add(subject.ID, scores[7].Value);
                         scores = ScoreboardDA.Instance.GetStudentScore(studentID, subject.ID, 2, grade);
                         subjectScores2.Add(subject.ID, scores);
-                        averageSubjectScoreSem2.Add(subject.ID, scores[8].Value);
+                        averageSubjectScoreSem2.Add(subject.ID, scores[7].Value);
                         double score = -1;
                         score = ScoreboardDA.Instance.GetAverageYearSubjectScore(studentID, subject.ID, grade);
                         averageSubjectScore.Add(subject.ID, score);
