@@ -34,7 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo_1_removebg_preview_hoi_icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
@@ -115,7 +116,7 @@
     <Compile Include="Controls\CircularPicture.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Cs.cs" />
+    <Compile Include="Model\Cs.cs" />
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
     <Compile Include="Model\StudentLearnResult.cs" />
     <Compile Include="Model\School.cs" />
@@ -191,7 +192,7 @@
     <Compile Include="View\Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rim.cs" />
+    <Compile Include="Model\Rim.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\Teaching.cs" />
     <Compile Include="Reports\Data\ReportStudentInfoDS.cs">
@@ -523,7 +524,6 @@
     <None Include="Resources\16015343831562853.png" />
     <None Include="Resources\intro.wav" />
     <Content Include="Database\TutteeFrame-data.sql" />
-    <Content Include="logo_1_removebg_preview_hoi_icon.ico" />
     <Content Include="Resources\logo_1_removebg_preview_hoi_icon.ico" />
     <None Include="Resources\outline_school_black_24dp.png" />
     <None Include="Resources\outline_school_black_24dp1.png" />

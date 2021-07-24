@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutteeFrame2", "TutteeFrame2\TutteeFrame2.csproj", "{89ECFFE3-5745-4ACE-A90A-BE7047EED109}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutteeFrame2.API", "TutteeFrame2.API\TutteeFrame2.API.csproj", "{C22B0ED7-BD37-45CC-B24B-A0660861E03F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutteeFrame2.DataAccess", "TutteeFrame2.DataAccess\TutteeFrame2.DataAccess.csproj", "{177AEADE-E1A6-4E9C-A63F-D890CEA26ACD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{89ECFFE3-5745-4ACE-A90A-BE7047EED109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89ECFFE3-5745-4ACE-A90A-BE7047EED109}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89ECFFE3-5745-4ACE-A90A-BE7047EED109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C22B0ED7-BD37-45CC-B24B-A0660861E03F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22B0ED7-BD37-45CC-B24B-A0660861E03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22B0ED7-BD37-45CC-B24B-A0660861E03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22B0ED7-BD37-45CC-B24B-A0660861E03F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{177AEADE-E1A6-4E9C-A63F-D890CEA26ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{177AEADE-E1A6-4E9C-A63F-D890CEA26ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{177AEADE-E1A6-4E9C-A63F-D890CEA26ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{177AEADE-E1A6-4E9C-A63F-D890CEA26ACD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
