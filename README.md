@@ -42,9 +42,11 @@ A school management application./
 
 - Clone the project
 
-- Intilize database by running database file
+- Intilize database by running file **TutteeFrame-full.sql** in folder *Database*
 
-- Open project with Visual Studio 2019+ and run
+- Open project with Visual Studio and run/build project
+
+- Login with admin account *(Username: AD999999 - Password: 1)*
 ## Authors
 
 - [Dương Bình Trọng](https://www.github.com/princ3od)
@@ -54,5 +56,15 @@ A school management application./
   
 ## Screenshots
 
-*//coming soon..*
-  
+<p float="left" align="center">
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/splash.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/login_screen.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/main_screen.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/teacher_management.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/class_management.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/chart.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/student_transcript.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/same_user.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/no_connection.png" alt="drawing"/>
+ <img src="https://github.com/princ3od/TutteeFrame2/blob/main/Screenshots/confirm_exit.png" alt="drawing"/>
+<p/>
