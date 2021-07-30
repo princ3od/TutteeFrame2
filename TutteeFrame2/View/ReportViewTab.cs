@@ -27,6 +27,7 @@ namespace TutteeFrame2.View
         private void btnPrintResluts_Click(object sender, EventArgs e)
         {
             frmStudentResultReport frmStudentResultReport = new frmStudentResultReport();
+            frmStudentResultReport.SetHome(this.homeView);
             frmStudentResultReport.ShowDialog();
         }
 
