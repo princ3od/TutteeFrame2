@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using TutteeFrame2.Reports.ReportControll;
 using LiveCharts;
 using LiveCharts.Wpf;
@@ -15,16 +7,16 @@ using LiveCharts.Wpf;
 namespace TutteeFrame2.View
 {
     public partial class frmChart : Form
-    {
 
+    {
         private frmChartController controller;
         public frmChart()
         {
             InitializeComponent();
             controller = new frmChartController(this);
             controller.FetchData();
-
         }
+
         public void SetProgressBar(bool visible, String textinfo = "")
         {
             mainProgressbar.Visible = visible;
@@ -32,14 +24,13 @@ namespace TutteeFrame2.View
             lbInformation.Visible = visible;
         }
 
-        private void   btnGenarate_ClickAsync(object sender, EventArgs e)
+        private void btnGenarate_ClickAsync(object sender, EventArgs e)
         {
             SetProgressBar(true, "Đang tạo biểu đồ ...");
-
             cartesianChart.DataTooltip = new LiveCharts.Wpf.DefaultTooltip();
             if (cbbType.Text == "TBHK Lớp")
             {
-                if (cbbSemester.SelectedIndex == 2 || cbbSemester.SelectedIndex==-1)
+                if (cbbSemester.SelectedIndex == 2 || cbbSemester.SelectedIndex == -1)
                 {
                     controller.GeneralChartOfAveragePointOfClass(cbbClass.Text);
                 }
@@ -54,24 +45,22 @@ namespace TutteeFrame2.View
             }
             else if (cbbType.Text == "TBHK Môn-Lớp")
             {
-
-                controller.GeneralChartOfSubjectByClass(cbbClass.Text,cbbSubject.Text,cbbSemester.Text);
+                controller.GeneralChartOfSubjectByClass(cbbClass.Text, cbbSubject.Text, cbbSemester.Text);
             }
-
         }
 
         public void SetCartesianChart()
         {
             var AxesX = new AxesCollection();
             var AxesY = new AxesCollection();
-            
+
             LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
             series.Clear();
 
             if (cbbType.Text == "TBHK Khối")
             {
 
-                AxesX.Add(new LiveCharts.Wpf.Axis
+                AxesX.Add(new Axis
                 {
                     Title = "Điểm trung bình",
                     LabelFormatter = value => value.ToString(),
@@ -79,7 +68,7 @@ namespace TutteeFrame2.View
                     MinValue = 0
 
                 }); ;
-                AxesY.Add(new LiveCharts.Wpf.Axis
+                AxesY.Add(new Axis
                 {
                     Title = "Lớp",
                     Labels = controller.cbbClassItem,
@@ -92,7 +81,7 @@ namespace TutteeFrame2.View
                 objChart.Values = new ChartValues<double>(controller.value);
                 objChart.Title = "Điểm trung bình";
                 objChart.DataLabels = true;
-                objChart.LabelPoint = point => point.X +"";
+                objChart.LabelPoint = point => point.X + "";
                 objChart.LabelsPosition = BarLabelPosition.Top;
                 objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
                 objChart.FontSize = 11;
@@ -101,24 +90,22 @@ namespace TutteeFrame2.View
             }
             else if (cbbType.Text == "TBHK Lớp")
             {
-
-                AxesX.Add(new LiveCharts.Wpf.Axis
+                AxesX.Add(new Axis
                 {
                     Title = "Điểm trung bình",
                     Labels = new[] { "<=1", "<=2", "<=3", "<=4", "<=5", "<=6", "<=7", "<=8", "<=9", "<=10" },
                     Separator = new Separator { Step = 1 },
                     LabelsRotation = -90,
-                    
+
                 });
-                AxesY.Add(new LiveCharts.Wpf.Axis
+                AxesY.Add(new Axis
                 {
                     Title = "Số học sinh",
                     LabelFormatter = value => value.ToString(),
                     MinValue = 0,
                     Separator = new Separator { Step = 1 },
 
-                }); ;
-
+                });
                 var objChart = new ColumnSeries { };
                 objChart.Title = "Số học sinh";
                 objChart.Values = new ChartValues<double>(controller.value);
@@ -127,10 +114,8 @@ namespace TutteeFrame2.View
                 objChart.FontFamily = new System.Windows.Media.FontFamily("Segoe UI");
                 objChart.FontSize = 11;
                 series.Add(objChart);
-                
-
             }
-            else if(cbbType.Text == "TBHK Môn-Lớp")
+            else if (cbbType.Text == "TBHK Môn-Lớp")
             {
                 AxesX.Add(new LiveCharts.Wpf.Axis
                 {
@@ -164,6 +149,7 @@ namespace TutteeFrame2.View
             SetProgressBar(false);
             cartesianChart.Refresh();
         }
+
         private void frmChart_Load(object sender, EventArgs e)
         {
             cartesianChart.AxisX.Add(new LiveCharts.Wpf.Axis
@@ -187,6 +173,7 @@ namespace TutteeFrame2.View
             controller.FilterClassByGrade(cbbGrade.Text);
             FetchClassItem();
         }
+
         public void FetchClassItem()
         {
             if (!cbbClass.Enabled) return;
@@ -196,10 +183,11 @@ namespace TutteeFrame2.View
                 cbbClass.Items.Add(item);
             }
         }
+
         public void FetchSubjectItems()
         {
             cbbSubject.Items.Clear();
-            foreach(var item in controller.cbbSubjectItems)
+            foreach (var item in controller.cbbSubjectItems)
             {
                 cbbSubject.Items.Add(item);
             }
@@ -216,8 +204,6 @@ namespace TutteeFrame2.View
                 cbbSemester.SelectedIndex = -1;
                 cbbGrade.SelectedIndex = -1;
                 cbbClass.SelectedIndex = -1;
-
-
             }
             else if (cbbType.SelectedIndex == 1)
             {
@@ -237,12 +223,6 @@ namespace TutteeFrame2.View
                 cbbSemester.Enabled = true;
                 cbbSubject.Enabled = true;
             }
-        }
-
-        private void cbbClass_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
         }
     }
 }

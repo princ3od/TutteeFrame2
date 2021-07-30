@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
@@ -14,10 +11,12 @@ namespace TutteeFrame2.Controller
         public List<Student> students = new List<Student>();
         public Dictionary<string, List<AverageScore>> averageScoreList = new Dictionary<string, List<AverageScore>>();
         public Dictionary<string, StudentConduct> studentConducts = new Dictionary<string, StudentConduct>();
+
         public FormClassController(FormClassView _view)
         {
             this.view = _view;
         }
+
         public async void FetchData()
         {
             view.Home.SetLoad(true, "Đang lấy danh sách học sinh...");

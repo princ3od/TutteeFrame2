@@ -1,12 +1,8 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
@@ -43,11 +39,13 @@ namespace TutteeFrame2.View
         Dictionary<string, Teaching> teachingSem1 = new Dictionary<string, Teaching>();
         Dictionary<string, Teaching> teachingSem2 = new Dictionary<string, Teaching>();
         Class _class = new Class();
+
         public OneTeacherAssignmentView(string _classID)
         {
             InitializeComponent();
             classID = _classID;
         }
+
         protected async override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -104,12 +102,14 @@ namespace TutteeFrame2.View
             }
             SetLoad(false);
         }
+
         void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;
             mainProgressbar.Visible = lbInformation.Visible = isLoading;
             txtFormTeacher.Enabled = materialTabControl1.Enabled = btnSubmit.Enabled = !isLoading;
         }
+
         void Add(int index, Subject subject)
         {
             MaterialTextfield textfield1 = new MaterialTextfield()

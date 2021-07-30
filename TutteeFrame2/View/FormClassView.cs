@@ -1,12 +1,5 @@
 ﻿using MaterialSurface;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -24,16 +17,19 @@ namespace TutteeFrame2.View
             InitializeComponent();
             controller = new FormClassController(this);
         }
+
         public void Fetch()
         {
             controller.FetchData();
         }
+
         public void SetHome(HomeView _home, Teacher _teacher)
         {
             this.Home = _home;
             mainTeacher = _teacher;
             lbFormClass.Text = _teacher.FormClassID;
         }
+
         public void ShowData()
         {
             if (controller.students == null)
@@ -57,8 +53,6 @@ namespace TutteeFrame2.View
                 if (controller.averageScoreList[controller.students[i].ID][2].Value > -1)
                     listviewStudentInClass.Items[i].SubItems[7].Text = controller.averageScoreList[controller.students[i].ID][2].Value.ToString("F");
                 listviewStudentInClass.Items[i].SubItems[8].Text = controller.studentConducts[controller.students[i].ID].Conducts[2].GetReadableValue();
-
-
             }
         }
 

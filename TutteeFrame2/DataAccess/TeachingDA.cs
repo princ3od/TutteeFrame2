@@ -40,7 +40,7 @@ namespace TutteeFrame2.DataAccess
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 return null;
@@ -246,7 +246,7 @@ namespace TutteeFrame2.DataAccess
                 sqlCommand = new SqlCommand(strQuery, connection);
                 _lastTeachingID = (int)sqlCommand.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //MessageBox.Show(e.Message);
                 return -1;

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -26,21 +21,25 @@ namespace TutteeFrame2.View
             InitializeComponent();
             controller = new StudentScoreboardController(this);
         }
+
         public void SetHome(HomeView homeView)
         {
             Home = homeView;
         }
+
         public void SetMainTeacher(Teacher teacher)
         {
             controller.mainTeacher = teacher;
 
         }
+
         public void Fetch()
         {
             RemoveFlickerHelper.DoubleBufferedGridView(gridviewStudentScore, true);
             lbTeachingSubject.Text = controller.mainTeacher.Subject.Name;
             controller.FetchData();
         }
+
         public void ShowData()
         {
             cbbFilterByClass.Items.Clear();
@@ -70,6 +69,7 @@ namespace TutteeFrame2.View
                 index++;
             }
         }
+
         public void LoadSemester()
         {
             cbbFilterBySemester.Items.Clear();
@@ -96,6 +96,7 @@ namespace TutteeFrame2.View
                 }
             }
         }
+
         private void OnChangeClass(object sender, EventArgs e)
         {
             if (cbbFilterByClass.SelectedIndex < 0)
@@ -126,6 +127,7 @@ namespace TutteeFrame2.View
             gridviewStudentScore.ReadOnly = !controller.teachings[cbbFilterBySemester.SelectedIndex].Editable;
             controller.FetchStudent();
         }
+
         private void OnlyNumberCell(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(OnlyDigit);
@@ -138,6 +140,7 @@ namespace TutteeFrame2.View
                 }
             }
         }
+
         private void OnlyDigit(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
@@ -162,7 +165,6 @@ namespace TutteeFrame2.View
                     gridviewStudentScore.CurrentCell.ErrorText = "Điểm không hợp lệ (>10). Vui lòng nhập lại!";
                 else
                     gridviewStudentScore.CurrentCell.ErrorText = string.Empty;
-
             }
             List<Score> scores = new List<Score>();
             if (fullScore)
@@ -212,7 +214,8 @@ namespace TutteeFrame2.View
 
         private void OnUpdate(object sender, EventArgs e)
         {
-            controller.UpdateStudentScore(gridviewStudentScore.Rows, controller.mainTeacher.Subject.ID, semesterFilter, Int32.Parse(classFilter.Substring(0, 2)));
+            controller.UpdateStudentScore(gridviewStudentScore.Rows, controller.mainTeacher.Subject.ID, semesterFilter, 
+                Int32.Parse(classFilter.Substring(0, 2)));
         }
     }
 }

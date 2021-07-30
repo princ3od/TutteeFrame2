@@ -1,8 +1,5 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
-using System.Data;
-using System.IO;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using TutteeFrame.Reports.ReportModel;
 using TutteeFrame2.Controller;
@@ -23,7 +20,7 @@ namespace TutteeFrame2.Reports
         ReportStudentController reportStudentController;
         ReportStudentResultController reportStudentResultController;
         private TypePrint typePrint;
-        private TutteeFrame.Reports.ReportModel.InformationOfStudentResultPrepareForPrint informationOfStudent = new InformationOfStudentResultPrepareForPrint();
+        private InformationOfStudentResultPrepareForPrint informationOfStudent = new InformationOfStudentResultPrepareForPrint();
         public StudentInfoReporter(TypePrint typePrint, ReportStudentController reportStudentController,
             ReportStudentResultController reportStudentResultController)
         {

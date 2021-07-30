@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -15,7 +9,6 @@ using TutteeFrame2.Reports;
 namespace TutteeFrame2.View
 {
     public partial class frmStudentInfoReport : Form
-
     {
         #region Win32 Form
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -48,13 +41,14 @@ namespace TutteeFrame2.View
         public GradeFilter gradeFilter = GradeFilter.All;
         public string classFilter = "Tất cả";
         public ReportStudentController controller;
+
         public void SetHome(HomeView homeView)
         {
             this.homeView = homeView;
         }
+
         public frmStudentInfoReport()
         {
-
             controller = new ReportStudentController(this);
             controller.FetchData();
             InitializeComponent();
@@ -76,7 +70,6 @@ namespace TutteeFrame2.View
         }
         public void ShowStudentsOnListView()
         {
-
             listViewStudents.Items.Clear();
             foreach (Student student in controller.students)
             {
@@ -86,8 +79,8 @@ namespace TutteeFrame2.View
                 lvi.Tag = student;
                 listViewStudents.Items.Add(lvi);
             }
-
         }
+
         public void FetchCbbClassItems()
         {
             cbbFilterByClass.Items.Clear();

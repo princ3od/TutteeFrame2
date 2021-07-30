@@ -211,7 +211,7 @@ namespace TutteeFrame2.DataAccess
                 Disconnect();
                 return nameTeacher;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }

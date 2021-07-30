@@ -1,12 +1,5 @@
 ﻿using MaterialSurface;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Model;
 
@@ -18,10 +11,10 @@ namespace TutteeFrame2.View
         public DetailSubject(ref object input)
         {
             InitializeComponent();
-         
-            if(input is Subject)
+
+            if (input is Subject)
             {
-                
+
                 this.subject = (Subject)input;
                 LoadData();
             }
@@ -35,7 +28,8 @@ namespace TutteeFrame2.View
             }
             txtSubjectId.Enabled = false;
         }
-        public  void LoadData()
+
+        public void LoadData()
         {
             txtSubjectId.Text = this.subject.ID;
             txtNameSubject.Text = this.subject.Name;
@@ -55,7 +49,7 @@ namespace TutteeFrame2.View
 
         private void btnAccepte_Click(object sender, EventArgs e)
         {
-            if(txtNameSubject.Text!="" && txtSubjectId.Text !="")
+            if (txtNameSubject.Text != "" && txtSubjectId.Text != "")
             {
                 subject.ID = txtSubjectId.Text;
                 subject.Name = txtNameSubject.Text;
@@ -64,7 +58,7 @@ namespace TutteeFrame2.View
             }
             else
             {
-                Dialog.Show(this,"Dữ liệu không hợp lệ",tittle:"Cảnh báo");
+                Dialog.Show(this, "Dữ liệu không hợp lệ", tittle: "Cảnh báo");
             }
         }
     }

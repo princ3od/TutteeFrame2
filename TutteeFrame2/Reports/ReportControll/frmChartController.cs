@@ -1,12 +1,7 @@
-﻿using LiveCharts;
-using LiveCharts.Wpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms.DataVisualization.Charting;
 using TutteeFrame2.Reports.ReportDataAccess;
 using TutteeFrame2.Reports.ReportModel;
 using TutteeFrame2.View;
@@ -207,107 +202,107 @@ namespace TutteeFrame2.Reports.ReportControll
         public async void GeneralChartOfSubjectByClass(String cbbClass, String cbbSubject, String cbbSemester)
         {
             bool avalible = true;
-            var t = Task.Run(() =>
-            {
-                List<StudentSubjectScore> studentSubjectScores = new List<StudentSubjectScore>();
-                int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                bool isSemester;
-                String semester = $"{cbbSemester}";
-                isSemester = semester == "Cả năm" ? false : true;
-                foreach (var item in orinalStudentSubjectScore)
-                {
-                    String itemSemester = $"Học kì {item.semester}";
-                    if (item.classID == cbbClass && item.subjectName == cbbSubject && itemSemester == semester)
-                    {
-                        studentSubjectScores.Add(item);
+            await Task.Run(() =>
+             {
+                 List<StudentSubjectScore> studentSubjectScores = new List<StudentSubjectScore>();
+                 int[] y = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                 bool isSemester;
+                 String semester = $"{cbbSemester}";
+                 isSemester = semester == "Cả năm" ? false : true;
+                 foreach (var item in orinalStudentSubjectScore)
+                 {
+                     String itemSemester = $"Học kì {item.semester}";
+                     if (item.classID == cbbClass && item.subjectName == cbbSubject && itemSemester == semester)
+                     {
+                         studentSubjectScores.Add(item);
 
-                    }
-                    else
-                    {
+                     }
+                     else
+                     {
 
-                        if (item.classID == cbbClass && item.subjectName == cbbSubject && "Cả năm" == semester)
-                        {
-                            studentSubjectScores.Add(item);
+                         if (item.classID == cbbClass && item.subjectName == cbbSubject && "Cả năm" == semester)
+                         {
+                             studentSubjectScores.Add(item);
 
-                        }
-                    }
-                }
-                if (isSemester)
-                {
-                    for (int i = 0; i < 10 && avalible; i++)
-                    {
-                        for (int j = 0; j < studentSubjectScores.Count && avalible; j++)
-                        {
-                            if (studentSubjectScores[j].subjectAverage <= i + 1)
-                            {
-                                if (studentSubjectScores[j].subjectAverage < 0)
-                                {
-                                    avalible = false;
-                                    break;
-                                }
-                                y[i] += 1;
-                                studentSubjectScores.Remove(studentSubjectScores[j]);
-                                j -= 1;
-                            }
-                        }
-                    }
-                }
-                else
-                {
+                         }
+                     }
+                 }
+                 if (isSemester)
+                 {
+                     for (int i = 0; i < 10 && avalible; i++)
+                     {
+                         for (int j = 0; j < studentSubjectScores.Count && avalible; j++)
+                         {
+                             if (studentSubjectScores[j].subjectAverage <= i + 1)
+                             {
+                                 if (studentSubjectScores[j].subjectAverage < 0)
+                                 {
+                                     avalible = false;
+                                     break;
+                                 }
+                                 y[i] += 1;
+                                 studentSubjectScores.Remove(studentSubjectScores[j]);
+                                 j -= 1;
+                             }
+                         }
+                     }
+                 }
+                 else
+                 {
 
-                    for (int j = 0; j < studentSubjectScores.Count && avalible; j++)
-                    {
-                        double S = studentSubjectScores[j].subjectAverage;
-                        if (S < 0)
-                        {
-                            avalible = false;
-                            break;
-                        }
-                        int count = 1;
-                        for (int q = j + 1; q < studentSubjectScores.Count && avalible; q++)
-                        {
-                            if (studentSubjectScores[q].subjectAverage < 0)
-                            {
-                                avalible = false;
-                                break;
+                     for (int j = 0; j < studentSubjectScores.Count && avalible; j++)
+                     {
+                         double S = studentSubjectScores[j].subjectAverage;
+                         if (S < 0)
+                         {
+                             avalible = false;
+                             break;
+                         }
+                         int count = 1;
+                         for (int q = j + 1; q < studentSubjectScores.Count && avalible; q++)
+                         {
+                             if (studentSubjectScores[q].subjectAverage < 0)
+                             {
+                                 avalible = false;
+                                 break;
 
-                            }
-                            if (studentSubjectScores[q].studentID == studentSubjectScores[j].studentID)
-                            {
-                                S += studentSubjectScores[q].subjectAverage;
-                                if (q > j) studentSubjectScores.Remove(studentSubjectScores[q]);
-                                count = 2;
-                                break;
-                            }
-                        }
-                        if (count == 2 && avalible)
-                        {
-                            var myInt = (int)Math.Ceiling(S / 2);
-                            y[myInt] += 1;
-                            if (j <= studentSubjectScores.Count)
-                            {
-                                studentSubjectScores.Remove(studentSubjectScores[j]);
-                                j -= 1;
-                            }
-                           
-                        }
-                        else
-                        {
-                            avalible = false;
-                        }
-                    }
+                             }
+                             if (studentSubjectScores[q].studentID == studentSubjectScores[j].studentID)
+                             {
+                                 S += studentSubjectScores[q].subjectAverage;
+                                 if (q > j) studentSubjectScores.Remove(studentSubjectScores[q]);
+                                 count = 2;
+                                 break;
+                             }
+                         }
+                         if (count == 2 && avalible)
+                         {
+                             var myInt = (int)Math.Ceiling(S / 2);
+                             y[myInt] += 1;
+                             if (j <= studentSubjectScores.Count)
+                             {
+                                 studentSubjectScores.Remove(studentSubjectScores[j]);
+                                 j -= 1;
+                             }
 
-                }
+                         }
+                         else
+                         {
+                             avalible = false;
+                         }
+                     }
 
-                value.Clear();
-                if (avalible)
-                    for (int i = 0; i < y.Length; i++)
-                    {
-                        value.Add(y[i]);
-                    }
+                 }
 
-            });
-            t.Wait();
+                 value.Clear();
+                 if (avalible)
+                     for (int i = 0; i < y.Length; i++)
+                     {
+                         value.Add(y[i]);
+                     }
+
+             });
+
             if (avalible)
             {
                 frmchart.SetCartesianChart();

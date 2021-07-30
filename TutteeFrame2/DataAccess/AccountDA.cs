@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using TutteeFrame2.Model;
 namespace TutteeFrame2.DataAccess
@@ -31,7 +28,7 @@ namespace TutteeFrame2.DataAccess
                     sqlCommand.ExecuteNonQuery();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -59,7 +56,7 @@ namespace TutteeFrame2.DataAccess
                     command.ExecuteNonQuery();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -98,7 +95,7 @@ namespace TutteeFrame2.DataAccess
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -129,7 +126,7 @@ namespace TutteeFrame2.DataAccess
                         accounts.Add(account);
                     }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }

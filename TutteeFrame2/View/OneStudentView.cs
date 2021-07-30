@@ -1,18 +1,13 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
-using TutteeFrame2.Utils;
 namespace TutteeFrame2.View
 {
     public partial class OneStudentView : Form
@@ -44,6 +39,7 @@ namespace TutteeFrame2.View
         public bool doneSuccess = false;
         StudentView studentView;
         List<Class> classes = new List<Class>();
+
         public OneStudentView(object passValue, StudentView studentView)
         {
             InitializeComponent();
@@ -69,6 +65,7 @@ namespace TutteeFrame2.View
             }
             this.studentView = studentView;
         }
+
         protected async override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -90,11 +87,13 @@ namespace TutteeFrame2.View
             }
             OnFirstLoad();
         }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             studentView.homeView.Activate();
         }
+
         void OnFirstLoad()
         {
             if (mode == Mode.Edit && student != null)
@@ -120,6 +119,7 @@ namespace TutteeFrame2.View
                 }
             }
         }
+
         void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;
@@ -145,6 +145,7 @@ namespace TutteeFrame2.View
             student.Status = cbbStatus.SelectedIndex == 0 ? false : true;
             student.Avatar = ptbAvatar.Image;
         }
+
         private void OnClickConfirmButton(object sender, EventArgs e)
         {
             FetchDataOfStudentFromUI();
@@ -154,9 +155,8 @@ namespace TutteeFrame2.View
                 return;
             }
             OnUpdateData();
-
-
         }
+
         private bool CheckeInputValue()
         {
             if (lbID.Text == "") return false;
@@ -171,7 +171,6 @@ namespace TutteeFrame2.View
             return true;
 
         }
-
 
         private async void OnUpdateData()
         {
@@ -206,7 +205,6 @@ namespace TutteeFrame2.View
                 }
                 this.studentView.FetchData();
                 this.Close();
-
             }
             else
             {
@@ -218,12 +216,11 @@ namespace TutteeFrame2.View
 
         private void btnChooseAvatar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog of = new OpenFileDialog();
-            of.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
-            if (of.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                ptbAvatar.ImageLocation = of.FileName;
-
+                ptbAvatar.ImageLocation = openFileDialog.FileName;
             }
         }
     }

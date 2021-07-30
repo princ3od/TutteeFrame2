@@ -36,7 +36,7 @@ namespace TutteeFrame2.DataAccess
                     return dataTable;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
 

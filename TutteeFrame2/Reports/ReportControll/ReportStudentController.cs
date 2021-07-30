@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TutteeFrame2.Model;
 using TutteeFrame2.View;
-using System.Data.SqlClient;
-using Microsoft.Reporting.WinForms;
 using System.Data;
 using TutteeFrame2.DataAccess;
 

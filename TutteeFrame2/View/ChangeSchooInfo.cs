@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -30,10 +24,11 @@ namespace TutteeFrame2.View
             }
         }
         #endregion
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
+
         private void ChangeSchoolInfo_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -43,12 +38,12 @@ namespace TutteeFrame2.View
             }
         }
 
-        private void FetchData()
+        private async void FetchData()
         {
             lbInformation.Visible = true;
             lbInformation.Text = "Đang thực hiển đồng bộ hóa dữ liệu...";
             mainProgressbar.Visible = true;
-            schoolInfoController.FetchDataAsync();
+            await schoolInfoController.FetchDataAsync();
         }
 
         public void ShowData()
@@ -59,7 +54,6 @@ namespace TutteeFrame2.View
             lbInformation.Visible = false;
             mainProgressbar.Visible = false;
         }
-
 
         public ChangeSchooInfo(String userID)
         {
@@ -81,11 +75,7 @@ namespace TutteeFrame2.View
                 btnSubmit.Enabled = false;
             }
             schoolInfoController = new SchoolInfoController(this, this.userID);
-
-
         }
-
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -111,7 +101,6 @@ namespace TutteeFrame2.View
             if (of.ShowDialog() == DialogResult.OK)
             {
                 ptbAvatar.ImageLocation = of.FileName;
-
             }
         }
 

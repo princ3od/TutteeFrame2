@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.DataAccess
@@ -46,7 +42,7 @@ namespace TutteeFrame2.DataAccess
                 connection = new SqlConnection(strConnect);
                 connection.Open();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -69,7 +65,7 @@ namespace TutteeFrame2.DataAccess
                 connection = new SqlConnection(strConnect);
                 connection.Open();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //MessageBox.Show(e.Message);
                 return false;

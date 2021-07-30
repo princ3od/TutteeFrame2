@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace TutteeFrame2.Reports.ReportModel
 {
-   public class InfomationOfStudensResultOfClassPrepareToPrint
+    public class InfomationOfStudensResultOfClassPrepareToPrint
 
     {
         public DataSet BaseInforSchool = new DataSet();

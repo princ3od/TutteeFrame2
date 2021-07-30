@@ -1,31 +1,24 @@
 ﻿using MaterialSurface;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
 using TutteeFrame2.Utils;
-using static System.Windows.Forms.ListView;
 
 namespace TutteeFrame2.View
 {
     public partial class SubjectView : UserControl
     {
-
         readonly SubjectController subjectController;
         public HomeView homeView;
+
         public SubjectView()
         {
             InitializeComponent();
             subjectController = new SubjectController(this);
 
         }
+
         /// <summary>
         /// Set HomeView for this View
         /// </summary>
@@ -56,7 +49,6 @@ namespace TutteeFrame2.View
         private void btnAddNewSubject_Click(object sender, EventArgs e)
         {
             string subjectID;
-
             do
             {
                 subjectID = "SJ" + IdentifierFactory.GenerateNumberID(length: 4);
@@ -71,7 +63,6 @@ namespace TutteeFrame2.View
                 subjectController.AddSubject((Subject)subject);
             }
             homeView.Activate();
-
         }
 
         private void btnEditSubject_Click(object sender, EventArgs e)
@@ -104,9 +95,7 @@ namespace TutteeFrame2.View
                 {
                     subjectController.DeleteSubject(subject);
                 }
-
             }
         }
     }
-
 }

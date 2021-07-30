@@ -1,11 +1,6 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
@@ -19,15 +14,18 @@ namespace TutteeFrame2.View
         List<Class> classes = new List<Class>();
         bool firstLoad = true;
         HomeView Home;
+
         public TeacherAssignmentView()
         {
             InitializeComponent();
             cbbFilterByGrade.SelectedIndex = 0;
         }
+
         public void SetHome(HomeView homeView)
         {
             Home = homeView;
         }
+
         public async void Fetch()
         {
             listViewTeachingClass.Items.Clear();
@@ -44,6 +42,7 @@ namespace TutteeFrame2.View
             if (firstLoad)
                 firstLoad = false;
         }
+
         private async void OnChangeGrade(object sender, EventArgs e)
         {
             if (firstLoad)

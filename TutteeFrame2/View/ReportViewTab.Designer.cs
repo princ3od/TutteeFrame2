@@ -1,7 +1,7 @@
 ﻿
 namespace TutteeFrame2.View
 {
-    partial class ReportViewTag
+    partial class ReportViewTab
     {
         /// <summary> 
         /// Required designer variable.

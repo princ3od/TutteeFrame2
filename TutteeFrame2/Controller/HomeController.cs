@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.View;
-using MaterialSkin.Controls;
 using TutteeFrame2.Model;
 
 namespace TutteeFrame2.Controller
@@ -92,17 +87,5 @@ namespace TutteeFrame2.Controller
                     break;
             }
         }
-        public async void FetchSchedule()
-        {
-
-        }
-        //public async void GetClasses(string teacherID)
-        //{
-        //    await Task.Delay(600);
-        //    await Task.Run(() =>
-        //    {
-        //        teacher.Classes = TeacherDA.Instance.GetClasses(teacherID);
-        //    });
-        //}
     }
 }

@@ -1,12 +1,6 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -37,12 +31,14 @@ namespace TutteeFrame2.View
         public RoleFilter roleFilter = RoleFilter.All;
         public string subjectFilter = "";
         TeacherController controller;
+
         public TeacherView()
         {
             InitializeComponent();
             DoubleBuffered = true;
             controller = new TeacherController(this);
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -51,14 +47,17 @@ namespace TutteeFrame2.View
             cbbRole.SelectedIndex = 0;
             cbbSortBy.SelectedIndex = 0;
         }
+
         public void SetHome(HomeView _homeView)
         {
             Home = _homeView;
         }
+
         public void Fetch()
         {
             controller.FetchData();
         }
+
         public void ShowSubjects(List<Subject> subjects)
         {
             cbbSubject.Items.Clear();
@@ -69,6 +68,7 @@ namespace TutteeFrame2.View
             }
             cbbSubject.SelectedIndex = 0;
         }
+
         public void ShowData()
         {
             listviewTeacher.Items.Clear();
@@ -82,12 +82,14 @@ namespace TutteeFrame2.View
                 index++;
             }
         }
+
         public void SetNumberLabel(int ministryNum, int adminNum)
         {
             lbTotalMinistry.Text = ministryNum.ToString("00");
             lbTotalAdmin.Text = adminNum.ToString("00");
             lbTotalTeacher.Text = controller.teachers.Count.ToString("00");
         }
+
         public void ShowDeleteResult(TeacherController.DeleteResult result)
         {
             switch (result)
@@ -103,6 +105,7 @@ namespace TutteeFrame2.View
                     break;
             }
         }
+
         private void OnSortTypeChanged(object sender, EventArgs e)
         {
             if (cbbSortBy.SelectedIndex < 0 || firstLoad)
@@ -134,6 +137,7 @@ namespace TutteeFrame2.View
         {
             btnUpdate.Enabled = btnDelete.Enabled = !(listviewTeacher.SelectedItems.Count <= 0);
         }
+
         private void OnAddTeacher(object sender, EventArgs e)
         {
             OneTeacherView frmTeacher = new OneTeacherView(Mode.Add);

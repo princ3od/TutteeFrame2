@@ -1,8 +1,5 @@
 ﻿using MaterialSurface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
@@ -21,6 +18,7 @@ namespace TutteeFrame2.Controller
         {
             view = _view;
         }
+
         public async Task FetchFault()
         {
             if (isLoading)
@@ -55,6 +53,7 @@ namespace TutteeFrame2.Controller
             isLoading = false;
             view.Home.SetLoad(isLoading);
         }
+
         public async void DeletePunishment(string punishmentID)
         {
             view.Home.SetLoad(true, "Đang xoá vi phạm...");

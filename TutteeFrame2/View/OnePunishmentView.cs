@@ -39,6 +39,7 @@ namespace TutteeFrame2.View
         OpenMode openMode;
         public enum Mode { Add = 0, Edit = 1 };
         Mode mode;
+
         public OnePunishmentView(string _studentID, Mode _mode, OpenMode _openMode, string _punishmentID = "")
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace TutteeFrame2.View
             this.studentID = _studentID;
             punishmentID = _punishmentID;
         }
+
         protected async override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -112,10 +114,12 @@ namespace TutteeFrame2.View
                     break;
             }
         }
+
         private void OnExit(object sender, EventArgs e)
         {
             this.Close();
         }
+
         void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;

@@ -139,7 +139,6 @@ namespace TutteeFrame2.View
             this.cbbClass.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
             this.cbbClass.Size = new System.Drawing.Size(199, 44);
             this.cbbClass.TabIndex = 71;
-            this.cbbClass.SelectedIndexChanged += new System.EventHandler(this.cbbClass_SelectedIndexChanged);
             // 
             // cbbSemester
             // 

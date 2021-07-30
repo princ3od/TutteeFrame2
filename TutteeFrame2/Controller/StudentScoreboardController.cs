@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TutteeFrame2.View;
 using TutteeFrame2.Model;
-using TutteeFrame2.Utils;
 using TutteeFrame2.DataAccess;
 using MaterialSurface;
 using System.Windows.Forms;

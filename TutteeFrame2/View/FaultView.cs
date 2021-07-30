@@ -1,12 +1,5 @@
 ﻿using MaterialSurface;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -20,22 +13,26 @@ namespace TutteeFrame2.View
         public HomeView Home;
         public Teacher mainTeacher;
         public bool firstLoad = true;
+
         public FaultView()
         {
             InitializeComponent();
             DoubleBuffered = true;
             controller = new FaultController(this);
         }
+
         public void SetHome(HomeView _home, Teacher _teacher)
         {
             this.Home = _home;
             mainTeacher = _teacher;
             lbFormClass.Text = _teacher.FormClassID;
         }
+
         public async void Fetch()
         {
             await controller.FetchFault();
         }
+
         public void ShowData()
         {
             lbTotalFault.Text = controller.punishments.Count.ToString();

@@ -1,12 +1,7 @@
-﻿using MaterialSurface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TutteeFrame2.Model;
 
 namespace TutteeFrame2.DataAccess
@@ -52,7 +47,7 @@ namespace TutteeFrame2.DataAccess
                 };
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -84,7 +79,7 @@ namespace TutteeFrame2.DataAccess
                     sqlCommand.ExecuteNonQuery();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -118,7 +113,7 @@ namespace TutteeFrame2.DataAccess
                     sqlCommand.ExecuteNonQuery();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -151,7 +146,7 @@ namespace TutteeFrame2.DataAccess
                 sqlCommand.Parameters.Add("@sbjId", SqlDbType.VarChar).Value = subject.ID;
                 sqlCommand.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return false;

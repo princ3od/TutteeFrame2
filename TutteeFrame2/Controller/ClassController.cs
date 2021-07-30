@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
@@ -13,10 +10,12 @@ namespace TutteeFrame2.Controller
     {
         ClassView view;
         public List<Class> classes;
+
         public ClassController(ClassView view)
         {
             this.view = view;
         }
+
         public async void FetchData()
         {
             if (view.firstLoad)
@@ -26,6 +25,7 @@ namespace TutteeFrame2.Controller
             view.ShowData();
             view.Home.SetLoad(false);
         }
+
         public async void DeleteClass(string classID)
         {
             view.Home.SetLoad(true, "Đang xoá vi phạm...");

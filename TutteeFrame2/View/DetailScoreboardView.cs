@@ -1,11 +1,7 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
@@ -25,6 +21,7 @@ namespace TutteeFrame2.View
         Dictionary<string, double> averageSubjectScoreSem1 = new Dictionary<string, double>();
         Dictionary<string, double> averageSubjectScoreSem2 = new Dictionary<string, double>();
         List<AverageScore> averageScores = new List<AverageScore>(3);
+
         public DetailScoreboardView(string _studentID, string _studentName, int _grade)
         {
             InitializeComponent();
@@ -67,17 +64,15 @@ namespace TutteeFrame2.View
             }
             cbbSemester.SelectedIndex = 0;
         }
+
         private void OnSemesterChanged(object sender, EventArgs e)
         {
             SetLoad(true, "Đang tải bảng điểm...");
             lbScoreTittle.Text = string.Format("Bảng điểm của học sinh {0} ({1}) - HK {2} - năm {3}", studentName, studentID, cbbSemester.Text, DateTime.Now.Year.ToString());
             gridviewStudentScore.Rows.Clear();
-
-            LearniningCapacity learniningCapacitySemester = new LearniningCapacity();
-            LearniningCapacity learniningCapacityYear = new LearniningCapacity();
             int semester = Int32.Parse(cbbSemester.Text);
-            learniningCapacitySemester = new LearniningCapacity(averageScores, averageSubjectScoreSem1.Values.ToList(), averageSubjectScoreSem2.Values.ToList(), semester);
-            learniningCapacityYear = new LearniningCapacity(averageScores, averageSubjectScoreSem1.Values.ToList(), averageSubjectScoreSem2.Values.ToList(), 3);
+            LearniningCapacity learniningCapacitySemester = new LearniningCapacity(averageScores, averageSubjectScoreSem1.Values.ToList(), averageSubjectScoreSem2.Values.ToList(), semester);
+            LearniningCapacity learniningCapacityYear = new LearniningCapacity(averageScores, averageSubjectScoreSem1.Values.ToList(), averageSubjectScoreSem2.Values.ToList(), 3);
             int index = 0;
             if (averageScores != null && learniningCapacitySemester != null)
                 lbLearningCapacitySem.Text = string.Format("Điểm trung bình HK {0}: {1} - Học lực: {2}", semester.ToString(),
@@ -97,10 +92,9 @@ namespace TutteeFrame2.View
                             if (subjectScores[subject.ID][i].Value != -1)
                                 gridviewStudentScore.Rows[index].Cells[i + 1].Value = subjectScores[subject.ID][i].Value;
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             break;
-                            //MessageBox.Show(ex.Message);
                         }
                     }
                     if (averageSubjectScore[subject.ID] != -1)
@@ -116,10 +110,9 @@ namespace TutteeFrame2.View
                             if (subjectScores2[subject.ID][i].Value != -1)
                                 gridviewStudentScore.Rows[index].Cells[i + 1].Value = subjectScores2[subject.ID][i].Value;
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             break;
-                            //MessageBox.Show(ex.Message);
                         }
                     }
                     if (averageSubjectScore[subject.ID] != -1)
@@ -129,6 +122,7 @@ namespace TutteeFrame2.View
             }
             SetLoad(false);
         }
+
         public void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;
@@ -136,6 +130,7 @@ namespace TutteeFrame2.View
             cbbSemester.Enabled = gridviewStudentScore.Enabled = !isLoading;
 
         }
+
         private void OnExit(object sender, EventArgs e)
         {
             this.Close();

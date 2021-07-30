@@ -1,11 +1,5 @@
 ﻿using MaterialSurface;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
@@ -18,12 +12,14 @@ namespace TutteeFrame2.View
         string studentID;
         int grade;
         public bool doneSet = false;
+
         public UpdateConductView(string _studentID, int _grade)
         {
             InitializeComponent();
             studentID = _studentID;
             grade = _grade;
         }
+
         protected async override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -56,6 +52,7 @@ namespace TutteeFrame2.View
             lbSex.Text = string.Format("Giới tính: {0}", student.GetSex);
             SetLoad(false);
         }
+
         public void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;

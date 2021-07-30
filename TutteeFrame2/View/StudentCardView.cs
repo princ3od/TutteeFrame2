@@ -1,15 +1,8 @@
 ﻿using MaterialSurface;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TutteeFrame2.Controller;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
 
@@ -53,6 +46,7 @@ namespace TutteeFrame2.View
         {
             this.Close();
         }
+
         protected async override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -76,6 +70,7 @@ namespace TutteeFrame2.View
             lbPhone.Text = lbPhone.Text.Replace("--", student.Phone);
             SetLoad(false);
         }
+
         public void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;

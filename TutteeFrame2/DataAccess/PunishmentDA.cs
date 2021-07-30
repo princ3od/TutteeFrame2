@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Model;
 
@@ -48,7 +45,7 @@ namespace TutteeFrame2.DataAccess
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 return null;
@@ -83,7 +80,7 @@ namespace TutteeFrame2.DataAccess
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 return null;
@@ -118,7 +115,7 @@ namespace TutteeFrame2.DataAccess
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 return null;
@@ -147,7 +144,7 @@ namespace TutteeFrame2.DataAccess
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 return null;

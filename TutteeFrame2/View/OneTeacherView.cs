@@ -1,12 +1,8 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
@@ -44,6 +40,7 @@ namespace TutteeFrame2.View
         public Teacher teacher;
         public bool doneSuccess = false;
         List<Subject> subjects = new List<Subject>();
+
         public OneTeacherView(Mode _mode, string _teacherID = null)
         {
             InitializeComponent();
@@ -52,6 +49,7 @@ namespace TutteeFrame2.View
                 teacherID = _teacherID;
             mode = _mode;
         }
+
         protected async override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

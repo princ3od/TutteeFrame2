@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Reports.ReportModel;
 
@@ -44,15 +40,17 @@ namespace TutteeFrame2.Reports.ReportDataAccess
                             result.averageSE02 = (float)reader.GetDouble(3);
                         results.Add(result);
                     }
-                    Disconnect();
                     return results;
 
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(e.Message);
                 return null;
+            }
+            finally
+            {
+                Disconnect();
             }
 
         }
@@ -88,16 +86,17 @@ namespace TutteeFrame2.Reports.ReportDataAccess
                         StudentSubjectScore item = new StudentSubjectScore(studentID, classID, subjectID, subjectName, semester, subjectAverage);
                         results.Add(item);
                     }
-                    Disconnect();
                     return results;
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(e.Message);
-                Disconnect();
                 return null;
+            }
+            finally
+            {
+                Disconnect();
             }
         }
     }

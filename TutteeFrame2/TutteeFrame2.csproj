@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo_1_removebg_preview_hoi_icon.ico</ApplicationIcon>
+    <ApplicationIcon>TutteeFrame_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
@@ -115,7 +115,7 @@
     <Compile Include="Controls\CircularPicture.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Cs.cs" />
+    <Compile Include="Model\Cs.cs" />
     <Compile Include="DataAccess\PrepareToPrintDA.cs" />
     <Compile Include="Model\StudentLearnResult.cs" />
     <Compile Include="Model\School.cs" />
@@ -191,7 +191,7 @@
     <Compile Include="View\Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Rim.cs" />
+    <Compile Include="Model\Rim.cs" />
     <Compile Include="Model\Session.cs" />
     <Compile Include="Model\Teaching.cs" />
     <Compile Include="Reports\Data\ReportStudentInfoDS.cs">
@@ -289,12 +289,6 @@
     <Compile Include="View\OneStudentView.Designer.cs">
       <DependentUpon>OneStudentView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ScheduleView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\ScheduleView.Designer.cs">
-      <DependentUpon>ScheduleView.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\OneTeacherAssignmentView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,11 +319,11 @@
     <Compile Include="View\StudentScoreboardView.Designer.cs">
       <DependentUpon>StudentScoreboardView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ReportViewTag.cs">
+    <Compile Include="View\ReportViewTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\ReportViewTag.Designer.cs">
-      <DependentUpon>ReportViewTag.cs</DependentUpon>
+    <Compile Include="View\ReportViewTab.Designer.cs">
+      <DependentUpon>ReportViewTab.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StudentView.cs">
       <SubType>UserControl</SubType>
@@ -352,7 +346,6 @@
     <Compile Include="Model\Account.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\PasswordHasher.cs" />
     <Compile Include="View\LoginView.cs">
       <SubType>Form</SubType>
@@ -462,8 +455,8 @@
     <EmbeddedResource Include="View\StudentScoreboardView.resx">
       <DependentUpon>StudentScoreboardView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ReportViewTag.resx">
-      <DependentUpon>ReportViewTag.cs</DependentUpon>
+    <EmbeddedResource Include="View\ReportViewTab.resx">
+      <DependentUpon>ReportViewTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StudentView.resx">
       <DependentUpon>StudentView.cs</DependentUpon>
@@ -522,8 +515,8 @@
     <None Include="Resources\enemy_spot.png" />
     <None Include="Resources\16015343831562853.png" />
     <None Include="Resources\intro.wav" />
-    <Content Include="Database\TutteeFrame-data.sql" />
-    <Content Include="logo_1_removebg_preview_hoi_icon.ico" />
+    <Content Include="Database\TutteeFrame-full.sql" />
+    <Content Include="TutteeFrame_icon.ico" />
     <Content Include="Resources\logo_1_removebg_preview_hoi_icon.ico" />
     <None Include="Resources\outline_school_black_24dp.png" />
     <None Include="Resources\outline_school_black_24dp1.png" />
@@ -595,7 +588,7 @@
     <None Include="Resources\WaitCurser.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\TutteeFrame02.sql" />
+    <Content Include="Database\TutteeFrame02-schema-only.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

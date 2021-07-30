@@ -30,6 +30,7 @@ namespace TutteeFrame2.View
         HomeController controller;
         public bool isChildShowing = false;
         NoConnectionView noConnectionView;
+
         public HomeView()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace TutteeFrame2.View
             if (Dialog.Show(this, "Bạn chắc chắn muốn thoát?", "Xác nhận", Buttons.YesNo) == DialogResult.No)
                 e.Cancel = true;
         }
+
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
@@ -159,12 +161,14 @@ namespace TutteeFrame2.View
         {
             noConnectionView?.Close();
         }
+
         public void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;
             mainProgressbar.Visible = lbInformation.Visible = isLoading;
             mainTabControl.Enabled = !isLoading;
         }
+
         private void OnLogout(object sender, EventArgs e)
         {
             controller.Logout();
@@ -238,13 +242,12 @@ namespace TutteeFrame2.View
             OverlayForm _ = new OverlayForm(this, changePassView);
             changePassView.Show();
         }
+
         private void OnChangeSchoolInfo(object sender, EventArgs e)
         {
             ChangeSchooInfo changeSchoolInfoView = new ChangeSchooInfo(controller.mainTeacher.ID.ToUpper());
             OverlayForm _ = new OverlayForm(this, changeSchoolInfoView);
             changeSchoolInfoView.Show();
         }
-
-
     }
 }

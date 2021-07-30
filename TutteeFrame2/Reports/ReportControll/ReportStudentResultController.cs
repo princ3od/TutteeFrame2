@@ -2,16 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Reports.ReportModel;
 using TutteeFrame2.View;
 
 namespace TutteeFrame2.Reports.ReportControll
 {
-   public class ReportStudentResultController
+    public class ReportStudentResultController
     {
         public frmStudentResultReport frmStudentResultReport;
         private MaterialSurface.MaterialComboBox cbbSemester;
@@ -169,12 +166,10 @@ namespace TutteeFrame2.Reports.ReportControll
             if( PrepareToPrintDA.instance.GetDataOfAllStudentsInClassPrepareToPrint(container, cbbFilterByClass.Text))
             {
                 return true;
-               // Do something
             }
             else
             {
                 return false;
-                // Do something
             }
         }
 

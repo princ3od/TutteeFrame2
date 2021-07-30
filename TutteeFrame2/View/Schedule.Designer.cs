@@ -53,7 +53,6 @@ namespace TutteeFrame2.View
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.SizeChanged += new System.EventHandler(this.pictureBox1_SizeChanged);
             // 
             // containedButton2
             // 
@@ -287,7 +286,6 @@ namespace TutteeFrame2.View
             this.DoubleBuffered = true;
             this.Name = "Schedule";
             this.Size = new System.Drawing.Size(1116, 558);
-            this.SizeChanged += new System.EventHandler(this.Schedule_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

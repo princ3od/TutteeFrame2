@@ -11,9 +11,6 @@ namespace TutteeFrame2.Model
     {
         public enum HocLuc { Gioi = 0, Kha = 1, TrungBinh = 2, Yeu = 3, Kem = 4, ChuaXet = 5 };
         public HocLuc LearnCapacity;
-        private List<AverageScore> averageScores;
-        private Dictionary<string, List<Score>> subjectScores;
-        private int semester;
 
         public LearniningCapacity()
         {

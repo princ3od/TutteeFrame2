@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -46,25 +39,30 @@ namespace TutteeFrame2.View
             DoubleBuffered = true;
             studentController = new StudentController(this);
         }
+
         public void SetIndexOfCbbClassItemSelected(int index)
         {
             cbbFilterByClass.SelectedIndex = index;
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             cbbFilterByGrade.SelectedIndex = 0;
             cbbSortBy.SelectedIndex = 4;
         }
+
         public void SetHome(HomeView homeView)
         {
             this.homeView = homeView;
         }
+
         public void FetchData()
         {
             firstLoad = true;
             studentController.FetchData();
         }
+
         public void ShowStudentsOnListView()
         {
             listViewStudents.Items.Clear();
@@ -76,14 +74,13 @@ namespace TutteeFrame2.View
                 lvi.Tag = student;
                 listViewStudents.Items.Add(lvi);
             }
-
             lbSumStudent.Text = studentController.students.Count.ToString();
-
             if (firstLoad == true)
             {
                 firstLoad = false;
             };
         }
+
         public void FetchCbbClassItems()
         {
             cbbFilterByClass.Items.Clear();
@@ -93,6 +90,7 @@ namespace TutteeFrame2.View
                 cbbFilterByClass.Items.Add(item);
             }
         }
+
         private void OnSortTypeChaned(object sender, EventArgs e)
         {
             if (cbbSortBy.SelectedIndex < 0 || firstLoad)
@@ -127,14 +125,11 @@ namespace TutteeFrame2.View
                 OverlayForm overlayForm = new OverlayForm(homeView, oneStudentView);
                 var dialogResult = oneStudentView.ShowDialog();
             }
-
         }
-
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
             string studentID;
-
             do
             {
                 studentID = DateTime.Now.ToString("yyyy") + IdentifierFactory.GenerateNumberID(length: 4);
@@ -161,8 +156,6 @@ namespace TutteeFrame2.View
                 }
             }
         }
-
-
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {

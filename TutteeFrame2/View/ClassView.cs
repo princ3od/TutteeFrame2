@@ -1,12 +1,5 @@
 ﻿using MaterialSurface;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Controller;
 using TutteeFrame2.Model;
@@ -25,6 +18,7 @@ namespace TutteeFrame2.View
             InitializeComponent();
             controller = new ClassController(this);
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -32,14 +26,17 @@ namespace TutteeFrame2.View
                 return;
             cbbFilterByGrade.SelectedIndex = 0;
         }
+
         public void Fetch()
         {
             controller.FetchData();
         }
+
         public void SetHome(HomeView homeView)
         {
             Home = homeView;
         }
+
         public void ShowData()
         {
             int index = 0;

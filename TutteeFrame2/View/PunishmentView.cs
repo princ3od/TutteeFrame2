@@ -15,12 +15,14 @@ namespace TutteeFrame2.View
         public string classIDFilter = "";
         public string gradeFilter = "";
         public bool firstLoad = true;
+
         public PunishmentView()
         {
             InitializeComponent();
             DoubleBuffered = true;
             controller = new PunishmentController(this);
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -28,14 +30,17 @@ namespace TutteeFrame2.View
                 return;
             cbbFilterByGrade.SelectedIndex = 0;
         }
+
         public void SetHome(HomeView home)
         {
             Home = home;
         }
+
         public void Fetch()
         {
             controller.FetchData();
         }
+
         public void ShowClasses(List<Class> classes)
         {
             cbbFilterByClass.Items.Clear();
@@ -47,6 +52,7 @@ namespace TutteeFrame2.View
             classIDFilter = "";
             cbbFilterByClass.SelectedIndex = 0;
         }
+
         public void ShowData()
         {
             listViewPunishment.Items.Clear();
@@ -64,6 +70,7 @@ namespace TutteeFrame2.View
                     }));
             }
         }
+
         public void ShowDeleteResult(TeacherController.DeleteResult result)
         {
             switch (result)
@@ -79,6 +86,7 @@ namespace TutteeFrame2.View
                     break;
             }
         }
+
         private void OnChangeGrade(object sender, EventArgs e)
         {
             if (firstLoad)

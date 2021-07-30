@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TutteeFrame2.Model;
 
 namespace TutteeFrame2.DataAccess
@@ -59,7 +55,7 @@ namespace TutteeFrame2.DataAccess
                 sqlCommand.Parameters.AddWithValue("@year", year);
                 sqlCommand.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -139,7 +135,7 @@ namespace TutteeFrame2.DataAccess
                         }
                     }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -201,7 +197,7 @@ namespace TutteeFrame2.DataAccess
                 command.ExecuteNonQuery();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -271,7 +267,7 @@ namespace TutteeFrame2.DataAccess
                     averageScores.Add(score);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -311,7 +307,7 @@ namespace TutteeFrame2.DataAccess
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return -1;
             }
@@ -352,7 +348,7 @@ namespace TutteeFrame2.DataAccess
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -406,7 +402,7 @@ namespace TutteeFrame2.DataAccess
                 if (scoreSem1 != -1 && scoreSem2 != -1)
                     _score = Math.Round(((scoreSem1 + scoreSem2 * 2) / 3), 2);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return -1;
             }
@@ -458,7 +454,7 @@ namespace TutteeFrame2.DataAccess
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
                 return -1.0;

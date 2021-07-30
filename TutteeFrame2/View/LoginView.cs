@@ -35,12 +35,14 @@ namespace TutteeFrame2.View
 
         readonly HomeView homeView;
         readonly LoginController controller;
+
         public LoginView(HomeView home)
         {
             InitializeComponent();
             controller = new LoginController(this);
             homeView = home;
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -67,6 +69,7 @@ namespace TutteeFrame2.View
                 txtPassword.Text = AppSettings.Instance.LastPassword;
             }
         }
+
         private void MovingForm(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -75,6 +78,7 @@ namespace TutteeFrame2.View
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
         protected override void OnMouseDown(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -84,6 +88,7 @@ namespace TutteeFrame2.View
             }
             base.OnMouseDown(e);
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
@@ -99,14 +104,17 @@ namespace TutteeFrame2.View
                     e.Cancel = true;
             }
         }
+
         private void Exit(object sender, EventArgs e)
         {
             this.Close();
         }
+
         public Account GetLoginedAccount()
         {
             return new Account(txtID.Text, txtPassword.Text);
         }
+
         public void LoginSuccess()
         {
             controller.teacherID = txtID.Text;
@@ -125,6 +133,7 @@ namespace TutteeFrame2.View
             InvalidID,
             UnbleToCreateSession
         }
+
         public void LoginFail(LoginFailReason reason)
         {
             controller.logined = false;
@@ -146,12 +155,14 @@ namespace TutteeFrame2.View
                     break;
             }
         }
+
         public void SetLoading(bool isLoading, string infor = "")
         {
             lbInformation.Visible = mainProgressbar.Visible = isLoading;
             if (!string.IsNullOrEmpty(infor))
                 lbInformation.Text = infor;
         }
+
         private void OnLogin(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtID.Text))
@@ -167,6 +178,7 @@ namespace TutteeFrame2.View
             }
             controller.Login();
         }
+
 
         private void OnChangeRemember(object sender, EventArgs e)
         {

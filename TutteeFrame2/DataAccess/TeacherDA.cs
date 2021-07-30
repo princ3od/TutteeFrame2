@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Model;
 using TutteeFrame2.Utils;
@@ -69,7 +66,7 @@ namespace TutteeFrame2.DataAccess
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -169,7 +166,7 @@ namespace TutteeFrame2.DataAccess
                 command.Parameters.AddWithValue("@adminid", "AD999999");
                 _totalAdmin = (int)command.ExecuteScalar();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -225,7 +222,7 @@ namespace TutteeFrame2.DataAccess
                     sqlCommand.ExecuteNonQuery();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -295,17 +292,11 @@ namespace TutteeFrame2.DataAccess
                 return null;
             try
             {
-                //strQuery = $"UPDATE TEACHING SET TEACHING.TeacherID = NULL WHERE TEACHING.TeacherID = '{_teacherID}'";
-                //using (SqlCommand command = new SqlCommand(strQuery, connection))
-                //    command.ExecuteNonQuery();
-                //strQuery = $"UPDATE CLASS SET CLASS.TeacherID = NULL WHERE CLASS.TeacherID = '{_teacherID}'";
-                //using (SqlCommand command = new SqlCommand(strQuery, connection))
-                //    command.ExecuteNonQuery();
                 strQuery = $"DELETE TEACHER WHERE TeacherID = '{_teacherID}'";
                 using (SqlCommand command = new SqlCommand(strQuery, connection))
                     command.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //MessageBox.Show(e.Message);
                 return null;

@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Model;
-using TutteeFrame2.DataAccess;
 using TutteeFrame2.Controller;
-using TutteeFrame2.Utils;
-using System.Drawing.Imaging;
 
 namespace TutteeFrame2.View
 {
@@ -21,7 +14,7 @@ namespace TutteeFrame2.View
         Graphics g;
         List<Session> t = new List<Session>();
         List<Subject> subject = new List<Subject>();
-        List<Cs> cs = new List<Cs>(); 
+        List<Cs> cs = new List<Cs>();
         public string scheduleID;
         Bitmap bitmap;
         Rim r = new Rim();
@@ -29,18 +22,19 @@ namespace TutteeFrame2.View
         bool ismousedown = false;
         bool chosen = false;
         bool chosing = false;
-        
+
         bool edge = false;
         mouse m = mouse.none;
         readonly ScheduleController scheduleController;
         public HomeView homeView;
         List<Class> classes = new List<Class>();
+
         public Schedule()
         {
             InitializeComponent();
             scheduleController = new ScheduleController(this);
             Create();
-            redraw();
+            ReDraw();
             pictureBox1.MouseMove += (s, e) =>
             {
                 if (!ismousedown)
@@ -79,7 +73,7 @@ namespace TutteeFrame2.View
                         r.Ver[j] = e.X;
                         Lastmouse = e.Location;
                         UpdateIntersec();
-                        redraw();
+                        ReDraw();
                     }
                     if (m == mouse.Hori)
                     {
@@ -95,24 +89,12 @@ namespace TutteeFrame2.View
                         r.Hori[j] = e.Y;
                         Lastmouse = e.Location;
                         UpdateIntersec();
-                        redraw();
+                        ReDraw();
                     }
                 }
             };
             pictureBox1.MouseDown += (s, e) =>
             {
-                //if (pictureBox1.Cursor == Cursors.VSplit)
-                //{
-                //    Lastmouse = e.Location;
-                //    ismousedown = true;
-                //    m = mouse.Ver;
-                //}
-                //if (pictureBox1.Cursor == Cursors.HSplit)
-                //{
-                //    Lastmouse = e.Location;
-                //    ismousedown = true;
-                //    m = mouse.Hori;
-                //}
                 if (!edge)
                 {
                     bool found1 = false;
@@ -152,8 +134,7 @@ namespace TutteeFrame2.View
                         chosing = true;
                         if (chosen == false)
                         {
-                            //containedButton2.Enabled = true;
-                            drawline(a, b, c, d);
+                            DrawLine(a, b, c, d);
                             getinfo(a, c);
                             chosen = true;
                         }
@@ -161,7 +142,7 @@ namespace TutteeFrame2.View
                         {
                             if (materialComboBox4.Text == (a + 1).ToString() && materialComboBox5.Text == c.ToString())
                             {
-                                redraw();
+                                ReDraw();
                                 materialComboBox4.SelectedIndex = -1;
                                 materialComboBox5.SelectedIndex = -1;
                                 materialComboBox6.SelectedIndex = -1;
@@ -171,8 +152,8 @@ namespace TutteeFrame2.View
                             }
                             else
                             {
-                                redraw();
-                                drawline(a, b, c, d);
+                                ReDraw();
+                                DrawLine(a, b, c, d);
                                 getinfo(a, c);
                             }
                         }
@@ -184,14 +165,15 @@ namespace TutteeFrame2.View
                 ismousedown = false;
             };
         }
-        
+
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
             if (g == null) return;
             Create();
-            redraw();
+            ReDraw();
         }
+
         private void VeBang()
         {
             g.Clear(Color.White);
@@ -226,12 +208,13 @@ namespace TutteeFrame2.View
             materialComboBox4.SelectedIndex = -1;
             materialComboBox5.SelectedIndex = -1;
             materialComboBox6.SelectedIndex = -1;
-            tkb.ID = scheduleID + (tkb.thu*10 + tkb.tiet).ToString();
+            tkb.ID = scheduleID + (tkb.thu * 10 + tkb.tiet).ToString();
             add(tkb);
             chosen = false;
             containedButton2.Enabled = false;
-            redraw();
+            ReDraw();
         }
+
         private async void add(Session tkb)
         {
             homeView.SetLoad(true, "Đang thêm...");
@@ -250,8 +233,8 @@ namespace TutteeFrame2.View
                     await Task.Run(() =>
                     {
                         scheduleController.Add(tkb, scheduleID);
-                    });                    
-                    redraw();
+                    });
+                    ReDraw();
                     homeView.SetLoad(false);
                     return;
                 }
@@ -266,10 +249,12 @@ namespace TutteeFrame2.View
             draw(tkb);
             homeView.SetLoad(false);
         }
+
         private void update()
         {
             pictureBox1.Image = bitmap;
         }
+
         private void draw(Session tkb)
         {
             Font f = this.Font;
@@ -277,7 +262,8 @@ namespace TutteeFrame2.View
             g.DrawString(ConvertToName(tkb.mon), f, br, r.Intersec[tkb.tiet, tkb.thu - 1].X + pictureBox1.Width / 35, r.Intersec[tkb.tiet, tkb.thu - 1].Y + pictureBox1.Height / 55);
             update();
         }
-        public void redraw()
+
+        public void ReDraw()
         {
             bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             g = Graphics.FromImage(bitmap);
@@ -287,6 +273,7 @@ namespace TutteeFrame2.View
                 draw(tkb);
             }
         }
+
         private void Create()
         {
             for (int i = 0; i < 12; i++)
@@ -301,6 +288,7 @@ namespace TutteeFrame2.View
             r.Ver[7] = r.Ver[7] - 1;
             UpdateIntersec();
         }
+
         private void UpdateIntersec()
         {
             for (int i = 0; i < 12; i++)
@@ -312,16 +300,13 @@ namespace TutteeFrame2.View
                 }
             }
         }
-        private void drawline(int a, int b, int c, int d)
+
+        private void DrawLine(int a, int b, int c, int d)
         {
             g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[c] + 1, r.Ver[b] - 1, r.Hori[c] + 1); //trên
             g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[d] - 1, r.Ver[b] - 1, r.Hori[d] - 1); //dưới
             g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, r.Hori[c] + 1, r.Ver[a] + 1, r.Hori[d] - 1); //trái
             g.DrawLine(new Pen(Color.Red), r.Ver[b] - 1, r.Hori[c] + 1, r.Ver[b] - 1, r.Hori[d] - 1); //phải
-            //g.DrawLine(new Pen(Color.Red), 0, r.Hori[c] + 1, pictureBox1.Width, r.Hori[c] + 1); //trên
-            //g.DrawLine(new Pen(Color.Red), 0, r.Hori[d] - 1, pictureBox1.Width, r.Hori[d] - 1); //dưới
-            //g.DrawLine(new Pen(Color.Red), r.Ver[a] + 1, 0, r.Ver[a] + 1, pictureBox1.Height); //trái
-            //g.DrawLine(new Pen(Color.Red), r.Ver[b] - 1, 0, r.Ver[b] - 1, pictureBox1.Height); //phải
             Brush br = new SolidBrush(Color.Black);
             Brush br1 = new SolidBrush(Color.FromArgb(60, 47, 144, 176));
             Brush br2 = new SolidBrush(Color.FromArgb(127, 47, 144, 176));
@@ -339,6 +324,7 @@ namespace TutteeFrame2.View
             }
             update();
         }
+
         private void getinfo(int a, int b)
         {
             materialComboBox4.SelectedIndex = a - 1;
@@ -365,6 +351,7 @@ namespace TutteeFrame2.View
                 containedButton2.Enabled = false;
             return;
         }
+
         private void PickSubject(int a, int b)
         {
             materialComboBox6.SelectedIndex = -1;
@@ -390,74 +377,41 @@ namespace TutteeFrame2.View
             return;
         }
 
-        private void Schedule_SizeChanged(object sender, EventArgs e)
-        {
-            //if (g == null) return;
-            //Create();
-            //redraw();
-            //if (chosen)
-            //{
-            //    int a = Int32.Parse(materialTextfield0.Text);
-            //    int b = Int32.Parse(materialTextfield1.Text);
-            //    drawline(a - 1, a, b, b + 1);
-            //}
-        }
-
         private void materialComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {            
+        {
             materialComboBox3.Items.Clear();
             switch (materialComboBox2.SelectedItem)
             {
                 case "10":
                     {
                         scheduleController.GetClass("10");
-                        //materialComboBox3.Items.Add("10A1");
-                        //materialComboBox3.Items.Add("10A2");
                         break;
                     }
                 case "11":
                     {
                         scheduleController.GetClass("11");
-                        //materialComboBox3.Items.Add("11A1");
-                        //materialComboBox3.Items.Add("11A2");
                         break;
                     }
                 case "12":
                     {
                         scheduleController.GetClass("12");
-                        //materialComboBox3.Items.Add("12A1");
-                        //materialComboBox3.Items.Add("12A2");
-                        //materialComboBox3.Items.Add("12A3");
                         break;
                     }
                 default:
                     break;
             }
         }
+
         public void AddClasses()
         {
-            //await Task.Run(() =>
-            //{
-            //    classes = scheduleController.classes;
-            //});
             classes = scheduleController.classes;
             AddItems();
         }
+
         private delegate void dlgAddItem();
+
         private void AddItems()
         {
-            //if (materialComboBox3.InvokeRequired)
-            //{
-            //    this.Invoke(new dlgAddItem(AddItems));                
-            //}
-            //else
-            //{
-            //    foreach (Class @class in classes)
-            //    {
-            //        materialComboBox3.Items.Add(@class.ClassID);
-            //    }
-            //    materialComboBox3.SelectedIndex = -1;
-            //}
             foreach (Class @class in classes)
             {
                 materialComboBox3.Items.Add(@class.ClassID);
@@ -470,27 +424,29 @@ namespace TutteeFrame2.View
             homeView.SetLoad(true, "Đang tải thời khóa biểu");
             string lop = materialComboBox3.Text;
             int hk = Int32.Parse(materialComboBox1.Text);
-            int nam = 2020; 
-            await Task.Delay(600);
-            await Task.Run(() => 
-            {
-                scheduleController.GetSchedule(lop, hk, nam);
-            });
-            homeView.SetLoad(false);
-        }
-        private async void AutoViewSchedule()
-        {
-            homeView.SetLoad(true, "Đang tải thời khóa biểu");
-            string lop = materialComboBox3.Text;
-            int hk = Int32.Parse(materialComboBox1.Text);
             int nam = 2020;
-            await Task.Delay(600);
+            await Task.Delay(300);
             await Task.Run(() =>
             {
                 scheduleController.GetSchedule(lop, hk, nam);
             });
             homeView.SetLoad(false);
         }
+
+        private async void AutoViewSchedule()
+        {
+            homeView.SetLoad(true, "Đang tải thời khóa biểu");
+            string lop = materialComboBox3.Text;
+            int hk = Int32.Parse(materialComboBox1.Text);
+            int nam = 2020;
+            await Task.Delay(300);
+            await Task.Run(() =>
+            {
+                scheduleController.GetSchedule(lop, hk, nam);
+            });
+            homeView.SetLoad(false);
+        }
+
         public async void GetSchedule()
         {
             await Task.Run(() =>
@@ -499,6 +455,7 @@ namespace TutteeFrame2.View
                 scheduleController.FetchSchedule(scheduleID);
             });
         }
+
         private string ConvertToID(string sub)
         {
             string id = new string(new char[] { });
@@ -508,10 +465,11 @@ namespace TutteeFrame2.View
                 {
                     id = s.ID;
                     return id;
-                }                                  
+                }
             }
             return null;
         }
+
         private string ConvertToName(string id)
         {
             string sub = new string(new char[] { });
@@ -525,12 +483,14 @@ namespace TutteeFrame2.View
             }
             return null;
         }
+
         public void FetchData()
         {
-            redraw();
+            ReDraw();
             scheduleController.FetchData();
-            
+
         }
+
         public void GetSubject()
         {
             //materialComboBox6.Items.Clear();
@@ -544,10 +504,11 @@ namespace TutteeFrame2.View
                 cs.Add(c);
             }
         }
+
         public void FetchSchedule()
-        {            
+        {
             t = scheduleController.sessions;
-            redraw();
+            ReDraw();
         }
 
         private async void containedButton2_Click(object sender, EventArgs e)
@@ -566,10 +527,10 @@ namespace TutteeFrame2.View
             materialComboBox6.SelectedIndex = -1;
             foreach (Session s in t)
             {
-                if (s.thu == thu && s.tiet == tiet) 
+                if (s.thu == thu && s.tiet == tiet)
                 {
                     t.Remove(s);
-                    redraw();
+                    ReDraw();
                     containedButton2.Enabled = false;
                     homeView.SetLoad(false);
                     return;
@@ -613,34 +574,21 @@ namespace TutteeFrame2.View
             chosen = true;
             if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1)
             {
-                redraw();
+                ReDraw();
                 PickSubject(materialComboBox4.SelectedIndex + 1, materialComboBox5.SelectedIndex + 1);
-                drawline(materialComboBox4.SelectedIndex + 1, materialComboBox4.SelectedIndex + 2, materialComboBox5.SelectedIndex + 1, materialComboBox5.SelectedIndex + 2);
+                DrawLine(materialComboBox4.SelectedIndex + 1, materialComboBox4.SelectedIndex + 2, 
+                    materialComboBox5.SelectedIndex + 1, materialComboBox5.SelectedIndex + 2);
             }
         }
 
-        private void materialTextfield2_TextChanged(object sender, EventArgs e)
-        {
-            //if (materialTextfield2.Text != "")
-            //{
-            //    containedButton2.Enabled = true;
-            //}
-            //else
-            //    containedButton2.Enabled = false;
-        }
         public void SetHome(HomeView homeView)
         {
             this.homeView = homeView;
         }
 
-        private void materialTextfield0_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void containedButton3_Click(object sender, EventArgs e)
         {
-            redraw();
+            ReDraw();
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "Jpg files (*.jpg)|*.jpg|Png files (*.png)|*.png";
             dialog.FilterIndex = 2;
@@ -652,12 +600,6 @@ namespace TutteeFrame2.View
             }
         }
 
-        private void pictureBox1_SizeChanged(object sender, EventArgs e)
-        {
-            if (g == null) return;
-            Create();
-            redraw();
-        }
         private void materialComboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (materialComboBox4.SelectedIndex != -1 && materialComboBox5.SelectedIndex != -1)

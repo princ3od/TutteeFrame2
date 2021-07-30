@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data;
+﻿using System.Data;
 
 namespace TutteeFrame.Reports.ReportModel
 {
-   public class InformationOfStudentResultPrepareForPrint
+    public class InformationOfStudentResultPrepareForPrint
     {
         public DataSet BaseInforSchool = new DataSet();
         public DataSet scoreBoards { get; set; } // SE1 + SE2

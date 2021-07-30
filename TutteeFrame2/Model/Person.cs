@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.Model
 {
-   public abstract class Person
+    public abstract class Person
     {
         protected string iD;
         protected string surName;

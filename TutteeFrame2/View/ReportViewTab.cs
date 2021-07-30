@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.View
 {
-    public partial class ReportViewTag : UserControl
+    public partial class ReportViewTab : UserControl
     {
         HomeView homeView;
-        public ReportViewTag()
+
+        public ReportViewTab()
         {
             InitializeComponent();
-            
         }
+
         public void SetHome(HomeView homeView)
         {
             this.homeView = homeView;
@@ -34,15 +27,12 @@ namespace TutteeFrame2.View
         private void btnPrintResluts_Click(object sender, EventArgs e)
         {
             frmStudentResultReport frmStudentResultReport = new frmStudentResultReport();
-            frmStudentResultReport.SetHome(this.homeView);
-            //OverlayForm overlayForm = new OverlayForm(homeView, frmStudentResultReport);
             frmStudentResultReport.ShowDialog();
         }
 
         private void btnChart_Click(object sender, EventArgs e)
         {
             frmChart chart = new frmChart();
-            //OverlayForm overlayForm = new OverlayForm(homeView, chart);
             chart.ShowDialog();
         }
     }

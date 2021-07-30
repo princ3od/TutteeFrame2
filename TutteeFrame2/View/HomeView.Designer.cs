@@ -71,7 +71,7 @@ namespace TutteeFrame2.View
             this.quanLiKiLuat = new System.Windows.Forms.TabPage();
             this.punishmentView = new TutteeFrame2.View.PunishmentView();
             this.baoCao = new System.Windows.Forms.TabPage();
-            this.reportView = new TutteeFrame2.View.ReportViewTag();
+            this.reportView = new TutteeFrame2.View.ReportViewTab();
             this.lopChuNhiem = new System.Windows.Forms.TabPage();
             this.formClassView = new TutteeFrame2.View.FormClassView();
             this.phanCongGiaoVien = new System.Windows.Forms.TabPage();
@@ -1031,7 +1031,7 @@ namespace TutteeFrame2.View
         private ClassView classView;
         private TeacherAssignmentView teacherAssignmentView;
         private StudentScoreboardView studentScoreboardView;
-        private ReportViewTag reportView;
+        private ReportViewTab reportView;
         private Schedule schedule;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;

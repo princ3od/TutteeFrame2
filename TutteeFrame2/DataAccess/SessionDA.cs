@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TutteeFrame2.DataAccess
@@ -67,7 +63,7 @@ namespace TutteeFrame2.DataAccess
                     sqlCommand.ExecuteNonQuery();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -94,7 +90,7 @@ namespace TutteeFrame2.DataAccess
                     isExist = ((int)sqlCommand.ExecuteScalar() > 0);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return SessionStatus.NoConnection;
             }

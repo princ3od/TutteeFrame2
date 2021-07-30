@@ -1,14 +1,7 @@
-﻿using MaterialSkin.Controls;
-using MaterialSurface;
+﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.Reports.ReportControll;
 using TutteeFrame2.Reports.ReportModel;
@@ -42,11 +35,9 @@ namespace TutteeFrame2.View
         private ReportStudentResultController controller;
         public frmStudentResultReport()
         {
-
             InitializeComponent();
             controller = new ReportStudentResultController(this, this.cbbFilterByClass,
                 this.cbbFilterByGrade, this.cbbSemester, this.listStudentResult, this.cbbType);
-
         }
         public void SetHome(HomeView homeView)
         {
@@ -88,13 +79,6 @@ namespace TutteeFrame2.View
         private void cbbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (controller != null) controller.FilterBySemester();
-        }
-
-
-
-        private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnPrintStudents_Click(object sender, EventArgs e)

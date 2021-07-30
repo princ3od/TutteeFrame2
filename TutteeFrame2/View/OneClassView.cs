@@ -1,17 +1,11 @@
 ﻿using MaterialSurface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TutteeFrame2.DataAccess;
 using TutteeFrame2.Model;
-using TutteeFrame2.Utils;
 
 namespace TutteeFrame2.View
 {
@@ -42,6 +36,7 @@ namespace TutteeFrame2.View
         public bool success = false;
         public enum Mode { Add = 0, Edit = 1 };
         Mode mode;
+
         public OneClassView(Mode mode, string classID = "")
         {
             InitializeComponent();
@@ -51,6 +46,7 @@ namespace TutteeFrame2.View
             else
                 this.classID = null;
         }
+
         protected async override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -77,15 +73,18 @@ namespace TutteeFrame2.View
                     break;
             }
         }
+
         private void OnExit(object sender, EventArgs e)
         {
             this.Close();
         }
+
         void SetLoad(bool isLoading, string loadInformation = "")
         {
             lbInformation.Text = loadInformation;
             mainProgressbar.Visible = lbInformation.Visible = isLoading;
         }
+
         private async void OnSubmit(object sender, EventArgs e)
         {
             if (mode == Mode.Add)
@@ -129,7 +128,6 @@ namespace TutteeFrame2.View
                 else
                     Dialog.Show(this, "Đã có lỗi xảy ra, vui lòng thử lại!", "Lỗi");
                 SetLoad(false);
-
             }
             else
             {
